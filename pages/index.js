@@ -31,19 +31,6 @@ export default function Home() {
                 Fill in required campaign info
               </BodyText>
             </Section>
-
-            <Section padding="xs" className="first-section">
-              <div className="inputgroup-01">
-                <InputGroup
-                  label="client name"
-                  size="sm"
-                  error="*required"
-                  dark={false}
-                >
-                  <InputText placeholder="Enter Text" />
-                </InputGroup>
-              </div>
-            </Section>
           </div>
         </Card>
       </main>
