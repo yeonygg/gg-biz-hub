@@ -2,7 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import CampaignInfo from "./components/CampaignInfo";
-import { Card, Heading, Section, BodyText } from "pier-design-system";
+import CreativeRow from "./components/CreativeRow";
+import { Card, Heading, Section, BodyText, HR } from "pier-design-system";
 
 export default function Home() {
   return (
@@ -14,7 +15,9 @@ export default function Home() {
       </Head>
 
       <main>
-        <Heading>Rate, Spend, and SLA Generator</Heading>
+        <Heading className="main-heading">
+          Rate, Spend, and SLA Generator
+        </Heading>
         <Card className="card">
           <div className="card-style">
             <Section padding="xs">
@@ -26,6 +29,14 @@ export default function Home() {
               </BodyText>
             </Section>
             <CampaignInfo />
+            <HR />
+            <Section padding="xs"></Section>
+            <Section padding="xs">
+              <Heading size="xs" className="sub-heading">
+                Set Creative
+              </Heading>
+            </Section>
+            <CreativeRow />
           </div>
         </Card>
       </main>

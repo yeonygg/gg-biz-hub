@@ -1,6 +1,11 @@
-import { InputGroup, InputText, Section } from "pier-design-system";
+import {
+  InputGroup,
+  InputText,
+  InputSelect,
+  Section,
+} from "pier-design-system";
 
-const CampaignInfo = () => {
+const CreativeRow = () => {
   return (
     <Section padding="sm" className="client-section">
       <div className="client-name-input">
@@ -29,4 +34,4 @@ const CampaignInfo = () => {
   );
 };
 
-export default CampaignInfo;
+export default CreativeRow;
