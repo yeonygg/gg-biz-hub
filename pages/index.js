@@ -1,14 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import {
-  Card,
-  Heading,
-  InputGroup,
-  InputText,
-  Section,
-  BodyText,
-} from "pier-design-system";
+import CampaignInfo from "./components/CampaignInfo";
+import { Card, Heading, Section, BodyText } from "pier-design-system";
 
 export default function Home() {
   return (
@@ -31,6 +25,7 @@ export default function Home() {
                 Fill in required campaign info
               </BodyText>
             </Section>
+            <CampaignInfo />
           </div>
         </Card>
       </main>

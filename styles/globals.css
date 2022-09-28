@@ -32,7 +32,7 @@ a {
   margin: 1.5rem;
 }
 
-.first-section {
+.client-section {
   display: flex;
 }
 
@@ -42,9 +42,4 @@ a {
 
 .card {
   margin: 1.5rem 3rem 0.5rem 3rem;
-}
-
-.inputgroup-01 {
-  padding-right: 4rem;
-  width: 500px;
 }
