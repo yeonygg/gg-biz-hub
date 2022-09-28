@@ -344,7 +344,7 @@ callsites@^3.0.0:
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-3.1.0.tgz#b3630abd8943432f54b3f0519238e33cd7df2f73"
   integrity sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
 
-caniuse-lite@^1.0.30001406:
+caniuse-lite@^1.0.30001406, caniuse-lite@^1.0.30001410:
   version "1.0.30001412"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001412.tgz#30f67d55a865da43e0aeec003f073ea8764d5d7c"
   integrity sha512-+TeEIee1gS5bYOiuf+PS/kp2mrXic37Hl66VY6EAfxasIk5fELTktK2oOezYed12H8w7jt3s512PpulQidPjwA==
@@ -1362,11 +1362,12 @@ picomatch@^2.3.1:
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
-pier-design-system@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/pier-design-system/-/pier-design-system-1.0.1.tgz#b544eceed851e073c896c4e0cbec6d46c6a85e70"
-  integrity sha512-g6sXZIe2a24s3Bh7xip7B2f1VugiyQbej1Bhvpd4+te8Ij2XCyjTgOw2I7ig4LrnCYmv5zVi4yl5VHO4euCjgA==
+pier-design-system@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/pier-design-system/-/pier-design-system-1.0.2.tgz#e20ae19e142bc84b2baef86ff422b5f2e9af1489"
+  integrity sha512-ggnhZ1UcePf9J+xhz08mClbOBR0UE8uF/ujjDB+U5M1fJK0+zWXhkKCsJ8S6fdgy1pqCGL55F4rhn4IbWg/gWw==
   dependencies:
+    caniuse-lite "^1.0.30001410"
     prop-types "^15.7.2"
     react "^17.0.1"
     react-dom "^17.0.1"

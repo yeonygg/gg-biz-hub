@@ -62,3 +62,15 @@ a {
 .campaign-budget-input {
   width: 75%;
 }
+
+.num-units-input {
+  width: 50%;
+  padding-right: 4rem;
+}
+
+.toggle-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+}
