@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import CampaignInfo from "./components/CampaignInfo";
 import CreativeRow from "./components/CreativeRow";
+import CustomAdd from "./components/CustomAdd";
 import { Card, Heading, Section, BodyText, HR } from "pier-design-system";
 
 export default function Home() {
@@ -37,6 +38,7 @@ export default function Home() {
               </Heading>
             </Section>
             <CreativeRow />
+            <CustomAdd />
           </div>
         </Card>
       </main>

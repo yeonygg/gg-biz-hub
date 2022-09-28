@@ -40,7 +40,7 @@ const CreativeRow = () => {
       </div>
 
       <div className="num-units-input">
-        <InputGroup label="number of units" size="sm" error="" dark={false}>
+        <InputGroup label="number of versions" size="sm" error="" dark={false}>
           <InputText size="sm" placeholder="Enter Text" />
         </InputGroup>
       </div>

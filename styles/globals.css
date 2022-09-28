@@ -41,6 +41,12 @@ a {
   padding-bottom: 1.5rem;
 }
 
+.add-on-section {
+  display: flex;
+  padding-bottom: 1.5rem;
+  padding-top: 0rem;
+}
+
 .sub-heading {
   margin-bottom: 10px;
 }
@@ -64,13 +70,25 @@ a {
 }
 
 .num-units-input {
-  width: 50%;
+  width: 80%;
   padding-right: 4rem;
+}
+
+.add-on-input {
+  width: 24%;
 }
 
 .toggle-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 60%;
+  width: 80%;
+}
+
+.plus-alignment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 2rem;
+  padding-top: 0;
 }
