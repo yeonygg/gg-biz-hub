@@ -10,7 +10,23 @@ const CreativeRow = () => {
     <Section padding="sm" className="client-section">
       <div className="client-name-input">
         <InputGroup label="client name" size="sm" error="" dark={false}>
-          <InputText size="sm" placeholder="Enter Text" />
+          <InputSelect
+            size="sm"
+            disabled={false}
+            dark={false}
+            error={false}
+            capleft={false}
+            required=""
+          >
+            <option value="">Select your creative</option>
+            <option value="1">In-screen</option>
+            <option value="2">In-image</option>
+            <option value="3">In-image Canvas</option>
+            <option value="4">In-screen Frame</option>
+            <option value="5">In-screen Expandable</option>
+            <option value="5">In-image Expandable</option>
+            <option value="5">In-screen Expandable Video</option>
+          </InputSelect>
         </InputGroup>
       </div>
 
