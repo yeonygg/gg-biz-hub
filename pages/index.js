@@ -6,7 +6,8 @@ import CreativeRow from "./components/CreativeRow";
 import CustomAdd from "./components/CustomAdd";
 import SubHeading from "./components/SubHeading";
 import ResultsCard from "./components/ResultsCard";
-import CampaignNames from "./components/CampaignNames";
+import { useState, useEffect } from "react";
+
 import {
   Card,
   Heading,
@@ -22,6 +23,18 @@ export default function Home() {
   const campaignText = "Set Campaign";
   const bodyText = "Fill in required campaign info";
   const creativeText = "Set Creative";
+
+  const [creative, setCreativeRow] = useState([]);
+
+  const addCreative = (e) => {
+    setCreativeRow(creative.concat(<CreativeRow />));
+  };
+
+  const clearAll = (e) => {
+    console.log("clear all ran");
+    e.preventDefault(); // 👈️ prevent page refresh
+    setCreativeRow(creative.hide(<CreativeRow />));
+  };
 
   return (
     <div className={styles.container}>
@@ -47,12 +60,15 @@ export default function Home() {
             <CreativeRow />
             <CustomAdd />
             <CreativeRow />
+            {creative}
 
             <HR />
 
             <div className="buttons-section">
               <Tooltip text="Add creative">
                 <IconButton
+                  onClick={addCreative}
+                  className="plus-button"
                   title="Button"
                   icon="far fa-plus"
                   size="sm"
@@ -64,6 +80,7 @@ export default function Home() {
               </Tooltip>
               <Button
                 className="clear-all-button"
+                onClick={clearAll}
                 title="Button"
                 size="sm"
                 theme="standard"
@@ -77,6 +94,10 @@ export default function Home() {
           </div>
         </Card>
         <ResultsCard />
+
+        <footer>
+          <img src="/logo.svg" width="175px" />
+        </footer>
       </main>
     </div>
   );
