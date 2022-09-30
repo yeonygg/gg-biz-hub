@@ -4,9 +4,25 @@ import styles from "../styles/Home.module.css";
 import CampaignInfo from "./components/CampaignInfo";
 import CreativeRow from "./components/CreativeRow";
 import CustomAdd from "./components/CustomAdd";
-import { Card, Heading, Section, BodyText, HR } from "pier-design-system";
+import SubHeading from "./components/SubHeading";
+import ResultsCard from "./components/ResultsCard";
+import CampaignNames from "./components/CampaignNames";
+import {
+  Card,
+  Heading,
+  Section,
+  BodyText,
+  HR,
+  Button,
+  IconButton,
+  Tooltip,
+} from "pier-design-system";
 
 export default function Home() {
+  const campaignText = "Set Campaign";
+  const bodyText = "Fill in required campaign info";
+  const creativeText = "Set Creative";
+
   return (
     <div className={styles.container}>
       <Head>
@@ -21,26 +37,46 @@ export default function Home() {
         </Heading>
         <Card className="card">
           <div className="card-style">
-            <Section padding="xs">
-              <Heading size="xs" className="sub-heading">
-                Set Campaign
-              </Heading>
-              <BodyText size="xs" color="light">
-                Fill in required campaign info
-              </BodyText>
-            </Section>
+            <SubHeading text={campaignText} body={bodyText} />
             <CampaignInfo />
             <HR />
             <Section padding="xs"></Section>
             <Section padding="xs">
-              <Heading size="xs" className="sub-heading">
-                Set Creative
-              </Heading>
+              <SubHeading text={creativeText} />
             </Section>
             <CreativeRow />
             <CustomAdd />
+            <CreativeRow />
+
+            <HR />
+
+            <div className="buttons-section">
+              <Tooltip text="Add creative">
+                <IconButton
+                  title="Button"
+                  icon="far fa-plus"
+                  size="sm"
+                  disabled={false}
+                  dark={false}
+                  pill={false}
+                  hero={true}
+                />
+              </Tooltip>
+              <Button
+                className="clear-all-button"
+                title="Button"
+                size="sm"
+                theme="standard"
+                disabled={false}
+                dark={false}
+                pill={false}
+              >
+                Clear all
+              </Button>
+            </div>
           </div>
         </Card>
+        <ResultsCard />
       </main>
     </div>
   );

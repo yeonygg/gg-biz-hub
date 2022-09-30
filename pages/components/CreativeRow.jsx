@@ -5,11 +5,12 @@ import {
   Section,
   InputToggle,
   IconButton,
+  Tooltip,
 } from "pier-design-system";
 
 const CreativeRow = () => {
   return (
-    <Section padding="sm" className="client-section">
+    <Section padding="xs" className="client-section">
       <div className="client-name-input">
         <InputGroup label="unit type" size="sm" error="" dark={false}>
           <InputSelect
@@ -49,15 +50,17 @@ const CreativeRow = () => {
         <InputToggle size="sm" disabled={false} dark={false} error={false}>
           Expedited
         </InputToggle>
-        <IconButton
-          title="Button"
-          icon="far fa-trash"
-          size="sm"
-          disabled={false}
-          dark={false}
-          pill={false}
-          danger={true}
-        />
+        <Tooltip text="Delete creative">
+          <IconButton
+            title="Button"
+            icon="far fa-trash"
+            size="sm"
+            disabled={false}
+            dark={false}
+            pill={false}
+            danger={true}
+          />
+        </Tooltip>
       </div>
     </Section>
   );

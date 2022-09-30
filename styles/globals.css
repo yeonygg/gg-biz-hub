@@ -47,12 +47,23 @@ a {
   padding-top: 0rem;
 }
 
+.buttons-section {
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: end;
+}
+
 .sub-heading {
   margin-bottom: 10px;
 }
 
 .card {
   margin: 1.5rem 3rem 0.5rem 3rem;
+}
+
+.result-card {
+  margin: 1.5rem 3rem 0.5rem 3rem;
+  background-color: #f7f8f8;
 }
 
 .client-name-input {
@@ -83,6 +94,10 @@ a {
   justify-content: space-between;
   align-items: center;
   width: 80%;
+}
+
+.clear-all-button {
+  margin-left: 0.75rem;
 }
 
 .plus-alignment {
