@@ -7,7 +7,7 @@ import CustomAdd from "./components/CustomAdd";
 import SubHeading from "./components/SubHeading";
 import ResultsCard from "./components/ResultsCard";
 import { useState, useEffect } from "react";
-import { nanoid } from "nanoid";
+import { InputsContext } from "./Contexts/InputsContext";
 
 import {
   Card,
@@ -24,11 +24,6 @@ export default function Home() {
   const campaignText = "Set Campaign";
   const bodyText = "Fill in required campaign info";
   const creativeText = "Set Creative";
-
-  const [ids, setIds] = useState([]);
-  const addIds = () => {
-    const newId = nanoid();
-  };
 
   const [creative, setCreativeRow] = useState([]);
 

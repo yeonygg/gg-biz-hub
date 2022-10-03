@@ -1,6 +1,10 @@
 import { InputGroup, InputText, Section } from "pier-design-system";
+import { useContext, useState } from "react";
+import { InputsContext } from "../Contexts/InputsContext";
 
 const CampaignInfo = (props) => {
+  const { setClientName } = useContext(InputsContext);
+  // const [clientName, setClientName] = useState("");
   return (
     <Section padding="sm" className="client-section">
       <div className="client-name-input">
@@ -8,18 +12,18 @@ const CampaignInfo = (props) => {
           <InputText
             size="sm"
             placeholder="Enter Text"
-            // value={props.clientname}
+            onChange={(event) => {
+              setClientName(event.target.value);
+              console.log(clientName);
+            }}
+            // value={clientName}
           />
         </InputGroup>
       </div>
 
       <div className="campaign-name-input">
         <InputGroup label="campaign name" size="sm" error="" dark={false}>
-          <InputText
-            size="sm"
-            placeholder="Enter Text"
-            // value={props.campaignname}
-          />
+          <InputText size="sm" placeholder="Enter Text" />
         </InputGroup>
       </div>
 
@@ -32,8 +36,9 @@ const CampaignInfo = (props) => {
         >
           <InputText
             size="sm"
-            value={props.campaignbudget}
             placeholder="Enter Text"
+            // onChange={handleChange}
+            // value={inputValue}
           />
         </InputGroup>
       </div>

@@ -12,7 +12,9 @@ const ResultsCard = () => {
     <Card className="result-card">
       <div className="card-style">
         <SubHeading text={resultHead} body={bodyText} />
+
         <CampaignNames />
+
         <ResultTable />
         <Section padding="xs"></Section>
         <HR />
