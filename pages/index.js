@@ -33,7 +33,6 @@ export default function Home() {
   const clearAll = (e) => {
     console.log("clear all ran");
     e.preventDefault(); // 👈️ prevent page refresh
-    setCreativeRow(creative.hide(<CreativeRow />));
   };
 
   return (
