@@ -2,7 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import CampaignInfo from "./components/CampaignInfo";
-
 import CreativeRow from "./components/CreativeRow";
 import CustomAdd from "./components/CustomAdd";
 import SubHeading from "./components/SubHeading";
@@ -19,6 +18,7 @@ import {
   Button,
   IconButton,
   Tooltip,
+  NavSubLabel,
 } from "pier-design-system";
 
 export default function Home() {
@@ -26,12 +26,41 @@ export default function Home() {
   const bodyText = "Fill in required campaign info";
   const creativeText = "Set Creative";
 
-  const [creative, setCreativeRow] = useState([]);
+  //const [creative, setCreativeRow] = useState([]);
   const [clientName, setClientName] = useState("");
 
-  const addCreative = (e) => {
-    setCreativeRow(creative.concat(<CreativeRow />));
+  const campaignConfig = [
+    {
+      key: 0,
+      unitType: null,
+      unitNum: 0,
+      versionNum: 0,
+      expedited: false,
+      isCustom: false,
+      customType: null,
+    },
+  ];
+
+  const clientConfig = {
+    clientName: null,
+    campaignName: null,
+    campaignBudget: 0,
+    unitConfig: [
+      {
+        key: 0,
+        unitType: null,
+        unitNum: 0,
+        versionNum: 0,
+        expedited: false,
+        isCustom: false,
+        customType: null,
+      },
+    ],
   };
+
+  // const addCreative = (e) => {
+  //   setCreativeRow(creative.concat(<CreativeRow />));
+  // };
 
   const [clear, setClearAll] = useState([]);
 
@@ -61,17 +90,20 @@ export default function Home() {
             <Section padding="xs">
               <SubHeading text={creativeText} />
             </Section>
+            {/*
             <CreativeRow />
             <CustomAdd />
             <CreativeRow />
-            {creative}
+             */}
+            {campaignConfig.map((config) => (
+              <CreativeRow key={config.key} config={config} />
+            ))}
 
             <HR />
 
             <div className="buttons-section">
               <Tooltip text="Add creative">
                 <IconButton
-                  onClick={addCreative}
                   className="plus-button"
                   title="Button"
                   icon="far fa-plus"
@@ -99,8 +131,7 @@ export default function Home() {
         </Card>
 
         <InputsContext.Provider value={{ clientName, setClientName }}>
-          <ResultsCard />
-          {console.log(clientName)}
+          <ResultsCard clientnm={clientName} />
         </InputsContext.Provider>
 
         <footer>
