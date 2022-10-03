@@ -1,17 +1,14 @@
+import { useContext } from "react";
 import { InputGroup, InputText, Section, Heading } from "pier-design-system";
-
-import { useContext, useState } from "react";
 import { InputsContext } from "../Contexts/InputsContext";
 
 const CampaignNames = (props) => {
-  const [clientName, setClientName] = useState("");
+  const { clientName } = useContext(InputsContext);
   return (
     <Section padding="sm" className="client-section">
-      <InputsContext.Provider value={{ clientName, setClientName }}>
-        <div className="client-name">
-          <Heading size="xs">{clientName}</Heading>
-        </div>
-      </InputsContext.Provider>
+      <div className="client-name">
+        <Heading size="xs">{clientName}</Heading>
+      </div>
 
       <div className="campaign-name">
         <Heading size="xs">Campaign Name</Heading>

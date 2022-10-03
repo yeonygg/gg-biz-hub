@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import CampaignInfo from "./components/CampaignInfo";
+
 import CreativeRow from "./components/CreativeRow";
 import CustomAdd from "./components/CustomAdd";
 import SubHeading from "./components/SubHeading";
@@ -26,6 +27,7 @@ export default function Home() {
   const creativeText = "Set Creative";
 
   const [creative, setCreativeRow] = useState([]);
+  const [clientName, setClientName] = useState("");
 
   const addCreative = (e) => {
     setCreativeRow(creative.concat(<CreativeRow />));
@@ -95,7 +97,11 @@ export default function Home() {
             </div>
           </div>
         </Card>
-        <ResultsCard />
+
+        <InputsContext.Provider value={{ clientName, setClientName }}>
+          <ResultsCard />
+          {console.log(clientName)}
+        </InputsContext.Provider>
 
         <footer>
           <img src="/logo.svg" width="175px" />

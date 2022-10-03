@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { InputsContext } from "../Contexts/InputsContext";
 
 const CampaignInfo = (props) => {
-  const { setClientName } = useContext(InputsContext);
+  const { clientName, setClientName } = useContext(InputsContext);
   // const [clientName, setClientName] = useState("");
   return (
     <Section padding="sm" className="client-section">
@@ -16,7 +16,7 @@ const CampaignInfo = (props) => {
               setClientName(event.target.value);
               console.log(clientName);
             }}
-            // value={clientName}
+            value={clientName}
           />
         </InputGroup>
       </div>
