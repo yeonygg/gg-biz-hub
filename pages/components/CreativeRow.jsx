@@ -1,4 +1,5 @@
 import CustomAdd from "./CustomAdd";
+import { unitTypes } from '../constants/constants';
 
 import {
   InputGroup,
@@ -10,6 +11,7 @@ import {
   Tooltip,
 } from "pier-design-system";
 
+console.log(unitTypes);
 const CreativeRow = (props) => {
 
   const handleChange = (event, field) => {

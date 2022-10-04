@@ -68,7 +68,7 @@ class App extends Component {
     return unitConfig.map(obj => obj.key).indexOf(key);
   }
 
-  setUnitInfo = (key, value, field) => {
+  setUnitConfig = (key, value, field) => {
     const campaign = this.state.campaign;
     const unit = this.getUnitConfig(key);
     unit[field] = value;
@@ -82,7 +82,7 @@ class App extends Component {
     campaign.unitConfig.splice(index, 1);
     this.updateCampaign(campaign);
   }
-  createNewUnit = () => {
+  createUnitConfig = () => {
     const campaign = this.state.campaign;
     const newUnit = Object.assign({}, unitSchema);
     newUnit.key = UUIDV4();;
@@ -96,7 +96,7 @@ class App extends Component {
     this.updateCampaign(campaign);
   }
 
-  updateCampaign(campaign) {
+  updateCampaign = (campaign) =>{
     this.setState({
       campaign: campaign
     });
@@ -123,14 +123,14 @@ class App extends Component {
             <HR className="-m-b-4"/>
             <SubHeading text={this.state.creativeText} body={"Add Creatives to Campaign"}/>
             {this.state.campaign.unitConfig.map((config, index) => (
-              <CreativeRow deleteHandler={this.removeUnitConfig} changeHandler={this.setUnitInfo} key={config.key} index={config.key} config={config} />
+              <CreativeRow deleteHandler={this.removeUnitConfig} changeHandler={this.setUnitConfig} key={config.key} index={config.key} config={config} />
             ))}
             <HR />
 
             <div className="buttons-section">
               <Tooltip text="Add creative">
                 <IconButton
-                  onClick={this.createNewUnit}
+                  onClick={this.createUnitConfig}
                   className="plus-button"
                   title="Button"
                   icon="far fa-plus"
@@ -156,7 +156,7 @@ class App extends Component {
             </div>
           </div>
         </Card>
-        <ResultsCard campaign={this.state.campaign}/>
+        {/* <ResultsCard campaign={this.state.campaign}/> */}
         <footer>
           <img src="/logo.svg" width="175px" />
         </footer>
