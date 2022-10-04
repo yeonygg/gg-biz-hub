@@ -3,7 +3,7 @@ import SubHeading from "./SubHeading";
 import CampaignNames from "./CampaignNames";
 import ResultTable from "./ResultTable";
 
-const ResultsCard = (props) => {
+const ResultsCard = () => {
   const resultHead = "Results";
   const bodyText =
     "Click the Share button to share this information with the client";
@@ -13,7 +13,7 @@ const ResultsCard = (props) => {
       <div className="card-style">
         <SubHeading text={resultHead} body={bodyText} />
 
-        <CampaignNames name={props.clientnm} />
+        <CampaignNames />
 
         <ResultTable />
         <Section padding="xs"></Section>

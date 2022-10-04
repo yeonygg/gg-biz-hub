@@ -40,12 +40,12 @@ a {
 
 .card-style {
   padding: 2rem;
-  margin: 1.5rem;
 }
 
 .client-section {
   display: flex;
-  padding-bottom: 1.5rem;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
 }
 
 .add-on-section {
@@ -55,9 +55,9 @@ a {
 }
 
 .buttons-section {
-  padding: 1.5rem 0;
+  padding-top: 1.5rem;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .sub-heading {
@@ -74,22 +74,23 @@ a {
 }
 
 .client-name-input {
-  width: 140%;
-  padding-right: 4rem;
+  flex: 1 1 auto;
+  margin: 0 0.5rem;
 }
 
 .campaign-name-input {
-  width: 180%;
-  padding-right: 4rem;
+  flex: 1 1 auto;
+  margin: 0 0.5rem;
 }
 
 .campaign-budget-input {
-  width: 75%;
+  flex: 0 1 15%;
+  margin: 0 0.5rem;
 }
 
 .client-name {
-  width: 35%;
-  padding-right: 4rem;
+  flex: 1 1 auto;
+  margin: 0 0.5rem;
 }
 
 .campaign-name {
@@ -97,13 +98,9 @@ a {
   padding-right: 4rem;
 }
 
-.campaign-budget {
-  width: 35%;
-}
-
 .num-units-input {
-  width: 80%;
-  padding-right: 4rem;
+  flex: 0 1 15%;
+  margin: 0 0.5rem;
 }
 
 .add-on-input {
@@ -114,7 +111,8 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  flex: 0 1 15%;
+  margin: 0 0.5rem;
 }
 
 .clear-all-button {
@@ -132,5 +130,61 @@ a {
 footer {
   display: flex;
   padding: 5rem 3rem;
-  justify-content: end;
+  justify-content: flex-end;
+}
+
+.pier-body-text.pier-body-text--xs.pier-body-text--light {
+  margin-bottom: 0;
+}
+
+.client-section div:first-child {
+  margin-left: 0;
+}
+.client-section div:last-child {
+  margin-right: 0;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  body {
+    padding: 0.5rem;
+  }
+  .main-heading {
+    margin: 0 0 0.5rem 0;
+  }
+  .card, .result-card {
+    margin: 0rem 0rem 0.5rem 0rem;
+  }
+  .card-style {
+    padding: 0.5rem;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+  .main-heading {
+    margin: 1rem 1rem 1rem 1rem;
+  }
+  .card, .result-card {
+    margin: 0rem 0rem 1rem 0rem;
+  }
+  .card-style {
+    padding: 1rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  body {
+    padding: 1rem 2.75rem 3rem 2.75rem;
+  }
+  .main-heading {
+    margin: 1rem 1rem 1rem 1rem;
+  }
+  .card-style {
+    padding: 2rem;
+  }
 }
