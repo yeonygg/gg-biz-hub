@@ -35,7 +35,7 @@ a {
 }
 
 .main-heading {
-  margin: 3rem 3rem 2rem 3rem;
+  margin: 5rem 3rem 2rem 3rem;
 }
 
 .card-style {
@@ -152,7 +152,8 @@ footer {
   .main-heading {
     margin: 0 0 0.5rem 0;
   }
-  .card, .result-card {
+  .card,
+  .result-card {
     margin: 0rem 0rem 0.5rem 0rem;
   }
   .card-style {
@@ -168,7 +169,8 @@ footer {
   .main-heading {
     margin: 1rem 1rem 1rem 1rem;
   }
-  .card, .result-card {
+  .card,
+  .result-card {
     margin: 0rem 0rem 1rem 0rem;
   }
   .card-style {
