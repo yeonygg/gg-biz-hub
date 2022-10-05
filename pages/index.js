@@ -96,12 +96,12 @@ class App extends Component {
     this.updateCampaign(campaign);
   };
 
-  updateCampaign = (campaign) =>{
+  updateCampaign = (campaign) => {
     this.setState({
       campaign: campaign,
     });
     console.log(this.state.campaign);
-  }
+  };
 
   render() {
     return (
@@ -112,6 +112,7 @@ class App extends Component {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main>
+          <Section padding="lg"></Section>
           <Heading className="main-heading">
             Rate, Spend, and SLA Generator
           </Heading>
