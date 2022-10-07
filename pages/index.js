@@ -29,6 +29,7 @@ let unitSchema = {
   isCustom: false,
   customUnit: null,
   isExpedited: false,
+  isCustomizable: false,
 };
 
 class App extends Component {
@@ -100,7 +101,7 @@ class App extends Component {
     this.setState({
       campaign: campaign,
     });
-    console.log(this.state.campaign);
+    // console.log(this.state.campaign);
   };
 
   render() {

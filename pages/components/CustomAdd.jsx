@@ -6,8 +6,15 @@ import {
   InputToggle,
   IconButton,
 } from "pier-design-system";
+import { unitTypes } from "../constants/constants";
+import { useState } from "react";
 
 const CustomAdd = () => {
+  let [custom, setCustom] = useState("");
+
+  let handleCustomChange = (e) => {
+    setCustom(e.target.value);
+  };
   return (
     <Section padding="xs" className="add-on-section">
       <div className="plus-alignment">
@@ -30,16 +37,14 @@ const CustomAdd = () => {
             error={false}
             capleft={false}
             required=""
+            onChange={handleCustomChange}
           >
             <option value="">Select your add on</option>
-            <option value="1">In-screen</option>
-            <option value="2">In-screen Custom</option>
-            <option value="3">In-image</option>
-            <option value="4">In-image Canvas</option>
-            <option value="5">In-screen Frame</option>
-            <option value="6">In-screen Expandable</option>
-            <option value="7">In-image Expandable</option>
-            <option value="8">In-screen Expandable Video</option>
+            {unitTypes.map(function (custom) {
+              if (custom.isCustom === true) {
+                return <option key={custom.id}>{custom.name}</option>;
+              }
+            })}
           </InputSelect>
         </InputGroup>
       </div>

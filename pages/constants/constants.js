@@ -10,6 +10,8 @@ const unitTypes = [
     cesRequired: false,
     floorCPM: 700,
     openCPM: 850,
+    customizable: true,
+    customTypes: [0],
   },
   {
     id: 1,
@@ -22,6 +24,7 @@ const unitTypes = [
     cesRequired: false,
     floorCPM: 700,
     openCPM: 850,
+    customizable: true,
   },
   {
     id: 2,
@@ -34,6 +37,7 @@ const unitTypes = [
     cesRequired: true,
     floorCPM: 1150,
     openCPM: 1450,
+    customizable: true,
   },
   {
     id: 3,
@@ -46,6 +50,7 @@ const unitTypes = [
     cesRequired: false,
     floorCPM: 1300,
     openCPM: 1500,
+    customizable: false,
   },
   {
     id: 4,
@@ -58,6 +63,7 @@ const unitTypes = [
     cesRequired: false,
     floorCPM: 1000,
     openCPM: 1200,
+    customizable: true,
   },
   {
     id: 5,
@@ -70,6 +76,7 @@ const unitTypes = [
     cesRequired: false,
     floorCPM: 750,
     openCPM: 950,
+    customizable: true,
   },
   {
     id: 6,
@@ -82,6 +89,7 @@ const unitTypes = [
     cesRequired: false,
     floorCPM: 1300,
     openCPM: 1500,
+    customizable: true,
   },
   {
     id: 7,
@@ -94,6 +102,7 @@ const unitTypes = [
     cesRequired: false,
     floorCPM: 1000,
     openCPM: 1200,
+    customizable: true,
   },
   {
     id: 8,
@@ -106,6 +115,7 @@ const unitTypes = [
     cesRequired: false,
     floorCPM: 1150,
     openCPM: 1450,
+    customizable: true,
   },
   {
     id: 9,
@@ -118,6 +128,7 @@ const unitTypes = [
     cesRequired: true,
     floorCPM: 2200,
     openCPM: 2500,
+    customizable: false,
   },
   {
     id: 10,
@@ -130,6 +141,7 @@ const unitTypes = [
     cesRequired: true,
     floorCPM: 1800,
     openCPM: 2100,
+    customizable: false,
   },
   {
     id: 11,
@@ -142,6 +154,7 @@ const unitTypes = [
     cesRequired: true,
     floorCPM: 800,
     openCPM: 1000,
+    customizable: false,
   },
   {
     id: 12,
@@ -154,6 +167,7 @@ const unitTypes = [
     cesRequired: false,
     floorCPM: 350,
     openCPM: 500,
+    customizable: false,
   },
   {
     id: 13,
@@ -166,6 +180,7 @@ const unitTypes = [
     cesRequired: false,
     floorCPM: 250,
     openCPM: 350,
+    customizable: false,
   },
   {
     id: 14,
@@ -178,6 +193,7 @@ const unitTypes = [
     cesRequired: true,
     floorCPM: 700,
     openCPM: 1000,
+    customizable: false,
   },
   {
     id: 15,
@@ -190,6 +206,7 @@ const unitTypes = [
     cesRequired: true,
     floorCPM: 950,
     openCPM: 1200,
+    customizable: false,
   },
   {
     id: 16,
@@ -202,6 +219,7 @@ const unitTypes = [
     cesRequired: true,
     floorCPM: 800,
     openCPM: 1000,
+    customizable: false,
   },
   {
     id: 17,
@@ -214,6 +232,7 @@ const unitTypes = [
     cesRequired: true,
     floorCPM: 950,
     openCPM: 1200,
+    customizable: false,
   },
   {
     id: 18,
@@ -226,7 +245,10 @@ const unitTypes = [
     cesRequired: true,
     floorCPM: 1400,
     openCPM: 1700,
+    customizable: false,
   },
+];
+const customFeatures = [
   {
     id: 19,
     name: "API Integration",
@@ -239,6 +261,7 @@ const unitTypes = [
     cesRequired: true,
     floorCPM: 200,
     openCPM: 200,
+    validUnits: [0, 1, 4, 6, 7, 8],
   },
   {
     id: 20,
@@ -271,6 +294,18 @@ const unitTypes = [
     name: "Extended Rollover",
     abbrev: "null",
     minSpend: 25000,
+    highImpact: true,
+    isCustom: true,
+    turnaroundTime: 1,
+    cesRequired: false,
+    floorCPM: 200,
+    openCPM: 200,
+  },
+  {
+    id: 22,
+    name: "Scrollable Text",
+    abbrev: "null",
+    minSpend: 100000,
     highImpact: true,
     isCustom: true,
     turnaroundTime: 1,
@@ -532,5 +567,4 @@ const unitTypes = [
     openCPM: 200,
   },
 ];
-
 export { unitTypes };
