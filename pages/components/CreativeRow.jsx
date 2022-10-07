@@ -1,5 +1,5 @@
 import CustomAdd from "./CustomAdd";
-import { unitTypes } from "../constants/constants";
+import { unitTypes, customFeatures } from "../constants/constants";
 import { useState } from "react";
 
 import {
@@ -16,8 +16,6 @@ import {
 console.log(unitTypes);
 const CreativeRow = (props) => {
   let [unit, setUnit] = useState("");
-  const [disable, setDisable] = useState(false);
-
   const handleChange = (event, field) => {
     const value =
       event.target.type === "checkbox"
@@ -28,17 +26,17 @@ const CreativeRow = (props) => {
     if (field === "unitCount" || field === "versionCount") value = ~~value;
     props.changeHandler(props.index, value, field);
     if (field === "unitType") {
-      ///search unitTypes array for object contianing property matching value of unitType field and return object
-      const check = unitTypes.map((obj) => obj.name).indexOf(value);
-      console.log(check);
-      //if that object's customizable property is true:
-      //set customizable state to true
-      props.changeHandler(
-        props.index,
-        unitTypes[check].customizable,
-        "isCustomizable"
-      );
-
+      const checkCustomizable = unitTypes.map((obj) => obj.name).indexOf(value);
+      console.log(checkCustomizable);
+      if (checkCustomizable) {
+        props.changeHandler(
+          props.index,
+          unitTypes[checkCustomizable].customizable,
+          "isCustomizable"
+        );
+      }
+    }
+    if (field === "custom") {
       if (event.target.checked === true) {
         props.changeHandler(props.index, true, "isCustom");
       } else {
@@ -70,11 +68,9 @@ const CreativeRow = (props) => {
               }}
             >
               <option>Select Unit type</option>
-              {unitTypes.map(function (unit) {
-                if (unit.isCustom === false) {
-                  return <option key={unit.id}>{unit.name}</option>;
-                }
-              })}
+              {unitTypes.map((unit) => (
+                <option key={unit.id}>{unit.name}</option>
+              ))}
             </InputSelect>
           </InputGroup>
         </div>
@@ -87,7 +83,7 @@ const CreativeRow = (props) => {
             error={false}
             partial={false}
             onChange={(event) => {
-              handleChange(event, "unitType");
+              handleChange(event, "custom");
             }}
           >
             Custom

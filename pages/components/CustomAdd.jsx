@@ -6,7 +6,7 @@ import {
   InputToggle,
   IconButton,
 } from "pier-design-system";
-import { unitTypes } from "../constants/constants";
+import { unitTypes, customFeatures } from "../constants/constants";
 import { useState } from "react";
 
 const CustomAdd = () => {
@@ -40,11 +40,9 @@ const CustomAdd = () => {
             onChange={handleCustomChange}
           >
             <option value="">Select your add on</option>
-            {unitTypes.map(function (custom) {
-              if (custom.isCustom === true) {
-                return <option key={custom.id}>{custom.name}</option>;
-              }
-            })}
+            {customFeatures.map((custom) => (
+              <option key={custom.id}>{custom.name}</option>
+            ))}
           </InputSelect>
         </InputGroup>
       </div>

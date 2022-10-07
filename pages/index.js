@@ -26,7 +26,6 @@ let unitSchema = {
   unitType: "In-Screen",
   unitCount: 1,
   versionCount: 1,
-  isCustom: false,
   customUnit: null,
   isExpedited: false,
   isCustomizable: false,
