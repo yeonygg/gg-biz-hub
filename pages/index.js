@@ -100,7 +100,7 @@ class App extends Component {
     this.setState({
       campaign: campaign,
     });
-    // console.log(this.state.campaign);
+    console.log(this.state.campaign.unitConfig);
   };
 
   render() {
