@@ -15,7 +15,6 @@ import {
 
 console.log(unitTypes);
 const CreativeRow = (props) => {
-  let [unit, setUnit] = useState("");
   const handleChange = (event, field) => {
     const value =
       event.target.type === "checkbox"
@@ -43,8 +42,6 @@ const CreativeRow = (props) => {
         props.changeHandler(props.index, false, "isCustom");
       }
     }
-
-    setUnit(event.target.value);
   };
 
   const handleDelete = (event) => {

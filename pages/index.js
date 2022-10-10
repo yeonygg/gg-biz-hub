@@ -29,6 +29,9 @@ let unitSchema = {
   customUnit: null,
   isExpedited: false,
   isCustomizable: false,
+  floorCPM: 700,
+  openCPM: 850,
+  turnaroundTime: 2,
 };
 
 class App extends Component {

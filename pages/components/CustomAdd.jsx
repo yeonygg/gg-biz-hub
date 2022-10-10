@@ -9,12 +9,19 @@ import {
 import { unitTypes, customFeatures } from "../constants/constants";
 import { useState } from "react";
 
-const CustomAdd = () => {
+const CustomAdd = (props) => {
   let [custom, setCustom] = useState("");
+  console.log(props.config);
 
   let handleCustomChange = (e) => {
     setCustom(e.target.value);
   };
+
+  const setCustomIndex = () => {
+    // const customFeaturesArray = unitTypes[].customFeatures;
+  };
+  setCustomIndex();
+
   return (
     <Section padding="xs" className="add-on-section">
       <div className="plus-alignment">
@@ -40,9 +47,10 @@ const CustomAdd = () => {
             onChange={handleCustomChange}
           >
             <option value="">Select your add on</option>
-            {customFeatures.map((custom) => (
-              <option key={custom.id}>{custom.name}</option>
-            ))}
+            {customFeatures.map(function (custom) {
+              //get the value of the unit type selected
+              return <option key={custom.id}>{custom.name}</option>;
+            })}
           </InputSelect>
         </InputGroup>
       </div>
