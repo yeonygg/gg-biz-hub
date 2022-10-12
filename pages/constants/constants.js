@@ -25,6 +25,9 @@ const unitTypes = [
     floorCPM: 700,
     openCPM: 850,
     customizable: true,
+    customFeatures: [
+      0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 21, 22, 23,
+    ],
   },
   {
     id: 2,
@@ -62,6 +65,7 @@ const unitTypes = [
     floorCPM: 1000,
     openCPM: 1200,
     customizable: true,
+    customFeatures: [0, 1, 2, 5, 13, 14, 15],
   },
   {
     id: 5,
@@ -74,6 +78,7 @@ const unitTypes = [
     floorCPM: 750,
     openCPM: 950,
     customizable: true,
+    customFeatures: [2, 15],
   },
   {
     id: 6,
@@ -86,6 +91,9 @@ const unitTypes = [
     floorCPM: 1300,
     openCPM: 1500,
     customizable: true,
+    customFeatures: [
+      0, 1, 2, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 21, 22, 23,
+    ],
   },
   {
     id: 7,
@@ -98,6 +106,9 @@ const unitTypes = [
     floorCPM: 1000,
     openCPM: 1200,
     customizable: true,
+    customFeatures: [
+      0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 22, 23,
+    ],
   },
   {
     id: 8,
@@ -110,6 +121,7 @@ const unitTypes = [
     floorCPM: 1150,
     openCPM: 1450,
     customizable: true,
+    customFeatures: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
   },
   {
     id: 9,
@@ -244,7 +256,6 @@ const customFeatures = [
     cesRequired: true,
     floorCPM: 200,
     openCPM: 200,
-    validUnits: [0, 1, 4, 6, 7, 8],
   },
   {
     id: 1,

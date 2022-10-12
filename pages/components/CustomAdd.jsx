@@ -11,16 +11,21 @@ import { useState } from "react";
 
 const CustomAdd = (props) => {
   let [custom, setCustom] = useState("");
-  console.log(props.config);
 
-  let handleCustomChange = (e) => {
-    setCustom(e.target.value);
+  let handleCustomChange = (event, field) => {
+    setCustom(event.target.value);
+    const customIndex = customFeatures
+      .map((obj) => obj.name)
+      .indexOf(event.target.value);
+    if (field === "testing") {
+      // props.changeHandler(
+      //   props.index,
+      //   customFeatures[customIndex].floorCPM,
+      //   "floorCPM"
+      // );
+    }
   };
-
-  const setCustomIndex = () => {
-    // const customFeaturesArray = unitTypes[].customFeatures;
-  };
-  setCustomIndex();
+  const customUnitIndex = props.config.customFeatures;
 
   return (
     <Section padding="xs" className="add-on-section">
@@ -44,11 +49,13 @@ const CustomAdd = (props) => {
             error={false}
             capleft={false}
             required=""
-            onChange={handleCustomChange}
+            onChange={(event) => {
+              handleCustomChange(event, "testing");
+            }}
           >
             <option value="">Select your add on</option>
-            {customFeatures.map(function (custom) {
-              //get the value of the unit type selected
+            {customUnitIndex.map(function (customIndex) {
+              const custom = customFeatures[customIndex];
               return <option key={custom.id}>{custom.name}</option>;
             })}
           </InputSelect>

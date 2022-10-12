@@ -23,15 +23,25 @@ import {
 let setDebounce;
 let unitSchema = {
   key: null,
-  unitType: "In-Screen",
+  unitType: "In-screen",
   unitCount: 1,
   versionCount: 1,
   customUnit: null,
+  customOn: false,
   isExpedited: false,
-  isCustomizable: false,
-  floorCPM: 700,
-  openCPM: 850,
-  turnaroundTime: 2,
+  isCustomizable: true,
+  floorCPM: 0,
+  openCPM: 0,
+  turnaroundTime: 0,
+  minSpend: 0,
+  customFeatures: [],
+  customFeaturesConfig: {
+    customType: "API Integration",
+    floorCPM: 0,
+    openCPM: 0,
+    turnaroundTime: 0,
+    minSpend: 0,
+  },
 };
 
 class App extends Component {
@@ -103,7 +113,7 @@ class App extends Component {
     this.setState({
       campaign: campaign,
     });
-    console.log(this.state.campaign.unitConfig);
+    // console.log(this.state.campaign.unitConfig);
   };
 
   render() {

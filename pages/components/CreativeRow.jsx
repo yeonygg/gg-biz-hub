@@ -13,20 +13,45 @@ import {
   InputCheckbox,
 } from "pier-design-system";
 
-console.log(unitTypes);
 const CreativeRow = (props) => {
+  const customUnitIndex = props.config.customFeatures;
+
   const handleChange = (event, field) => {
     const value =
       event.target.type === "checkbox"
         ? event.target.checked
         : event.target.value;
-
-    console.log(event.target.value);
+    const checkCustomizable = unitTypes.map((obj) => obj.name).indexOf(value);
     if (field === "unitCount" || field === "versionCount") value = ~~value;
     props.changeHandler(props.index, value, field);
+
     if (field === "unitType") {
-      const checkCustomizable = unitTypes.map((obj) => obj.name).indexOf(value);
-      console.log(checkCustomizable);
+      // console.log(checkCustomizable);
+      props.changeHandler(
+        props.index,
+        unitTypes[checkCustomizable].floorCPM,
+        "floorCPM"
+      );
+      props.changeHandler(
+        props.index,
+        unitTypes[checkCustomizable].openCPM,
+        "openCPM"
+      );
+      props.changeHandler(
+        props.index,
+        unitTypes[checkCustomizable].turnaroundTime,
+        "turnaroundTime"
+      );
+      props.changeHandler(
+        props.index,
+        unitTypes[checkCustomizable].customFeatures,
+        "customFeatures"
+      );
+      props.changeHandler(
+        props.index,
+        unitTypes[checkCustomizable].minSpend,
+        "minSpend"
+      );
       if (checkCustomizable) {
         props.changeHandler(
           props.index,
@@ -35,12 +60,16 @@ const CreativeRow = (props) => {
         );
       }
     }
-    if (field === "custom") {
+    if (field === "customOn") {
       if (event.target.checked === true) {
-        props.changeHandler(props.index, true, "isCustom");
+        props.changeHandler(props.index, true, "customOn");
       } else {
-        props.changeHandler(props.index, false, "isCustom");
+        props.changeHandler(props.index, false, "customOn");
       }
+    }
+
+    if (field === "customFeaturesConfig") {
+      console.log("custom config working");
     }
   };
 
@@ -80,7 +109,7 @@ const CreativeRow = (props) => {
             error={false}
             partial={false}
             onChange={(event) => {
-              handleChange(event, "custom");
+              handleChange(event, "customOn");
             }}
           >
             Custom
@@ -138,7 +167,45 @@ const CreativeRow = (props) => {
           </Tooltip>
         </div>
       </Section>
-      {props.config.isCustom && <CustomAdd config={props.config} />}
+      {props.config.customOn && (
+        <div>
+          {" "}
+          <Section padding="xs" className="add-on-section">
+            <div className="plus-alignment">
+              <IconButton
+                title="Button"
+                icon="fas fa-plus"
+                size="sm"
+                disabled={true}
+                dark={false}
+                pill={false}
+              />
+            </div>
+
+            <div className="add-on-input">
+              <InputGroup label="custom add on" size="sm" error="" dark={false}>
+                <InputSelect
+                  size="sm"
+                  disabled={false}
+                  dark={false}
+                  error={false}
+                  capleft={false}
+                  required=""
+                  onChange={(event) => {
+                    handleChange(event, "customFeaturesConfig");
+                  }}
+                >
+                  <option value="">Select your add on</option>
+                  {customUnitIndex.map(function (customIndex) {
+                    const custom = customFeatures[customIndex];
+                    return <option key={custom.id}>{custom.name}</option>;
+                  })}
+                </InputSelect>
+              </InputGroup>
+            </div>
+          </Section>
+        </div>
+      )}
     </div>
   );
 };

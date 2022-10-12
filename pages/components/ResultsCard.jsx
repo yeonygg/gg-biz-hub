@@ -1,21 +1,22 @@
 import { Card, Section, BodyText, HR, Button } from "pier-design-system";
 import SubHeading from "./SubHeading";
-import CampaignNames from "./CampaignNames";
+import CampaignOutput from "./CampaignOutput";
 import ResultTable from "./ResultTable";
 
-const ResultsCard = () => {
+const ResultsCard = (props) => {
   const resultHead = "Results";
   const bodyText =
     "Click the Share button to share this information with the client";
+  console.log(props.campaign);
 
   return (
     <Card className="result-card">
       <div className="card-style">
         <SubHeading text={resultHead} body={bodyText} />
 
-        <CampaignNames />
+        <CampaignOutput campaign={props.campaign} />
 
-        <ResultTable />
+        <ResultTable campaign={props.campaign} />
         <Section padding="xs"></Section>
         <HR />
 
