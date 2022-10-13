@@ -52,6 +52,11 @@ const CreativeRow = (props) => {
         unitTypes[checkCustomizable].minSpend,
         "minSpend"
       );
+      props.changeHandler(
+        props.index,
+        unitTypes[checkCustomizable].highImpact,
+        "highImpact"
+      );
       if (checkCustomizable) {
         props.changeHandler(
           props.index,
@@ -68,8 +73,29 @@ const CreativeRow = (props) => {
       }
     }
 
-    if (field === "customFeaturesConfig") {
-      console.log("custom config working");
+    if (field === "customUnit") {
+      const custIndex = customFeatures.map((obj) => obj.name).indexOf(value);
+      props.changeHandler(
+        props.index,
+        customFeatures[custIndex].turnaroundTime,
+        "customTurnaroundTime"
+      );
+
+      props.changeHandler(
+        props.index,
+        customFeatures[custIndex].floorCPM,
+        "customFloorCPM"
+      );
+      props.changeHandler(
+        props.index,
+        customFeatures[custIndex].openCPM,
+        "customOpenCPM"
+      );
+      props.changeHandler(
+        props.index,
+        customFeatures[custIndex].minSpend,
+        "customMinSpend"
+      );
     }
   };
 
@@ -192,7 +218,7 @@ const CreativeRow = (props) => {
                   capleft={false}
                   required=""
                   onChange={(event) => {
-                    handleChange(event, "customFeaturesConfig");
+                    handleChange(event, "customUnit");
                   }}
                 >
                   <option value="">Select your add on</option>

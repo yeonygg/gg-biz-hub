@@ -35,13 +35,6 @@ let unitSchema = {
   turnaroundTime: 0,
   minSpend: 0,
   customFeatures: [],
-  customFeaturesConfig: {
-    customType: "API Integration",
-    floorCPM: 0,
-    openCPM: 0,
-    turnaroundTime: 0,
-    minSpend: 0,
-  },
 };
 
 class App extends Component {
