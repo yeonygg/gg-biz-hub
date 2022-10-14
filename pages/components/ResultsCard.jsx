@@ -7,7 +7,7 @@ const ResultsCard = (props) => {
   const resultHead = "Results";
   const bodyText =
     "Click the Share button to share this information with the client";
-  console.log(props.campaign);
+  // console.log(props.campaign);
 
   return (
     <Card className="result-card">

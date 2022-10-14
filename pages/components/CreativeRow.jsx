@@ -167,18 +167,7 @@ const CreativeRow = (props) => {
         </div>
 
         <div className="toggle-button">
-          <InputToggle
-            size="sm"
-            disabled={false}
-            dark={false}
-            error={false}
-            className="-m-r-5"
-            onChange={(event) => {
-              handleChange(event, "isExpedited");
-            }}
-          >
-            Expedited
-          </InputToggle>
+          <div></div>
           <Tooltip text="Delete creative">
             <IconButton
               title="Button"

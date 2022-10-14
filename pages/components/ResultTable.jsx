@@ -117,9 +117,9 @@ const ResultTable = (props) => {
     const versionCount = [];
     const expandableCount = [];
 
-    console.log(standardSpend);
-    console.log(expandableCount);
-    console.log(versionCount);
+    // console.log(standardSpend);
+    // console.log(expandableCount);
+    // console.log(versionCount);
 
     for (let i = 0; i < props.campaign.unitConfig.length; i++) {
       const unitMinSpend = props.campaign.unitConfig[i].minSpend;
@@ -145,7 +145,7 @@ const ResultTable = (props) => {
       return accumulator + value;
     }, 0);
 
-    console.log(versionCountSum);
+    // console.log(versionCountSum);
 
     if (expandableCount.length >= 1) {
       return 74000;

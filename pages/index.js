@@ -8,6 +8,7 @@ import ResultsCard from "./components/ResultsCard";
 import { useState, useEffect, Component } from "react";
 import { InputsContext } from "./Contexts/InputsContext";
 import { UUIDV4 } from "./helpers/helpers";
+import { InputToggle } from "pier-design-system";
 
 import {
   Card,
@@ -35,10 +36,6 @@ let unitSchema = {
   turnaroundTime: 0,
   minSpend: 0,
   customFeatures: [],
-};
-
-const showResults = (event) => {
-  console.log("this is working!");
 };
 
 class App extends Component {
@@ -110,10 +107,29 @@ class App extends Component {
     this.setState({
       campaign: campaign,
     });
-    // console.log(this.state.campaign.unitConfig);
+    console.log(this.state.campaign.unitConfig);
   };
 
   render() {
+    const handleToggle = (event, field) => {
+      if (field === "isExpedited") {
+        for (let i = 0; i < this.state.campaign.unitConfig.length; i++) {
+          if (event.target.checked === true) {
+            this.setUnitConfig(
+              this.state.campaign.unitConfig[i].key,
+              true,
+              "isExpedited"
+            );
+          } else {
+            this.setUnitConfig(
+              this.state.campaign.unitConfig[i].key,
+              false,
+              "isExpedited"
+            );
+          }
+        }
+      }
+    };
     return (
       <div className={styles.container}>
         <Head>
@@ -137,11 +153,28 @@ class App extends Component {
                 campaign={this.state.campaign}
                 changeHandler={this.setCampaignInputs}
               />
+
               <HR className="-m-b-4" />
-              <SubHeading
-                text={this.state.creativeText}
-                body={"Add Creatives to Campaign"}
-              />
+              <div className="creative-plan">
+                <SubHeading
+                  text={this.state.creativeText}
+                  body={"Add Creatives to Campaign"}
+                />
+
+                <InputToggle
+                  size="sm"
+                  disabled={false}
+                  dark={false}
+                  error={false}
+                  className="-m-r-5"
+                  onChange={(event) => {
+                    handleToggle(event, "isExpedited");
+                  }}
+                >
+                  Expedited
+                </InputToggle>
+              </div>
+
               {this.state.campaign.unitConfig.map((config, index) => (
                 <CreativeRow
                   deleteHandler={this.removeUnitConfig}
