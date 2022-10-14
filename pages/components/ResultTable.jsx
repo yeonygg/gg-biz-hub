@@ -7,12 +7,6 @@ const ResultTable = (props) => {
     const hiTimeArray = [];
     const customArray = [];
     const skinArray = [];
-
-    console.log(standardTimeArray);
-    console.log(expeditedTimeArray);
-    console.log(hiTimeArray);
-    console.log(customArray);
-    console.log(skinArray);
     for (let i = 0; i < props.campaign.unitConfig.length; i++) {
       const turnaroundTime = props.campaign.unitConfig[i].turnaroundTime;
       const versionCount = props.campaign.unitConfig[i].versionCount;
@@ -57,6 +51,7 @@ const ResultTable = (props) => {
         props.campaign.unitConfig[i].highImpact === true
       ) {
         expeditedTimeArray.push(turnaroundTime);
+        hiTimeArray.push(turnaroundTime);
       }
       if (props.campaign.unitConfig[i].customOn === true) {
         //custom calc
@@ -79,21 +74,21 @@ const ResultTable = (props) => {
       return accumulator + value;
     }, 0);
 
-    console.log(standardTimeArraySum);
+    // console.log(standardTimeArraySum);
 
     const customArraySum = customArray.reduce((accumulator, value) => {
       return accumulator + value;
     }, 0);
-    console.log(customArraySum);
+    // console.log(customArraySum);
 
-    console.log(skinArray.length);
+    // console.log(skinArray.length);
 
     if (skinArray.length >= 1) {
       return 5 * skinArray.length + Math.floor(standardTimeArraySum / 4);
     }
 
     //standard time calc
-    if (expTimeArraySum <= 4) {
+    if (expTimeArraySum > 1 && expTimeArraySum <= 4) {
       return 1 + customArraySum + hiTimeArray.length;
     }
 
@@ -110,7 +105,72 @@ const ResultTable = (props) => {
     }
   };
 
-  console.log(designSLA());
+  //Design SLA END
+
+  // console.log(designSLA());
+
+  //minSpend start----------------->
+
+  const Spend = () => {
+    const standardSpend = [];
+    const customSpend = [];
+    const versionCount = [];
+    const expandableCount = [];
+
+    console.log(standardSpend);
+    console.log(expandableCount);
+    console.log(versionCount);
+
+    for (let i = 0; i < props.campaign.unitConfig.length; i++) {
+      const unitMinSpend = props.campaign.unitConfig[i].minSpend;
+      const customMinSpend = props.campaign.unitConfig[i].customMinSpend;
+      const versions = props.campaign.unitConfig[i].versionCount;
+
+      if (props.campaign.unitConfig[i].highImpact === false) {
+        standardSpend.push(unitMinSpend);
+      }
+
+      customSpend.push(customMinSpend);
+      versionCount.push(versions);
+
+      if (
+        props.campaign.unitConfig[i].unitType === "In-Image Expandable" ||
+        props.campaign.unitConfig[i].unitType === "In-Screen Expandable"
+      ) {
+        expandableCount.push(props.campaign.unitConfig[i].minSpend);
+      }
+    }
+
+    const versionCountSum = versionCount.reduce((accumulator, value) => {
+      return accumulator + value;
+    }, 0);
+
+    console.log(versionCountSum);
+
+    if (expandableCount.length >= 1) {
+      return 74000;
+    }
+
+    if (versionCountSum <= 6 && standardSpend.length <= 2) {
+      return standardSpend[0];
+    }
+
+    if (versionCountSum <= 9 && standardSpend.length <= 3) {
+      return 50000;
+    }
+
+    if (versionCountSum <= 15 && standardSpend.length <= 3) {
+      return 125000;
+    }
+  };
+
+  Spend();
+  const spendResult = String(Spend());
+
+  //minSpend end------------------->
+
+  const result = String(designSLA());
+  // console.log(result);
 
   return (
     <Section padding="sm" className="client-section">
@@ -120,10 +180,10 @@ const ResultTable = (props) => {
         data={[
           {
             Rate: "Cell 1",
-            Spend: "Cell 2",
+            Spend: [spendResult],
             "Floor CPM": "Cell 2",
             "Open CPM": "Cell 2",
-            SLA: "",
+            SLA: [result],
           },
         ]}
       />

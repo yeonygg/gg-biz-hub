@@ -37,6 +37,10 @@ let unitSchema = {
   customFeatures: [],
 };
 
+const showResults = (event) => {
+  console.log("this is working!");
+};
+
 class App extends Component {
   constructor() {
     super();
@@ -59,7 +63,7 @@ class App extends Component {
     campaign[field] = value;
     setDebounce = setTimeout(() => {
       this.updateCampaign(campaign);
-      console.log(this.state.campaign);
+      // console.log(this.state.campaign);
     }, 250);
   };
 
