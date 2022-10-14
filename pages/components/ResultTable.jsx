@@ -52,9 +52,14 @@ const ResultTable = (props) => {
             hiTimeArray.push(turnaroundTime);
           }
         }
+      } else if (
+        props.campaign.unitConfig[i].isExpedited === true &&
+        props.campaign.unitConfig[i].highImpact === true
+      ) {
+        expeditedTimeArray.push(turnaroundTime);
       }
-      //custom calc
       if (props.campaign.unitConfig[i].customOn === true) {
+        //custom calc
         customArray.push(customTurnaroundTime * versionCount);
       }
 
