@@ -4,19 +4,30 @@ const ResultTable = (props) => {
   const designSLA = () => {
     const standardTimeArray = [];
     const highImpactArray = [];
+    const customTimeArray = [];
+
+    console.log(customTimeArray);
 
     for (let i = 0; i < props.campaign.unitConfig.length; i++) {
-      const turnaroundTime = props.campaign.unitConfig[i].turnaroundTime;
+      const customTurnaroundTime =
+        props.campaign.unitConfig[i].customTurnaroundTime;
       const versionCount = props.campaign.unitConfig[i].versionCount;
 
-      //STANDARD TURNAROUND TIME CALC START
+      //STANDARD TURNAROUND TIME CALC
       if (props.campaign.unitConfig[i].highImpact === false) {
         standardTimeArray.push(versionCount);
       }
-      //STANDARD TURNAROUND TIME CALC END
+
+      //High Impact TURNAROUND TIME CALC
 
       if (props.campaign.unitConfig[i].highImpact === true) {
         highImpactArray.push(versionCount);
+      }
+
+      //Custom TURNAROUND TIME CALC
+
+      if (props.campaign.unitConfig[i].customOn === true) {
+        customTimeArray.push(customTurnaroundTime);
       }
     }
 
@@ -32,6 +43,7 @@ const ResultTable = (props) => {
     }, 0);
 
     const totalUnits = standardTimeArraySum + highImpactArraySum;
+    console.log(totalUnits);
 
     //standard time calc
     let totalDesignTime = "";
