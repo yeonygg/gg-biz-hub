@@ -27,33 +27,39 @@ const ResultTable = (props) => {
       0
     );
 
-    console.log(standardTimeArraySum);
-    console.log(props.campaign.unitConfig[0].isExpedited);
+    const highImpactArraySum = highImpactArray.reduce((accumulator, value) => {
+      return accumulator + value;
+    }, 0);
+
+    const totalUnits = standardTimeArraySum + highImpactArraySum;
 
     //standard time calc
-    let total = "";
+    let totalDesignTime = "";
 
-    if (standardTimeArraySum <= 4) {
-      total = 2;
-    } else if (standardTimeArraySum > 4 && standardTimeArraySum <= 15) {
-      total = 3;
-    } else if (standardTimeArraySum > 15 && standardTimeArraySum <= 25) {
-      total = 4;
+    if (totalUnits <= 4) {
+      totalDesignTime = 2;
+    } else if (totalUnits > 4 && totalUnits <= 15) {
+      totalDesignTime = 3;
+    } else if (totalUnits > 15) {
+      totalDesignTime = 4;
     }
 
     if (highImpactArray.length >= 1) {
-      total = total + 1;
+      totalDesignTime = totalDesignTime + 1;
     }
 
-    if (props.campaign.unitConfig[0].isExpedited === true) {
-      total = total - 1;
+    console.log(props.campaign.unitConfig);
+
+    if (
+      props.campaign.unitConfig.length > 0 &&
+      props.campaign.unitConfig[0].isExpedited === true
+    ) {
+      totalDesignTime = totalDesignTime - 1;
     }
-    return total;
+    return totalDesignTime;
   };
 
   //Design SLA END
-
-  // console.log(designSLA());
 
   //minSpend start----------------->
 
