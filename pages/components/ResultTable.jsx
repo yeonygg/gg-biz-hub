@@ -3,63 +3,20 @@ import { Section, Table } from "pier-design-system";
 const ResultTable = (props) => {
   const designSLA = () => {
     const standardTimeArray = [];
-    const expeditedTimeArray = [];
-    const hiTimeArray = [];
-    const customArray = [];
-    const skinArray = [];
+    const highImpactArray = [];
+
     for (let i = 0; i < props.campaign.unitConfig.length; i++) {
       const turnaroundTime = props.campaign.unitConfig[i].turnaroundTime;
       const versionCount = props.campaign.unitConfig[i].versionCount;
-      const customTurnaroundTime =
-        props.campaign.unitConfig[i].customTurnaroundTime;
 
       //STANDARD TURNAROUND TIME CALC START
-
-      if (
-        props.campaign.unitConfig[i].isExpedited === false &&
-        props.campaign.unitConfig[i].highImpact === false
-      ) {
-        standardTimeArray.push(turnaroundTime * versionCount);
-      } else if (
-        props.campaign.unitConfig[i].isExpedited === true &&
-        props.campaign.unitConfig[i].highImpact === false
-      ) {
-        expeditedTimeArray.push(turnaroundTime * versionCount - 1);
+      if (props.campaign.unitConfig[i].highImpact === false) {
+        standardTimeArray.push(versionCount);
       }
-
       //STANDARD TURNAROUND TIME CALC END
 
-      //HIGH IMPACT TURNAROUND TIME CALC START
-
-      if (
-        props.campaign.unitConfig[i].isExpedited === false &&
-        props.campaign.unitConfig[i].highImpact === true
-      ) {
-        if (versionCount === 1) {
-          hiTimeArray.push(turnaroundTime);
-        } else {
-          for (
-            let i = 0;
-            i < props.campaign.unitConfig.length * versionCount - 2;
-            i++
-          ) {
-            hiTimeArray.push(turnaroundTime);
-          }
-        }
-      } else if (
-        props.campaign.unitConfig[i].isExpedited === true &&
-        props.campaign.unitConfig[i].highImpact === true
-      ) {
-        expeditedTimeArray.push(turnaroundTime);
-        hiTimeArray.push(turnaroundTime);
-      }
-      if (props.campaign.unitConfig[i].customOn === true) {
-        //custom calc
-        customArray.push(customTurnaroundTime * versionCount);
-      }
-
-      if (props.campaign.unitConfig[i].turnaroundTime >= 5) {
-        skinArray.push(turnaroundTime);
+      if (props.campaign.unitConfig[i].highImpact === true) {
+        highImpactArray.push(versionCount);
       }
     }
 
@@ -70,39 +27,28 @@ const ResultTable = (props) => {
       0
     );
 
-    const expTimeArraySum = expeditedTimeArray.reduce((accumulator, value) => {
-      return accumulator + value;
-    }, 0);
-
-    // console.log(standardTimeArraySum);
-
-    const customArraySum = customArray.reduce((accumulator, value) => {
-      return accumulator + value;
-    }, 0);
-    // console.log(customArraySum);
-
-    // console.log(skinArray.length);
-
-    if (skinArray.length >= 1) {
-      return 5 * skinArray.length + Math.floor(standardTimeArraySum / 4);
-    }
+    console.log(standardTimeArraySum);
+    console.log(props.campaign.unitConfig[0].isExpedited);
 
     //standard time calc
-    if (expTimeArraySum > 1 && expTimeArraySum <= 4) {
-      return 1 + customArraySum + hiTimeArray.length;
+    let total = "";
+
+    if (standardTimeArraySum <= 4) {
+      total = 2;
+    } else if (standardTimeArraySum > 4 && standardTimeArraySum <= 15) {
+      total = 3;
+    } else if (standardTimeArraySum > 15 && standardTimeArraySum <= 25) {
+      total = 4;
     }
 
-    if (standardTimeArraySum < 8) {
-      return 2 + customArraySum + hiTimeArray.length;
+    if (highImpactArray.length >= 1) {
+      total = total + 1;
     }
 
-    if (standardTimeArraySum > 8 && standardTimeArraySum < 30) {
-      return 3 + customArraySum + hiTimeArray.length;
+    if (props.campaign.unitConfig[0].isExpedited === true) {
+      total = total - 1;
     }
-
-    if (standardTimeArraySum > 30) {
-      return 4 + customArraySum + hiTimeArray.length;
-    }
+    return total;
   };
 
   //Design SLA END
