@@ -87,28 +87,16 @@ const ResultTable = (props) => {
 
   const Spend = () => {
     const standardSpend = [];
-    const customSpend = [];
     const versionCount = [];
-    const expandableCount = [];
 
     for (let i = 0; i < props.campaign.unitConfig.length; i++) {
       const unitMinSpend = props.campaign.unitConfig[i].minSpend;
-      const customMinSpend = props.campaign.unitConfig[i].customMinSpend;
       const versions = props.campaign.unitConfig[i].versionCount;
 
       if (props.campaign.unitConfig[i].highImpact === false) {
         standardSpend.push(unitMinSpend);
       }
-
-      customSpend.push(customMinSpend);
       versionCount.push(versions);
-
-      if (
-        props.campaign.unitConfig[i].unitType === "In-Image Expandable" ||
-        props.campaign.unitConfig[i].unitType === "In-Screen Expandable"
-      ) {
-        expandableCount.push(props.campaign.unitConfig[i].minSpend);
-      }
     }
 
     const versionCountSum = versionCount.reduce((accumulator, value) => {
@@ -116,10 +104,6 @@ const ResultTable = (props) => {
     }, 0);
 
     // console.log(versionCountSum);
-
-    if (expandableCount.length >= 1) {
-      return 74000;
-    }
 
     if (versionCountSum <= 6 && standardSpend.length <= 2) {
       return standardSpend[0];
@@ -135,7 +119,7 @@ const ResultTable = (props) => {
   };
 
   Spend();
-  const spendResult = String(Spend());
+  const spendResult = "$" + String(Spend());
 
   //minSpend end------------------->
 
