@@ -42,6 +42,8 @@ const ResultTable = (props) => {
       return accumulator + value;
     }, 0);
 
+    const maxCustom = Math.max(...customTimeArray);
+    console.log(maxCustom);
     const totalUnits = standardTimeArraySum + highImpactArraySum;
     console.log(totalUnits);
 
@@ -67,6 +69,10 @@ const ResultTable = (props) => {
       props.campaign.unitConfig[0].isExpedited === true
     ) {
       totalDesignTime = totalDesignTime - 1;
+    }
+
+    if (customTimeArray.length > 0) {
+      return Math.max(totalDesignTime, maxCustom);
     }
     return totalDesignTime;
   };
