@@ -8,6 +8,7 @@ const unitTypes = [
     turnaroundTime: 2,
     cesRequired: false,
     floorCPM: 700,
+    floorVCPM: 1200,
     openCPM: 850,
     customizable: true,
     customFeatures: [
@@ -23,6 +24,7 @@ const unitTypes = [
     turnaroundTime: 2,
     cesRequired: false,
     floorCPM: 700,
+    floorVCPM: 1000,
     openCPM: 850,
     customizable: true,
     customFeatures: [
@@ -38,6 +40,7 @@ const unitTypes = [
     turnaroundTime: 2,
     cesRequired: true,
     floorCPM: 1150,
+    floorVCPM: 1600,
     openCPM: 1450,
     customizable: true,
     customFeatures: [2, 4, 14, 15],
@@ -51,6 +54,7 @@ const unitTypes = [
     turnaroundTime: 2,
     cesRequired: false,
     floorCPM: 1300,
+    floorVCPM: 1850,
     openCPM: 1500,
     customizable: false,
   },
@@ -63,6 +67,7 @@ const unitTypes = [
     turnaroundTime: 2,
     cesRequired: false,
     floorCPM: 1000,
+    floorVCPM: 1425,
     openCPM: 1200,
     customizable: true,
     customFeatures: [0, 1, 2, 5, 13, 14, 15],
@@ -76,6 +81,7 @@ const unitTypes = [
     turnaroundTime: 2,
     cesRequired: false,
     floorCPM: 750,
+    floorVCPM: 1050,
     openCPM: 950,
     customizable: true,
     customFeatures: [2, 15],
@@ -89,6 +95,7 @@ const unitTypes = [
     turnaroundTime: 3,
     cesRequired: false,
     floorCPM: 1300,
+    floorVCPM: 1850,
     openCPM: 1500,
     customizable: true,
     customFeatures: [
@@ -104,6 +111,7 @@ const unitTypes = [
     turnaroundTime: 3,
     cesRequired: false,
     floorCPM: 1000,
+    floorVCPM: 1425,
     openCPM: 1200,
     customizable: true,
     customFeatures: [
@@ -119,6 +127,7 @@ const unitTypes = [
     turnaroundTime: 3,
     cesRequired: false,
     floorCPM: 1150,
+    floorVCPM: 1600,
     openCPM: 1450,
     customizable: true,
     customFeatures: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
@@ -132,6 +141,7 @@ const unitTypes = [
     turnaroundTime: 5,
     cesRequired: true,
     floorCPM: 2200,
+    floorVCPM: "TBD",
     openCPM: 2500,
     customizable: false,
   },
@@ -144,6 +154,7 @@ const unitTypes = [
     turnaroundTime: 5,
     cesRequired: true,
     floorCPM: 1800,
+    floorVCPM: "TBD",
     openCPM: 2100,
     customizable: false,
   },
@@ -156,6 +167,7 @@ const unitTypes = [
     turnaroundTime: 3,
     cesRequired: true,
     floorCPM: 800,
+    floorVCPM: "TBD",
     openCPM: 1000,
     customizable: false,
   },
@@ -168,6 +180,7 @@ const unitTypes = [
     turnaroundTime: 2,
     cesRequired: false,
     floorCPM: 350,
+    floorVCPM: 500,
     openCPM: 500,
     customizable: false,
   },
@@ -180,6 +193,7 @@ const unitTypes = [
     turnaroundTime: 2,
     cesRequired: false,
     floorCPM: 250,
+    floorVCPM: "Custom rate",
     openCPM: 350,
     customizable: false,
   },
@@ -192,6 +206,7 @@ const unitTypes = [
     turnaroundTime: 0,
     cesRequired: true,
     floorCPM: 700,
+    floorVCPM: "TBD",
     openCPM: 1000,
     customizable: false,
   },
@@ -204,6 +219,7 @@ const unitTypes = [
     turnaroundTime: 0,
     cesRequired: true,
     floorCPM: 950,
+    floorVCPM: "TBD",
     openCPM: 1200,
     customizable: false,
   },
@@ -215,6 +231,7 @@ const unitTypes = [
     highImpact: false,
     turnaroundTime: 2,
     cesRequired: true,
+    floorVCPM: 1100,
     floorCPM: 800,
     openCPM: 1000,
     customizable: false,
@@ -228,6 +245,7 @@ const unitTypes = [
     turnaroundTime: 0,
     cesRequired: true,
     floorCPM: 950,
+    floorVCPM: 1100,
     openCPM: 1200,
     customizable: false,
   },
@@ -240,6 +258,7 @@ const unitTypes = [
     turnaroundTime: 7,
     cesRequired: true,
     floorCPM: 1400,
+    floorVCPM: 2150,
     openCPM: 1700,
     customizable: false,
   },
@@ -255,6 +274,7 @@ const customFeatures = [
     cesTurnaroundTime: 7,
     cesRequired: true,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
   {
@@ -267,6 +287,7 @@ const customFeatures = [
     cesTurnaroundTime: 7,
     cesRequired: true,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
   {
@@ -279,6 +300,7 @@ const customFeatures = [
     cesTurnaroundTime: 7,
     cesRequired: true,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
   {
@@ -290,6 +312,7 @@ const customFeatures = [
     turnaroundTime: 3,
     cesRequired: false,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
   {
@@ -301,6 +324,7 @@ const customFeatures = [
     turnaroundTime: 3,
     cesRequired: false,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
   {
@@ -313,6 +337,7 @@ const customFeatures = [
     cesTurnaroundTime: 7,
     cesRequired: true,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
   {
@@ -323,8 +348,9 @@ const customFeatures = [
     highImpact: true,
     turnaroundTime: 5,
     cesRequired: true,
-    floorCPM: 1150,
-    openCPM: 1450,
+    floorCPM: 300,
+    floorVCPM: 300,
+    openCPM: 400,
   },
   {
     id: 7,
@@ -334,8 +360,9 @@ const customFeatures = [
     highImpact: true,
     turnaroundTime: 5,
     cesRequired: true,
-    floorCPM: 1150,
-    openCPM: 1450,
+    floorCPM: 300,
+    floorVCPM: 300,
+    openCPM: 400,
   },
   {
     id: 8,
@@ -346,6 +373,7 @@ const customFeatures = [
     turnaroundTime: 5,
     cesRequired: true,
     floorCPM: 300,
+    floorVCPM: 300,
     openCPM: 400,
   },
   {
@@ -358,6 +386,7 @@ const customFeatures = [
     cesTurnaroundTime: 7,
     cesRequired: true,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
   {
@@ -369,6 +398,7 @@ const customFeatures = [
     turnaroundTime: 7,
     cesRequired: true,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
   {
@@ -381,6 +411,7 @@ const customFeatures = [
     cesTurnaroundTime: 3,
     cesRequired: true,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
   {
@@ -393,6 +424,7 @@ const customFeatures = [
     cesTurnaroundTime: 3,
     cesRequired: true,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
   {
@@ -405,6 +437,7 @@ const customFeatures = [
     cesTurnaroundTime: 7,
     cesRequired: true,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
   {
@@ -440,6 +473,7 @@ const customFeatures = [
     cesTurnaroundTime: 3,
     cesRequired: true,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
   {
@@ -452,6 +486,7 @@ const customFeatures = [
     cesTurnaroundTime: 7,
     cesRequired: true,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
   {
@@ -464,6 +499,7 @@ const customFeatures = [
     cesTurnaroundTime: 7,
     cesRequired: true,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
   {
@@ -476,6 +512,7 @@ const customFeatures = [
     cesTurnaroundTime: 7,
     cesRequired: true,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
   {
@@ -488,6 +525,7 @@ const customFeatures = [
     cesTurnaroundTime: 7,
     cesRequired: true,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
   {
@@ -500,6 +538,7 @@ const customFeatures = [
     cesTurnaroundTime: 7,
     cesRequired: true,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
   {
@@ -512,6 +551,7 @@ const customFeatures = [
     cesTurnaroundTime: 7,
     cesRequired: true,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
   {
@@ -524,6 +564,7 @@ const customFeatures = [
     cesTurnaroundTime: 14,
     cesRequired: true,
     floorCPM: 200,
+    floorVCPM: 200,
     openCPM: 200,
   },
 ];

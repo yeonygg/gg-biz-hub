@@ -83,46 +83,6 @@ const ResultTable = (props) => {
 
   //Design SLA END
 
-  //minSpend start----------------->
-
-  const Spend = () => {
-    const standardSpend = [];
-    const versionCount = [];
-
-    for (let i = 0; i < props.campaign.unitConfig.length; i++) {
-      const unitMinSpend = props.campaign.unitConfig[i].minSpend;
-      const versions = props.campaign.unitConfig[i].versionCount;
-
-      if (props.campaign.unitConfig[i].highImpact === false) {
-        standardSpend.push(unitMinSpend);
-      }
-      versionCount.push(versions);
-    }
-
-    const versionCountSum = versionCount.reduce((accumulator, value) => {
-      return accumulator + value;
-    }, 0);
-
-    // console.log(versionCountSum);
-
-    if (versionCountSum <= 6 && standardSpend.length <= 2) {
-      return standardSpend[0];
-    }
-
-    if (versionCountSum <= 9 && standardSpend.length <= 3) {
-      return 50000;
-    }
-
-    if (versionCountSum <= 15 && standardSpend.length <= 3) {
-      return 125000;
-    }
-  };
-
-  Spend();
-  const spendResult = "$" + String(Spend());
-
-  //minSpend end------------------->
-
   const designTime = String(designSLA());
   // console.log(result);
 
@@ -130,14 +90,13 @@ const ResultTable = (props) => {
     <Section padding="sm" className="client-section">
       <Table
         size="sm"
-        columns={["Rate", "Spend", "Floor CPM", "Open CPM", "SLA"]}
+        columns={["Unit Type", "Floor CPM", "Floor VCPM", "Open CPM"]}
         data={[
           {
-            Rate: "Cell 1",
-            Spend: [spendResult],
+            "Unit Type": "Cell 1",
             "Floor CPM": "Cell 2",
+            "Floor VCPM": "Cell 2",
             "Open CPM": "Cell 2",
-            SLA: [designTime],
           },
         ]}
       />
