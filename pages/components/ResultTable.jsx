@@ -6,8 +6,6 @@ const ResultTable = (props) => {
     const highImpactArray = [];
     const customTimeArray = [];
 
-    console.log(customTimeArray);
-
     for (let i = 0; i < props.campaign.unitConfig.length; i++) {
       const customTurnaroundTime =
         props.campaign.unitConfig[i].customTurnaroundTime;
@@ -43,9 +41,7 @@ const ResultTable = (props) => {
     }, 0);
 
     const maxCustom = Math.max(...customTimeArray);
-    console.log(maxCustom);
     const totalUnits = standardTimeArraySum + highImpactArraySum;
-    console.log(totalUnits);
 
     //standard time calc
     let totalDesignTime = "";
@@ -65,14 +61,22 @@ const ResultTable = (props) => {
     console.log(props.campaign.unitConfig);
 
     if (
+      customTimeArray.length > 0 &&
+      props.campaign.unitConfig[0].isExpedited === false
+    ) {
+      return Math.max(totalDesignTime, maxCustom);
+    } else if (
+      customTimeArray.length > 0 &&
+      props.campaign.unitConfig[0].isExpedited === true
+    ) {
+      return maxCustom - 1;
+    }
+
+    if (
       props.campaign.unitConfig.length > 0 &&
       props.campaign.unitConfig[0].isExpedited === true
     ) {
       totalDesignTime = totalDesignTime - 1;
-    }
-
-    if (customTimeArray.length > 0) {
-      return Math.max(totalDesignTime, maxCustom);
     }
     return totalDesignTime;
   };
@@ -86,10 +90,6 @@ const ResultTable = (props) => {
     const customSpend = [];
     const versionCount = [];
     const expandableCount = [];
-
-    // console.log(standardSpend);
-    // console.log(expandableCount);
-    // console.log(versionCount);
 
     for (let i = 0; i < props.campaign.unitConfig.length; i++) {
       const unitMinSpend = props.campaign.unitConfig[i].minSpend;
@@ -139,7 +139,7 @@ const ResultTable = (props) => {
 
   //minSpend end------------------->
 
-  const result = String(designSLA());
+  const designTime = String(designSLA());
   // console.log(result);
 
   return (
@@ -153,7 +153,7 @@ const ResultTable = (props) => {
             Spend: [spendResult],
             "Floor CPM": "Cell 2",
             "Open CPM": "Cell 2",
-            SLA: [result],
+            SLA: [designTime],
           },
         ]}
       />
