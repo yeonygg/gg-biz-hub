@@ -15,7 +15,6 @@ import {
 
 const CreativeRow = (props) => {
   const customUnitIndex = props.config.customFeatures;
-  console.log(customUnitIndex);
 
   const handleChange = (event, field) => {
     const value =
@@ -52,6 +51,11 @@ const CreativeRow = (props) => {
         props.index,
         unitTypes[checkCustomizable].minSpend,
         "minSpend"
+      );
+      props.changeHandler(
+        props.index,
+        unitTypes[checkCustomizable].floorVCPM,
+        "floorVCPM"
       );
       props.changeHandler(
         props.index,

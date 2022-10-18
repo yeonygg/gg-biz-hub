@@ -88,26 +88,17 @@ const ResultTable = (props) => {
 
   const unit = props.campaign.unitConfig;
   console.log(unit);
-
-  //   {customUnitIndex.map(function (customIndex) {
-  //   const custom = customFeatures[customIndex];
-  //   return <option key={custom.id}>{custom.name}</option>;
-  // })}
-
   return (
     <Section padding="sm" className="client-section">
-      {unit.map(function (index) {
-        console.log(index);
-      })}
       <Table
         size="sm"
         columns={["Unit Type", "Floor CPM", "Floor VCPM", "Open CPM"]}
         data={[
           {
-            "Unit Type": "Cell 1",
-            "Floor CPM": "Cell 2",
-            "Floor VCPM": "Cell 2",
-            "Open CPM": "Cell 2",
+            "Unit Type": "[unit.unitType]",
+            "Floor CPM": [unit.floorCPM],
+            "Floor VCPM": [unit.floorVCPM],
+            "Open CPM": [unit.openCPM],
           },
         ]}
       />
