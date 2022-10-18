@@ -54,7 +54,7 @@ const ResultTable = (props) => {
       totalDesignTime = 4;
     }
 
-    if (highImpactArray.length >= 1) {
+    if (highImpactArray.length > 0) {
       totalDesignTime = totalDesignTime + 1;
     }
 
@@ -87,56 +87,58 @@ const ResultTable = (props) => {
   // console.log(result);
 
   const unit = props.campaign.unitConfig;
+  console.log(unit);
+
+  {
+    parseFloat(props.campaign.campaignBudget).toFixed(2).toLocaleString();
+  }
 
   const tableData = () => {
     let data = [];
-    //"Unit Type": "",
-    //"Floor CPM": "",
-    //"Floor VCPM": "",
-    //"Open CPM": "",
-    // };
     for (let i = 0; i < unit.length; i++) {
       const row = {
         "Unit Type": unit[i].unitType,
-        "Floor CPM": unit[i].floorCPM,
-        "Floor VCPM": unit[i].floorVCPM,
-        "Open CPM": unit[i].openCPM,
+        "Floor CPM":
+          "$" + parseFloat(unit[i].floorCPM).toFixed(2).toLocaleString(),
+        "Floor VCPM":
+          "$" + parseFloat(unit[i].floorVCPM).toFixed(2).toLocaleString(),
+        "Open CPM":
+          "$" + parseFloat(unit[i].openCPM).toFixed(2).toLocaleString(),
       };
 
-      //const name = unit[i].unitType;
-      //const floorCPM = unit[i].floorCPM;
-      //const floorVCPM = unit[i].floorVCPM;
-      //const openCPM = unit[i].openCPM;
-      data.push(row);
-      // data.floorCPM.push(floorCPM);
-      // data.floorVCPM.push(floorVCPM);
-      // data.openCPM.push(openCPM);
+      if (unit[i].customOn === true) {
+        const customRow = {
+          "Unit Type": unit[i].unitType,
+          "Floor CPM":
+            "$" +
+            parseFloat(
+              parseFloat(unit[i].floorCPM) + parseFloat(unit[i].customFloorCPM)
+            )
+              .toFixed(2)
+              .toLocaleString(),
+          "Floor VCPM":
+            "$" + parseFloat(unit[i].floorVCPM).toFixed(2).toLocaleString(),
+          "Open CPM":
+            "$" +
+            parseFloat(
+              parseFloat(unit[i].openCPM) + parseFloat(unit[i].customOpenCPM)
+            )
+              .toFixed(2)
+              .toLocaleString(),
+        };
+        data.push(customRow);
+      } else {
+        data.push(row);
+      }
     }
-    console.log(data);
     return data;
   };
-
-  // tableData();
-
-  const unitName = [];
-  console.log(unitName);
-
-  for (let i = 0; i < unit.length; i++) {
-    const name = unit[i].unitType;
-    // const floorCPM = unit[i].floorCPM;
-    // const floorVCPM = unit[i].floorVCPM;
-    // const openCPM = unit[i].openCPM;
-    unitName.push(name);
-    // data.floorCPM.push(floorCPM);
-    // data.floorVCPM.push(floorVCPM);
-    // data.openCPM.push(openCPM);
-  }
 
   return (
     <Section padding="sm" className="client-section">
       <Table
         size="sm"
-        columns={["Unit Type", "Floor CPM", "Floor VCPM", "Open CPM"]}
+        columns={["Unit Type", "Floor CPM", "Open CPM", "Floor VCPM"]}
         data={tableData()}
       />
     </Section>
