@@ -89,34 +89,55 @@ const ResultTable = (props) => {
   const unit = props.campaign.unitConfig;
 
   const tableData = () => {
-    let data = {
-      unitType: [],
-      floorCPM: [],
-      floorVCPM: [],
-      openCPM: [],
-    };
+    let data = [];
+    //"Unit Type": "",
+    //"Floor CPM": "",
+    //"Floor VCPM": "",
+    //"Open CPM": "",
+    // };
     for (let i = 0; i < unit.length; i++) {
-      const name = unit[i].unitType;
-      const floorCPM = unit[i].floorCPM;
-      const floorVCPM = unit[i].floorVCPM;
-      const openCPM = unit[i].openCPM;
-      data.unitType.push(name);
-      data.floorCPM.push(floorCPM);
-      data.floorVCPM.push(floorVCPM);
-      data.openCPM.push(openCPM);
+      const row = {
+        "Unit Type": unit[i].unitType,
+        "Floor CPM": unit[i].floorCPM,
+        "Floor VCPM": unit[i].floorVCPM,
+        "Open CPM": unit[i].openCPM,
+      };
+
+      //const name = unit[i].unitType;
+      //const floorCPM = unit[i].floorCPM;
+      //const floorVCPM = unit[i].floorVCPM;
+      //const openCPM = unit[i].openCPM;
+      data.push(row);
+      // data.floorCPM.push(floorCPM);
+      // data.floorVCPM.push(floorVCPM);
+      // data.openCPM.push(openCPM);
     }
     console.log(data);
     return data;
   };
 
-  tableData();
+  // tableData();
+
+  const unitName = [];
+  console.log(unitName);
+
+  for (let i = 0; i < unit.length; i++) {
+    const name = unit[i].unitType;
+    // const floorCPM = unit[i].floorCPM;
+    // const floorVCPM = unit[i].floorVCPM;
+    // const openCPM = unit[i].openCPM;
+    unitName.push(name);
+    // data.floorCPM.push(floorCPM);
+    // data.floorVCPM.push(floorVCPM);
+    // data.openCPM.push(openCPM);
+  }
 
   return (
     <Section padding="sm" className="client-section">
       <Table
         size="sm"
         columns={["Unit Type", "Floor CPM", "Floor VCPM", "Open CPM"]}
-        data={[{ tableData }]}
+        data={tableData()}
       />
     </Section>
   );

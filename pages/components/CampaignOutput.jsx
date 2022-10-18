@@ -51,7 +51,12 @@ const CampaignOutput = (props) => {
       </div>
 
       <div className="campaign-budget">
-        <Heading size="xs">${props.campaign.campaignBudget}</Heading>
+        <Heading size="xs">
+          $
+          {parseFloat(props.campaign.campaignBudget)
+            .toFixed(2)
+            .toLocaleString()}
+        </Heading>
       </div>
     </Section>
   );
