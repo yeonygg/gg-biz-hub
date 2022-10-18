@@ -15,6 +15,7 @@ import {
 
 const CreativeRow = (props) => {
   const customUnitIndex = props.config.customFeatures;
+  console.log(customUnitIndex);
 
   const handleChange = (event, field) => {
     const value =
