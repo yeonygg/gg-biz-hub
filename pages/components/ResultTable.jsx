@@ -88,26 +88,35 @@ const ResultTable = (props) => {
 
   const unit = props.campaign.unitConfig;
 
-  const nameArray = [];
-  for (let i = 0; i < unit.length; i++) {
-    const name = unit[i].unitType;
-    nameArray.push(name);
-  }
-  console.log(nameArray);
+  const tableData = () => {
+    let data = {
+      unitType: [],
+      floorCPM: [],
+      floorVCPM: [],
+      openCPM: [],
+    };
+    for (let i = 0; i < unit.length; i++) {
+      const name = unit[i].unitType;
+      const floorCPM = unit[i].floorCPM;
+      const floorVCPM = unit[i].floorVCPM;
+      const openCPM = unit[i].openCPM;
+      data.unitType.push(name);
+      data.floorCPM.push(floorCPM);
+      data.floorVCPM.push(floorVCPM);
+      data.openCPM.push(openCPM);
+    }
+    console.log(data);
+    return data;
+  };
+
+  tableData();
 
   return (
     <Section padding="sm" className="client-section">
       <Table
         size="sm"
         columns={["Unit Type", "Floor CPM", "Floor VCPM", "Open CPM"]}
-        data={[
-          {
-            "Unit Type": [...nameArray],
-            "Floor CPM": "Cell 2",
-            "Floor VCPM": "Cell 3",
-            "Open CPM": "Cell 3",
-          },
-        ]}
+        data={[{ tableData }]}
       />
     </Section>
   );
