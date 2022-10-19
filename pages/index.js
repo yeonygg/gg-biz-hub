@@ -4,7 +4,10 @@ import styles from "../styles/Home.module.css";
 import CampaignInputs from "./components/CampaignInputs";
 import CreativeRow from "./components/CreativeRow";
 import SubHeading from "./components/SubHeading";
-import ResultsCard from "./components/ResultsCard";
+import RateBreakdownCard from "./components/RateBreakdownCard";
+import SpendCard from "./components/SpendCard";
+import DesignCard from "./components/DesignCard";
+import CesCard from "./components/CesCard";
 import { useState, useEffect, Component } from "react";
 import { InputsContext } from "./Contexts/InputsContext";
 import { UUIDV4 } from "./helpers/helpers";
@@ -234,7 +237,13 @@ class App extends Component {
               </div>
             </div>
           </Card>
-          <ResultsCard campaign={this.state.campaign} />
+          <div className="spend-sla-section">
+            <SpendCard campaign={this.state.campaign} />
+            <DesignCard campaign={this.state.campaign} />
+            <CesCard campaign={this.state.campaign} />
+          </div>
+
+          <RateBreakdownCard campaign={this.state.campaign} />
           <footer>
             <img src="/logo.svg" width="175px" />
           </footer>

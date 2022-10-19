@@ -334,3 +334,24 @@ footer {
     padding: 2rem;
   }
 }
+
+.spend-sla-section {
+  display: flex;
+}
+
+.spend-card {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  width: 50%;
+}
+
+.design-card {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  width: 25%;
+}
+
+.ces-card {
+  margin-bottom: 1rem;
+  width: 25%;
+}
