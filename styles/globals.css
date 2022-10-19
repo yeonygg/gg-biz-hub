@@ -349,9 +349,15 @@ footer {
   margin-right: 1rem;
   margin-bottom: 1rem;
   width: 25%;
+  text-align: center;
 }
 
 .ces-card {
   margin-bottom: 1rem;
   width: 25%;
+}
+
+.sla-heading {
+  font-size: 94px;
+  color: #08d18b;
 }
