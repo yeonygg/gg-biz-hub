@@ -154,9 +154,8 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: stretch;
-  border: 1px solid #bcc5ca;
+  border: 1px solid #e3e7e8;
   border-radius: 1rem;
-  overflow: hidden;
   padding: 0.5rem;
 }
 
@@ -169,14 +168,14 @@ footer {
 
 .gantt-task, .gantt-task-header {
   flex: 0 0 20%;
-  border-right: 1px solid #bcc5ca;
+  border-right: 1px solid #f0f0f0;
   border-bottom: 1px solid #f0f0f0;
   padding: 0.5rem;
 }
 
 .gantt-cell {
   flex: 1 1 auto;
-  border-right: 1px solid #bcc5ca;;
+  /* border-right: 1px solid #bcc5ca;; */
   border-bottom: 1px solid #f0f0f0;
   padding: 0.25rem;
 }
@@ -191,6 +190,7 @@ footer {
   align-items: center;
   align-content: center;
   justify-content: center;
+  border-left: 1px solid #f0f0f0;
 }
 
 .gantt-cell:last-child {
@@ -211,13 +211,16 @@ footer {
 
 .filled {
   background-color: #08d18b;
-  height: calc(100% - 4px);
+  height: calc(100% - 20px);
   width: calc(100% + 2px);
   position: absolute;
-  top: 2px;
+  top: 10px;
   left: -1px;
   z-index: 9;
+}
 
+.filled::after {
+  white-space: pre;
 }
 
 
@@ -242,6 +245,15 @@ footer {
 
 .-odd {
   background-color: #f0f0f0;
+  border-bottom: 1px solid white;
+}
+
+.-even:first-child {
+  border-left: 1px solid #bcc5ca;
+}
+
+[data-tooltip]::after {
+  /* white-space: pre; */
 }
 
 /* Extra small devices (phones, 600px and down) */

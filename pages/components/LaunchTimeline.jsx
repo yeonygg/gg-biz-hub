@@ -89,53 +89,79 @@ const LaunchTimeline = (props) => {
         {
             name:'Kick Off Call',
             time: 0.5,
-            sequence: 0.5
-
+            sequence: 0.5,
+            description: 'AM connects directly with the client to align on design and delivery expectations.',
+            owner: 'Account Manager' 
         },
         {
             name:'Avails Pull',
             time: 0.5,
-            sequence: 1
+            sequence: 1,
+            description: 'Campaign Managers pull avails and ensure the campaign can be delivered as planned.',
+            owner: 'Campaign Manager'
         },
         {
             name:'Ticket Creation',
             time: 0.5,
-            sequence: 1
+            sequence: 1,
+            description: 'Campaign Managers create the AC ticket as well as the shell tickets for DTR and CES.',
+            owner: 'Campaign Manager'
+        },
+        {
+            name:'Tag Sheet Requisition',
+            time: 1,
+            sequence: 1,
+            description: 'Campaign Managers coordinate with client to collect all tagging/tracking documents',
+            owner: 'Campaign Manager'
         },
         {
             name:'Asset Validation',
             time: 1,
-            sequence: 1.5
+            sequence: 1.5,
+            description: 'Clients are expected to submit assets within 24 hours of signed I/O.\nDesign Managers await, and then screen any submitted assets for viability.',
+            owner: 'Design Manager'
         },
         {
             name:'Initial Mocks',
             time: designSLA(),
-            sequence: 2.5
+            sequence: 2.5,
+            description: 'DTR ticket is assigned and designers work on initial creative based on client-provided assets and direction',
+            owner: 'Designer'
         },
         {
             name:'Client Review',
             time: 1,
-            sequence: designSLA() + 2.5
+            sequence: designSLA() + 2.5,
+            description: 'Designers submit the creative mocks for review and Campaign \nManagers pass demos along to the client. Clients are expected to \nprovide feedback within 24 hours of mock submission',
+            owner: 'Campaign Manager'
         },
         {
             name:'Revisions',
             time: 1,
-            sequence: designSLA() + 3.5
+            sequence: designSLA() + 3.5,
+            description: 'Designers have 24 hours to make and revisions the client has \nrequested. Note: this process will take longer for multiple rounds of revisions',
+            owner: 'Designer'
         },
         {
             name:'Tagging/Setup',
             time: 1,
-            sequence: designSLA() + 4.5
+            sequence: designSLA() + 4.5,
+            description: 'Creative Engineering applies provided tracking tags to all \ncreatives and perform any manual engineering work required to \nready the creative for launch',
+            owner: 'Creative Engineer'
         },
         {
             name:'QA',
             time: 0.5,
-            sequence:  designSLA() + 5.5
+            sequence:  designSLA() + 5.5,
+            description: 'Account Manager confirms campaign is configured Correctly',
+            owner: 'Account Manager'
         },
         {
             name:'Launch',
             time: 0,
-            sequence: designSLA() + 6
+            sequence: designSLA() + 6,
+            description: 'Launch!',
+            owner: 'Account Manager'
         }
     ];
    
@@ -145,22 +171,20 @@ const LaunchTimeline = (props) => {
         let td = [];
         let blocksFilled = 0;
         let oddCount = 0;
-        for (let i = 1; i <= totalTime*2; i++) {
-           
-            let bgClass = oddCount < 2 ? '-odd' : '-even'
-
+        for (let i = 1; i <= totalTime*2; i++) { 
+            let bgClass = oddCount < 2 ? '-odd ' : '-even ';
             if(phase.sequence === i/2) {
                 if(phase.time < 1) {
-                    td.push(<div class={`gantt-cell ${bgClass}`} key={i}><div class="filled -first -last"></div></div>);
+                    td.push(<div class={`gantt-cell ${bgClass}`} key={i}><div class="filled -first -last pier-tooltip pier-tooltip--top" data-tooltip={`Day ${Math.ceil(i/2)}: ${phase.description}`}></div></div>);
                 } else {
-                    td.push(<div class={`gantt-cell ${bgClass}`} key={i}><div class="filled -first"></div></div>);
+                    td.push(<div class={`gantt-cell ${bgClass}`} key={i}><div class="filled -first pier-tooltip pier-tooltip--top" data-tooltip={`Day ${Math.ceil(i/2)}: ${phase.description}`}></div></div>);
                 }
                 blocksFilled = phase.time*2;
             } else if(blocksFilled > 2) {
-                td.push(<div class={`gantt-cell ${bgClass}`} key={i}><div class="filled"></div></div>);
+                td.push(<div class={`gantt-cell ${bgClass}`} key={i}><div class="filled pier-tooltip pier-tooltip--top" data-tooltip={`Day ${Math.ceil(i/2)}: ${phase.description}`}></div></div>);
                 blocksFilled--; 
             } else if(blocksFilled == 2) {
-                td.push(<div class={`gantt-cell ${bgClass}`} key={i}><div class="filled -last"></div></div>);
+                td.push(<div class={`gantt-cell ${bgClass}`} key={i}><div class="filled -last pier-tooltip pier-tooltip--top" data-tooltip={`Day ${Math.ceil(i/2)}: ${phase.description}`}></div></div>);
                 blocksFilled--; 
             } else {
                 td.push(<div class={`gantt-cell ${bgClass}`} key={i}></div>);
@@ -183,7 +207,7 @@ const LaunchTimeline = (props) => {
         <Heading size="xs">Launch Timeline</Heading>
         <div className="launch-gantt">
             <div class="gantt-header">
-                <div class="gantt-task-header">Task</div>
+                <div class="gantt-task-header">&nbsp;</div>
                 {
                     generateHeader() 
                 }
@@ -191,7 +215,7 @@ const LaunchTimeline = (props) => {
             {
                 phases.map((phase) => (
                     <div className="gantt-row">
-                        <div class="gantt-task">{phase.name}</div>
+                        <div class="gantt-task -text-a-right">{phase.name}</div>
                         { generateCells(phase) }
                     </div>
                 ))
