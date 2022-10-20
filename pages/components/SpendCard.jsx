@@ -8,6 +8,7 @@ import {
   Heading,
 } from "pier-design-system";
 import SubHeading from "./SubHeading";
+import SpendMeter from "./SpendMeter";
 
 const SpendCard = (props) => {
   const resultHead = "Minimum Spend";
@@ -130,6 +131,8 @@ const SpendCard = (props) => {
     // }
   };
 
+  const meter = () => {};
+
   // console.log(spendFunction());
 
   console.log(props.campaign);
@@ -157,8 +160,6 @@ const SpendCard = (props) => {
     }
   };
 
-  console.log(textColor());
-
   return (
     <Card className="spend-card">
       <div className="card-style">
@@ -179,6 +180,10 @@ const SpendCard = (props) => {
             Stated Campaign Budget
           </BodyText>
         </Section>
+        <SpendMeter
+          campaignBudget={props.campaign.campaignBudget}
+          minSpend={spendFunction()}
+        />
       </div>
     </Card>
   );
