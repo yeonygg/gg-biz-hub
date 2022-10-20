@@ -153,8 +153,8 @@ class App extends Component {
             Rate, Spend, and SLA Generator
           </Heading>
           <Card className="card">
-            <div className={accordionClass} onClick={this.toggleAccordion}>
-              <div className="pier-accordion__title">
+            <div className={accordionClass}>
+              <div className="pier-accordion__title" onClick={this.toggleAccordion}>
                   <h1 className="pier-accordion__heading">
                       <span className="pier-accordion__icon fas fa-cog"></span>Configure Campaign
                   </h1>
