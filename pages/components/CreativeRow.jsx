@@ -81,6 +81,15 @@ const CreativeRow = (props) => {
         "customTurnaroundTime"
       );
 
+
+      const ceTurnaround = customFeatures[custIndex].cesRequired ? customFeatures[custIndex].cesTurnaroundTime : 1;
+      customFeatures[custIndex].cesRequired && props.changeHandler(
+        props.index,
+        ceTurnaround,
+        "cesTurnaroundTime"
+      )
+      
+
       props.changeHandler(
         props.index,
         customFeatures[custIndex].floorCPM,
@@ -210,7 +219,7 @@ const CreativeRow = (props) => {
                     handleChange(event, "customUnit");
                   }}
                 >
-                  <option value="">Select your add on</option>
+                  <option disabled={true} selected={true} value="">Select your add on</option>
                   {customUnitIndex.map(function (customIndex) {
                     const custom = customFeatures[customIndex];
                     return <option key={custom.id}>{custom.name}</option>;

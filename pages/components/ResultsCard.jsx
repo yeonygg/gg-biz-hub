@@ -2,6 +2,7 @@ import { Card, Section, BodyText, HR, Button } from "pier-design-system";
 import SubHeading from "./SubHeading";
 import CampaignOutput from "./CampaignOutput";
 import ResultTable from "./ResultTable";
+import LaunchTimeline from "./LaunchTimeline";
 
 const ResultsCard = (props) => {
   const resultHead = "Results";
@@ -17,9 +18,9 @@ const ResultsCard = (props) => {
         <CampaignOutput campaign={props.campaign} />
 
         <ResultTable campaign={props.campaign} />
-        <Section padding="xs"></Section>
-        <HR />
-
+        <HR className="-m-b-3" />
+        <LaunchTimeline campaign={props.campaign}/>
+        <HR/>
         <div className="buttons-section">
           <Button
             size="sm"

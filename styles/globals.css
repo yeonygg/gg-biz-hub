@@ -150,6 +150,144 @@ footer {
   align-items: center;
 }
 
+.launch-gantt {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  border: 1px solid #e3e7e8;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.gantt-row, .gantt-header {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.gantt-task, .gantt-task-header {
+  flex: 0 0 20%;
+  border-right: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 0.5rem;
+}
+
+.gantt-cell {
+  flex: 1 1 auto;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 0.25rem;
+}
+
+.gantt-header-cell {
+  flex: 1 1 0%;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border-left: 1px solid #f0f0f0;
+}
+
+.gantt-cell:last-child {
+  border-right: none;
+}
+
+.gantt-row:last-child .gantt-cell, .gantt-row:last-child .gantt-task {
+  border-bottom: none;
+}
+
+.gantt-cell--filled {
+  background-color: #08d18b;
+}
+
+.pier-body-text--xxs {
+  font-size: 0.65rem;
+}
+
+.filled {
+  background-color: #08d18b;
+  height: calc(100% - 20px);
+  width: calc(100% + 2px);
+  position: absolute;
+  top: 10px;
+  left: -1px;
+  z-index: 9;
+}
+
+.filled::after {
+  white-space: pre;
+}
+
+
+.-first {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  width: calc(100% - 2px);
+  left: 2px;
+}
+
+
+.-last {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  width: calc(100% - 2px);
+  right: 2px;
+}
+
+.-last.-first {
+  width: calc(100% - 4px);
+}
+
+.-odd {
+  background-color: #f0f0f0;
+  border-bottom: 1px solid white;
+}
+
+.-even:first-child {
+  border-left: 1px solid #bcc5ca;
+}
+
+[data-tooltip]::after {
+  /* white-space: pre; */
+}
+
+.gantt-legend {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.75rem;
+}
+.gantt-key {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+}
+
+.gantt-color {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+}
+
+[data-owner="Account Manager"] {
+  background-color: #25B9EF;
+}
+[data-owner="Campaign Manager"] {
+  background-color: #08D18B;
+}
+[data-owner="Design Manager"] {
+  background-color: #FCD93D;
+}
+[data-owner="Designer"] {
+  background-color: #FCA522;
+}
+[data-owner="Creative Engineer"] {
+  background-color: #E24550;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   body {

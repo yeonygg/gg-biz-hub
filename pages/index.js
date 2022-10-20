@@ -19,6 +19,7 @@ import {
   Button,
   IconButton,
   Tooltip,
+  Accordion,
 } from "pier-design-system";
 
 let setDebounce;
@@ -42,6 +43,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      accordionOpen: true,
       campaignText: "Campaign Details",
       bodyText: "Fill in required campaign info",
       creativeText: "Creative Plan",
@@ -110,6 +112,12 @@ class App extends Component {
     // console.log(this.state.campaign.unitConfig);
   };
 
+  toggleAccordion = () => {
+    this.setState({
+      accordionOpen: !this.state.accordionOpen
+    });
+  }
+
   render() {
     const handleToggle = (event, field) => {
       if (field === "isExpedited") {
@@ -130,6 +138,8 @@ class App extends Component {
         }
       }
     };
+
+    const accordionClass = this.state.accordionOpen ? 'pier-accordion pier-accordion--open pier-accordion--card' : 'pier-accordion pier-accordion--card';
     return (
       <div className={styles.container}>
         <Head>
@@ -143,75 +153,84 @@ class App extends Component {
             Rate, Spend, and SLA Generator
           </Heading>
           <Card className="card">
-            <div className="card-style">
-              <SubHeading
-                text={this.state.campaignText}
-                body={this.state.bodyText}
-                className="-m-b-0"
-              />
-              <CampaignInputs
-                campaign={this.state.campaign}
-                changeHandler={this.setCampaignInputs}
-              />
-
-              <HR className="-m-b-4" />
-              <div className="creative-plan">
-                <SubHeading
-                  text={this.state.creativeText}
-                  body={"Add Creatives to Campaign"}
-                />
-
-                <InputToggle
-                  size="sm"
-                  disabled={false}
-                  dark={false}
-                  error={false}
-                  className="-m-r-5"
-                  onChange={(event) => {
-                    handleToggle(event, "isExpedited");
-                  }}
-                >
-                  Expedited
-                </InputToggle>
+            <div className={accordionClass}>
+              <div className="pier-accordion__title" onClick={this.toggleAccordion}>
+                  <h1 className="pier-accordion__heading">
+                      <span className="pier-accordion__icon fas fa-cog"></span>Configure Campaign
+                  </h1>
               </div>
-
-              {this.state.campaign.unitConfig.map((config, index) => (
-                <CreativeRow
-                  deleteHandler={this.removeUnitConfig}
-                  changeHandler={this.setUnitConfig}
-                  key={config.key}
-                  index={config.key}
-                  config={config}
-                />
-              ))}
-              <HR />
-
-              <div className="buttons-section">
-                <Tooltip text="Add creative">
-                  <IconButton
-                    onClick={this.createUnitConfig}
-                    className="plus-button"
-                    title="Button"
-                    icon="far fa-plus"
-                    size="sm"
-                    disabled={false}
-                    dark={false}
-                    pill={false}
-                    hero={true}
+              <div className="pier-accordion__content">
+                <div className="card-style">
+                  <SubHeading
+                    text={this.state.campaignText}
+                    body={this.state.bodyText}
+                    className="-m-b-0"
                   />
-                </Tooltip>
-                <Button
-                  className="clear-all-button"
-                  onClick={this.deleteAllUnits}
-                  title="Button"
-                  size="sm"
-                  theme="secondary"
-                  disabled={false}
-                  dark={false}
-                  pill={false}
-                >
-                  Clear all
-                </Button>
+                  <CampaignInputs
+                    campaign={this.state.campaign}
+                    changeHandler={this.setCampaignInputs}
+                  />
+
+                  <HR className="-m-b-4" />
+                  <div className="creative-plan">
+                    <SubHeading
+                      text={this.state.creativeText}
+                      body={"Add Creatives to Campaign"}
+                    />
+
+                    <InputToggle
+                      size="sm"
+                      disabled={false}
+                      dark={false}
+                      error={false}
+                      className="-m-r-5"
+                      onChange={(event) => {
+                        handleToggle(event, "isExpedited");
+                      }}
+                    >
+                      Expedited
+                    </InputToggle>
+                  </div>
+
+                  {this.state.campaign.unitConfig.map((config, index) => (
+                    <CreativeRow
+                      deleteHandler={this.removeUnitConfig}
+                      changeHandler={this.setUnitConfig}
+                      key={config.key}
+                      index={config.key}
+                      config={config}
+                    />
+                  ))}
+                  <HR />
+
+                  <div className="buttons-section">
+                    <Tooltip text="Add creative">
+                      <IconButton
+                        onClick={this.createUnitConfig}
+                        className="plus-button"
+                        title="Button"
+                        icon="far fa-plus"
+                        size="sm"
+                        disabled={false}
+                        dark={false}
+                        pill={false}
+                        hero={true}
+                      />
+                    </Tooltip>
+                    <Button
+                      className="clear-all-button"
+                      onClick={this.deleteAllUnits}
+                      title="Button"
+                      size="sm"
+                      theme="secondary"
+                      disabled={false}
+                      dark={false}
+                      pill={false}
+                    >
+                      Clear all
+                    </Button>
+                  </div>
+                </div>
               </div>
             </div>
           </Card>
