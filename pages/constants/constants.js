@@ -144,6 +144,7 @@ const unitTypes = [
     floorVCPM: "TBD",
     openCPM: 25,
     customizable: false,
+    isSkin: true,
   },
   {
     id: 10,
@@ -157,6 +158,7 @@ const unitTypes = [
     floorVCPM: "TBD",
     openCPM: 21,
     customizable: false,
+    isSkin: true,
   },
   {
     id: 11,
@@ -170,6 +172,7 @@ const unitTypes = [
     floorVCPM: "TBD",
     openCPM: 10,
     customizable: false,
+    isSkin: true,
   },
   {
     id: 12,

@@ -69,6 +69,13 @@ const CreativeRow = (props) => {
           "isCustomizable"
         );
       }
+      if (checkCustomizable) {
+        props.changeHandler(
+          props.index,
+          unitTypes[checkCustomizable].isSkin,
+          "isSkin"
+        );
+      }
     }
     if (field === "customOn") {
       if (event.target.checked === true) {
