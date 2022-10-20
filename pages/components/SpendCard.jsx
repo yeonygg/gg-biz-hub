@@ -134,23 +134,29 @@ const SpendCard = (props) => {
 
   console.log(props.campaign.campaignBudget);
   const inputBudget = props.campaign.campaignBudget;
-  if (spendFunction() >= inputBudget) {
-    const minSpend = document.querySelector(".min-spend");
-    minSpend.style.color = "#E24550";
-  } else {
-    const minSpend = document.querySelector(".min-spend");
-    minSpend.style.color = "#08D18B";
-  }
+  const textColor = () => {
+    let color = "";
+    if (spendFunction() >= inputBudget) {
+      color = "#E24550";
+    } else {
+      color = "#08D18B";
+    }
+    return color;
+  };
+
+  console.log(textColor());
 
   return (
     <Card className="spend-card">
       <div className="card-style">
         <SubHeading text={resultHead} />
-        <Heading className="min-spend" size="lg">
+        <Heading style={{ color: [textColor()] }} size="lg">
           ${spendFunction()}
         </Heading>
 
-        <BodyText>Minimum Spend exceeds stated campaign budget</BodyText>
+        <BodyText size="xs">
+          Minimum Spend exceeds stated campaign budget
+        </BodyText>
 
         <Section padding="xs"></Section>
       </div>
