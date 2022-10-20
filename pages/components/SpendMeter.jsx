@@ -13,8 +13,10 @@ const SpendMeter = (props) => {
   const percentCalc = () => {
     const budget = props.campaignBudget;
     const minSpend = props.minSpend;
-    console.log(budget);
-    console.log(minSpend);
+
+    if (budget === 0 || budget === "") {
+      return 0;
+    }
 
     if (budget < minSpend) {
       return budget / minSpend;
@@ -25,7 +27,7 @@ const SpendMeter = (props) => {
 
   console.log(percentCalc());
   var {
-    percent = [percentCalc()], // a number between 0 and 1, inclusive
+    percent = 1, // a number between 0 and 1, inclusive
     width = "100%", // the overall width
     height = 25, // the overall height
     rounded = true, // if true, use rounded corners
@@ -38,11 +40,17 @@ const SpendMeter = (props) => {
 
   var r = rounded ? Math.ceil(height / 2) : 0;
   var w = percent ? Math.max(height, 100 * Math.min(percent, 1)) : 0;
-  var style = animate ? { transition: "width 500ms, fill 250ms" } : null;
+  var style = animate
+    ? { transition: "width 500ms, fill 250ms, all 500ms" }
+    : null;
 
-  // console.log(spendFunction());
-
-  console.log(props.campaign);
+  const circlePosition = () => {
+    if (percent === 0) {
+      return 6 + "%";
+    } else if (percent > 0 && percent <= 1) {
+      return w - 6 + "%";
+    }
+  };
 
   return (
     <Section padding="xs">
@@ -89,7 +97,7 @@ const SpendMeter = (props) => {
           style={style}
         />
         <ellipse
-          cx={w + "%"}
+          cx={circlePosition()}
           cy="37%"
           rx="27"
           ry="27"
@@ -97,15 +105,13 @@ const SpendMeter = (props) => {
           style={style}
         ></ellipse>
         <ellipse
-          cx={w + "%"}
+          cx={circlePosition()}
           cy="37%"
           rx="25"
           ry="25"
           fill="#fff"
           style={style}
         ></ellipse>
-
-        <img src="./check.svg" width="20" height="20" />
       </svg>
     </Section>
   );
