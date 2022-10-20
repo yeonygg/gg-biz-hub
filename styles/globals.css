@@ -175,16 +175,13 @@ footer {
 
 .gantt-cell {
   flex: 1 1 auto;
-  /* border-right: 1px solid #bcc5ca;; */
   border-bottom: 1px solid #f0f0f0;
   padding: 0.25rem;
 }
 
 .gantt-header-cell {
-  flex: 1 1 auto;
+  flex: 1 1 0%;
   border-bottom: 1px solid #f0f0f0;
-  /* border-right: 2px solid rgba(0,0,0,0); */
-  /* border-left: 2px solid rgba(0,0,0,0); */
   margin-bottom: 0;
   display: flex;
   align-items: center;
@@ -254,6 +251,41 @@ footer {
 
 [data-tooltip]::after {
   /* white-space: pre; */
+}
+
+.gantt-legend {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.75rem;
+}
+.gantt-key {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+}
+
+.gantt-color {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+}
+
+[data-owner="Account Manager"] {
+  background-color: #25B9EF;
+}
+[data-owner="Campaign Manager"] {
+  background-color: #08D18B;
+}
+[data-owner="Design Manager"] {
+  background-color: #FCD93D;
+}
+[data-owner="Designer"] {
+  background-color: #FCA522;
+}
+[data-owner="Creative Engineer"] {
+  background-color: #E24550;
 }
 
 /* Extra small devices (phones, 600px and down) */

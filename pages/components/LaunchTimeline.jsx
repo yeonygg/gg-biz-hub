@@ -85,6 +85,16 @@ const LaunchTimeline = (props) => {
         return totalDesignTime;
     };
 
+    const ceSLA = () => {
+        let sla = 1;
+        props.campaign.unitConfig.map( (unit) => {
+            if(unit.cesTurnaroundTime != undefined) {
+                sla = Math.max(unit.cesTurnaroundTime, sla);
+            }
+        })
+        return sla;
+    }
+
     const phases = [
         {
             name:'Kick Off Call',
@@ -144,7 +154,7 @@ const LaunchTimeline = (props) => {
         },
         {
             name:'Tagging/Setup',
-            time: 1,
+            time: ceSLA(),
             sequence: designSLA() + 4.5,
             description: 'Creative Engineering applies provided tracking tags to all \ncreatives and perform any manual engineering work required to \nready the creative for launch',
             owner: 'Creative Engineer'
@@ -152,20 +162,20 @@ const LaunchTimeline = (props) => {
         {
             name:'QA',
             time: 0.5,
-            sequence:  designSLA() + 5.5,
+            sequence:  designSLA() + ceSLA() + 4.5,
             description: 'Account Manager confirms campaign is configured Correctly',
             owner: 'Account Manager'
         },
         {
             name:'Launch',
             time: 0,
-            sequence: designSLA() + 6,
+            sequence: designSLA() + ceSLA() + 5,
             description: 'Launch!',
             owner: 'Account Manager'
         }
     ];
    
-    const totalTime = 6 + designSLA();
+    const totalTime = Math.max(10, 5 + designSLA() + ceSLA());
 
     const generateCells = (phase) => {
         let td = [];
@@ -175,16 +185,16 @@ const LaunchTimeline = (props) => {
             let bgClass = oddCount < 2 ? '-odd ' : '-even ';
             if(phase.sequence === i/2) {
                 if(phase.time < 1) {
-                    td.push(<div class={`gantt-cell ${bgClass}`} key={i}><div class="filled -first -last pier-tooltip pier-tooltip--top" data-tooltip={`Day ${Math.ceil(i/2)}: ${phase.description}`}></div></div>);
+                    td.push(<div class={`gantt-cell ${bgClass}`} key={i}><div data-owner={phase.owner} class="filled -first -last pier-tooltip pier-tooltip--top" data-tooltip={`Day ${Math.ceil(i/2)}: ${phase.description}`}></div></div>);
                 } else {
-                    td.push(<div class={`gantt-cell ${bgClass}`} key={i}><div class="filled -first pier-tooltip pier-tooltip--top" data-tooltip={`Day ${Math.ceil(i/2)}: ${phase.description}`}></div></div>);
+                    td.push(<div class={`gantt-cell ${bgClass}`} key={i}><div data-owner={phase.owner} class="filled -first pier-tooltip pier-tooltip--top" data-tooltip={`Day ${Math.ceil(i/2)}: ${phase.description}`}></div></div>);
                 }
                 blocksFilled = phase.time*2;
             } else if(blocksFilled > 2) {
-                td.push(<div class={`gantt-cell ${bgClass}`} key={i}><div class="filled pier-tooltip pier-tooltip--top" data-tooltip={`Day ${Math.ceil(i/2)}: ${phase.description}`}></div></div>);
+                td.push(<div class={`gantt-cell ${bgClass}`} key={i}><div data-owner={phase.owner} class="filled pier-tooltip pier-tooltip--top" data-tooltip={`Day ${Math.ceil(i/2)}: ${phase.description}`}></div></div>);
                 blocksFilled--; 
             } else if(blocksFilled == 2) {
-                td.push(<div class={`gantt-cell ${bgClass}`} key={i}><div class="filled -last pier-tooltip pier-tooltip--top" data-tooltip={`Day ${Math.ceil(i/2)}: ${phase.description}`}></div></div>);
+                td.push(<div class={`gantt-cell ${bgClass}`} key={i}><div data-owner={phase.owner} class="filled -last pier-tooltip pier-tooltip--top" data-tooltip={`Day ${Math.ceil(i/2)}: ${phase.description}`}></div></div>);
                 blocksFilled--; 
             } else {
                 td.push(<div class={`gantt-cell ${bgClass}`} key={i}></div>);
@@ -202,6 +212,8 @@ const LaunchTimeline = (props) => {
         return td;
     }
     
+    const owners = [...new Set(phases.map(phase => phase.owner))];
+
   return (
     <Section padding="sm" className="launch-timeline">
         <Heading size="xs">Launch Timeline</Heading>
@@ -215,11 +227,21 @@ const LaunchTimeline = (props) => {
             {
                 phases.map((phase) => (
                     <div className="gantt-row">
-                        <div class="gantt-task -text-a-right">{phase.name}</div>
+                        <div className="gantt-task -text-a-right">{phase.name}</div>
                         { generateCells(phase) }
                     </div>
                 ))
             }
+            <div className="gantt-legend">
+                {
+                    owners.map((owner) => (
+                        <div className="gantt-key">
+                            <div data-owner={owner} className="gantt-color -m-b-2"></div>
+                            <div className="pier-body-text--xs -m-b-0 -text-a-right">{owner}</div>
+                        </div>
+                    ))
+                }
+            </div>
         </div>
     </Section>
   );
