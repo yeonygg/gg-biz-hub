@@ -132,8 +132,10 @@ const SpendCard = (props) => {
 
   // console.log(spendFunction());
 
-  console.log(props.campaign.campaignBudget);
+  console.log(props.campaign);
+
   const inputBudget = props.campaign.campaignBudget;
+  console.log(inputBudget);
   const textColor = () => {
     let color = "";
     if (spendFunction() >= inputBudget) {
@@ -144,21 +146,39 @@ const SpendCard = (props) => {
     return color;
   };
 
+  const spendMessage = () => {
+    if (inputBudget === "" || inputBudget === 0) {
+      return "";
+    }
+    if (spendFunction() >= inputBudget) {
+      return "Minimum Spend exceeds stated campaign budget";
+    } else {
+      return "Minimum Spend is under stated budget";
+    }
+  };
+
   console.log(textColor());
 
   return (
     <Card className="spend-card">
       <div className="card-style">
         <SubHeading text={resultHead} />
-        <Heading style={{ color: [textColor()] }} size="lg">
-          ${spendFunction()}
-        </Heading>
 
-        <BodyText size="xs">
-          Minimum Spend exceeds stated campaign budget
-        </BodyText>
+        <Section padding="xs">
+          <Heading
+            style={{ color: [textColor()], marginBottom: "0.75rem" }}
+            size="lg"
+          >
+            ${spendFunction()}
+          </Heading>
 
-        <Section padding="xs"></Section>
+          <BodyText size="xs" style={{ color: [textColor()] }}>
+            {spendMessage()}
+          </BodyText>
+          <BodyText style={{ fontWeight: "bold", paddingTop: "2rem" }}>
+            Stated Campaign Budget
+          </BodyText>
+        </Section>
       </div>
     </Card>
   );
