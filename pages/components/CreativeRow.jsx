@@ -54,6 +54,11 @@ const CreativeRow = (props) => {
       );
       props.changeHandler(
         props.index,
+        unitTypes[checkCustomizable].floorVCPM,
+        "floorVCPM"
+      );
+      props.changeHandler(
+        props.index,
         unitTypes[checkCustomizable].highImpact,
         "highImpact"
       );
@@ -62,6 +67,20 @@ const CreativeRow = (props) => {
           props.index,
           unitTypes[checkCustomizable].customizable,
           "isCustomizable"
+        );
+      }
+      if (checkCustomizable) {
+        props.changeHandler(
+          props.index,
+          unitTypes[checkCustomizable].isSkin,
+          "isSkin"
+        );
+      }
+      if (checkCustomizable) {
+        props.changeHandler(
+          props.index,
+          unitTypes[checkCustomizable].cesRequired,
+          "cesRequired"
         );
       }
     }
@@ -81,14 +100,11 @@ const CreativeRow = (props) => {
         "customTurnaroundTime"
       );
 
-
-      const ceTurnaround = customFeatures[custIndex].cesRequired ? customFeatures[custIndex].cesTurnaroundTime : 1;
-      customFeatures[custIndex].cesRequired && props.changeHandler(
-        props.index,
-        ceTurnaround,
-        "cesTurnaroundTime"
-      )
-      
+      const ceTurnaround = customFeatures[custIndex].cesRequired
+        ? customFeatures[custIndex].cesTurnaroundTime
+        : 1;
+      customFeatures[custIndex].cesRequired &&
+        props.changeHandler(props.index, ceTurnaround, "cesTurnaroundTime");
 
       props.changeHandler(
         props.index,
@@ -104,6 +120,16 @@ const CreativeRow = (props) => {
         props.index,
         customFeatures[custIndex].minSpend,
         "customMinSpend"
+      );
+      props.changeHandler(
+        props.index,
+        customFeatures[custIndex].cesTurnaroundTime,
+        "cesTurnaroundTime"
+      );
+      props.changeHandler(
+        props.index,
+        customFeatures[custIndex].cesRequired,
+        "cesRequired"
       );
     }
   };
@@ -149,18 +175,6 @@ const CreativeRow = (props) => {
           >
             Custom
           </InputCheckbox>
-        </div>
-
-        <div className="num-units-input">
-          <InputGroup label="Unit Count" size="sm" error="" dark={false}>
-            <InputText
-              size="sm"
-              placeholder="Enter Number"
-              onChange={(event) => {
-                handleChange(event, "unitCount");
-              }}
-            />
-          </InputGroup>
         </div>
 
         <div className="num-units-input">
@@ -219,7 +233,9 @@ const CreativeRow = (props) => {
                     handleChange(event, "customUnit");
                   }}
                 >
-                  <option disabled={true} selected={true} value="">Select your add on</option>
+                  <option disabled={true} selected={true} value="">
+                    Select your add on
+                  </option>
                   {customUnitIndex.map(function (customIndex) {
                     const custom = customFeatures[customIndex];
                     return <option key={custom.id}>{custom.name}</option>;

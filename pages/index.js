@@ -4,7 +4,10 @@ import styles from "../styles/Home.module.css";
 import CampaignInputs from "./components/CampaignInputs";
 import CreativeRow from "./components/CreativeRow";
 import SubHeading from "./components/SubHeading";
-import ResultsCard from "./components/ResultsCard";
+import RateBreakdownCard from "./components/RateBreakdownCard";
+import SpendCard from "./components/SpendCard";
+import DesignCard from "./components/DesignCard";
+import CesCard from "./components/CesCard";
 import { useState, useEffect, Component } from "react";
 import { InputsContext } from "./Contexts/InputsContext";
 import { UUIDV4 } from "./helpers/helpers";
@@ -26,7 +29,6 @@ let setDebounce;
 let unitSchema = {
   key: null,
   unitType: "In-screen",
-  unitCount: 1,
   versionCount: 1,
   customUnit: null,
   customOn: false,
@@ -114,9 +116,9 @@ class App extends Component {
 
   toggleAccordion = () => {
     this.setState({
-      accordionOpen: !this.state.accordionOpen
+      accordionOpen: !this.state.accordionOpen,
     });
-  }
+  };
 
   render() {
     const handleToggle = (event, field) => {
@@ -139,7 +141,9 @@ class App extends Component {
       }
     };
 
-    const accordionClass = this.state.accordionOpen ? 'pier-accordion pier-accordion--open pier-accordion--card' : 'pier-accordion pier-accordion--card';
+    const accordionClass = this.state.accordionOpen
+      ? "pier-accordion pier-accordion--open pier-accordion--card"
+      : "pier-accordion pier-accordion--card";
     return (
       <div className={styles.container}>
         <Head>
@@ -154,10 +158,14 @@ class App extends Component {
           </Heading>
           <Card className="card">
             <div className={accordionClass}>
-              <div className="pier-accordion__title" onClick={this.toggleAccordion}>
-                  <h1 className="pier-accordion__heading">
-                      <span className="pier-accordion__icon fas fa-cog"></span>Configure Campaign
-                  </h1>
+              <div
+                className="pier-accordion__title"
+                onClick={this.toggleAccordion}
+              >
+                <h1 className="pier-accordion__heading">
+                  <span className="pier-accordion__icon fas fa-cog"></span>
+                  Configure Campaign
+                </h1>
               </div>
               <div className="pier-accordion__content">
                 <div className="card-style">
@@ -234,7 +242,13 @@ class App extends Component {
               </div>
             </div>
           </Card>
-          <ResultsCard campaign={this.state.campaign} />
+          <div className="spend-sla-section">
+            <SpendCard campaign={this.state.campaign} />
+            <DesignCard campaign={this.state.campaign} />
+            <CesCard campaign={this.state.campaign} />
+          </div>
+
+          <RateBreakdownCard campaign={this.state.campaign} />
           <footer>
             <img src="/logo.svg" width="175px" />
           </footer>
