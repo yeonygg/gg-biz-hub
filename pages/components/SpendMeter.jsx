@@ -81,9 +81,9 @@ const SpendMeter = (props) => {
 
   const iconPosition = () => {
     if (percentCalc() == 0) {
-      return 4.5 + "%";
+      return 4.6 + "%";
     } else if (percentCalc() > 0 && percentCalc() <= 1) {
-      return w - 7.5 + "%";
+      return w - 7.3 + "%";
     }
   };
 
