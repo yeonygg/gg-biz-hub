@@ -8,9 +8,17 @@ import {
   Heading,
 } from "pier-design-system";
 import SubHeading from "./SubHeading";
+import {
+  faCheck,
+  faXmark,
+  faExclamationCircle,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SpendMeter = (props) => {
   const budget = props.campaignBudget;
+  const x = <FontAwesomeIcon icon={faXmark} inverse />;
+  const check = <FontAwesomeIcon icon={faCheck} inverse />;
   const percentCalc = () => {
     const minSpend = props.minSpend;
 
@@ -51,11 +59,31 @@ const SpendMeter = (props) => {
     }
   };
 
+  const iconSwitch = () => {
+    const budget = props.campaignBudget;
+    const minSpend = props.minSpend;
+    if (budget === "" || budget === 0) {
+      return x;
+    } else if (budget < minSpend) {
+      return x;
+    } else {
+      return check;
+    }
+  };
+
   const circlePosition = () => {
     if (percentCalc() == 0) {
       return 6 + "%";
     } else if (percentCalc() > 0 && percentCalc() <= 1) {
       return w - 6 + "%";
+    }
+  };
+
+  const iconPosition = () => {
+    if (percentCalc() == 0) {
+      return 4.5 + "%";
+    } else if (percentCalc() > 0 && percentCalc() <= 1) {
+      return w - 7.5 + "%";
     }
   };
 
@@ -190,6 +218,9 @@ const SpendMeter = (props) => {
             fill={circleColorSwitch()}
             style={style}
           ></ellipse>
+          <svg width="12" y="-4" x={iconPosition()}>
+            {iconSwitch()}
+          </svg>
         </svg>
       </div>
     </Section>

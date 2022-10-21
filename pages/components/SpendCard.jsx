@@ -10,11 +10,13 @@ import {
 import SubHeading from "./SubHeading";
 import SpendMeter from "./SpendMeter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 
 const SpendCard = (props) => {
   const resultHead = "Minimum Spend";
   const bodyText =
     "Click the Share button to share this information with the client";
+  const icon = <FontAwesomeIcon icon={faExclamationCircle} />;
 
   const spendFunction = () => {
     const unit = props.campaign.unitConfig;
@@ -148,9 +150,8 @@ const SpendCard = (props) => {
       return "";
     }
     if (spendFunction() > inputBudget) {
-      let htmlString = `Minimum Spend exceeds stated campaign budget`;
-
-      return htmlString;
+      let message = `Minimum Spend exceeds stated campaign budget`;
+      return message;
     } else {
       return "Minimum Spend is under stated budget";
     }
@@ -169,7 +170,6 @@ const SpendCard = (props) => {
             ${spendFunction()}
           </Heading>
           <BodyText size="xs" style={{ color: [textColor()] }}>
-            <FontAwesomeIcon icon="fa-solid fa-circle-exclamation" />
             {spendMessage()}
           </BodyText>
         </Section>
