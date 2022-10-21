@@ -1,6 +1,6 @@
 import { InputGroup, InputText, Section, Heading } from "pier-design-system";
 
-import { useContext, useState } from "react";
+import { useState } from "react";
 
 const CampaignOutput = (props) => {
   const toTitleCase = (s) => {

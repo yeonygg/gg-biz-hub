@@ -14,7 +14,8 @@ const CesCard = (props) => {
 
   const cesSLA = () => {
     const campaign = props.campaign.unitConfig;
-    let sla = 0;
+    let none = 0;
+    let sla = [];
     const custom = [];
 
     for (let i = 0; i < campaign.length; i++) {
@@ -24,17 +25,23 @@ const CesCard = (props) => {
         custom.push(Math.max(1, campaign[i].cesTurnaroundTime));
       }
       if (ces === false) {
-        sla = 0;
+        none = 0;
       } else if (ces === true && campaign[i].customOn === false) {
-        sla = 1;
+        sla.push(1);
       }
     }
 
+    const slaSum = sla.reduce((accumulator, value) => {
+      return accumulator + value;
+    }, 0);
+
     const customSLA = Math.max(...custom);
     if (custom.length > 0) {
-      return Math.max(sla, customSLA);
+      return Math.max(slaSum, customSLA);
+    } else if (sla.length > 0) {
+      return slaSum;
     } else {
-      return sla;
+      return none;
     }
   };
 

@@ -9,11 +9,14 @@ import {
 } from "pier-design-system";
 import SubHeading from "./SubHeading";
 import SpendMeter from "./SpendMeter";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 
 const SpendCard = (props) => {
   const resultHead = "Minimum Spend";
   const bodyText =
     "Click the Share button to share this information with the client";
+  const icon = <FontAwesomeIcon icon={faExclamationCircle} />;
 
   const spendFunction = () => {
     const unit = props.campaign.unitConfig;
@@ -61,20 +64,22 @@ const SpendCard = (props) => {
 
     const customMinSpend = Math.max(...custom);
 
-    let minSpend = 25000;
+    let minSpend = 0;
 
     if (custom.length > 0) {
       return Math.max(minSpend, customMinSpend);
     }
 
     if (
+      totalVersions > 0 &&
       totalVersions <= 6 &&
       standard.length <= 2 &&
       hiVersions === 0 &&
       skinVersions === 0
     ) {
-      return minSpend;
+      return 25000;
     } else if (
+      totalVersions > 0 &&
       totalVersions <= 9 &&
       standard.length <= 3 &&
       hiVersions === 0 &&
@@ -82,6 +87,7 @@ const SpendCard = (props) => {
     ) {
       minSpend = 50000;
     } else if (
+      totalVersions > 0 &&
       totalVersions <= 9 &&
       standard.length <= 3 &&
       hiVersions === 1 &&
@@ -89,6 +95,7 @@ const SpendCard = (props) => {
     ) {
       minSpend = 75000;
     } else if (
+      totalVersions > 0 &&
       totalVersions <= 15 &&
       standard.length <= 15 &&
       hiVersions === 2 &&
@@ -96,6 +103,7 @@ const SpendCard = (props) => {
     ) {
       minSpend = 125000;
     } else if (
+      totalVersions > 0 &&
       totalVersions <= 15 &&
       standard.length <= 15 &&
       hiVersions > 2 &&
@@ -103,6 +111,7 @@ const SpendCard = (props) => {
     ) {
       minSpend = 200000;
     } else if (
+      totalVersions > 0 &&
       totalVersions <= 15 &&
       standard.length <= 15 &&
       skinVersions > 0 &&
@@ -110,6 +119,7 @@ const SpendCard = (props) => {
     ) {
       minSpend = 200000;
     } else if (
+      totalVersions > 0 &&
       totalVersions <= 20 &&
       standard.length <= 20 &&
       skinVersions > 2
@@ -123,7 +133,11 @@ const SpendCard = (props) => {
   const inputBudget = props.campaign.campaignBudget;
   const textColor = () => {
     let color = "";
-    if (spendFunction() > inputBudget) {
+<<<<<<< HEAD
+    if (spendFunction() > inputBudget || inputBudget == 0) {
+=======
+    if (spendFunction() > inputBudget || inputBudget === 0) {
+>>>>>>> 77a8f0b (reverting back to this commit)
       color = "#E24550";
     } else {
       color = "#08D18B";
@@ -136,7 +150,8 @@ const SpendCard = (props) => {
       return "";
     }
     if (spendFunction() > inputBudget) {
-      return "Minimum Spend exceeds stated campaign budget";
+      let message = `Minimum Spend exceeds stated campaign budget`;
+      return message;
     } else {
       return "Minimum Spend is under stated budget";
     }
@@ -154,7 +169,6 @@ const SpendCard = (props) => {
           >
             ${spendFunction()}
           </Heading>
-
           <BodyText size="xs" style={{ color: [textColor()] }}>
             {spendMessage()}
           </BodyText>

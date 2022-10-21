@@ -117,9 +117,9 @@ class App extends Component {
 
   toggleAccordion = () => {
     this.setState({
-      accordionOpen: !this.state.accordionOpen
+      accordionOpen: !this.state.accordionOpen,
     });
-  }
+  };
 
   render() {
     const handleToggle = (event, field) => {
@@ -142,7 +142,9 @@ class App extends Component {
       }
     };
 
-    const accordionClass = this.state.accordionOpen ? 'pier-accordion pier-accordion--open pier-accordion--card' : 'pier-accordion pier-accordion--card';
+    const accordionClass = this.state.accordionOpen
+      ? "pier-accordion pier-accordion--open pier-accordion--card"
+      : "pier-accordion pier-accordion--card";
     return (
       <div className={styles.container}>
         <Head>
@@ -157,10 +159,14 @@ class App extends Component {
           </Heading>
           <Card className="card">
             <div className={accordionClass}>
-              <div className="pier-accordion__title" onClick={this.toggleAccordion}>
-                  <h1 className="pier-accordion__heading">
-                      <span className="pier-accordion__icon fas fa-cog"></span>Configure Campaign
-                  </h1>
+              <div
+                className="pier-accordion__title"
+                onClick={this.toggleAccordion}
+              >
+                <h1 className="pier-accordion__heading">
+                  <span className="pier-accordion__icon fas fa-cog"></span>
+                  Configure Campaign
+                </h1>
               </div>
               <div className="pier-accordion__content">
                 <div className="card-style">
