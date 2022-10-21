@@ -10,8 +10,8 @@ import {
 import SubHeading from "./SubHeading";
 
 const SpendMeter = (props) => {
+  const budget = props.campaignBudget;
   const percentCalc = () => {
-    const budget = props.campaignBudget;
     const minSpend = props.minSpend;
 
     if (budget === "" || budget === 0) {
@@ -52,14 +52,35 @@ const SpendMeter = (props) => {
   };
 
   const circlePosition = () => {
-    if (percent == 0) {
+    if (percentCalc() == 0) {
       return 6 + "%";
-    } else if (percent > 0 && percent <= 1) {
+    } else if (percentCalc() > 0 && percentCalc() <= 1) {
       return w - 6 + "%";
     }
   };
 
-  console.log(circlePosition());
+  const budgetNumber = () => {
+    const budget = props.campaignBudget;
+    let number = "";
+    if (percentCalc() >= 0.25) {
+      console.log(budget);
+      number = "$" + budget;
+    } else {
+      number = "";
+    }
+    return number;
+  };
+
+  const spendNumber = () => {
+    const spend = props.minSpend;
+    let number = "";
+    if (percentCalc() <= 0.85) {
+      number = "$" + spend;
+    } else {
+      number = "";
+    }
+    return number;
+  };
 
   console.log(percentCalc());
   var {
@@ -89,75 +110,88 @@ const SpendMeter = (props) => {
       >
         Stated Campaign Budget
       </BodyText>
-      <svg width={width} height="80" aria-label={label}>
-        <defs>
-          <linearGradient id="primaryGradient" gradientTransform="rotate(0)">
-            <stop offset="-7%" stop-color="#08D18B" />
-            <stop offset="107%" stop-color="#25B9EF" />
-          </linearGradient>
-        </defs>
 
-        <defs>
-          <linearGradient
-            id="circlePrimaryGradient"
-            gradientTransform="rotate(0)"
-          >
-            <stop offset="-7%" stop-color="#25B9EF" />
-            <stop offset="107%" stop-color="#08D18B" />
-          </linearGradient>
-        </defs>
+      <div className="meter-wrapper">
+        <BodyText className="budget-meter-budget">{budgetNumber()}</BodyText>
+        <BodyText className="budget-meter-spend">{spendNumber()}</BodyText>
+        <svg width={width} height="80" aria-label={label}>
+          <defs>
+            <linearGradient id="primaryGradient" gradientTransform="rotate(0)">
+              <stop offset="-7%" stop-color="#08D18B" />
+              <stop offset="107%" stop-color="#25B9EF" />
+            </linearGradient>
+          </defs>
 
-        <defs>
-          <linearGradient id="dangerGradient" gradientTransform="rotate(0)">
-            <stop offset="-7%" stop-color="#FCA522" />
-            <stop offset="107%" stop-color="#E24550" />
-          </linearGradient>
-        </defs>
+          <defs>
+            <linearGradient
+              id="circlePrimaryGradient"
+              gradientTransform="rotate(0)"
+            >
+              <stop offset="-7%" stop-color="#25B9EF" />
+              <stop offset="107%" stop-color="#08D18B" />
+            </linearGradient>
+          </defs>
 
-        <defs>
-          <linearGradient
-            id="circleDangerGradient"
-            gradientTransform="rotate(0)"
-          >
-            <stop offset="-7%" stop-color="#E24550" />
-            <stop offset="107%" stop-color="#FCA522" />
-          </linearGradient>
-        </defs>
-        <rect
-          width={width}
-          height={height}
-          fill="#E3E7E8"
-          rx={r}
-          ry={r}
-          y="25"
-        />
+          <defs>
+            <linearGradient id="dangerGradient" gradientTransform="rotate(0)">
+              <stop offset="-7%" stop-color="#FCA522" />
+              <stop offset="107%" stop-color="#E24550" />
+            </linearGradient>
+          </defs>
 
-        <rect
-          width={w + "%"}
-          height={height}
-          fill={colorSwitch()}
-          rx={r}
-          ry={r}
-          y="25"
-          style={style}
-        />
-        <ellipse
-          cx={circlePosition()}
-          cy="45%"
-          rx="27"
-          ry="27"
-          fill={circleColorSwitch()}
-          style={style}
-        ></ellipse>
-        <ellipse
-          cx={circlePosition()}
-          cy="45%"
-          rx="25"
-          ry="25"
-          fill="#fff"
-          style={style}
-        ></ellipse>
-      </svg>
+          <defs>
+            <linearGradient
+              id="circleDangerGradient"
+              gradientTransform="rotate(0)"
+            >
+              <stop offset="-7%" stop-color="#E24550" />
+              <stop offset="107%" stop-color="#FCA522" />
+            </linearGradient>
+          </defs>
+          <rect
+            width={width}
+            height={height}
+            fill="#E3E7E8"
+            rx={r}
+            ry={r}
+            y="25"
+          />
+
+          <rect
+            width={w + "%"}
+            height={height}
+            fill={colorSwitch()}
+            rx={r}
+            ry={r}
+            y="25"
+            style={style}
+          />
+          <ellipse
+            cx={circlePosition()}
+            cy="45%"
+            rx="27"
+            ry="27"
+            fill={circleColorSwitch()}
+            style={style}
+          ></ellipse>
+          <ellipse
+            cx={circlePosition()}
+            cy="45%"
+            rx="25"
+            ry="25"
+            fill="#fff"
+            style={style}
+          ></ellipse>
+          <ellipse
+            cx={circlePosition()}
+            cy="45%"
+            rx="14"
+            ry="14"
+            fill={circleColorSwitch()}
+            style={style}
+          ></ellipse>
+        </svg>
+      </div>
     </Section>
   );
 };

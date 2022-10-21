@@ -61,20 +61,22 @@ const SpendCard = (props) => {
 
     const customMinSpend = Math.max(...custom);
 
-    let minSpend = 25000;
+    let minSpend = 0;
 
     if (custom.length > 0) {
       return Math.max(minSpend, customMinSpend);
     }
 
     if (
+      totalVersions > 0 &&
       totalVersions <= 6 &&
       standard.length <= 2 &&
       hiVersions === 0 &&
       skinVersions === 0
     ) {
-      return minSpend;
+      return 25000;
     } else if (
+      totalVersions > 0 &&
       totalVersions <= 9 &&
       standard.length <= 3 &&
       hiVersions === 0 &&
@@ -82,6 +84,7 @@ const SpendCard = (props) => {
     ) {
       minSpend = 50000;
     } else if (
+      totalVersions > 0 &&
       totalVersions <= 9 &&
       standard.length <= 3 &&
       hiVersions === 1 &&
@@ -89,6 +92,7 @@ const SpendCard = (props) => {
     ) {
       minSpend = 75000;
     } else if (
+      totalVersions > 0 &&
       totalVersions <= 15 &&
       standard.length <= 15 &&
       hiVersions === 2 &&
@@ -96,6 +100,7 @@ const SpendCard = (props) => {
     ) {
       minSpend = 125000;
     } else if (
+      totalVersions > 0 &&
       totalVersions <= 15 &&
       standard.length <= 15 &&
       hiVersions > 2 &&
@@ -103,6 +108,7 @@ const SpendCard = (props) => {
     ) {
       minSpend = 200000;
     } else if (
+      totalVersions > 0 &&
       totalVersions <= 15 &&
       standard.length <= 15 &&
       skinVersions > 0 &&
@@ -110,6 +116,7 @@ const SpendCard = (props) => {
     ) {
       minSpend = 200000;
     } else if (
+      totalVersions > 0 &&
       totalVersions <= 20 &&
       standard.length <= 20 &&
       skinVersions > 2

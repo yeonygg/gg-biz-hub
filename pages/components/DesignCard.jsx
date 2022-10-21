@@ -71,9 +71,9 @@ const DesignCard = (props) => {
     const totalUnits = standardTimeArraySum + highImpactArraySum;
 
     //standard time calc
-    let totalDesignTime = "";
+    let totalDesignTime = "0";
 
-    if (totalUnits <= 4) {
+    if (totalUnits > 0 && totalUnits <= 4) {
       totalDesignTime = 2;
     } else if (totalUnits > 4 && totalUnits <= 15) {
       totalDesignTime = 3;
