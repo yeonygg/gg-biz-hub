@@ -1,5 +1,5 @@
 import { InputGroup, InputText, Section } from "pier-design-system";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { InputsContext } from "../Contexts/InputsContext";
 
 const CampaignInputs = (props) => {
