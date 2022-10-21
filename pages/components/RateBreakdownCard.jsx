@@ -4,8 +4,8 @@ import CampaignOutput from "./CampaignOutput";
 import ResultTable from "./ResultTable";
 import LaunchTimeline from "./LaunchTimeline";
 
-const ResultsCard = (props) => {
-  const resultHead = "Results";
+const RateBreakdownCard = (props) => {
+  const resultHead = "Rate Breakdown";
   const bodyText =
     "Click the Share button to share this information with the client";
   // console.log(props.campaign);
@@ -38,4 +38,4 @@ const ResultsCard = (props) => {
   );
 };
 
-export default ResultsCard;
+export default RateBreakdownCard;

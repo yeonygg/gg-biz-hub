@@ -54,6 +54,11 @@ const CreativeRow = (props) => {
       );
       props.changeHandler(
         props.index,
+        unitTypes[checkCustomizable].floorVCPM,
+        "floorVCPM"
+      );
+      props.changeHandler(
+        props.index,
         unitTypes[checkCustomizable].highImpact,
         "highImpact"
       );
@@ -62,6 +67,20 @@ const CreativeRow = (props) => {
           props.index,
           unitTypes[checkCustomizable].customizable,
           "isCustomizable"
+        );
+      }
+      if (checkCustomizable) {
+        props.changeHandler(
+          props.index,
+          unitTypes[checkCustomizable].isSkin,
+          "isSkin"
+        );
+      }
+      if (checkCustomizable) {
+        props.changeHandler(
+          props.index,
+          unitTypes[checkCustomizable].cesRequired,
+          "cesRequired"
         );
       }
     }
@@ -104,6 +123,16 @@ const CreativeRow = (props) => {
         props.index,
         customFeatures[custIndex].minSpend,
         "customMinSpend"
+      );
+      props.changeHandler(
+        props.index,
+        customFeatures[custIndex].cesTurnaroundTime,
+        "cesTurnaroundTime"
+      );
+      props.changeHandler(
+        props.index,
+        customFeatures[custIndex].cesRequired,
+        "cesRequired"
       );
     }
   };
