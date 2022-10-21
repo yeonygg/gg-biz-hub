@@ -9,6 +9,7 @@ import {
 } from "pier-design-system";
 import SubHeading from "./SubHeading";
 import SpendMeter from "./SpendMeter";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SpendCard = (props) => {
   const resultHead = "Minimum Spend";
@@ -130,7 +131,11 @@ const SpendCard = (props) => {
   const inputBudget = props.campaign.campaignBudget;
   const textColor = () => {
     let color = "";
+<<<<<<< HEAD
     if (spendFunction() > inputBudget || inputBudget == 0) {
+=======
+    if (spendFunction() > inputBudget || inputBudget === 0) {
+>>>>>>> 77a8f0b (reverting back to this commit)
       color = "#E24550";
     } else {
       color = "#08D18B";
@@ -143,7 +148,9 @@ const SpendCard = (props) => {
       return "";
     }
     if (spendFunction() > inputBudget) {
-      return "Minimum Spend exceeds stated campaign budget";
+      let htmlString = `Minimum Spend exceeds stated campaign budget`;
+
+      return htmlString;
     } else {
       return "Minimum Spend is under stated budget";
     }
@@ -161,8 +168,8 @@ const SpendCard = (props) => {
           >
             ${spendFunction()}
           </Heading>
-
           <BodyText size="xs" style={{ color: [textColor()] }}>
+            <FontAwesomeIcon icon="fa-solid fa-circle-exclamation" />
             {spendMessage()}
           </BodyText>
         </Section>
