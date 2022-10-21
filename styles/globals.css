@@ -358,6 +358,8 @@ footer {
 }
 
 .sla-heading {
-  font-size: 94px;
+  padding-top: 2rem;
+  padding-bottom: 0.75rem;
+  font-size: 120px;
   color: #08d18b;
 }

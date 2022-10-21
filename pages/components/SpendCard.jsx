@@ -17,7 +17,6 @@ const SpendCard = (props) => {
 
   const spendFunction = () => {
     const unit = props.campaign.unitConfig;
-    console.log(unit);
 
     const standard = [];
     const hiUnit = [];
@@ -119,29 +118,12 @@ const SpendCard = (props) => {
     }
 
     return minSpend;
-
-    // switch (unit) {
-    //   case "25k":
-    //     if (totalVersions <= 6 && standard.length <= 2) {
-    //       console.log("25k case");
-    //       return 25000;
-    //     }
-
-    //     break;
-    // }
   };
 
-  const meter = () => {};
-
-  // console.log(spendFunction());
-
-  console.log(props.campaign);
-
   const inputBudget = props.campaign.campaignBudget;
-  console.log(inputBudget);
   const textColor = () => {
     let color = "";
-    if (spendFunction() >= inputBudget) {
+    if (spendFunction() > inputBudget) {
       color = "#E24550";
     } else {
       color = "#08D18B";
@@ -153,7 +135,7 @@ const SpendCard = (props) => {
     if (inputBudget === "" || inputBudget === 0) {
       return "";
     }
-    if (spendFunction() >= inputBudget) {
+    if (spendFunction() > inputBudget) {
       return "Minimum Spend exceeds stated campaign budget";
     } else {
       return "Minimum Spend is under stated budget";
@@ -175,9 +157,6 @@ const SpendCard = (props) => {
 
           <BodyText size="xs" style={{ color: [textColor()] }}>
             {spendMessage()}
-          </BodyText>
-          <BodyText style={{ fontWeight: "bold", paddingTop: "2rem" }}>
-            Stated Campaign Budget
           </BodyText>
         </Section>
         <SpendMeter

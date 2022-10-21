@@ -25,6 +25,8 @@ const SpendMeter = (props) => {
     }
   };
 
+  console.log(percentCalc());
+
   const colorSwitch = () => {
     const budget = props.campaignBudget;
     const minSpend = props.minSpend;
@@ -37,6 +39,28 @@ const SpendMeter = (props) => {
     }
   };
 
+  const circleColorSwitch = () => {
+    const budget = props.campaignBudget;
+    const minSpend = props.minSpend;
+    if (budget === "" || budget === 0) {
+      return circleRedColor;
+    } else if (budget < minSpend) {
+      return circleRedColor;
+    } else {
+      return circleGreenColor;
+    }
+  };
+
+  const circlePosition = () => {
+    if (percent == 0) {
+      return 6 + "%";
+    } else if (percent > 0 && percent <= 1) {
+      return w - 6 + "%";
+    }
+  };
+
+  console.log(circlePosition());
+
   console.log(percentCalc());
   var {
     percent = [percentCalc()], // a number between 0 and 1, inclusive
@@ -44,7 +68,8 @@ const SpendMeter = (props) => {
     height = 25, // the overall height
     rounded = true, // if true, use rounded corners
     greenColor = "url('#primaryGradient')", // the fill color
-    circleGreenColor = "url('#circlePrimaryGradient')", // the fill color
+    circleGreenColor = "url('#circlePrimaryGradient')",
+    circleRedColor = "url('#circleDangerGradient')", // the fill color
     redColor = "url('#dangerGradient')", // the fill color
     animate = true, // if true, animate when the percent changes
     label = null, // a label to describe the contents (for accessibility)
@@ -57,17 +82,14 @@ const SpendMeter = (props) => {
     ? { transition: "width 500ms, fill 250ms, all 500ms" }
     : null;
 
-  const circlePosition = () => {
-    if (percent === 0) {
-      return 6 + "%";
-    } else if (percent > 0 && percent <= 1) {
-      return w - 6 + "%";
-    }
-  };
-
   return (
     <Section padding="xs">
-      <svg width={width} height="100" aria-label={label}>
+      <BodyText
+        style={{ fontWeight: "bold", paddingTop: "2rem", marginBottom: 0 }}
+      >
+        Stated Campaign Budget
+      </BodyText>
+      <svg width={width} height="80" aria-label={label}>
         <defs>
           <linearGradient id="primaryGradient" gradientTransform="rotate(0)">
             <stop offset="-7%" stop-color="#08D18B" />
@@ -91,6 +113,16 @@ const SpendMeter = (props) => {
             <stop offset="107%" stop-color="#E24550" />
           </linearGradient>
         </defs>
+
+        <defs>
+          <linearGradient
+            id="circleDangerGradient"
+            gradientTransform="rotate(0)"
+          >
+            <stop offset="-7%" stop-color="#E24550" />
+            <stop offset="107%" stop-color="#FCA522" />
+          </linearGradient>
+        </defs>
         <rect
           width={width}
           height={height}
@@ -111,15 +143,15 @@ const SpendMeter = (props) => {
         />
         <ellipse
           cx={circlePosition()}
-          cy="37%"
+          cy="45%"
           rx="27"
           ry="27"
-          fill={circleGreenColor}
+          fill={circleColorSwitch()}
           style={style}
         ></ellipse>
         <ellipse
           cx={circlePosition()}
-          cy="37%"
+          cy="45%"
           rx="25"
           ry="25"
           fill="#fff"

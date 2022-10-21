@@ -76,6 +76,13 @@ const CreativeRow = (props) => {
           "isSkin"
         );
       }
+      if (checkCustomizable) {
+        props.changeHandler(
+          props.index,
+          unitTypes[checkCustomizable].cesRequired,
+          "cesRequired"
+        );
+      }
     }
     if (field === "customOn") {
       if (event.target.checked === true) {
@@ -116,6 +123,16 @@ const CreativeRow = (props) => {
         props.index,
         customFeatures[custIndex].minSpend,
         "customMinSpend"
+      );
+      props.changeHandler(
+        props.index,
+        customFeatures[custIndex].cesTurnaroundTime,
+        "cesTurnaroundTime"
+      );
+      props.changeHandler(
+        props.index,
+        customFeatures[custIndex].cesRequired,
+        "cesRequired"
       );
     }
   };

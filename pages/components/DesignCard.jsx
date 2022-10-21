@@ -19,7 +19,6 @@ const DesignCard = (props) => {
     const customTimeArray = [];
     const inVideo = [];
     const skin = [];
-    console.log(customTimeArray);
 
     for (let i = 0; i < props.campaign.unitConfig.length; i++) {
       const customTurnaroundTime =
@@ -116,6 +115,13 @@ const DesignCard = (props) => {
     }
     return totalDesignTime;
   };
+  const plural = () => {
+    if (designSLA() > 1) {
+      return "Business Days";
+    } else {
+      return "Business Day";
+    }
+  };
 
   //Design SLA END
 
@@ -124,6 +130,7 @@ const DesignCard = (props) => {
       <div className="card-style">
         <SubHeading text={resultHead} />
         <Heading className="sla-heading">{designSLA()}</Heading>
+        <BodyText>{plural()}</BodyText>
         <Section padding="xs"></Section>
       </div>
     </Card>
