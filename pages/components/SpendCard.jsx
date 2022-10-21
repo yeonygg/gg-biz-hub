@@ -130,7 +130,7 @@ const SpendCard = (props) => {
   const inputBudget = props.campaign.campaignBudget;
   const textColor = () => {
     let color = "";
-    if (spendFunction() > inputBudget) {
+    if (spendFunction() > inputBudget || inputBudget == 0) {
       color = "#E24550";
     } else {
       color = "#08D18B";
