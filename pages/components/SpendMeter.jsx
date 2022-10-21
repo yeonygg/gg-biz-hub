@@ -14,7 +14,7 @@ const SpendMeter = (props) => {
     const budget = props.campaignBudget;
     const minSpend = props.minSpend;
 
-    if (budget === 0 || budget === "") {
+    if (budget === "" || budget === 0) {
       return 0;
     }
 
@@ -25,21 +25,34 @@ const SpendMeter = (props) => {
     }
   };
 
+  const colorSwitch = () => {
+    const budget = props.campaignBudget;
+    const minSpend = props.minSpend;
+    if (budget === "" || budget === 0) {
+      return redColor;
+    } else if (budget < minSpend) {
+      return redColor;
+    } else {
+      return greenColor;
+    }
+  };
+
   console.log(percentCalc());
   var {
-    percent = 1, // a number between 0 and 1, inclusive
+    percent = [percentCalc()], // a number between 0 and 1, inclusive
     width = "100%", // the overall width
     height = 25, // the overall height
     rounded = true, // if true, use rounded corners
     greenColor = "url('#primaryGradient')", // the fill color
     circleGreenColor = "url('#circlePrimaryGradient')", // the fill color
-    redColor = "#08D18B", // the fill color
+    redColor = "url('#dangerGradient')", // the fill color
     animate = true, // if true, animate when the percent changes
     label = null, // a label to describe the contents (for accessibility)
   } = props;
 
   var r = rounded ? Math.ceil(height / 2) : 0;
-  var w = percent ? Math.max(height, 100 * Math.min(percent, 1)) : 0;
+  var w = percent ? Math.max(100 * Math.min(percent, 1)) : 0;
+  console.log(w);
   var style = animate
     ? { transition: "width 500ms, fill 250ms, all 500ms" }
     : null;
@@ -90,7 +103,7 @@ const SpendMeter = (props) => {
         <rect
           width={w + "%"}
           height={height}
-          fill={greenColor}
+          fill={colorSwitch()}
           rx={r}
           ry={r}
           y="25"
