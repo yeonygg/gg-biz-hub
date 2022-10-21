@@ -75,7 +75,7 @@ const SpendMeter = (props) => {
     if (percentCalc() == 0) {
       return 6 + "%";
     } else if (percentCalc() > 0 && percentCalc() <= 1) {
-      return w - 6 + "%";
+      return w - 5 + "%";
     }
   };
 
@@ -83,7 +83,7 @@ const SpendMeter = (props) => {
     if (percentCalc() == 0) {
       return 4.6 + "%";
     } else if (percentCalc() > 0 && percentCalc() <= 1) {
-      return w - 7.3 + "%";
+      return w - 6 + "%";
     }
   };
 

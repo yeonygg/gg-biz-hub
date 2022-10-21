@@ -1,4 +1,3 @@
-import { IMAGES_MANIFEST } from "next/dist/shared/lib/constants";
 import {
   Card,
   Section,
@@ -6,17 +5,16 @@ import {
   HR,
   Button,
   Heading,
+  Tooltip,
 } from "pier-design-system";
 import SubHeading from "./SubHeading";
 import SpendMeter from "./SpendMeter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 
 const SpendCard = (props) => {
   const resultHead = "Minimum Spend";
   const bodyText =
     "Click the Share button to share this information with the client";
-  const icon = <FontAwesomeIcon icon={faExclamationCircle} />;
 
   const spendFunction = () => {
     const unit = props.campaign.unitConfig;
@@ -133,11 +131,7 @@ const SpendCard = (props) => {
   const inputBudget = props.campaign.campaignBudget;
   const textColor = () => {
     let color = "";
-<<<<<<< HEAD
     if (spendFunction() > inputBudget || inputBudget == 0) {
-=======
-    if (spendFunction() > inputBudget || inputBudget === 0) {
->>>>>>> 77a8f0b (reverting back to this commit)
       color = "#E24550";
     } else {
       color = "#08D18B";
@@ -150,12 +144,39 @@ const SpendCard = (props) => {
       return "";
     }
     if (spendFunction() > inputBudget) {
-      let message = `Minimum Spend exceeds stated campaign budget`;
-      return message;
+      return `Minimum Spend exceeds stated campaign budget`;
     } else {
       return "Minimum Spend is under stated budget";
     }
   };
+
+  const icon = () => {
+    let iconCode = <i className="" style={{ marginRight: "5px" }}></i>;
+    if (inputBudget === "" || inputBudget === 0) {
+      iconCode = "";
+    }
+    if (spendFunction() > inputBudget) {
+      iconCode = (
+        <Tooltip
+          position="right"
+          text="Reduce the number of units or versions, 
+or an exception will be required"
+        >
+          <i
+            className="fas fa-exclamation-circle"
+            style={{ marginRight: "5px" }}
+          ></i>
+        </Tooltip>
+      );
+    } else {
+      iconCode = (
+        <i className="fas fa-check-circle" style={{ marginRight: "5px" }}></i>
+      );
+    }
+    return iconCode;
+  };
+
+  console.log(icon());
 
   return (
     <Card className="spend-card">
@@ -170,6 +191,7 @@ const SpendCard = (props) => {
             ${spendFunction()}
           </Heading>
           <BodyText size="xs" style={{ color: [textColor()] }}>
+            {icon()}
             {spendMessage()}
           </BodyText>
         </Section>

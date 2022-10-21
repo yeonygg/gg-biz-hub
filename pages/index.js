@@ -29,7 +29,6 @@ let setDebounce;
 let unitSchema = {
   key: null,
   unitType: "In-screen",
-  unitCount: 1,
   versionCount: 1,
   customUnit: null,
   customOn: false,

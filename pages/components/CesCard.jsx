@@ -14,7 +14,7 @@ const CesCard = (props) => {
 
   const cesSLA = () => {
     const campaign = props.campaign.unitConfig;
-    let none = 0;
+    let none = 1;
     let sla = [];
     const custom = [];
 
@@ -25,7 +25,7 @@ const CesCard = (props) => {
         custom.push(Math.max(1, campaign[i].cesTurnaroundTime));
       }
       if (ces === false) {
-        none = 0;
+        none = 1;
       } else if (ces === true && campaign[i].customOn === false) {
         sla.push(1);
       }
