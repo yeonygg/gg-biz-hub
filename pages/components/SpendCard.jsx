@@ -144,9 +144,9 @@ const SpendCard = (props) => {
       return "";
     }
     if (spendFunction() > inputBudget) {
-      return `Minimum Spend exceeds stated campaign budget`;
+      return `Campaign budget does not meet minimum spend requirements`;
     } else {
-      return "Minimum Spend is under stated budget";
+      return "Campaign budget meets minimum spend thresholds";
     }
   };
 
