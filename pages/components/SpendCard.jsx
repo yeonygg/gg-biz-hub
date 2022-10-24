@@ -188,7 +188,7 @@ or an exception will be required"
             style={{ color: [textColor()], marginBottom: "0.75rem" }}
             size="lg"
           >
-            ${spendFunction()}
+            ${spendFunction().toLocaleString("en-US")}
           </Heading>
           <BodyText size="xs" style={{ color: [textColor()] }}>
             {icon()}

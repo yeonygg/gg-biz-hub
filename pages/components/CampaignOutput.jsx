@@ -1,4 +1,10 @@
-import { InputGroup, InputText, Section, Heading, Card } from "pier-design-system";
+import {
+  InputGroup,
+  InputText,
+  Section,
+  Heading,
+  Card,
+} from "pier-design-system";
 
 import { useState } from "react";
 
@@ -40,21 +46,24 @@ const CampaignOutput = (props) => {
   };
 
   return (
-
     <Card className="card -p-a-4">
       <Section padding="sm" className="client-section">
         <div className="client-name">
-          <Heading className='-m-b-3' size="md">{toTitleCase(props.campaign.clientName)}</Heading>
-          <Heading className='-m-b-0' size="xs">{toTitleCase(props.campaign.campaignName)}</Heading>
+          <Heading className="-m-b-3" size="md">
+            {toTitleCase(props.campaign.clientName)}
+          </Heading>
+          <Heading className="-m-b-0" size="xs">
+            {toTitleCase(props.campaign.campaignName)}
+          </Heading>
         </div>
 
         <div className="campaign-budget -text-a-right">
-          <Heading className='-m-b-0' size="xs">Budget</Heading>
-          <Heading className='-m-b-0' size="lg">
+          <Heading className="-m-b-0" size="xs">
+            Budget
+          </Heading>
+          <Heading className="-m-b-0" size="lg">
             $
-            {parseFloat(props.campaign.campaignBudget)
-              .toFixed(2)
-              .toLocaleString()}
+            {parseFloat(props.campaign.campaignBudget).toLocaleString("eng-US")}
           </Heading>
         </div>
       </Section>
