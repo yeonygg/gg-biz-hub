@@ -451,3 +451,11 @@ footer {
 .spend-meter__filled--green {
   background: linear-gradient(90deg, #08D18B 0%, #25B9EF 100%);
 }
+
+.spend-meter__icon-holder {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: 1rem;
+  right: 1rem;
+}

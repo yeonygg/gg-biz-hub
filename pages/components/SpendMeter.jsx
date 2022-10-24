@@ -110,9 +110,8 @@ const SpendMeter = (props) => {
     }
     return number;
   };
-
-  console.log(percentCalc());
-  var {
+  
+  const {
     percent = [percentCalc()], // a number between 0 and 1, inclusive
     width = "100%", // the overall width
     height = 25, // the overall height
@@ -125,13 +124,12 @@ const SpendMeter = (props) => {
     label = null, // a label to describe the contents (for accessibility)
   } = props;
 
-  var r = rounded ? Math.ceil(height / 2) : 0;
-  var w = percent ? Math.max(100 * Math.min(percent, 1)) : 0;
-  console.log(w);
-  var style = animate
-    ? { transition: "width 500ms, fill 250ms, all 500ms" }
-    : null;
-
+  // var r = rounded ? Math.ceil(height / 2) : 0;
+  // var w = percent ? Math.max(100 * Math.min(percent, 1)) : 0;
+  // console.log(w);
+  // var style = animate
+  //   ? { transition: "width 500ms, fill 250ms, all 500ms" }
+  //   : null;
 
   const barClass = percentCalc() < 1 ? 'spend-meter__filled--red' : 'spend-meter__filled--green';
   const iconClass = percentCalc() < 1 ? 'fas fa-times-circle' : 'fas fa-check-circle';
@@ -151,8 +149,10 @@ const SpendMeter = (props) => {
 
         <div className="spend-meter" data-spend={`$${props.campaignBudget}`}>
             <div className={`spend-meter__filled ${barClass}`} style={{width: `${percentCalc()*100}%`}}></div>
-            <div className={`spend-meter__icon ${iconColor}`} style={{left: `${percentCalc()*100}%`}}>
-                <i className={iconClass}/>
+            <div className="spend-meter__icon-holder">
+              <div className={`spend-meter__icon ${iconColor}`} style={{left: `${percentCalc()*100}%`}}>
+                  <i className={iconClass}/>
+              </div>
             </div>
         </div>
         {/* 

@@ -8,6 +8,7 @@ import RateBreakdownCard from "./components/RateBreakdownCard";
 import SpendCard from "./components/SpendCard";
 import DesignCard from "./components/DesignCard";
 import CesCard from "./components/CesCard";
+import CampaignOutput from "./components/CampaignOutput";
 import { useState, useEffect, Component } from "react";
 import { InputsContext } from "./Contexts/InputsContext";
 import { UUIDV4 } from "./helpers/helpers";
@@ -119,6 +120,8 @@ class App extends Component {
       accordionOpen: !this.state.accordionOpen,
     });
   };
+
+
 
   render() {
     const handleToggle = (event, field) => {
@@ -242,13 +245,16 @@ class App extends Component {
               </div>
             </div>
           </Card>
-          <div className="spend-sla-section">
-            <SpendCard campaign={this.state.campaign} />
-            <DesignCard campaign={this.state.campaign} />
-            <CesCard campaign={this.state.campaign} />
-          </div>
+          <div id="capture">
+            <CampaignOutput campaign={this.state.campaign} />
+            <div className="spend-sla-section">
+              <SpendCard campaign={this.state.campaign} />
+              <DesignCard campaign={this.state.campaign} />
+              <CesCard campaign={this.state.campaign} />
+            </div>
 
-          <RateBreakdownCard campaign={this.state.campaign} />
+            <RateBreakdownCard campaign={this.state.campaign} />
+          </div>
           <footer>
             <img src="/logo.svg" width="175px" />
           </footer>
