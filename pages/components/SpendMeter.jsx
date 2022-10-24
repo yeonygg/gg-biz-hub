@@ -17,6 +17,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SpendMeter = (props) => {
   const budget = props.campaignBudget;
+
   const x = <FontAwesomeIcon icon={faXmark} inverse />;
   const check = <FontAwesomeIcon icon={faCheck} inverse />;
   const percentCalc = () => {
@@ -102,9 +103,9 @@ const SpendMeter = (props) => {
 
   const spendNumber = () => {
     const spend = props.minSpend;
-    let number = "";
+    let number = 0;
     if (percentCalc() <= 0.85) {
-      number = "$" + spend;
+      number = "$" + spend.toLocaleString("en-US");
     } else {
       number = "";
     }
@@ -149,7 +150,7 @@ const SpendMeter = (props) => {
           <BodyText className="budget-meter-spend">{spendNumber()}</BodyText>
         </div>
 
-        <div className="spend-meter" data-spend={`$${props.campaignBudget}`}>
+        <div className="spend-meter" data-spend={`$${budget}`}>
           <div
             className={`spend-meter__filled ${barClass}`}
             style={{ width: `${percentCalc() * 100}%` }}
