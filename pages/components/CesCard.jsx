@@ -32,8 +32,6 @@ const CesCard = (props) => {
       return accumulator + value;
     }, 0);
 
-    console.log(totalUnits);
-
     const customSLA = Math.max(...custom);
     if (custom.length > 0 && totalUnits > 0) {
       return Math.max(standard, customSLA);

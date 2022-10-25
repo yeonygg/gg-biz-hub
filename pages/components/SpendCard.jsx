@@ -150,7 +150,7 @@ const SpendCard = (props) => {
     if (inputBudget == "" || inputBudget == 0) {
       iconCode = "";
     }
-    if (spendFunction() > inputBudget) {
+    if (spendFunction() > inputBudget && inputBudget > 0) {
       iconCode = (
         <Tooltip
           position="right"
