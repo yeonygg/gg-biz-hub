@@ -14,34 +14,33 @@ const CesCard = (props) => {
 
   const cesSLA = () => {
     const campaign = props.campaign.unitConfig;
-    let none = 1;
-    let sla = [];
+    let standard = 1;
+    let versions = [];
     const custom = [];
 
     for (let i = 0; i < campaign.length; i++) {
       const ces = campaign[i].cesRequired;
+      const units = campaign[i].versionCount;
 
       if (campaign[i].customOn === true && campaign[i].cesRequired === true) {
         custom.push(Math.max(1, campaign[i].cesTurnaroundTime));
       }
-      if (ces === false) {
-        none = 1;
-      } else if (ces === true && campaign[i].customOn === false) {
-        sla.push(1);
-      }
+      versions.push(units);
     }
 
-    const slaSum = sla.reduce((accumulator, value) => {
+    const totalUnits = versions.reduce((accumulator, value) => {
       return accumulator + value;
     }, 0);
 
+    console.log(totalUnits);
+
     const customSLA = Math.max(...custom);
-    if (custom.length > 0) {
-      return Math.max(slaSum, customSLA);
-    } else if (sla.length > 0) {
-      return slaSum;
+    if (custom.length > 0 && totalUnits > 0) {
+      return Math.max(standard, customSLA);
+    } else if (totalUnits > 0) {
+      return standard;
     } else {
-      return none;
+      return 0;
     }
   };
 

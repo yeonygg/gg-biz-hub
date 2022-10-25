@@ -64,6 +64,12 @@ const SpendCard = (props) => {
 
     let minSpend = 0;
 
+    // console.log(totalVersions);
+
+    if (totalVersions == 0) {
+      return 0;
+    }
+
     if (custom.length > 0) {
       return Math.max(minSpend, customMinSpend);
     }
@@ -139,20 +145,9 @@ const SpendCard = (props) => {
     return color;
   };
 
-  const spendMessage = () => {
-    if (inputBudget === "" || inputBudget === 0) {
-      return "";
-    }
-    if (spendFunction() > inputBudget) {
-      return `Campaign budget does not meet minimum spend requirements`;
-    } else {
-      return "Campaign budget meets minimum spend thresholds";
-    }
-  };
-
   const icon = () => {
-    let iconCode = <i className="" style={{ marginRight: "5px" }}></i>;
-    if (inputBudget === "" || inputBudget === 0) {
+    let iconCode = "";
+    if (inputBudget == "" || inputBudget == 0) {
       iconCode = "";
     }
     if (spendFunction() > inputBudget) {
@@ -168,7 +163,7 @@ or an exception will be required"
           ></i>
         </Tooltip>
       );
-    } else {
+    } else if (spendFunction() < inputBudget) {
       iconCode = (
         <i className="fas fa-check-circle" style={{ marginRight: "5px" }}></i>
       );
@@ -176,7 +171,18 @@ or an exception will be required"
     return iconCode;
   };
 
-  console.log(icon());
+  const spendMessage = () => {
+    if (inputBudget === "" || inputBudget === 0) {
+      return "";
+    }
+    if (spendFunction() > inputBudget) {
+      return `Campaign budget does not meet minimum spend requirements`;
+    } else {
+      return "Campaign budget meets minimum spend thresholds";
+    }
+  };
+
+  // console.log(icon());
 
   return (
     <Card className="spend-card">
@@ -190,7 +196,10 @@ or an exception will be required"
           >
             ${spendFunction().toLocaleString("en-US")}
           </Heading>
-          <BodyText size="xs" style={{ color: [textColor()] }}>
+          <BodyText
+            size="xs"
+            style={{ color: [textColor()], paddingBottom: "2rem" }}
+          >
             {icon()}
             {spendMessage()}
           </BodyText>

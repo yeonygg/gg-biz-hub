@@ -20,6 +20,8 @@ const DesignCard = (props) => {
     const inVideo = [];
     const skin = [];
 
+    // console.log(customTimeArray);
+
     for (let i = 0; i < props.campaign.unitConfig.length; i++) {
       const customTurnaroundTime =
         props.campaign.unitConfig[i].customTurnaroundTime;
@@ -71,7 +73,7 @@ const DesignCard = (props) => {
     const totalUnits = standardTimeArraySum + highImpactArraySum;
 
     //standard time calc
-    let totalDesignTime = "0";
+    let totalDesignTime = 0;
 
     if (totalUnits > 0 && totalUnits <= 4) {
       totalDesignTime = 2;
@@ -79,9 +81,11 @@ const DesignCard = (props) => {
       totalDesignTime = 3;
     } else if (totalUnits > 15) {
       totalDesignTime = 4;
+    } else if (totalUnits == 0 && customTimeArray.length > 0) {
+      totalDesignTime = 0;
     }
 
-    if (highImpactArray.length > 0) {
+    if (highImpactArray.length > 0 && totalUnits > 0) {
       totalDesignTime = totalDesignTime + 1;
     }
 
@@ -89,19 +93,22 @@ const DesignCard = (props) => {
 
     if (
       customTimeArray.length > 0 &&
-      props.campaign.unitConfig[0].isExpedited === false
+      props.campaign.unitConfig[0].isExpedited === false &&
+      totalUnits > 0
     ) {
       return Math.max(totalDesignTime, maxCustom);
     } else if (
       customTimeArray.length > 0 &&
-      props.campaign.unitConfig[0].isExpedited === true
+      props.campaign.unitConfig[0].isExpedited === true &&
+      totalUnits > 0
     ) {
       return maxCustom - 1;
     }
 
     if (
       props.campaign.unitConfig.length > 0 &&
-      props.campaign.unitConfig[0].isExpedited === true
+      props.campaign.unitConfig[0].isExpedited === true &&
+      totalUnits > 0
     ) {
       totalDesignTime = totalDesignTime - 1;
     }
