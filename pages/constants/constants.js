@@ -554,4 +554,4 @@ const customFeatures = [
     openCPM: 2,
   },
 ];
-export { unitTypes, customFeatures };
+export default { unitTypes, customFeatures };
