@@ -18,12 +18,15 @@ const SpendCard = (props) => {
 
   const spendFunction = () => {
     const unit = props.campaign.unitConfig;
+    // console.log(unit);
 
     const standard = [];
     const hiUnit = [];
     const skin = [];
     const versionCount = [];
     const custom = [];
+    const addOn = [];
+    let unitMinSpend = [];
 
     for (let i = 0; i < unit.length; i++) {
       const standardUnit = unit[i];
@@ -46,6 +49,14 @@ const SpendCard = (props) => {
       if (standardUnit.customOn === true) {
         custom.push(standardUnit.customMinSpend);
       }
+
+      if (
+        standardUnit.customUnit === "Extended Rollover" ||
+        standardUnit.customUnit === "Scrollable Text"
+      ) {
+        addOn.push(standardUnit.versionCount);
+        unitMinSpend.push(standardUnit.minSpend);
+      }
     }
 
     const totalVersions = versionCount.reduce((accumulator, value) => {
@@ -60,20 +71,44 @@ const SpendCard = (props) => {
       return accumulator + value;
     }, 0);
 
+    const addOns = addOn.reduce((accumulator, value) => {
+      return accumulator + value;
+    }, 0);
+
+    const minSpends = Math.max(...unitMinSpend);
+    // console.log(minSpends);
+
     const customMinSpend = Math.max(...custom);
 
     let minSpend = 0;
 
-    if (custom.length > 0) {
+    if (totalVersions == 0) {
+      return 0;
+    }
+
+    if (custom.length > 0 && skinVersions == 0 && addOns == 0) {
       return Math.max(minSpend, customMinSpend);
     }
 
+    if (custom.length > 0 && skinVersions == 0 && addOns > 0) {
+      minSpend = minSpends + 25000;
+    }
+
+    if (
+      custom.length > 0 &&
+      skinVersions == 0 &&
+      addOns > 0 &&
+      hiVersions == 1
+    ) {
+      minSpend = 75000 + 25000;
+    }
     if (
       totalVersions > 0 &&
       totalVersions <= 6 &&
-      standard.length <= 2 &&
       hiVersions === 0 &&
-      skinVersions === 0
+      standard.length <= 2 &&
+      skinVersions === 0 &&
+      addOns == 0
     ) {
       return 25000;
     } else if (
@@ -81,7 +116,8 @@ const SpendCard = (props) => {
       totalVersions <= 9 &&
       standard.length <= 3 &&
       hiVersions === 0 &&
-      skinVersions === 0
+      skinVersions === 0 &&
+      addOns == 0
     ) {
       minSpend = 50000;
     } else if (
@@ -89,7 +125,8 @@ const SpendCard = (props) => {
       totalVersions <= 9 &&
       standard.length <= 3 &&
       hiVersions === 1 &&
-      skinVersions === 0
+      skinVersions === 0 &&
+      addOns == 0
     ) {
       minSpend = 75000;
     } else if (
@@ -139,23 +176,12 @@ const SpendCard = (props) => {
     return color;
   };
 
-  const spendMessage = () => {
-    if (inputBudget === "" || inputBudget === 0) {
-      return "";
-    }
-    if (spendFunction() > inputBudget) {
-      return `Minimum Spend exceeds stated campaign budget`;
-    } else {
-      return "Minimum Spend is under stated budget";
-    }
-  };
-
   const icon = () => {
-    let iconCode = <i className="" style={{ marginRight: "5px" }}></i>;
-    if (inputBudget === "" || inputBudget === 0) {
+    let iconCode = "";
+    if (inputBudget == "" || inputBudget == 0) {
       iconCode = "";
     }
-    if (spendFunction() > inputBudget) {
+    if (spendFunction() > inputBudget && inputBudget > 0) {
       iconCode = (
         <Tooltip
           position="right"
@@ -168,7 +194,7 @@ or an exception will be required"
           ></i>
         </Tooltip>
       );
-    } else {
+    } else if (spendFunction() < inputBudget) {
       iconCode = (
         <i className="fas fa-check-circle" style={{ marginRight: "5px" }}></i>
       );
@@ -176,7 +202,18 @@ or an exception will be required"
     return iconCode;
   };
 
-  console.log(icon());
+  const spendMessage = () => {
+    if (inputBudget === "" || inputBudget === 0) {
+      return "";
+    }
+    if (spendFunction() > inputBudget) {
+      return `Campaign budget does not meet minimum spend requirements`;
+    } else {
+      return "Campaign budget meets minimum spend thresholds";
+    }
+  };
+
+  // console.log(icon());
 
   return (
     <Card className="spend-card">
@@ -188,9 +225,12 @@ or an exception will be required"
             style={{ color: [textColor()], marginBottom: "0.75rem" }}
             size="lg"
           >
-            ${spendFunction()}
+            ${spendFunction().toLocaleString("en-US")}
           </Heading>
-          <BodyText size="xs" style={{ color: [textColor()] }}>
+          <BodyText
+            size="xs"
+            style={{ color: [textColor()], paddingBottom: "2rem" }}
+          >
             {icon()}
             {spendMessage()}
           </BodyText>

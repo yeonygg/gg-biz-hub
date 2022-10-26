@@ -19,6 +19,9 @@ const DesignCard = (props) => {
     const customTimeArray = [];
     const inVideo = [];
     const skin = [];
+    const addOn = [];
+
+    console.log(addOn);
 
     for (let i = 0; i < props.campaign.unitConfig.length; i++) {
       const customTurnaroundTime =
@@ -54,6 +57,13 @@ const DesignCard = (props) => {
       ) {
         skin.push(turnaroundTime);
       }
+
+      if (
+        props.campaign.unitConfig[i].customUnit === "Extended Rollover" ||
+        props.campaign.unitConfig[i].customUnit === "Scrollable Text"
+      ) {
+        addOn.push(versionCount);
+      }
     }
 
     const standardTimeArraySum = standardTimeArray.reduce(
@@ -71,48 +81,78 @@ const DesignCard = (props) => {
     const totalUnits = standardTimeArraySum + highImpactArraySum;
 
     //standard time calc
-    let totalDesignTime = "0";
+    let totalDesignTime = 0;
 
-    if (totalUnits > 0 && totalUnits <= 4) {
-      totalDesignTime = 2;
-    } else if (totalUnits > 4 && totalUnits <= 15) {
-      totalDesignTime = 3;
-    } else if (totalUnits > 15) {
-      totalDesignTime = 4;
+    if (totalUnits > 0 && props.campaign.unitConfig[0].isExpedited === false) {
+      if (totalUnits > 0 && totalUnits <= 4) {
+        console.log(totalUnits);
+        debugger;
+        totalDesignTime = 2;
+      } else if (totalUnits > 4 && totalUnits <= 15) {
+        totalDesignTime = 3;
+      } else if (totalUnits > 15) {
+        totalDesignTime = 4;
+      } else if (totalUnits == 0 && customTimeArray.length > 0) {
+        totalDesignTime = 0;
+      }
+
+      if (highImpactArray.length > 0 && totalUnits > 0 && addOn.length == 0) {
+        totalDesignTime = totalDesignTime + 1;
+      }
+      if (
+        customTimeArray.length > 0 &&
+        totalUnits > 0 &&
+        skin.length == 0 &&
+        addOn.length == 0
+      ) {
+        return Math.max(totalDesignTime, maxCustom);
+      }
+      if (customTimeArray.length > 0 && addOn.length > 0) {
+        totalDesignTime = maxCustom + 1;
+      }
+
+      if (inVideo.length > 0) {
+        totalDesignTime = 7;
+      }
+      if (skin.length > 0) {
+        totalDesignTime = 5;
+      }
     }
 
-    if (highImpactArray.length > 0) {
-      totalDesignTime = totalDesignTime + 1;
+    if (totalUnits > 0 && props.campaign.unitConfig[0].isExpedited === true) {
+      if (totalUnits > 0 && totalUnits <= 4) {
+        totalDesignTime = 1;
+      } else if (totalUnits > 4 && totalUnits <= 15) {
+        totalDesignTime = 2;
+      } else if (totalUnits > 15) {
+        totalDesignTime = 3;
+      } else if (totalUnits == 0 && customTimeArray.length > 0) {
+        totalDesignTime = 0;
+      }
+
+      if (highImpactArray.length > 0 && totalUnits > 0 && addOn.length == 0) {
+        totalDesignTime = totalDesignTime + 1;
+      }
+      if (
+        customTimeArray.length > 0 &&
+        totalUnits > 0 &&
+        skin.length == 0 &&
+        addOn.length == 0
+      ) {
+        return Math.max(totalDesignTime, maxCustom) - 1;
+      }
+      if (customTimeArray.length > 0 && addOn.length > 0) {
+        totalDesignTime = maxCustom;
+      }
+
+      if (inVideo.length > 0) {
+        totalDesignTime = 6;
+      }
+      if (skin.length > 0) {
+        totalDesignTime = 4;
+      }
     }
 
-    // console.log(props.campaign.unitConfig);
-
-    if (
-      customTimeArray.length > 0 &&
-      props.campaign.unitConfig[0].isExpedited === false
-    ) {
-      return Math.max(totalDesignTime, maxCustom);
-    } else if (
-      customTimeArray.length > 0 &&
-      props.campaign.unitConfig[0].isExpedited === true
-    ) {
-      return maxCustom - 1;
-    }
-
-    if (
-      props.campaign.unitConfig.length > 0 &&
-      props.campaign.unitConfig[0].isExpedited === true
-    ) {
-      totalDesignTime = totalDesignTime - 1;
-    }
-
-    if (inVideo.length > 0) {
-      totalDesignTime = 7;
-    }
-
-    if (skin.length > 0) {
-      totalDesignTime = 5;
-    }
     return totalDesignTime;
   };
   const plural = () => {
