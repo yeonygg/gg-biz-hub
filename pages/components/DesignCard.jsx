@@ -94,13 +94,15 @@ const DesignCard = (props) => {
     if (
       customTimeArray.length > 0 &&
       props.campaign.unitConfig[0].isExpedited === false &&
-      totalUnits > 0
+      totalUnits > 0 &&
+      skin.length == 0
     ) {
       return Math.max(totalDesignTime, maxCustom);
     } else if (
       customTimeArray.length > 0 &&
       props.campaign.unitConfig[0].isExpedited === true &&
-      totalUnits > 0
+      totalUnits > 0 &&
+      skin.length == 0
     ) {
       return maxCustom - 1;
     }

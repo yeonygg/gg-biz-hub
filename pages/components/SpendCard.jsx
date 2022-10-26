@@ -18,12 +18,16 @@ const SpendCard = (props) => {
 
   const spendFunction = () => {
     const unit = props.campaign.unitConfig;
+    console.log(unit);
 
     const standard = [];
     const hiUnit = [];
     const skin = [];
     const versionCount = [];
     const custom = [];
+    const addOn = [];
+    let unitMinSpend = [];
+    console.log(unitMinSpend);
 
     for (let i = 0; i < unit.length; i++) {
       const standardUnit = unit[i];
@@ -46,6 +50,14 @@ const SpendCard = (props) => {
       if (standardUnit.customOn === true) {
         custom.push(standardUnit.customMinSpend);
       }
+
+      if (
+        standardUnit.customUnit === "Extended Rollover" ||
+        standardUnit.customUnit === "Scrollable Text"
+      ) {
+        addOn.push(standardUnit.versionCount);
+        unitMinSpend.push(standardUnit.minSpend);
+      }
     }
 
     const totalVersions = versionCount.reduce((accumulator, value) => {
@@ -60,26 +72,36 @@ const SpendCard = (props) => {
       return accumulator + value;
     }, 0);
 
+    const addOns = addOn.reduce((accumulator, value) => {
+      return accumulator + value;
+    }, 0);
+
+    const minSpends = Math.max(...unitMinSpend);
+    console.log(minSpends);
+
     const customMinSpend = Math.max(...custom);
+    console.log(standard.length);
 
     let minSpend = 0;
-
-    // console.log(totalVersions);
 
     if (totalVersions == 0) {
       return 0;
     }
 
-    if (custom.length > 0) {
+    if (custom.length > 0 && skinVersions == 0 && addOns == 0) {
       return Math.max(minSpend, customMinSpend);
     }
 
+    if (custom.length > 0 && skinVersions == 0 && addOns > 0) {
+      minSpend = minSpends + 25000;
+    }
     if (
       totalVersions > 0 &&
       totalVersions <= 6 &&
-      standard.length <= 2 &&
       hiVersions === 0 &&
-      skinVersions === 0
+      standard.length <= 2 &&
+      skinVersions === 0 &&
+      addOns == 0
     ) {
       return 25000;
     } else if (
@@ -87,7 +109,8 @@ const SpendCard = (props) => {
       totalVersions <= 9 &&
       standard.length <= 3 &&
       hiVersions === 0 &&
-      skinVersions === 0
+      skinVersions === 0 &&
+      addOns == 0
     ) {
       minSpend = 50000;
     } else if (
@@ -95,7 +118,8 @@ const SpendCard = (props) => {
       totalVersions <= 9 &&
       standard.length <= 3 &&
       hiVersions === 1 &&
-      skinVersions === 0
+      skinVersions === 0 &&
+      addOns == 0
     ) {
       minSpend = 75000;
     } else if (
@@ -130,6 +154,8 @@ const SpendCard = (props) => {
     ) {
       minSpend = 300000;
     }
+
+    console.log(minSpend);
 
     return minSpend;
   };
