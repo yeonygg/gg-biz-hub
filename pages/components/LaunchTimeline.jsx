@@ -268,14 +268,14 @@ const LaunchTimeline = (props) => {
           {generateHeader()}
         </div>
         {phases.map((phase) => (
-          <div className="gantt-row">
+          <div className="gantt-row" key={phase}>
             <div className="gantt-task -text-a-right">{phase.name}</div>
             {generateCells(phase)}
           </div>
         ))}
         <div className="gantt-legend">
           {owners.map((owner) => (
-            <div className="gantt-key">
+            <div className="gantt-key" key={owner}>
               <div data-owner={owner} className="gantt-color -m-b-2"></div>
               <div className="pier-body-text--xs -m-b-0 -text-a-right">
                 {owner}
