@@ -1,4 +1,5 @@
-const unitTypes = [
+/* eslint-disable import/no-anonymous-default-export */
+var unitTypes = [
   {
     id: 0,
     name: "In-Screen",
@@ -266,7 +267,7 @@ const unitTypes = [
     customizable: false,
   },
 ];
-const customFeatures = [
+var customFeatures = [
   {
     id: 0,
     name: "API Integration",
@@ -553,4 +554,5 @@ const customFeatures = [
     openCPM: 2,
   },
 ];
+
 export default { unitTypes, customFeatures };
