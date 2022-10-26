@@ -85,6 +85,8 @@ const DesignCard = (props) => {
 
     if (totalUnits > 0 && props.campaign.unitConfig[0].isExpedited === false) {
       if (totalUnits > 0 && totalUnits <= 4) {
+        console.log(totalUnits);
+        debugger;
         totalDesignTime = 2;
       } else if (totalUnits > 4 && totalUnits <= 15) {
         totalDesignTime = 3;
