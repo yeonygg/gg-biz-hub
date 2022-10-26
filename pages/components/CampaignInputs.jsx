@@ -1,7 +1,4 @@
 import { InputGroup, InputText, Section } from "pier-design-system";
-import { useState } from "react";
-import { InputsContext } from "../Contexts/InputsContext";
-
 const CampaignInputs = (props) => {
   // const { setClientName } = useContext(InputsContext);
   // const [clientName, setClientName] = useState("");
