@@ -17,6 +17,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SpendMeter = (props) => {
   const budget = props.campaignBudget;
+
   const x = <FontAwesomeIcon icon={faXmark} inverse />;
   const check = <FontAwesomeIcon icon={faCheck} inverse />;
   const percentCalc = () => {
@@ -102,15 +103,15 @@ const SpendMeter = (props) => {
 
   const spendNumber = () => {
     const spend = props.minSpend;
-    let number = "";
+    let number = 0;
     if (percentCalc() <= 0.85) {
-      number = "$" + spend;
+      number = "$" + spend.toLocaleString("en-US");
     } else {
       number = "";
     }
     return number;
   };
-  
+
   const {
     percent = [percentCalc()], // a number between 0 and 1, inclusive
     width = "100%", // the overall width
@@ -131,29 +132,37 @@ const SpendMeter = (props) => {
   //   ? { transition: "width 500ms, fill 250ms, all 500ms" }
   //   : null;
 
-  const barClass = percentCalc() < 1 ? 'spend-meter__filled--red' : 'spend-meter__filled--green';
-  const iconClass = percentCalc() < 1 ? 'fas fa-times-circle' : 'fas fa-check-circle';
-  const iconColor = percentCalc() < 1 ? 'spend-meter__icon--red' : 'spend-meter__icon--green';
+  const barClass =
+    percentCalc() < 1
+      ? "spend-meter__filled--red"
+      : "spend-meter__filled--green";
+  const iconClass =
+    percentCalc() < 1 ? "fas fa-times-circle" : "fas fa-check-circle";
+  const iconColor =
+    percentCalc() < 1 ? "spend-meter__icon--red" : "spend-meter__icon--green";
   return (
     <Section padding="xs">
-
       <div className="meter-wrapper">
         <div className="meter-copy -m-b-4">
-        <BodyText
-          style={{ fontWeight: "bold", marginBottom: 0 }}
-        >
-          Stated Campaign Budget
-        </BodyText>
+          <BodyText style={{ fontWeight: "bold", marginBottom: 0 }}>
+            Stated Campaign Budget
+          </BodyText>
           <BodyText className="budget-meter-spend">{spendNumber()}</BodyText>
         </div>
 
-        <div className="spend-meter" data-spend={`$${props.campaignBudget}`}>
-            <div className={`spend-meter__filled ${barClass}`} style={{width: `${percentCalc()*100}%`}}></div>
-            <div className="spend-meter__icon-holder">
-              <div className={`spend-meter__icon ${iconColor}`} style={{left: `${percentCalc()*100}%`}}>
-                  <i className={iconClass}/>
-              </div>
+        <div className="spend-meter" data-spend={`$${budget}`}>
+          <div
+            className={`spend-meter__filled ${barClass}`}
+            style={{ width: `${percentCalc() * 100}%` }}
+          ></div>
+          <div className="spend-meter__icon-holder">
+            <div
+              className={`spend-meter__icon ${iconColor}`}
+              style={{ left: `${percentCalc() * 100}%` }}
+            >
+              <i className={iconClass} />
             </div>
+          </div>
         </div>
         {/* 
         <svg width={width} height="80" aria-label={label}>

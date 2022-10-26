@@ -30,7 +30,7 @@ let setDebounce;
 let unitSchema = {
   key: null,
   unitType: "In-screen",
-  versionCount: 1,
+  versionCount: 0,
   customUnit: null,
   customOn: false,
   isExpedited: false,
@@ -120,8 +120,6 @@ class App extends Component {
       accordionOpen: !this.state.accordionOpen,
     });
   };
-
-
 
   render() {
     const handleToggle = (event, field) => {
