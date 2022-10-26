@@ -9,7 +9,6 @@ import {
 } from "pier-design-system";
 import SubHeading from "./SubHeading";
 import SpendMeter from "./SpendMeter";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SpendCard = (props) => {
   const resultHead = "Minimum Spend";
