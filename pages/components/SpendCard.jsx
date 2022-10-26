@@ -18,7 +18,7 @@ const SpendCard = (props) => {
 
   const spendFunction = () => {
     const unit = props.campaign.unitConfig;
-    console.log(unit);
+    // console.log(unit);
 
     const standard = [];
     const hiUnit = [];
@@ -27,7 +27,6 @@ const SpendCard = (props) => {
     const custom = [];
     const addOn = [];
     let unitMinSpend = [];
-    console.log(unitMinSpend);
 
     for (let i = 0; i < unit.length; i++) {
       const standardUnit = unit[i];
@@ -77,10 +76,9 @@ const SpendCard = (props) => {
     }, 0);
 
     const minSpends = Math.max(...unitMinSpend);
-    console.log(minSpends);
+    // console.log(minSpends);
 
     const customMinSpend = Math.max(...custom);
-    console.log(standard.length);
 
     let minSpend = 0;
 
@@ -94,6 +92,15 @@ const SpendCard = (props) => {
 
     if (custom.length > 0 && skinVersions == 0 && addOns > 0) {
       minSpend = minSpends + 25000;
+    }
+
+    if (
+      custom.length > 0 &&
+      skinVersions == 0 &&
+      addOns > 0 &&
+      hiVersions == 1
+    ) {
+      minSpend = 75000 + 25000;
     }
     if (
       totalVersions > 0 &&
@@ -154,8 +161,6 @@ const SpendCard = (props) => {
     ) {
       minSpend = 300000;
     }
-
-    console.log(minSpend);
 
     return minSpend;
   };
