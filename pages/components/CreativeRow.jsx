@@ -1,6 +1,6 @@
 import CustomAdd from "./CustomAdd";
-import unitTypes from "../constants/units";
-import customFeatures from "../constants/custom";
+import unitTypes from "../../constants/units";
+import customFeatures from "../../constants/custom";
 import { useState } from "react";
 
 import {
