@@ -141,7 +141,11 @@ const CreativeRow = (props) => {
 
   return (
     <div>
-      <Section padding="xs" className="client-section">
+      <Section
+        padding="xs"
+        className="client-section"
+        style={{ display: "flex" }}
+      >
         <div className="client-name-input">
           <InputGroup label="unit type" size="sm" error="" dark={false}>
             <InputSelect
