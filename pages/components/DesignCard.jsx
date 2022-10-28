@@ -21,7 +21,7 @@ const DesignCard = (props) => {
     const skin = [];
     const addOn = [];
 
-    console.log(addOn);
+    // console.log(addOn);
 
     for (let i = 0; i < props.campaign.unitConfig.length; i++) {
       const customTurnaroundTime =
@@ -85,8 +85,8 @@ const DesignCard = (props) => {
 
     if (totalUnits > 0 && props.campaign.unitConfig[0].isExpedited === false) {
       if (totalUnits > 0 && totalUnits <= 4) {
-        console.log(totalUnits);
-        debugger;
+        // console.log(totalUnits);
+        // debugger;
         totalDesignTime = 2;
       } else if (totalUnits > 4 && totalUnits <= 15) {
         totalDesignTime = 3;

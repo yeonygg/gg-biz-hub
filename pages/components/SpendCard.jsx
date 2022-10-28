@@ -27,6 +27,7 @@ const SpendCard = (props) => {
     const custom = [];
     const addOn = [];
     let unitMinSpend = [];
+    let customNull = false;
 
     for (let i = 0; i < unit.length; i++) {
       const standardUnit = unit[i];
@@ -57,6 +58,10 @@ const SpendCard = (props) => {
         addOn.push(standardUnit.versionCount);
         unitMinSpend.push(standardUnit.minSpend);
       }
+
+      if (standardUnit.customOn === true && standardUnit.customUnit === null) {
+        customNull = true;
+      }
     }
 
     const totalVersions = versionCount.reduce((accumulator, value) => {
@@ -79,20 +84,43 @@ const SpendCard = (props) => {
     // console.log(minSpends);
 
     const customMinSpend = Math.max(...custom);
+    // console.log(customMinSpend);
 
     let minSpend = 0;
 
     if (totalVersions == 0) {
       return 0;
     }
-
-    if (custom.length > 0 && skinVersions == 0 && addOns == 0) {
+    // console.log(minSpend);
+    if (
+      custom.length > 0 &&
+      skinVersions == 0 &&
+      addOns == 0 &&
+      customNull === false
+    ) {
       return Math.max(minSpend, customMinSpend);
     }
 
-    if (custom.length > 0 && skinVersions == 0 && addOns > 0) {
+    if (
+      custom.length > 0 &&
+      skinVersions == 0 &&
+      addOns > 0 &&
+      totalVersions == 1
+    ) {
       minSpend = minSpends + 25000;
     }
+
+    if (
+      custom.length > 0 &&
+      skinVersions == 0 &&
+      addOns > 0 &&
+      totalVersions > 1 &&
+      hiVersions == 0
+    ) {
+      return Math.max(minSpends + 25000, customMinSpend);
+    }
+
+    console.log(minSpends);
 
     if (
       custom.length > 0 &&
@@ -161,6 +189,10 @@ const SpendCard = (props) => {
     ) {
       minSpend = 300000;
     }
+
+    // if (customNull === true) {
+    //   return minSpend;
+    // }
 
     return minSpend;
   };
