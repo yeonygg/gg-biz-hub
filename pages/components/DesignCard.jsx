@@ -20,7 +20,7 @@ const DesignCard = (props) => {
     const inVideo = [];
     const skin = [];
     const addOn = [];
-    console.log(addOn);
+    const customNull = false;
 
     // console.log(addOn);
 
@@ -65,6 +65,13 @@ const DesignCard = (props) => {
       ) {
         addOn.push(versionCount);
       }
+
+      if (
+        props.campaign.unitConfig[i].customOn === true &&
+        props.campaign.unitConfig[i].customUnit == null
+      ) {
+        customNull = true;
+      }
     }
 
     const standardTimeArraySum = standardTimeArray.reduce(
@@ -80,7 +87,6 @@ const DesignCard = (props) => {
 
     const maxCustom = Math.max(...customTimeArray);
     const totalUnits = standardTimeArraySum + highImpactArraySum;
-    console.log(customTimeArray);
 
     //standard time calc
     let totalDesignTime = 0;
@@ -104,7 +110,8 @@ const DesignCard = (props) => {
         customTimeArray.length > 0 &&
         totalUnits > 0 &&
         skin.length == 0 &&
-        addOn.length == 0
+        addOn.length == 0 &&
+        customNull === false
       ) {
         return Math.max(totalDesignTime, maxCustom);
       }
