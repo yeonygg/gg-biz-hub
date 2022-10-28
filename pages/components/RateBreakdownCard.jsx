@@ -1,4 +1,11 @@
-import { Card, Section, BodyText, HR, Button } from "pier-design-system";
+import {
+  Card,
+  Section,
+  BodyText,
+  HR,
+  Button,
+  InputCheckbox,
+} from "pier-design-system";
 import SubHeading from "./SubHeading";
 import ResultTable from "./ResultTable";
 import LaunchTimeline from "./LaunchTimeline";
@@ -34,7 +41,25 @@ const RateBreakdownCard = (props) => {
   return (
     <Card className="result-card">
       <div className="card-style">
-        <SubHeading text={resultHead} body={bodyText} />
+        <div
+          className="-p-b-5 -p-r-3"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <SubHeading text={resultHead} body={bodyText} />
+          <InputCheckbox
+            size="sm"
+            disabled={false}
+            dark={false}
+            error={false}
+            partial={false}
+          >
+            Blend CPMs
+          </InputCheckbox>
+        </div>
 
         <ResultTable campaign={props.campaign} />
         <HR className="-m-b-3" />
