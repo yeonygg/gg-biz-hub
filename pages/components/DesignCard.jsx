@@ -11,7 +11,7 @@ import SubHeading from "./SubHeading";
 const DesignCard = (props) => {
   const resultHead = "Design SLA";
   const bodyText = "Business Days";
-  // console.log(props.campaign);
+  console.log(props.campaign.unitConfig);
 
   const designSLA = () => {
     const standardTimeArray = [];
@@ -20,6 +20,7 @@ const DesignCard = (props) => {
     const inVideo = [];
     const skin = [];
     const addOn = [];
+    console.log(addOn);
 
     // console.log(addOn);
 
@@ -79,13 +80,13 @@ const DesignCard = (props) => {
 
     const maxCustom = Math.max(...customTimeArray);
     const totalUnits = standardTimeArraySum + highImpactArraySum;
+    console.log(customTimeArray);
 
     //standard time calc
     let totalDesignTime = 0;
 
     if (totalUnits > 0 && props.campaign.unitConfig[0].isExpedited === false) {
       if (totalUnits > 0 && totalUnits <= 4) {
-        // console.log(totalUnits);
         // debugger;
         totalDesignTime = 2;
       } else if (totalUnits > 4 && totalUnits <= 15) {
@@ -108,7 +109,14 @@ const DesignCard = (props) => {
         return Math.max(totalDesignTime, maxCustom);
       }
       if (customTimeArray.length > 0 && addOn.length > 0) {
-        totalDesignTime = maxCustom + 1;
+        totalDesignTime = totalDesignTime + 1;
+      }
+      if (
+        customTimeArray.length > 0 &&
+        highImpactArray.length > 0 &&
+        addOn.length > 0
+      ) {
+        totalDesignTime = totalDesignTime + 1;
       }
 
       if (inVideo.length > 0) {
@@ -141,8 +149,16 @@ const DesignCard = (props) => {
       ) {
         return Math.max(totalDesignTime, maxCustom) - 1;
       }
+      if (
+        customTimeArray.length > 0 &&
+        highImpactArray.length > 0 &&
+        addOn.length > 0
+      ) {
+        totalDesignTime = totalDesignTime + 1;
+      }
+
       if (customTimeArray.length > 0 && addOn.length > 0) {
-        totalDesignTime = maxCustom;
+        totalDesignTime = totalDesignTime + 1;
       }
 
       if (inVideo.length > 0) {

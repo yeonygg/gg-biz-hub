@@ -120,8 +120,6 @@ const SpendCard = (props) => {
       return Math.max(minSpends + 25000, customMinSpend);
     }
 
-    console.log(minSpends);
-
     if (
       custom.length > 0 &&
       skinVersions == 0 &&
@@ -130,8 +128,6 @@ const SpendCard = (props) => {
     ) {
       minSpend = 75000 + 25000;
     }
-
-    console.log(custom.length);
 
     if (
       custom.length > 1 &&
