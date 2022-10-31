@@ -26,6 +26,7 @@ const SpendCard = (props) => {
     const custom = [];
     const addOn = [];
     let unitMinSpend = [];
+    let customNull = false;
 
     for (let i = 0; i < unit.length; i++) {
       const standardUnit = unit[i];
@@ -56,6 +57,10 @@ const SpendCard = (props) => {
         addOn.push(standardUnit.versionCount);
         unitMinSpend.push(standardUnit.minSpend);
       }
+
+      if (standardUnit.customOn === true && standardUnit.customUnit === null) {
+        customNull = true;
+      }
     }
 
     const totalVersions = versionCount.reduce((accumulator, value) => {
@@ -78,19 +83,40 @@ const SpendCard = (props) => {
     // console.log(minSpends);
 
     const customMinSpend = Math.max(...custom);
+    // console.log(customMinSpend);
 
     let minSpend = 0;
 
     if (totalVersions == 0) {
       return 0;
     }
-
-    if (custom.length > 0 && skinVersions == 0 && addOns == 0) {
+    // console.log(minSpend);
+    if (
+      custom.length > 0 &&
+      skinVersions == 0 &&
+      addOns == 0 &&
+      customNull === false
+    ) {
       return Math.max(minSpend, customMinSpend);
     }
 
-    if (custom.length > 0 && skinVersions == 0 && addOns > 0) {
+    if (
+      custom.length > 0 &&
+      skinVersions == 0 &&
+      addOns > 0 &&
+      totalVersions == 1
+    ) {
       minSpend = minSpends + 25000;
+    }
+
+    if (
+      custom.length > 0 &&
+      skinVersions == 0 &&
+      addOns > 0 &&
+      totalVersions > 1 &&
+      hiVersions == 0
+    ) {
+      return Math.max(minSpends + 25000, customMinSpend);
     }
 
     if (
@@ -100,6 +126,15 @@ const SpendCard = (props) => {
       hiVersions == 1
     ) {
       minSpend = 75000 + 25000;
+    }
+
+    if (
+      custom.length > 1 &&
+      skinVersions == 0 &&
+      addOns > 0 &&
+      hiVersions > 0
+    ) {
+      return Math.max(100000, customMinSpend);
     }
     if (
       totalVersions > 0 &&
@@ -177,15 +212,13 @@ const SpendCard = (props) => {
 
   const icon = () => {
     let iconCode = "";
-    if (inputBudget == "" || inputBudget == 0) {
-      iconCode = "";
-    }
-    if (spendFunction() > inputBudget && inputBudget > 0) {
+    if (inputBudget == 0) {
+      return (iconCode = "");
+    } else if (spendFunction() > inputBudget && inputBudget > 0) {
       iconCode = (
         <Tooltip
           position="right"
-          text="Reduce the number of units or versions, 
-or an exception will be required"
+          text="Reduce the number of units or versions, or an exception will be required"
         >
           <i
             className="fas fa-exclamation-circle"
@@ -193,7 +226,7 @@ or an exception will be required"
           ></i>
         </Tooltip>
       );
-    } else if (spendFunction() < inputBudget) {
+    } else if (spendFunction() <= inputBudget) {
       iconCode = (
         <i className="fas fa-check-circle" style={{ marginRight: "5px" }}></i>
       );

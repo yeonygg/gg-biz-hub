@@ -11,7 +11,6 @@ import SubHeading from "./SubHeading";
 const DesignCard = (props) => {
   const resultHead = "Design SLA";
   const bodyText = "Business Days";
-  // console.log(props.campaign);
 
   const designSLA = () => {
     const standardTimeArray = [];
@@ -20,8 +19,9 @@ const DesignCard = (props) => {
     const inVideo = [];
     const skin = [];
     const addOn = [];
+    const customNull = false;
 
-    console.log(addOn);
+    // console.log(addOn);
 
     for (let i = 0; i < props.campaign.unitConfig.length; i++) {
       const customTurnaroundTime =
@@ -64,6 +64,13 @@ const DesignCard = (props) => {
       ) {
         addOn.push(versionCount);
       }
+
+      if (
+        props.campaign.unitConfig[i].customOn === true &&
+        props.campaign.unitConfig[i].customUnit == null
+      ) {
+        customNull = true;
+      }
     }
 
     const standardTimeArraySum = standardTimeArray.reduce(
@@ -85,8 +92,7 @@ const DesignCard = (props) => {
 
     if (totalUnits > 0 && props.campaign.unitConfig[0].isExpedited === false) {
       if (totalUnits > 0 && totalUnits <= 4) {
-        console.log(totalUnits);
-        debugger;
+        // debugger;
         totalDesignTime = 2;
       } else if (totalUnits > 4 && totalUnits <= 15) {
         totalDesignTime = 3;
@@ -103,12 +109,20 @@ const DesignCard = (props) => {
         customTimeArray.length > 0 &&
         totalUnits > 0 &&
         skin.length == 0 &&
-        addOn.length == 0
+        addOn.length == 0 &&
+        customNull === false
       ) {
         return Math.max(totalDesignTime, maxCustom);
       }
       if (customTimeArray.length > 0 && addOn.length > 0) {
-        totalDesignTime = maxCustom + 1;
+        totalDesignTime = totalDesignTime + 1;
+      }
+      if (
+        customTimeArray.length > 0 &&
+        highImpactArray.length > 0 &&
+        addOn.length > 0
+      ) {
+        totalDesignTime = totalDesignTime + 1;
       }
 
       if (inVideo.length > 0) {
@@ -141,8 +155,16 @@ const DesignCard = (props) => {
       ) {
         return Math.max(totalDesignTime, maxCustom) - 1;
       }
+      if (
+        customTimeArray.length > 0 &&
+        highImpactArray.length > 0 &&
+        addOn.length > 0
+      ) {
+        totalDesignTime = totalDesignTime + 1;
+      }
+
       if (customTimeArray.length > 0 && addOn.length > 0) {
-        totalDesignTime = maxCustom;
+        totalDesignTime = totalDesignTime + 1;
       }
 
       if (inVideo.length > 0) {

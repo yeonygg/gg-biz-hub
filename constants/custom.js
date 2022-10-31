@@ -1,4 +1,4 @@
-var customFeatures = [
+const customFeatures = [
   {
     id: 0,
     name: "API Integration",
