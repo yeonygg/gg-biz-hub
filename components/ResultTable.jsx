@@ -13,10 +13,11 @@ const ResultTable = (props) => {
     let floorAverage = [];
     let openAverage = [];
     let vcpmAverage = [];
+    console.log(vcpmAverage);
 
     for (let i = 0; i < unit.length; i++) {
       const vcpmZero = () => {
-        if (unit[i].floorVCPM === "tbd") {
+        if (unit[i].floorVCPM === "TBD") {
           return "TBD";
         } else {
           return (
@@ -33,7 +34,7 @@ const ResultTable = (props) => {
           floorAverage.push(unit[i].floorCPM);
           openAverage.push(unit[i].openCPM);
         }
-        if (unit[i].floorVCPM === "tbd") {
+        if (unit[i].floorVCPM === "TBD") {
         } else {
           vcpmAverage.push(unit[i].floorVCPM);
         }
