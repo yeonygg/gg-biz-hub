@@ -197,7 +197,7 @@ var unitTypes = [
     turnaroundTime: 2,
     cesRequired: false,
     floorCPM: 2.5,
-    floorVCPM: "Custom rate",
+    floorVCPM: "TBD",
     openCPM: 3.5,
     customizable: false,
   },
