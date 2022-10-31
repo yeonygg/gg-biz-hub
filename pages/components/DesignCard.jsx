@@ -11,7 +11,6 @@ import SubHeading from "./SubHeading";
 const DesignCard = (props) => {
   const resultHead = "Design SLA";
   const bodyText = "Business Days";
-  console.log(props.campaign.unitConfig);
 
   const designSLA = () => {
     const standardTimeArray = [];

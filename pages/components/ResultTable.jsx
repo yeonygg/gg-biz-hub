@@ -2,7 +2,6 @@ import { Section, Table } from "pier-design-system";
 
 const ResultTable = (props) => {
   const unit = props.campaign.unitConfig;
-  console.log(props.toggleOn);
 
   {
     parseFloat(props.campaign.campaignBudget).toFixed(2).toLocaleString();
@@ -78,7 +77,6 @@ const ResultTable = (props) => {
 
     for (let i = 0; i < unit.length; i++) {
       if (props.toggleOn === true) {
-        console.log(vcpmAverage);
         const floorCalc =
           floorAverage.reduce((a, b) => a + b, 0) / floorAverage.length;
         const openCalc =

@@ -197,10 +197,6 @@ const SpendCard = (props) => {
       minSpend = 300000;
     }
 
-    // if (customNull === true) {
-    //   return minSpend;
-    // }
-
     return minSpend;
   };
 
@@ -233,7 +229,7 @@ or an exception will be required"
           ></i>
         </Tooltip>
       );
-    } else if (spendFunction() < inputBudget) {
+    } else if (spendFunction() <= inputBudget) {
       iconCode = (
         <i className="fas fa-check-circle" style={{ marginRight: "5px" }}></i>
       );
