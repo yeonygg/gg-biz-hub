@@ -213,15 +213,13 @@ const SpendCard = (props) => {
 
   const icon = () => {
     let iconCode = "";
-    if (inputBudget == "" || inputBudget == 0) {
-      iconCode = "";
-    }
-    if (spendFunction() > inputBudget && inputBudget > 0) {
+    if (inputBudget == 0) {
+      return (iconCode = "");
+    } else if (spendFunction() > inputBudget && inputBudget > 0) {
       iconCode = (
         <Tooltip
           position="right"
-          text="Reduce the number of units or versions, 
-or an exception will be required"
+          text="Reduce the number of units or versions, or an exception will be required"
         >
           <i
             className="fas fa-exclamation-circle"
