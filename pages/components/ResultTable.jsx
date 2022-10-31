@@ -14,12 +14,10 @@ const ResultTable = (props) => {
     let floorAverage = [];
     let openAverage = [];
     let vcpmAverage = [];
-    console.log(floorAverage);
-    console.log(vcpmAverage);
 
     for (let i = 0; i < unit.length; i++) {
       const vcpmZero = () => {
-        if (unit[i].floorVCPM == 0) {
+        if (unit[i].floorVCPM === "tbd") {
           return "TBD";
         } else {
           return (
@@ -32,10 +30,12 @@ const ResultTable = (props) => {
         if (unit[i].customOn === true) {
           floorAverage.push(unit[i].floorCPM + unit[i].customFloorCPM);
           openAverage.push(unit[i].openCPM + unit[i].customOpenCPM);
-          vcpmAverage.push(unit[i].floorVCPM);
         } else {
           floorAverage.push(unit[i].floorCPM);
           openAverage.push(unit[i].openCPM);
+        }
+        if (unit[i].floorVCPM === "tbd") {
+        } else {
           vcpmAverage.push(unit[i].floorVCPM);
         }
       }
@@ -78,28 +78,18 @@ const ResultTable = (props) => {
 
     for (let i = 0; i < unit.length; i++) {
       if (props.toggleOn === true) {
-        console.log(floorAverage);
-        const testingAverage =
+        console.log(vcpmAverage);
+        const floorCalc =
           floorAverage.reduce((a, b) => a + b, 0) / floorAverage.length;
-        console.log(testingAverage);
+        const openCalc =
+          openAverage.reduce((a, b) => a + b, 0) / openAverage.length;
+        const vcpmCalc =
+          vcpmAverage.reduce((a, b) => a + b, 0) / vcpmAverage.length;
         const blendRow = {
           "Unit Type": unit[i].unitType,
-          "Floor CPM":
-            "$" + parseFloat(testingAverage).toFixed(2).toLocaleString(),
-          "Floor VCPM":
-            "$" +
-            parseFloat(vcpmAverage.reduce((a, b) => a + b / vcpmAverage.length))
-              .toFixed(2)
-              .toLocaleString(),
-          "Open CPM":
-            "$" +
-            parseFloat(
-              parseFloat(
-                openAverage.reduce((a, b) => a + b / openAverage.length)
-              ) + parseFloat(unit[i].customOpenCPM)
-            )
-              .toFixed(2)
-              .toLocaleString(),
+          "Floor CPM": "$" + parseFloat(floorCalc).toFixed(2).toLocaleString(),
+          "Floor VCPM": "$" + parseFloat(vcpmCalc).toFixed(2).toLocaleString(),
+          "Open CPM": "$" + parseFloat(openCalc).toFixed(2).toLocaleString(),
         };
         blend.push(blendRow);
       }
