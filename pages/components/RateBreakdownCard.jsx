@@ -4,9 +4,10 @@ import {
   BodyText,
   HR,
   Button,
-  InputCheckbox,
+  InputToggle,
 } from "pier-design-system";
 import SubHeading from "./SubHeading";
+import { useState } from "react";
 import ResultTable from "./ResultTable";
 import LaunchTimeline from "./LaunchTimeline";
 import html2canvas from "html2canvas";
@@ -38,11 +39,23 @@ const RateBreakdownCard = (props) => {
     });
   };
 
+  const [toggle, setToggle] = useState(0);
+
+  const handleToggle = (event, field) => {
+    if (field === "isBlend") {
+      if (event.target.checked === true) {
+        setToggle(true);
+      } else {
+        setToggle(false);
+      }
+    }
+  };
+
   return (
     <Card className="result-card">
       <div className="card-style">
         <div
-          className="-p-b-5 -p-r-3"
+          className="-p-b-5 -p-r-4"
           style={{
             display: "flex",
             justifyContent: "space-between",
@@ -50,18 +63,20 @@ const RateBreakdownCard = (props) => {
           }}
         >
           <SubHeading text={resultHead} body={bodyText} />
-          <InputCheckbox
+          <InputToggle
             size="sm"
             disabled={false}
             dark={false}
             error={false}
-            partial={false}
+            onChange={(event) => {
+              handleToggle(event, "isBlend");
+            }}
           >
             Blend CPMs
-          </InputCheckbox>
+          </InputToggle>
         </div>
 
-        <ResultTable campaign={props.campaign} />
+        <ResultTable campaign={props.campaign} toggleOn={toggle} />
         <HR className="-m-b-3" />
         <LaunchTimeline campaign={props.campaign} />
         <HR />
