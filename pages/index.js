@@ -186,19 +186,30 @@ class App extends Component {
                       text={this.state.creativeText}
                       body={"Add Creatives to Campaign"}
                     />
+                    <div>
+                      <InputToggle
+                        size="sm"
+                        disabled={false}
+                        dark={false}
+                        error={false}
+                        className="-m-r-7"
+                      >
+                        Programmatic
+                      </InputToggle>
 
-                    <InputToggle
-                      size="sm"
-                      disabled={false}
-                      dark={false}
-                      error={false}
-                      className="-m-r-5"
-                      onChange={(event) => {
-                        handleToggle(event, "isExpedited");
-                      }}
-                    >
-                      Expedited
-                    </InputToggle>
+                      <InputToggle
+                        size="sm"
+                        disabled={false}
+                        dark={false}
+                        error={false}
+                        className="-m-r-5"
+                        onChange={(event) => {
+                          handleToggle(event, "isExpedited");
+                        }}
+                      >
+                        Expedited
+                      </InputToggle>
+                    </div>
                   </div>
 
                   {this.state.campaign.unitConfig.map((config, index) => (
