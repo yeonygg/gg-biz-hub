@@ -95,6 +95,8 @@ const ResultTable = (props) => {
               .toLocaleString();
         }
 
+        console.log(vcpmCalc);
+
         const blendRow = {
           "Unit Type": unit[i].unitType,
           "Floor CPM": "$" + parseFloat(floorCalc).toFixed(2).toLocaleString(),
