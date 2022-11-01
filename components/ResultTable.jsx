@@ -78,16 +78,27 @@ const ResultTable = (props) => {
 
     for (let i = 0; i < unit.length; i++) {
       if (props.toggleOn === true) {
+        let vcpmCalc = "";
         const floorCalc =
           floorAverage.reduce((a, b) => a + b, 0) / floorAverage.length;
         const openCalc =
           openAverage.reduce((a, b) => a + b, 0) / openAverage.length;
-        const vcpmCalc =
-          vcpmAverage.reduce((a, b) => a + b, 0) / vcpmAverage.length;
+        if (unit[i].floorVCPM === "tbd") {
+          vcpmCalc = "TBD";
+        } else {
+          vcpmCalc =
+            "$" +
+            parseFloat(
+              vcpmAverage.reduce((a, b) => a + b, 0) / vcpmAverage.length
+            )
+              .toFixed(2)
+              .toLocaleString();
+        }
+
         const blendRow = {
           "Unit Type": unit[i].unitType,
           "Floor CPM": "$" + parseFloat(floorCalc).toFixed(2).toLocaleString(),
-          "Floor VCPM": "$" + parseFloat(vcpmCalc).toFixed(2).toLocaleString(),
+          "Floor VCPM": vcpmCalc,
           "Open CPM": "$" + parseFloat(openCalc).toFixed(2).toLocaleString(),
         };
         blend.push(blendRow);
