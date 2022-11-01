@@ -13,7 +13,6 @@ const ResultTable = (props) => {
     let floorAverage = [];
     let openAverage = [];
     let vcpmAverage = [];
-    console.log(vcpmAverage);
 
     for (let i = 0; i < unit.length; i++) {
       const vcpmZero = () => {
