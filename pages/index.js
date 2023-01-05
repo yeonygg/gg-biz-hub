@@ -16,6 +16,7 @@ import UUIDV4 from "../helpers/helpers";
 import Layout from "./Layout";
 import { Fragment } from "react";
 import Navigation from "../components/Navigation";
+import CustomCreatives from "./CustomCreatives";
 
 import {
   Card,
@@ -278,6 +279,17 @@ class App extends Component {
             </div>
             <footer style={{ height: "15px" }}></footer>
           </main>
+        </div>
+        <div style={{ visibility: "hidden" }}>
+          {this.state.campaign.unitConfig.map((config, index) => (
+            <CustomCreatives
+              deleteHandler={this.removeUnitConfig}
+              changeHandler={this.setUnitConfig}
+              key={config.key}
+              index={config.key}
+              config={config}
+            />
+          ))}
         </div>
       </Fragment>
     );
