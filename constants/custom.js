@@ -48,6 +48,13 @@ const customFeatures = [
     cesRequired: true,
     floorCPM: 2,
     openCPM: 2,
+    description:
+      "Implements a real-time countdown clock within an ad unit to inform users of an upcoming deadline, release date or an announcement.",
+    objective: "Primary: Awareness Recommended Metrics: CTR, Engagement",
+    bestPractices:
+      "Generally only leveraged within an In-Screen unit. Great for entertainment and events.",
+    programmatic: "Feasible",
+    clientRequirements: "Countdown Dates/Times",
   },
   {
     id: 3,
@@ -59,6 +66,14 @@ const customFeatures = [
     cesRequired: false,
     floorCPM: 2,
     openCPM: 2,
+    description:
+      "Have extended rollover animation for additional information about ad campaign",
+    objective: "Primary: Awareness Recommended Metrics: CTR, Engagement",
+    bestPractices:
+      "Generally only leveraged within an In-Screen/In-Image and In-Screen Expandable/In-Image Expandable units.",
+    programmatic: "Feasible",
+    clientRequirements:
+      "Additional Creative assets and taglines for longer animations",
   },
   {
     id: 4,
@@ -70,6 +85,13 @@ const customFeatures = [
     cesRequired: false,
     floorCPM: 2,
     openCPM: 2,
+    description:
+      "Scrollable text boxes (automatic or manual) for additional health information/legal text reuqired for the product",
+    objective: "Primary: Awareness Recommended Metrics: CTR, Engagement",
+    bestPractices:
+      "Generally only leveraged within an In-Screen/In-Image and In-Screen Expandable/In-Image Expandable units. Great for Pharmaceutical campaigns",
+    programmatic: "Feasible",
+    clientRequirements: "Legal/Medical information text content",
   },
   {
     id: 5,
@@ -82,6 +104,14 @@ const customFeatures = [
     cesRequired: true,
     floorCPM: 2,
     openCPM: 2,
+    description:
+      "Integrate a social network API to pull data directly from a social platform within unit (similar to an ISI)",
+    objective: "Primary: Awareness Recommended Metrics: CTR, Engagement",
+    bestPractices:
+      "Too many requests to the social media API (usually # per day/hour), social network will block any further requests and will be closed/limited. Usually stay clear of Facebook.",
+    programmatic: "Feasible",
+    clientRequirements:
+      "Social Feed, prefered method of integration (not all social networks supported)",
   },
   {
     id: 6,
@@ -94,6 +124,14 @@ const customFeatures = [
     cesTurnaroundTime: 1,
     floorCPM: 3,
     openCPM: 4,
+    description:
+      "When the user scrolls on a webpage, additional animation plays within the ad unit. This can only be applied to In-Screen units, it functions on both desktop and mobile (not recommended for In-Screen Expandable).",
+    objective: "Primary: Awareness Recommended Metrics: CTR, Engagement",
+    bestPractices:
+      "Unit starts with a short intro animation where most of the ad's components are present with a background then other elements such as colors, imagery and/or taglines can be swapped out or change as the user scrolls down. We recommend a maximum of 5 to 6 frames, where the elements are animating on scroll.",
+    programmatic: "Feasible",
+    clientRequirements:
+      "Requires client to supply copy and/or storyboard for each frame.",
   },
   {
     id: 7,
@@ -106,6 +144,14 @@ const customFeatures = [
     cesTurnaroundTime: 1,
     floorCPM: 3,
     openCPM: 4,
+    description:
+      "When the user swipes or clicks arrows for additional content within the ad unit, similar to a slide show or gallery.",
+    objective: "Primary: Awareness Recommended Metrics: CTR, Engagement",
+    bestPractices:
+      "Unit starts with a short intro animation where all ad components are present with a background then as the user swipes or clicks through, other elements such as colors, imagery and/or text can change up. We recommend a maximum of 5 to 6 stages, where the elements are animating.",
+    programmatic: "Feasible",
+    clientRequirements:
+      "Requires client to supply copy and/or storyboard for each stage.",
   },
   {
     id: 8,
@@ -118,6 +164,14 @@ const customFeatures = [
     cesTurnaroundTime: 1,
     floorCPM: 3,
     openCPM: 4,
+    description:
+      "When the user drags a slider button to reveal a hidden image or graphic.",
+    objective: "Primary: Awareness Recommended Metrics: CTR, Engagement",
+    bestPractices:
+      "This can be applied to In-Screen/In-Image (as well as expandable units). Functions on both desktop and mobile. We recommend a maximum of 5 to 6 stages, where one element is changing.",
+    programmatic: "Feasible",
+    clientRequirements:
+      "Requires clear direction or storyboard from the client.",
   },
   {
     id: 9,
@@ -130,6 +184,14 @@ const customFeatures = [
     cesRequired: true,
     floorCPM: 2,
     openCPM: 2,
+    description:
+      "Features a quiz or poll ('this or that') for the user to engage with the unit.",
+    objective: "Primary: Awareness Recommended Metrics: CTR, Engagement",
+    bestPractices:
+      "Client is releasing new products and looking to gain insights. Only supports two, 2-answer questions, max 4 possible results.",
+    programmatic: "Feasible",
+    clientRequirements:
+      "Requires client to supply copy and/or storyboard for each stage.",
   },
   {
     id: 10,
@@ -142,6 +204,14 @@ const customFeatures = [
     cesTurnaroundTime: 1,
     floorCPM: 2,
     openCPM: 2,
+    description:
+      "In the Canvas' collapsed state you can click on a button labeled '360 view' where it then expands to showcase the products 360 experience. ",
+    objective: "Primary: Awareness Recommended Metrics: CTR, Engagement",
+    bestPractices:
+      "Requires very specific 360 assets from the client in order to activate. This unit/feature is mostly recommended for auto campaigns.",
+    programmatic: "Feasible",
+    clientRequirements:
+      "Equirectangular and Cubic image formats for 360 viewer",
   },
   {
     id: 11,
@@ -154,6 +224,13 @@ const customFeatures = [
     cesRequired: true,
     floorCPM: 2,
     openCPM: 2,
+    description:
+      "Within the unit there are multiple hotspots. When you click on each hotspot it then zooms in on that item and allows you to experience 3D view. Requires 3D assets from clients which is uncommon",
+    objective: "Primary: Awareness Recommended Metrics: CTR, Engagement",
+    bestPractices:
+      "Utlize when trying to highlight multiple features of a product. Previously created for both auto and consumer electronics. Mostly leveraged within an In-Screen Expandable unit.",
+    programmatic: "Feasible",
+    clientRequirements: "3D Assets, landing pages, content",
   },
   {
     id: 12,
@@ -166,6 +243,14 @@ const customFeatures = [
     cesRequired: true,
     floorCPM: 2,
     openCPM: 2,
+    description:
+      "Within the unit there are multiple hotspots. When you click on each hotspot it then provides a deeper dive into each product, feature, etc.",
+    objective: "Primary: Awareness Recommended Metrics: CTR, Engagement",
+    bestPractices:
+      "Utlize when trying to highlight multiple features of a product. Previously created for both auto and consumer electronics. Mostly leveraged within an In-Screen Expandable unit. There's a max of 5 hotspots in total.",
+    programmatic: "Feasible",
+    clientRequirements:
+      "Hotspot behavior expectations, copy/imagery for each state",
   },
   {
     id: 13,
@@ -178,6 +263,14 @@ const customFeatures = [
     cesRequired: true,
     floorCPM: 2,
     openCPM: 2,
+    description:
+      "Includes a 'tap to map feature' to drive audiences directly to a map showcasing where they can buy the produut or find a store near them.",
+    objective: "Primary: Foot traffic",
+    bestPractices:
+      "Great for QSR, or CPG driving to super markets and client looking to increase foot traffic. Client demos do not include functioning Lightbox to start. We highly recommend getting client approval on the statics before proceeding to animation/production for this unit.",
+    programmatic: "Feasible",
+    clientRequirements:
+      "List of locations, preferably coordinates but will accept full addresses",
   },
   {
     id: 14,
@@ -190,6 +283,14 @@ const customFeatures = [
     cesRequired: true,
     floorCPM: 0,
     openCPM: 0,
+    description:
+      "Contains more than one call-to-action within a single ad unit.",
+    objective: "Primary: Awareness Recommended Metrics: CTR, Engagement",
+    bestPractices:
+      "If a client has multiple KPIs but only wants to include one creative version",
+    programmatic: "Feasible",
+    clientRequirements:
+      "Requires a list of URLs from the client, one for each CTA",
   },
   {
     id: 15,
@@ -201,6 +302,13 @@ const customFeatures = [
     cesRequired: false,
     floorCPM: 0,
     openCPM: 0,
+    description:
+      "A single ad unit that displays one date at a time. For example, an ad for a tv show would promote the premiere date, when to tune-in as well as the date of the season finale. The ad stays the same but the copy for the dates would change throughout the duration of the campaign flight.",
+    objective: "Primary: Awareness Recommended Metrics: CTR, Engagement",
+    bestPractices:
+      "Great for Entertainment. Typically the design team will build one version for the initial client review and maintain edits for that version until the client approves design and animation. Then we can proceed to set up the other tune-in dates in the final deliverables phase.",
+    programmatic: "Feasible",
+    clientRequirements: "Requires list of dates/messaging from the client.",
   },
   {
     id: 16,
@@ -213,6 +321,14 @@ const customFeatures = [
     cesRequired: true,
     floorCPM: 2,
     openCPM: 2,
+    description:
+      "Content within the ad unit is divided into narrows slices which then expands when a user hovers over it on desktop.  On mobile devices, the accordion is removed and instead, the images display as a slide show animation.",
+    objective: "Primary: Awareness Recommended Metrics: CTR, Engagement",
+    bestPractices:
+      "Great for showcasing multiple products in one unit. Max of 4 products or a minimum of 3 within the accordion. Only leveraged within an In-Screen Expandable unit.",
+    programmatic: "Feasible",
+    clientRequirements:
+      "Images to be used on each slice, landing page clickouts for each.",
   },
   {
     id: 17,
@@ -225,6 +341,15 @@ const customFeatures = [
     cesRequired: true,
     floorCPM: 2,
     openCPM: 2,
+    description:
+      "Products are displayed in a fixed 3x2 grid with discrete CTAs that either direct users to a purchase page or, if using C2C, land them on the shopping cart section.",
+    objective:
+      "Primary: Conversions Secondary: Awareness Recommended Metrics: Engagement",
+    bestPractices:
+      "Great for showcasing multiple products in one unit. Max of 4 products or a minimum of 3 within the accordion. Only leveraged within an In-Screen Expandable unit.",
+    programmatic: "Lightboxes are generally not recommended for Programmatic",
+    clientRequirements:
+      "Images to be used on each slice, landing page clickouts for each.",
   },
   {
     id: 18,
@@ -237,6 +362,14 @@ const customFeatures = [
     cesRequired: true,
     floorCPM: 2,
     openCPM: 2,
+    description:
+      "Upon clicking the unit, users are driven to a custom lightbox(es) showcasing multiple product offerings that are clickable for more information or add to cart",
+    objective: "Primary: Conversions Secondary: Awareness",
+    bestPractices:
+      "Shoppable units can be used in conjuction with Click2Cart functionality",
+    programmatic: "Lightboxes are generally not recommended for Programmatic",
+    clientRequirements:
+      "Product List, Prices, landing pages, nav behavior. Click2Cart?",
   },
   {
     id: 19,
