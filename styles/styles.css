@@ -254,19 +254,20 @@ footer {
 }
 
 /* Extra small devices (phones, 600px and down) */
+
 @media only screen and (max-width: 600px) {
   body {
-    padding: 0.5rem;
+    padding: 0.35rem;
   }
   .main-heading {
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.35rem 0;
   }
   .card,
   .result-card {
-    margin: 0rem 0rem 0.5rem 0rem;
+    margin: 0rem 0rem 0.35rem 0rem;
   }
   .card-style {
-    padding: 0.5rem;
+    padding: 0.35rem;
   }
 }
 
@@ -426,4 +427,8 @@ footer {
   height: 100%;
   left: 1rem;
   right: 1rem;
+}
+
+.custom-page-select {
+  display: flex;
 }
