@@ -195,6 +195,25 @@ var customFeatures = [
   },
   {
     id: 10,
+    name: "Gamification",
+    abbrev: "null",
+    minSpend: "TBD",
+    highImpact: true,
+    turnaroundTime: "TBD",
+    cesTurnaroundTime: "TBD",
+    cesRequired: false,
+    floorCPM: "TBD",
+    openCPM: "TBD",
+    description:
+      "Any game that is interrogated within the ad unit. Requires a higher level of engineering than most of creative capabilities. ",
+    objective: "Primary: Awareness Recommended Metrics: Engagement",
+    bestPractices:
+      "Brainstorm session with client & creative services team is highly encouraged.",
+    programmatic: "Feasible",
+    clientRequirements: "TBD",
+  },
+  {
+    id: 11,
     name: "360 Interactive",
     abbrev: "null",
     minSpend: 100000,
@@ -214,7 +233,7 @@ var customFeatures = [
       "Equirectangular and Cubic image formats for 360 viewer",
   },
   {
-    id: 11,
+    id: 12,
     name: "Hotspot Integration 3D",
     abbrev: "null",
     minSpend: 250000,
@@ -233,7 +252,7 @@ var customFeatures = [
     clientRequirements: "3D Assets, landing pages, content",
   },
   {
-    id: 12,
+    id: 13,
     name: "Hotspot Integration no-3D",
     abbrev: "null",
     minSpend: 225000,
@@ -253,7 +272,7 @@ var customFeatures = [
       "Hotspot behavior expectations, copy/imagery for each state",
   },
   {
-    id: 13,
+    id: 14,
     name: "Map Integration",
     abbrev: "null",
     minSpend: 150000,
@@ -273,7 +292,7 @@ var customFeatures = [
       "List of locations, preferably coordinates but will accept full addresses",
   },
   {
-    id: 14,
+    id: 15,
     name: "Multiple CTAs",
     abbrev: "null",
     minSpend: 75000,
@@ -293,7 +312,28 @@ var customFeatures = [
       "Requires a list of URLs from the client, one for each CTA",
   },
   {
-    id: 15,
+    id: 16,
+    name: "In-Unit Shoppable",
+    abbrev: "null",
+    minSpend: "TBD",
+    highImpact: true,
+    turnaroundTime: "TBD",
+    cesTurnaroundTime: "TBD",
+    cesRequired: true,
+    floorCPM: 0,
+    openCPM: 0,
+    description:
+      "Functions much like an ad unit with multiple CTAs but with an emphasis on showcasing three products within a single ad unit. This does not click out to a lightbox, instead each product would click out to a landing page with more information on that product.",
+    objective:
+      "Primary: Conversions Secondary: Awareness Recommended Metrics: Engagement",
+    bestPractices:
+      "Does not need to include Click2Cart functionality unless requested by the client. Generally only leveraged within an In-Screen unit but can be applied to In-Screen Expandable.",
+    programmatic: "Feasible",
+    clientRequirements:
+      "Requires product images and landing page click-outs for each",
+  },
+  {
+    id: 17,
     name: "Multiple Tune-ins",
     abbrev: "null",
     minSpend: 25000,
@@ -311,7 +351,7 @@ var customFeatures = [
     clientRequirements: "Requires list of dates/messaging from the client.",
   },
   {
-    id: 16,
+    id: 18,
     name: "Expandable Accordian",
     abbrev: "null",
     minSpend: 125000,
@@ -331,7 +371,7 @@ var customFeatures = [
       "Images to be used on each slice, landing page clickouts for each.",
   },
   {
-    id: 17,
+    id: 19,
     name: "Lightbox - Standard Shoppable",
     abbrev: "null",
     minSpend: 125000,
@@ -352,7 +392,7 @@ var customFeatures = [
       "Images to be used on each slice, landing page clickouts for each.",
   },
   {
-    id: 18,
+    id: 20,
     name: "Lightbox - Custom Shoppable",
     abbrev: "null",
     minSpend: 150000,
@@ -372,7 +412,7 @@ var customFeatures = [
       "Product List, Prices, landing pages, nav behavior. Click2Cart?",
   },
   {
-    id: 19,
+    id: 21,
     name: "Lightbox - Multiple Click-outs",
     abbrev: "null",
     minSpend: 125000,
@@ -382,9 +422,17 @@ var customFeatures = [
     cesRequired: true,
     floorCPM: 2,
     openCPM: 2,
+    description:
+      "Within the unit the creative team will include 3-5 seperate clickouts ",
+    objective:
+      "Primary: Awareness / Conversion (depending if the client wants users to learn more or drive sales) Recommended Metrics: CTR",
+    bestPractices:
+      "Client want's to showcase multiple products in one unit and drive to each of their landing pages. Client is looking for a shoppable unit.",
+    programmatic: "Lightboxes are generally not recommended for Programmatic",
+    clientRequirements: "Need landing pages for each clickout",
   },
   {
-    id: 20,
+    id: 22,
     name: "Lightbox - Multiple Videos",
     abbrev: "null",
     minSpend: 150000,
@@ -394,9 +442,16 @@ var customFeatures = [
     cesRequired: true,
     floorCPM: 2,
     openCPM: 2,
+    description:
+      "As oppose to a standard Lightbox which only features one video, we can create a video gallery within a custom Lightbox unit. One video would sit at the for front while other videos sit underneath in as thumbnails, being queued up to play next. When the user clicks through the other videos they pop up to the main spot.",
+    objective: "Primary: Awareness Recommended Metrics: Engagement",
+    bestPractices:
+      "This usually requires raw video files and not YouTube links. Instead of creating multiple creative versions a client can opt to include all video assets within one unit",
+    programmatic: "Lightboxes are generally not recommended for Programmatic",
+    clientRequirements: "All videos, expected behavior for video navigation",
   },
   {
-    id: 21,
+    id: 23,
     name: "Lightbox - Host Micro-site",
     abbrev: "null",
     minSpend: 100000,
@@ -406,9 +461,16 @@ var customFeatures = [
     cesRequired: true,
     floorCPM: 2,
     openCPM: 2,
+    description:
+      "Integrate an existing client microsite within a lightbox unit",
+    objective: "Primary: Awareness Recommended Metrics: Engagement",
+    bestPractices:
+      "Requires client microsite or GumGum build microsite to host.",
+    programmatic: "Lightboxes are generally not recommended for Programmatic",
+    clientRequirements: "Site to integrate or replicate, expected behaviors",
   },
   {
-    id: 22,
+    id: 24,
     name: "In-image - Color Matching",
     abbrev: "null",
     minSpend: 125000,
@@ -418,9 +480,15 @@ var customFeatures = [
     cesRequired: true,
     floorCPM: 2,
     openCPM: 2,
+    description:
+      "Matches ad creative to the color on screen. Dynamically adjusting the color of the ad based on the image on-screen is also possible but more difficult to execute in practice.",
+    objective: "Primary: Awareness Recommended Metrics: CTR, Engagement",
+    bestPractices: "Color matching only works within an In-Image unit.",
+    programmatic: "TBD",
+    clientRequirements: "CV Support, Color List to Match Against",
   },
   {
-    id: 23,
+    id: 25,
     name: "In-image - Facial Recognition",
     abbrev: "null",
     minSpend: 225000,
@@ -430,6 +498,14 @@ var customFeatures = [
     cesRequired: true,
     floorCPM: 2,
     openCPM: 2,
+    description:
+      "Includes the use of GumGum's proprietary platform to analyze an any given image within our inventory for certain facial landmarks such as eyes, smiles, etc. Please note anything outside of facial recognition would required weeks of training models to detect those particular proprieties.",
+    objective: "Primary: Awareness Recommended Metrics: CTR, Engagement",
+    bestPractices:
+      "Only recommend to clients with campaigns that can execute facial recognition. Please note anything outside of facial recognition would required weeks or months of training models to detect new proprieties. Can only be used with In-Image Canvas (display)",
+    programmatic: "No",
+    clientRequirements:
+      "CV Lead Time / Support, Conversation with LC& Dan on viability of concept before being pitched",
   },
 ];
 
