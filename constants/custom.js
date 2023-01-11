@@ -44,7 +44,11 @@ var customFeatures = [
 >>>>>>> e9136a3 (added info to custom features data sheet)
     description:
       "Dynamically pull in weather condition or time of day directly within the creative based on the user's location.",
-    objective: "Primary: Awareness Recommended Metrics: CTR, Engagement",
+    objective: {
+      primary: "Awareness",
+      recommendedMetrics: "CTR, Engagement",
+    },
+
     bestPractices:
       "Requires API connection to weather app. List of weather that can be tracked can be found here. Creative can be dynamically served in the adserver based on time of day. Can be leveraged within In-Screen/In-Image blend.",
     programmatic: "TBD",
