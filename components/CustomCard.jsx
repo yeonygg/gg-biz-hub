@@ -81,9 +81,24 @@ const CustomCard = (props) => {
     }
     return minimum;
   };
+
+  const showCard = () => {
+    console.log("something");
+    const visibility = props.custom.hidden;
+    let card = "";
+    if (visibility === false) {
+      card = "visible";
+    } else {
+      card = "hidden";
+    }
+
+    return card;
+  };
+
+  console.log(props.custom.hidden);
   return (
     <div>
-      <Card>
+      <Card style={{ visibility: `${showCard()}` }}>
         <Section padding="lg">
           <div className="custom-card-heading-wrapper">
             <Heading>{props.custom.key.name}</Heading>
@@ -148,7 +163,7 @@ const CustomCard = (props) => {
               <HR />
               <div
                 className="-d-flex -justify-content-between"
-                style={{ paddingBottom: "1rem", paddingTop: "2rem" }}
+                style={{ paddingBottom: "0.75rem", paddingTop: "1.75rem" }}
               >
                 <BodyText size="sm" style={{ fontWeight: "bold" }}>
                   Design Timeline
@@ -160,7 +175,7 @@ const CustomCard = (props) => {
 
               <div
                 className="-d-flex -justify-content-between"
-                style={{ paddingBottom: "1rem", paddingTop: "2rem" }}
+                style={{ paddingBottom: "0.75rem", paddingTop: "1.75rem" }}
               >
                 <BodyText size="sm" style={{ fontWeight: "bold" }}>
                   Engineering Timeline
@@ -172,7 +187,7 @@ const CustomCard = (props) => {
 
               <div
                 className="-d-flex -justify-content-between"
-                style={{ paddingBottom: "1rem", paddingTop: "2rem" }}
+                style={{ paddingBottom: "0.75rem", paddingTop: "1.75rem" }}
               >
                 <BodyText
                   size="sm"
@@ -188,7 +203,7 @@ const CustomCard = (props) => {
               <HR />
               <div
                 className="-d-flex -justify-content-between"
-                style={{ paddingBottom: "1rem", paddingTop: "2rem" }}
+                style={{ paddingBottom: "0.75rem", paddingTop: "1.75rem" }}
               >
                 <BodyText size="sm" style={{ fontWeight: "bold" }}>
                   CPM Upcharge
@@ -199,13 +214,13 @@ const CustomCard = (props) => {
               <HR />
               <div
                 className=""
-                style={{ paddingBottom: "1rem", paddingTop: "2rem" }}
+                style={{ paddingBottom: "0.75rem", paddingTop: "1.75rem" }}
               >
                 <BodyText size="sm" style={{ fontWeight: "bold" }}>
                   Applicable Unit Types
                 </BodyText>
 
-                <BodyText size="sm">{props.custom.key.floorCPM}</BodyText>
+                <BodyText size="sm">put unit types here</BodyText>
               </div>
             </div>
           </div>

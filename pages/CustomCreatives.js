@@ -52,7 +52,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      key: 0,
+      key: [],
+      hidden: true,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -111,7 +112,8 @@ class App extends Component {
     setDebounce = setTimeout(() => {
       this.setState({
         // name: e.target.value,
-        key: customFeatures[index],
+        key: this.state.key.push(customFeatures[index]),
+        hidden: false,
         // description: customFeatures[index].description,
         // objective: customFeatures[index].objective,
         // bestPractices: customFeatures[index].bestPractices,
@@ -122,6 +124,9 @@ class App extends Component {
         // designTime: customFeatures[index].turnaroundTime,
         // cesTime: customFeatures[index].cesTurnaroundTime,
       });
+
+      if (this.state.hidden === false) {
+      }
     }, 250);
 
     console.log(this.state);
@@ -197,8 +202,9 @@ class App extends Component {
             </div>
           </Section>
         </Card>
-
-        <CustomCard custom={this.state} />
+        {this.state.key.map((index) => {
+          <CustomCard custom={index} />;
+        })}
 
         <Link href="/">Home</Link>
       </div>
