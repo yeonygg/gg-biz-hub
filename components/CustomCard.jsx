@@ -94,10 +94,11 @@ const CustomCard = (props) => {
     return card;
   };
 
-  console.log(props.custom.hidden);
+  // console.log(props.custom.hidden);
+
   return (
     <div>
-      <Card style={{ visibility: `${showCard()}` }}>
+      <Card style={{ visibility: `${showCard()}`, marginBottom: "1rem" }}>
         <Section padding="lg">
           <div className="custom-card-heading-wrapper">
             <Heading>{props.custom.key.name}</Heading>

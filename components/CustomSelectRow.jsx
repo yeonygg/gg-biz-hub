@@ -5,6 +5,8 @@ const CustomSelectRow = (props) => {
   const handleChange = (e, field) => {
     const value = e.target.value;
     const index = props.index; //customFeatures.map((obj) => obj.name).indexOf(value);
+    console.log(index);
+    console.log(props.key);
 
     props.changeHandler(e, value, index);
     console.log(props.config);
@@ -13,7 +15,7 @@ const CustomSelectRow = (props) => {
     <div className="custom-select-wrapper">
       <InputSelect
         onChange={(e) => {
-          handleChange(e, "customType");
+          handleChange(e);
         }}
         size="sm"
         disabled={false}

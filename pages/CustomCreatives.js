@@ -59,18 +59,25 @@ class App extends Component {
     //   });
     // }, 250);
 
-    console.log(e);
-    console.log(key);
     console.log(index);
+    const i = e.target.selectedIndex - 1;
     const newArray = this.state.key;
+    console.log(newArray);
     newArray[index] = key;
+
+    const hiddenHandler = () => {
+      let hidden = true;
+
+      if (newArray.length >= 1) {
+        hidden = false;
+      }
+      return hidden;
+    };
+
     this.setState({
       key: newArray,
+      hidden: hiddenHandler(),
     });
-  }
-
-  addCard(e) {
-    console.log("button clicked!");
   }
 
   createCustomSelect = () => {
@@ -81,11 +88,13 @@ class App extends Component {
     //console.log(custom.key);
     const newCustomArray = this.state.key;
     newCustomArray.push(0);
+
     this.setState({
       key: newCustomArray,
     });
 
     console.log(this.state.key);
+    console.log(newCustomArray);
   };
 
   render() {
@@ -116,7 +125,7 @@ class App extends Component {
                   <CustomSelectRow
                     changeHandler={this.handleChange}
                     index={this.state.index}
-                    key={UUIDV4()}
+                    key={this.state.key}
                     config={this.state}
                     addCustom={this.createCustomSelect}
                   />
@@ -140,7 +149,9 @@ class App extends Component {
           <CustomCard custom={index} />;
         }) */}
 
-        <CustomCard custom={this.state} />
+        {this.state.key.map((index) => (
+          <CustomCard key={index} custom={this.state} />
+        ))}
 
         <Link href="/">Home</Link>
       </div>
