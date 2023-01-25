@@ -182,24 +182,15 @@ class App extends Component {
                   </h1>
                 </div>
                 <div className="pier-accordion__content">
-                  <div className="card-style">
-                    <SubHeading
-                      text={this.state.campaignText}
-                      body={this.state.bodyText}
-                      className="-m-b-0"
-                    />
-                    <CampaignInputs
-                      campaign={this.state.campaign}
-                      changeHandler={this.setCampaignInputs}
-                    />
-
-                    <HR className="-m-b-4" />
-                    <div className="creative-plan">
+                  <div className="campaign-card-style">
+                    <div className="campaign-section-wrapper">
                       <SubHeading
-                        text={this.state.creativeText}
-                        body={"Add Creatives to Campaign"}
+                        text={this.state.campaignText}
+                        body={this.state.bodyText}
                       />
-                      <div>
+
+                      <Section padding="xs">
+                        {" "}
                         <InputToggle
                           size="sm"
                           disabled={false}
@@ -207,61 +198,93 @@ class App extends Component {
                           error={false}
                           className="-m-r-7"
                         >
-                          Programmatic
+                          Client Facing
                         </InputToggle>
+                      </Section>
 
-                        <InputToggle
-                          size="sm"
-                          disabled={false}
-                          dark={false}
-                          error={false}
-                          className="-m-r-5"
-                          onChange={(event) => {
-                            handleToggle(event, "isExpedited");
-                          }}
-                        >
-                          Expedited
-                        </InputToggle>
-                      </div>
-                    </div>
-
-                    {this.state.campaign.unitConfig.map((config, index) => (
-                      <CreativeRow
-                        deleteHandler={this.removeUnitConfig}
-                        changeHandler={this.setUnitConfig}
-                        key={config.key}
-                        index={config.key}
-                        config={config}
+                      <CampaignInputs
+                        campaign={this.state.campaign}
+                        changeHandler={this.setCampaignInputs}
                       />
-                    ))}
-                    <HR />
 
-                    <div className="buttons-section">
-                      <Tooltip text="Add creative">
-                        <IconButton
-                          onClick={this.createUnitConfig}
-                          className="plus-button"
+                      <HR />
+
+                      <Section padding="xs">
+                        <div className="-d-flex -justify-content-between">
+                          <InputToggle
+                            size="sm"
+                            disabled={false}
+                            dark={false}
+                            error={false}
+                            className="-m-r-7"
+                          >
+                            Programmatic
+                          </InputToggle>
+
+                          <InputToggle
+                            size="sm"
+                            disabled={false}
+                            dark={false}
+                            error={false}
+                            className="-m-r-5"
+                            onChange={(event) => {
+                              handleToggle(event, "isExpedited");
+                            }}
+                          >
+                            Expedited
+                          </InputToggle>
+                        </div>
+                      </Section>
+                    </div>
+                    <div className="plan-section-wrapper">
+                      <div className="creative-plan">
+                        <div className="-m-b-6">
+                          <SubHeading
+                            text={this.state.creativeText}
+                            body={"Add Creatives to Campaign"}
+                          />
+                        </div>
+                      </div>
+
+                      {this.state.campaign.unitConfig.map((config, index) => (
+                        <CreativeRow
+                          deleteHandler={this.removeUnitConfig}
+                          changeHandler={this.setUnitConfig}
+                          key={config.key}
+                          index={config.key}
+                          config={config}
+                        />
+                      ))}
+
+                      <HR />
+
+                      <div className="buttons-section">
+                        <Tooltip text="Add creative">
+                          <IconButton
+                            onClick={this.createUnitConfig}
+                            className="plus-button"
+                            title="Button"
+                            icon="far fa-plus"
+                            size="sm"
+                            disabled={false}
+                            dark={false}
+                            pill={false}
+                            hero={true}
+                          />
+                        </Tooltip>
+                        <Button
+                          className="clear-all-button"
+                          onClick={this.deleteAllUnits}
                           title="Button"
-                          icon="far fa-plus"
                           size="sm"
+                          theme="secondary"
                           disabled={false}
                           dark={false}
                           pill={false}
-                          hero={true}
-                        />
-                      </Tooltip>
-                      <Button
-                        className="clear-all-button"
-                        onClick={this.deleteAllUnits}
-                        title="Button"
-                        size="sm"
-                        theme="secondary"
-                        disabled={false}
-                        dark={false}
-                        pill={false}
-                      >
-                        Clear all
-                      </Button>
+                        >
+                          Clear all
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </div>

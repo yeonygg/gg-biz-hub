@@ -141,8 +141,8 @@ const CreativeRow = (props) => {
 
   return (
     <div>
-      <Section padding="xs" className="client-section">
-        <div className="client-name-input">
+      <Section padding="xs" className="plan-section">
+        <div className="unit-name-input">
           <InputGroup label="unit type" size="sm" error="" dark={false}>
             <InputSelect
               size="sm"
@@ -161,21 +161,21 @@ const CreativeRow = (props) => {
               ))}
             </InputSelect>
           </InputGroup>
-        </div>
 
-        <div className="toggle-button">
-          <InputCheckbox
-            size="sm"
-            disabled={props.config.isCustomizable ? false : true}
-            dark={false}
-            error={false}
-            partial={false}
-            onChange={(event) => {
-              handleChange(event, "customOn");
-            }}
-          >
-            Custom
-          </InputCheckbox>
+          <div className="toggle-button">
+            <InputCheckbox
+              size="sm"
+              disabled={props.config.isCustomizable ? false : true}
+              dark={false}
+              error={false}
+              partial={false}
+              onChange={(event) => {
+                handleChange(event, "customOn");
+              }}
+            >
+              Custom
+            </InputCheckbox>
+          </div>
         </div>
 
         <div className="num-units-input">
