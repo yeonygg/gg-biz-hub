@@ -39,65 +39,38 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      key: [0],
-      hidden: true,
+      selectCustomFeatures: [null]
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    console.log(this.state);
   }
 
-  handleChange(e, key, index) {
-    // console.log("custom thing selected!");
-    // const index = e.target.selectedIndex - 1;
-    // clearTimeout(setDebounce);
-    // setDebounce = setTimeout(() => {
-    //   this.setState({
-    //     key: this.state.key.push(customFeatures[index]),
-    //     // key: customFeatures[index],
-    //     hidden: false,
-    //   });
-    // }, 250);
-
-    console.log(index);
-    const i = e.target.selectedIndex - 1;
-    const newArray = this.state.key;
-    console.log(newArray);
-    newArray[index] = key;
-
-    const hiddenHandler = () => {
-      let hidden = true;
-
-      if (newArray.length >= 1) {
-        hidden = false;
-      }
-      return hidden;
-    };
-
+  handleChange = (e, value, index) => {
+    console.log('prev array: ',this.state.selectCustomFeatures)
+    console.log('value: '+value, 'index: '+index);
+    const newArray = this.state.selectCustomFeatures;
+    newArray[+index] = +value; //convert to number
+    console.log('new array',newArray)
     this.setState({
-      key: newArray,
-      hidden: hiddenHandler(),
+      selectCustomFeatures: newArray
     });
   }
 
   createCustomSelect = () => {
-    //const custom = this.state;
-    //const newCustom = Object.assign({}, this.state);
-    //newCustom.key = UUIDV4();
-    //custom.key.push(0);
-    //console.log(custom.key);
-    const newCustomArray = this.state.key;
-    newCustomArray.push(0);
-
+    const newCustomArray = this.state.selectCustomFeatures;
+    newCustomArray.push(null);
     this.setState({
-      key: newCustomArray,
+      selectCustomFeatures: newCustomArray,
     });
+  };
 
-    console.log(this.state.key);
-    console.log(newCustomArray);
+  getCustomFeatures = () => {
+    const selectedFeatures = this.state.selectCustomFeatures.map((id) => customFeatures.find((feature) => feature.id === id));
+    console.log('selected features: ');
+    console.log(selectedFeatures)
+    return selectedFeatures;
   };
 
   render() {
+    console.log('render');
     return (
       <div>
         <Section padding="sm"></Section>
@@ -121,12 +94,13 @@ class App extends Component {
 
               <div className="-d-block" style={{ width: "100%" }}>
                 {" "}
-                {this.state.key.map((index) => (
+                {this.state.selectCustomFeatures.map((value, index) => (
                   <CustomSelectRow
                     changeHandler={this.handleChange}
-                    index={this.state.index}
-                    key={this.state.key}
-                    config={this.state}
+                    index={index}
+                    value={this.state.selectCustomFeatures[index]}
+                    key={Math.random()*10000}
+                    config={customFeatures}
                     addCustom={this.createCustomSelect}
                   />
                 ))}
@@ -145,12 +119,9 @@ class App extends Component {
             </div>
           </Section>
         </Card>
-        {/* this.state.key.map((index) => {
-          <CustomCard custom={index} />;
-        }) */}
-
-        {this.state.key.map((index) => (
-          <CustomCard key={index} custom={this.state} />
+        {this.getCustomFeatures().map((feature, index) => (
+          
+            feature != undefined && <CustomCard key={index} feature={feature} />
         ))}
 
         <Link href="/">Home</Link>

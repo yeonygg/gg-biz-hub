@@ -4,12 +4,8 @@ import customFeatures from "../constants/custom";
 const CustomSelectRow = (props) => {
   const handleChange = (e, field) => {
     const value = e.target.value;
-    const index = props.index; //customFeatures.map((obj) => obj.name).indexOf(value);
-    console.log(index);
-    console.log(props.key);
-
+    const index = props.index;
     props.changeHandler(e, value, index);
-    console.log(props.config);
   };
   return (
     <div className="custom-select-wrapper">
@@ -22,18 +18,16 @@ const CustomSelectRow = (props) => {
         dark={false}
         error={false}
         capleft={false}
+        defaultValue=""
         required=""
+        value={props.value}
       >
-        <option disabled={true} selected={true} value="">
+        <option disabled={true} selected value="">
           Select your Custom Add On
         </option>
-        {/* customFeatures.map(function (customIndex) {
-                const custom = customFeatures[customIndex];
-                return <option key={custom.id}>{custom.name}</option>;
-              }) */}
 
         {customFeatures.map((custom) => (
-          <option key={custom.id}>{custom.name}</option>
+          <option key={custom.id} value={custom.id}>{custom.name}</option>
         ))}
       </InputSelect>
       <Tooltip text="Add Custom Creative">

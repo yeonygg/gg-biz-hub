@@ -17,7 +17,7 @@ const CustomCard = (props) => {
   // }
   const icon = () => {
     let iconCode = "";
-    const programmatic = props.custom.key.programmatic;
+    const programmatic = props.feature.programmatic;
     if (programmatic == "Feasible") {
       return (iconCode = (
         <i
@@ -45,7 +45,7 @@ const CustomCard = (props) => {
 
   const designTime = () => {
     let time = "";
-    const dsTime = props.custom.key.turnaroundTime;
+    const dsTime = props.feature.turnaroundTime;
     if (dsTime <= 1) {
       time = dsTime + " Business Day";
     } else if (dsTime === "TBD") {
@@ -58,7 +58,7 @@ const CustomCard = (props) => {
 
   const cesTime = () => {
     let time = "";
-    const cesTime = props.custom.key.cesTurnaroundTime;
+    const cesTime = props.feature.cesTurnaroundTime;
     if (cesTime <= 1) {
       time = cesTime + " Business Day";
     } else if (cesTime === "TBD") {
@@ -70,7 +70,7 @@ const CustomCard = (props) => {
   };
 
   const minSpend = () => {
-    const spend = props.custom.key.minSpend;
+    const spend = props.feature.minSpend;
     let minimum = "";
     if (spend > 0) {
       minimum = "$" + spend.toLocaleString("en-US");
@@ -82,26 +82,14 @@ const CustomCard = (props) => {
     return minimum;
   };
 
-  const showCard = () => {
-    const visibility = props.custom.hidden;
-    let card = "";
-    if (visibility === false) {
-      card = "visible";
-    } else {
-      card = "hidden";
-    }
-
-    return card;
-  };
-
   // console.log(props.custom.hidden);
 
   return (
     <div>
-      <Card style={{ visibility: `${showCard()}`, marginBottom: "1rem" }}>
+      <Card style={{ marginBottom: "1rem" }}>
         <Section padding="lg">
           <div className="custom-card-heading-wrapper">
-            <Heading>{props.custom.key.name}</Heading>
+            <Heading>{props.feature.name}</Heading>
             <Tooltip text="Remove Card">
               <IconButton
                 title="Button"
@@ -120,26 +108,26 @@ const CustomCard = (props) => {
                 <BodyText size="md" style={{ fontWeight: "bold" }}>
                   Description
                 </BodyText>
-                <BodyText size="xs">{props.custom.key.description}</BodyText>
+                <BodyText size="xs">{props.feature.description}</BodyText>
               </div>
               <div style={{ marginBottom: "2rem" }}>
                 <BodyText size="md" style={{ fontWeight: "bold" }}>
                   Objective
                 </BodyText>
-                <BodyText size="xs">{props.custom.key.objective}</BodyText>
+                <BodyText size="xs">{props.feature.objective}</BodyText>
               </div>
               <div style={{ marginBottom: "2rem" }}>
                 <BodyText size="md" style={{ fontWeight: "bold" }}>
                   Best Practices
                 </BodyText>
-                <BodyText size="xs">{props.custom.key.bestPractices}</BodyText>
+                <BodyText size="xs">{props.feature.bestPractices}</BodyText>
               </div>
               <div style={{ marginBottom: "2rem" }}>
                 <BodyText size="md" style={{ fontWeight: "bold" }}>
                   Client Requirements and Assets Needed
                 </BodyText>
                 <BodyText size="xs">
-                  {props.custom.key.clientRequirements}
+                  {props.feature.clientRequirements}
                 </BodyText>
               </div>
             </div>
@@ -157,7 +145,7 @@ const CustomCard = (props) => {
 
                 <BodyText size="sm">
                   {icon()}
-                  {props.custom.key.programmatic}
+                  {props.feature.programmatic}
                 </BodyText>
               </div>
               <HR />
@@ -209,7 +197,7 @@ const CustomCard = (props) => {
                   CPM Upcharge
                 </BodyText>
 
-                <BodyText size="sm">${props.custom.key.floorCPM}.00</BodyText>
+                <BodyText size="sm">${props.feature.floorCPM}.00</BodyText>
               </div>
               <HR />
               <div
