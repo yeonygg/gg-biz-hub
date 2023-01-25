@@ -210,40 +210,48 @@ const CreativeRow = (props) => {
         <div>
           {" "}
           <Section padding="xs" className="add-on-section">
-            <div className="plus-alignment">
-              <IconButton
-                title="Button"
-                icon="fas fa-plus"
-                size="sm"
-                disabled={true}
-                dark={false}
-                pill={false}
-              />
-            </div>
-
-            <div className="add-on-input">
-              <InputGroup label="custom add on" size="sm" error="" dark={false}>
-                <InputSelect
+            <div style={{ width: "40%", display: "flex" }}>
+              <div className="plus-alignment">
+                <IconButton
+                  title="Button"
+                  icon="fas fa-plus"
                   size="sm"
-                  disabled={false}
+                  disabled={true}
                   dark={false}
-                  error={false}
-                  capleft={false}
-                  required=""
-                  onChange={(event) => {
-                    handleChange(event, "customUnit");
-                  }}
+                  pill={false}
+                />
+              </div>
+
+              <div className="add-on-input">
+                <InputGroup
+                  label="custom add on"
+                  size="sm"
+                  error=""
+                  dark={false}
                 >
-                  <option disabled={true} selected={true} value="">
-                    Select your add on
-                  </option>
-                  {customUnitIndex.map(function (customIndex) {
-                    const custom = customFeatures[customIndex];
-                    return <option key={custom.id}>{custom.name}</option>;
-                  })}
-                </InputSelect>
-              </InputGroup>
+                  <InputSelect
+                    size="sm"
+                    disabled={false}
+                    dark={false}
+                    error={false}
+                    capleft={false}
+                    required=""
+                    onChange={(event) => {
+                      handleChange(event, "customUnit");
+                    }}
+                  >
+                    <option disabled={true} selected={true} value="">
+                      Select your add on
+                    </option>
+                    {customUnitIndex.map(function (customIndex) {
+                      const custom = customFeatures[customIndex];
+                      return <option key={custom.id}>{custom.name}</option>;
+                    })}
+                  </InputSelect>
+                </InputGroup>
+              </div>
             </div>
+            <div style={{ width: "60%" }}></div>
           </Section>
         </div>
       )}

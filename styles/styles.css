@@ -75,7 +75,7 @@
 .unit-name-input {
   display: flex;
   margin: 0;
-  width: 50%;
+  width: 60%;
 }
 
 .campaign-name-input {
@@ -105,7 +105,7 @@
 }
 
 .add-on-input {
-  width: 24%;
+  width: 100%;
 }
 
 .toggle-button {
