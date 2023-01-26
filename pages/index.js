@@ -12,6 +12,7 @@ import CampaignOutput from "../components/CampaignOutput";
 import { useState, useEffect, Component } from "react";
 import { InputToggle } from "pier-design-system";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import UUIDV4 from "../helpers/helpers";
 import Layout from "./Layout";
 import { Fragment } from "react";
@@ -19,6 +20,9 @@ import CustomCreatives from "./CustomCreatives";
 =======
 import UUIDV4 from "./helpers/helpers";
 >>>>>>> 6cbb0a0 (updated constants to fix yarn build issues)
+=======
+import UUIDV4 from "../helpers/helpers";
+>>>>>>> d01c238 (moved constants and helper folders)
 
 import {
   Card,
