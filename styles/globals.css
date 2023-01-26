@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> aa4e963 (updated css order)
-=======
->>>>>>> 008e50e (updated styles)
-=======
-
->>>>>>> aa4e963 (updated css order)
-=======
->>>>>>> 008e50e (updated styles)
 html {
 }
 body {
@@ -34,21 +20,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-<<<<<<< HEAD
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> aa4e963 (updated css order)
-=======
-}
->>>>>>> 008e50e (updated styles)

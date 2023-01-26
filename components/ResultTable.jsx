@@ -9,7 +9,6 @@ const ResultTable = (props) => {
 
   const tableData = () => {
     let data = [];
-<<<<<<< HEAD
     let blend = [];
     let floorAverage = [];
     let openAverage = [];
@@ -40,20 +39,12 @@ const ResultTable = (props) => {
           vcpmAverage.push(unit[i].floorVCPM);
         }
       }
-=======
-    for (let i = 0; i < unit.length; i++) {
->>>>>>> ea28611 (fixed yarn build errors)
       const row = {
         "Unit Type": unit[i].unitType,
         "Floor CPM":
           "$" + parseFloat(unit[i].floorCPM).toFixed(2).toLocaleString(),
-<<<<<<< HEAD
         "Floor VCPM": vcpmZero(),
 
-=======
-        "Floor VCPM":
-          "$" + parseFloat(unit[i].floorVCPM).toFixed(2).toLocaleString(),
->>>>>>> ea28611 (fixed yarn build errors)
         "Open CPM":
           "$" + parseFloat(unit[i].openCPM).toFixed(2).toLocaleString(),
       };
@@ -78,16 +69,11 @@ const ResultTable = (props) => {
               .toFixed(2)
               .toLocaleString(),
         };
-<<<<<<< HEAD
-
-=======
->>>>>>> ea28611 (fixed yarn build errors)
         data.push(customRow);
       } else {
         data.push(row);
       }
     }
-<<<<<<< HEAD
 
     for (let i = 0; i < unit.length; i++) {
       if (props.toggleOn === true) {
@@ -125,9 +111,6 @@ const ResultTable = (props) => {
     } else {
       return data;
     }
-=======
-    return data;
->>>>>>> ea28611 (fixed yarn build errors)
   };
 
   return (

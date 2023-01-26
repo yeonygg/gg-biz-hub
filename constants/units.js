@@ -142,11 +142,7 @@ var unitTypes = [
     turnaroundTime: 5,
     cesRequired: true,
     floorCPM: 22,
-<<<<<<< HEAD
-    floorVCPM: "tbd",
-=======
     floorVCPM: "TBD",
->>>>>>> d01c238 (moved constants and helper folders)
     openCPM: 25,
     customizable: false,
     isSkin: true,
@@ -160,11 +156,7 @@ var unitTypes = [
     turnaroundTime: 5,
     cesRequired: true,
     floorCPM: 18,
-<<<<<<< HEAD
-    floorVCPM: "tbd",
-=======
     floorVCPM: "TBD",
->>>>>>> d01c238 (moved constants and helper folders)
     openCPM: 21,
     customizable: false,
     isSkin: true,
@@ -178,11 +170,7 @@ var unitTypes = [
     turnaroundTime: 3,
     cesRequired: true,
     floorCPM: 8,
-<<<<<<< HEAD
-    floorVCPM: "tbd",
-=======
     floorVCPM: "TBD",
->>>>>>> d01c238 (moved constants and helper folders)
     openCPM: 10,
     customizable: false,
     isSkin: true,
@@ -209,11 +197,7 @@ var unitTypes = [
     turnaroundTime: 2,
     cesRequired: false,
     floorCPM: 2.5,
-<<<<<<< HEAD
-    floorVCPM: "tbd",
-=======
     floorVCPM: "Custom rate",
->>>>>>> d01c238 (moved constants and helper folders)
     openCPM: 3.5,
     customizable: false,
   },
@@ -226,11 +210,7 @@ var unitTypes = [
     turnaroundTime: 0,
     cesRequired: true,
     floorCPM: 7,
-<<<<<<< HEAD
-    floorVCPM: "tbd",
-=======
     floorVCPM: "TBD",
->>>>>>> d01c238 (moved constants and helper folders)
     openCPM: 10,
     customizable: false,
   },
@@ -243,11 +223,7 @@ var unitTypes = [
     turnaroundTime: 0,
     cesRequired: true,
     floorCPM: 9.5,
-<<<<<<< HEAD
-    floorVCPM: "tbd",
-=======
     floorVCPM: "TBD",
->>>>>>> d01c238 (moved constants and helper folders)
     openCPM: 12,
     customizable: false,
   },

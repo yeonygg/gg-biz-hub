@@ -1,12 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { Component } from "react";
-=======
->>>>>>> 5cd902b (created custom creatives page)
-=======
-import { Component } from "react";
->>>>>>> 20d30b9 (updated custom page)
 import {
   Card,
   Section,
@@ -15,127 +8,13 @@ import {
   InputSelect,
   IconButton,
   Tooltip,
-<<<<<<< HEAD
-<<<<<<< HEAD
   InputToggle,
-=======
->>>>>>> 5cd902b (created custom creatives page)
-=======
-  InputToggle,
->>>>>>> 20d30b9 (updated custom page)
 } from "pier-design-system";
 import Link from "next/link";
 import CustomAdd from "../components/CustomAdd";
 import customFeatures from "../constants/custom";
-<<<<<<< HEAD
-<<<<<<< HEAD
 import CustomCard from "../components/CustomCard";
 import UUIDV4 from "../helpers/helpers";
-import CustomSelectRow from "../components/CustomSelectRow";
-
-let setDebounce;
-
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      selectCustomFeatures: [null]
-    };
-  }
-
-  handleChange = (e, value, index) => {
-    console.log('prev array: ',this.state.selectCustomFeatures)
-    console.log('value: '+value, 'index: '+index);
-    const newArray = this.state.selectCustomFeatures;
-    newArray[+index] = +value; //convert to number
-    console.log('new array',newArray)
-    this.setState({
-      selectCustomFeatures: newArray
-    });
-  }
-
-  createCustomSelect = () => {
-    const newCustomArray = this.state.selectCustomFeatures;
-    newCustomArray.push(null);
-    this.setState({
-      selectCustomFeatures: newCustomArray,
-    });
-  };
-
-  getCustomFeatures = () => {
-    const selectedFeatures = this.state.selectCustomFeatures.map((id) => customFeatures.find((feature) => feature.id === id));
-    console.log('selected features: ');
-    console.log(selectedFeatures)
-    return selectedFeatures;
-  };
-
-  render() {
-    console.log('render');
-    return (
-      <div>
-        <Section padding="sm"></Section>
-        <Heading>Creative - Custom Creatives</Heading>
-        <Card className="-m-b-6">
-          <Section
-            padding="lg"
-            className="-flex-row -justify-content-center -align-items-center"
-            style={{ marginTop: "1.125rem" }}
-          >
-            <div className="-d-flex" style={{ width: "100%" }}>
-              <div className="custom-body-text">
-                <BodyText
-                  style={{
-                    fontWeight: "bold",
-                  }}
-                >
-                  Select Custom Creative
-                </BodyText>
-              </div>
-
-              <div className="-d-block" style={{ width: "100%" }}>
-                {" "}
-                {this.state.selectCustomFeatures.map((value, index) => (
-                  <CustomSelectRow
-                    changeHandler={this.handleChange}
-                    index={index}
-                    value={this.state.selectCustomFeatures[index]}
-                    key={Math.random()*10000}
-                    config={customFeatures}
-                    addCustom={this.createCustomSelect}
-                  />
-                ))}
-              </div>
-            </div>
-
-            <div className="-d-flex -justify-content-end -m-t-6">
-              <InputToggle
-                size="sm"
-                disabled={false}
-                dark={false}
-                error={false}
-              >
-                Show All Custom Creatives
-              </InputToggle>
-            </div>
-          </Section>
-        </Card>
-        {this.getCustomFeatures().map((feature, index) => (
-          
-            feature != undefined && <CustomCard key={index} feature={feature} />
-        ))}
-
-        <Link href="/">Home</Link>
-      </div>
-    );
-  }
-}
-
-export default App;
-=======
-=======
-import CustomCard from "../components/CustomCard";
-import UUIDV4 from "../helpers/helpers";
->>>>>>> 20d30b9 (updated custom page)
 
 let setDebounce;
 
@@ -273,14 +152,6 @@ class App extends Component {
                 return <option key={custom.id}>{custom.name}</option>;
               }) */}
 
-<<<<<<< HEAD
-      <Link href="/">Home</Link>
-    </div>
-  );
-};
-export default CustomCreatives;
->>>>>>> 5cd902b (created custom creatives page)
-=======
                 {customFeatures.map((custom) => (
                   <option key={custom.id}>{custom.name}</option>
                 ))}
@@ -321,4 +192,3 @@ export default CustomCreatives;
 }
 
 export default App;
->>>>>>> 20d30b9 (updated custom page)
