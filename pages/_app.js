@@ -1,5 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import styles from "../styles/styles.css";
+import styles from "../styles/globals.css";
+>>>>>>> 6888cfb (updated styles)
 import "pier-design-system/dist/styles.css";
 import "../styles/styles.css";
 =======
