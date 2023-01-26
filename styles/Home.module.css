@@ -121,6 +121,12 @@
   }
 }
 
+@media (max-width: 450px) {
+  .card {
+    margin: 0.5rem;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   .card,
   .footer {
