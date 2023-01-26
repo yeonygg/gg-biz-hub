@@ -881,4 +881,12 @@ footer {
   width: 55%;
   padding: 2rem 2rem 2rem 4rem;
 }
+<<<<<<< HEAD
 >>>>>>> f3ffec8 (updated and added styles to custom card)
+=======
+
+.custom-card-heading-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+>>>>>>> 3706f26 (updated custom card)

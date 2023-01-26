@@ -414,6 +414,7 @@ var customFeatures = [
     minSpend: 25000,
     highImpact: true,
     turnaroundTime: 2,
+    cesTurnaroundTime: 1,
     cesRequired: false,
     floorCPM: 0,
     openCPM: 0,
