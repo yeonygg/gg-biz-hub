@@ -71,6 +71,7 @@ class App extends Component {
       selectCustomFeatures: newArray
 >>>>>>> cbdb026 (fixed custom feature select functionality)
     });
+    console.log(this.state);
   }
 
   addCard(e) {
