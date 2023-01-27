@@ -90,6 +90,27 @@ const CustomCard = (props) => {
   };
 
   // console.log(props.custom.hidden);
+  const objective = () => {
+    const object = props.feature.objective;
+    console.log(object.hasOwnProperty("primary"));
+    let objective = [];
+    const separator = "\n";
+    if (object.hasOwnProperty("primary")) {
+      objective.push(`Primary: ${props.feature.objective.primary}`);
+    }
+
+    if (object.hasOwnProperty("secondary")) {
+      objective.push(`Secondary: ${props.feature.objective.secondary}`);
+    }
+
+    if (object.hasOwnProperty("recommendedMetrics")) {
+      objective.push(
+        `Recommended Metrics: ${props.feature.objective.recommendedMetrics}`
+      );
+    }
+
+    return objective.join(separator);
+  };
 
   return (
     <div>
@@ -117,11 +138,11 @@ const CustomCard = (props) => {
                 </BodyText>
                 <BodyText size="xs">{props.feature.description}</BodyText>
               </div>
-              <div style={{ marginBottom: "2rem" }}>
+              <div style={{ marginBottom: "2rem", whiteSpace: "pre" }}>
                 <BodyText size="md" style={{ fontWeight: "bold" }}>
                   Objective
                 </BodyText>
-                <BodyText size="xs">{props.feature.objective}</BodyText>
+                <BodyText size="xs">{objective()}</BodyText>
               </div>
               <div style={{ marginBottom: "2rem" }}>
                 <BodyText size="md" style={{ fontWeight: "bold" }}>
