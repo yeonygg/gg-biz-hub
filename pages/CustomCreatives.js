@@ -52,12 +52,12 @@ class App extends Component {
     return this.state.selectCustomFeatures.map((id) => customFeatures.find((feature) => feature.id === id));
   };
 
-  removeCustomSelect = () => {
-    const newCustomArray = this.state.selectCustomFeatures;
-    const index = this.getCustomFeatures(id);
-    newCustomArray.splice(index, 1);
-    this.updateCustom(selectCustomFeatures);
-  };
+  // removeCustomSelect = () => {
+  //   const newCustomArray = this.state.selectCustomFeatures;
+  //   const index = this.getCustomFeatures(id);
+  //   newCustomArray.splice(index, 1);
+  //   this.updateCustom(selectCustomFeatures);
+  // };
 
   updateCustom = (selectCustomFeatures) => {
     this.setState({
@@ -65,6 +65,19 @@ class App extends Component {
     });
     // console.log(this.state.campaign.unitConfig);
 >>>>>>> 36fd239 (added function for listing applicable unit types)
+  };
+
+  removeCustomSelect = () => {
+    const length = this.state.selectCustomFeatures.length;
+    const array = this.state.selectCustomFeatures;
+    console.log(array);
+    let last = false;
+    const lastIndex = array.length - 1;
+    if (array.length > 1) {
+      console.log(array[lastIndex]);
+      last = true;
+    }
+    return last;
   };
 
   render() {
@@ -80,6 +93,9 @@ class App extends Component {
         }
       }
     };
+
+    // const row = document.querySelector(".custom-select-wrapper");
+
     return (
       <div>
         <Section padding="sm"></Section>
@@ -117,6 +133,7 @@ class App extends Component {
                     config={customFeatures}
 >>>>>>> cbdb026 (fixed custom feature select functionality)
                     addCustom={this.createCustomSelect}
+                    removeCustom={this.removeCustomSelect}
                   />
                 ))}
               </div>
