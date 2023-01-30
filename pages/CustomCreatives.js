@@ -68,7 +68,6 @@ class App extends Component {
   };
 
   removeCustomSelect = () => {
-    const length = this.state.selectCustomFeatures.length;
     const array = this.state.selectCustomFeatures;
     console.log(array);
     let last = false;
