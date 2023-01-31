@@ -248,7 +248,7 @@ const CustomCard = (props) => {
                   Applicable Unit Types
                 </BodyText>
 
-                <BodyText size="sm">{units()}</BodyText>
+                <BodyText size="xs">{units()}</BodyText>
               </div>
             </div>
           </div>
