@@ -52,6 +52,11 @@ class App extends Component {
     return this.state.selectCustomFeatures.map((id) => customFeatures.find((feature) => feature.id === id));
   };
 
+  getAllCustomFeatures = () => {
+    console.log(this.state.selectCustomFeatures);
+    return this.state.selectCustomFeatures.map((id) => customFeatures.id);
+  };
+
   // removeCustomSelect = () => {
   //   const newCustomArray = this.state.selectCustomFeatures;
   //   const index = this.getCustomFeatures(id);
@@ -83,19 +88,22 @@ class App extends Component {
     // console.log("render");
     const handleToggle = (event, field) => {
       if (field === "showAll") {
-        for (let i = 0; i < this.state.selectCustomFeatures.length; i++) {
-          if (event.target.checked === true) {
-            console.log("testing");
-          } else {
-            console.log("else testing");
-          }
+        if (event.target.checked === true) {
+          console.log("testing");
+          return ``;
+        } else {
+          console.log("else testing");
+          return `
+              (feature, index) =>
+                feature != undefined && (
+                  <CustomCard key={index} feature={feature} />
+                `;
         }
       }
     };
 
     const handleLast = () => {
       const array = this.state.selectCustomFeatures;
-      console.log(array);
       let last = false;
       const lastIndex = array.length - 1;
       if (array.length > 1) {
@@ -146,6 +154,7 @@ class App extends Component {
                     addCustom={this.createCustomSelect}
                     removeCustom={this.removeCustomSelect}
                     isLast={handleLast()}
+                    selectArray={this.state.customFeatures}
                   />
                 ))}
               </div>
@@ -185,6 +194,10 @@ class App extends Component {
             feature != undefined && <CustomCard key={index} feature={feature} />
         )}
 >>>>>>> 36fd239 (added function for listing applicable unit types)
+
+        {/* this.getAllCustomFeatures().map((index, feature) => (
+          <CustomCard key={index} feature={feature} />
+        )) */}
 
         <Link href="/">Home</Link>
       </div>
