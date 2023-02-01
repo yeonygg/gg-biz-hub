@@ -22,7 +22,6 @@ class App extends Component {
     super();
     this.state = {
       selectCustomFeatures: [null],
-      showAll: false,
     };
   }
 
@@ -55,7 +54,6 @@ class App extends Component {
   getAllCustomFeatures = () => {
     this.setState({
       selectCustomFeatures: [null],
-      showAll: true,
     });
     return customFeatures.map((feature) => feature);
   };
@@ -70,7 +68,6 @@ class App extends Component {
   updateCustom = (selectCustomFeatures) => {
     this.setState({
       selectCustomFeatures: selectCustomFeatures,
-      showAll: false,
     });
     // console.log(this.state.campaign.unitConfig);
 >>>>>>> 36fd239 (added function for listing applicable unit types)
@@ -96,7 +93,6 @@ class App extends Component {
         if (event.target.checked === true) {
           this.setState({
             selectCustomFeatures: [null],
-            showAll: true,
           });
           console.log("testing");
         }
@@ -210,11 +206,9 @@ class App extends Component {
         )}
 >>>>>>> b1a47b0 (updated custom pages code)
 
-        <div style={{ visibility: "hidden" }}>
-          {this.getAllCustomFeatures().map((feature, index) => (
-            <CustomCard key={index} feature={feature} />
-          ))}
-        </div>
+        {this.getAllCustomFeatures().map((feature, index) => (
+          <CustomCard key={index} feature={feature} />
+        ))}
 
         <Link href="/">Home</Link>
       </div>
