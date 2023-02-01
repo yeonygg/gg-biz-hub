@@ -234,6 +234,7 @@ class App extends Component {
 >>>>>>> aa4e963 (updated css order)
 =======
       <Fragment>
+        <Navigation />
         <div className={styles.container}>
           <div
             className="-d-flex"

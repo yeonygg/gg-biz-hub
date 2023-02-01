@@ -1,10 +1,8 @@
 import { InputSelect, IconButton, Tooltip } from "pier-design-system";
 import customFeatures from "../constants/custom";
 import CustomIconButtons from "./customIconButtons";
-import { useRef } from "react";
 
 const CustomSelectRow = (props) => {
-  const addButton = useRef();
   const handleChange = (e, field) => {
     const value = e.target.value;
 <<<<<<< HEAD
@@ -22,15 +20,6 @@ const CustomSelectRow = (props) => {
     props.changeHandler(e, value, index);
 >>>>>>> cbdb026 (fixed custom feature select functionality)
   };
-
-  console.log(props.isLast);
-  const plusButton = () => {
-    const array = props.config;
-    if (props.isLast === true) {
-    }
-  };
-
-  plusButton();
 
   return (
     <div className="custom-select-wrapper">
@@ -85,38 +74,7 @@ const CustomSelectRow = (props) => {
 >>>>>>> 36fd239 (added function for listing applicable unit types)
         ))}
       </InputSelect>
-      <div ref={addButton}>
-        <Tooltip text="Add Custom Creative">
-          <IconButton
-            onClick={props.addCustom}
-            style={{ marginLeft: "1rem" }}
-            className="plus-button"
-            title="Button"
-            icon="far fa-plus"
-            size="sm"
-            disabled={false}
-            dark={false}
-            pill={false}
-            hero={true}
-          />
-        </Tooltip>
-      </div>
-
-      <Tooltip text="Delete Custom Creative">
-        <IconButton
-          onClick={props.removeCustom}
-          style={{ marginLeft: "1rem" }}
-          className="trash-button"
-          title="Button"
-          icon="far fa-trash"
-          size="sm"
-          disabled={false}
-          dark={false}
-          pill={false}
-          hero={false}
-          secondary={true}
-        />
-      </Tooltip>
+      <CustomIconButtons />
     </div>
   );
 };

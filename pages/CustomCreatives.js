@@ -99,17 +99,6 @@ class App extends Component {
       }
     };
 
-    const handleLast = () => {
-      const array = this.state.selectCustomFeatures;
-      let last = false;
-      const lastIndex = array.length - 1;
-      if (array.length > 1) {
-        console.log(array[lastIndex]);
-        last = true;
-      }
-      return last;
-    };
-
     // const row = document.querySelector(".custom-select-wrapper");
 
     return (
@@ -150,8 +139,6 @@ class App extends Component {
 >>>>>>> cbdb026 (fixed custom feature select functionality)
                     addCustom={this.createCustomSelect}
                     removeCustom={this.removeCustomSelect}
-                    isLast={handleLast()}
-                    selectArray={this.state.customFeatures}
                   />
                 ))}
               </div>
