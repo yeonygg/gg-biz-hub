@@ -1,6 +1,5 @@
 import React from "react";
 import { Component } from "react";
-import { useState, useEffect } from "react";
 import {
   Card,
   Section,
@@ -16,6 +15,8 @@ import Link from "next/link";
 import customFeatures from "../constants/custom";
 import CustomCard from "../components/CustomCard";
 import CustomSelectRow from "../components/CustomSelectRow";
+
+let setDebounce;
 
 class App extends Component {
   constructor() {
@@ -51,13 +52,6 @@ class App extends Component {
     return this.state.selectCustomFeatures.map((id) => customFeatures.find((feature) => feature.id === id));
   };
 
-  getAllCustomFeatures = () => {
-    this.setState({
-      selectCustomFeatures: [null],
-    });
-    return customFeatures.map((feature) => feature);
-  };
-
   // removeCustomSelect = () => {
   //   const newCustomArray = this.state.selectCustomFeatures;
   //   const index = this.getCustomFeatures(id);
@@ -87,16 +81,28 @@ class App extends Component {
 
   render() {
     // console.log("render");
-
     const handleToggle = (event, field) => {
       if (field === "showAll") {
-        if (event.target.checked === true) {
-          this.setState({
-            selectCustomFeatures: [null],
-          });
-          console.log("testing");
+        for (let i = 0; i < this.state.selectCustomFeatures.length; i++) {
+          if (event.target.checked === true) {
+            console.log("testing");
+          } else {
+            console.log("else testing");
+          }
         }
       }
+    };
+
+    const handleLast = () => {
+      const array = this.state.selectCustomFeatures;
+      console.log(array);
+      let last = false;
+      const lastIndex = array.length - 1;
+      if (array.length > 1) {
+        console.log(array[lastIndex]);
+        last = true;
+      }
+      return last;
     };
 
     // const row = document.querySelector(".custom-select-wrapper");
@@ -139,6 +145,7 @@ class App extends Component {
 >>>>>>> cbdb026 (fixed custom feature select functionality)
                     addCustom={this.createCustomSelect}
                     removeCustom={this.removeCustomSelect}
+                    isLast={handleLast()}
                   />
                 ))}
               </div>
@@ -192,10 +199,6 @@ class App extends Component {
             feature != undefined && <CustomCard key={index} feature={feature} />
         )}
 >>>>>>> b1a47b0 (updated custom pages code)
-
-        {this.getAllCustomFeatures().map((feature, index) => (
-          <CustomCard key={index} feature={feature} />
-        ))}
 
         <Link href="/">Home</Link>
       </div>

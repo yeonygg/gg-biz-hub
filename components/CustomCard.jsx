@@ -154,7 +154,7 @@ const CustomCard = (props) => {
                 <BodyText size="md" style={{ fontWeight: "bold" }}>
                   Objective
                 </BodyText>
-                <BodyText size="xs">{/*objective()*/}</BodyText>
+                <BodyText size="xs">{objective()}</BodyText>
               </div>
               <div style={{ marginBottom: "2rem" }}>
                 <BodyText size="md" style={{ fontWeight: "bold" }}>
@@ -248,7 +248,7 @@ const CustomCard = (props) => {
                   Applicable Unit Types
                 </BodyText>
 
-                <BodyText size="sm">{units()}</BodyText>
+                <BodyText size="xs">{units()}</BodyText>
               </div>
             </div>
           </div>

@@ -1,11 +1,11 @@
 import { IconButton, Tooltip } from "pier-design-system";
 
-const CustomIconButtons = () => {
+const CustomIconButtons = (props) => {
   return (
     <div>
       <Tooltip text="Add Custom Creative">
         <IconButton
-          //   onClick={props.addCustom}
+          onClick={props.add}
           style={{ marginLeft: "1rem" }}
           className="plus-button"
           title="Button"
@@ -17,10 +17,9 @@ const CustomIconButtons = () => {
           hero={true}
         />
       </Tooltip>
-
-      <Tooltip text="Delete Custom Creative">
+      {/*      <Tooltip text="Delete Custom Creative">
         <IconButton
-          //   onClick={props.removeCustom}
+          onClick={props.remove}
           style={{ marginLeft: "1rem" }}
           className="trash-button"
           title="Button"
@@ -32,7 +31,7 @@ const CustomIconButtons = () => {
           hero={false}
           secondary={true}
         />
-      </Tooltip>
+      </Tooltip> */}
     </div>
   );
 };
