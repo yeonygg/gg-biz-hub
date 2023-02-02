@@ -65,11 +65,8 @@ class App extends Component {
       key: newArray,
 =======
   handleChange = (e, value, index) => {
-    console.log('prev array: ',this.state.selectCustomFeatures)
-    console.log('value: '+value, 'index: '+index);
     const newArray = this.state.selectCustomFeatures;
     newArray[+index] = +value; //convert to number
-    console.log('new array',newArray)
     this.setState({
       selectCustomFeatures: newArray
 >>>>>>> cbdb026 (fixed custom feature select functionality)
@@ -102,11 +99,15 @@ class App extends Component {
     console.log(this.state.key);
 =======
   getCustomFeatures = () => {
+<<<<<<< HEAD
     const selectedFeatures = this.state.selectCustomFeatures.map((id) => customFeatures.find((feature) => feature.id === id));
     console.log('selected features: ');
     console.log(selectedFeatures)
     return selectedFeatures;
 >>>>>>> cbdb026 (fixed custom feature select functionality)
+=======
+    return this.state.selectCustomFeatures.map((id) => customFeatures.find((feature) => feature.id === id));
+>>>>>>> f6ca1b4 (fixed sloppy syntax)
   };
 
   render() {
