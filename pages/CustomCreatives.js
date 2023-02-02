@@ -52,33 +52,17 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      key: null,
-      name: "",
-      description: "",
-      minSpend: 0,
-      designTime: 0,
-      cesTime: 0,
-      programmatic: "",
-      cpmUpcharge: 0,
-      objective: "",
-      bestPractices: "",
-      clientRequirements: "",
+      key: 0,
     };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
-  //   getCustomInputs = (key) => {
-  //     const customConfig = this.state;
-  //     const index = this.getUnitIndex(key);
-  //     return customConfig[index];
-  //   };
-
-  //   getUnitIndex = (key) => {
-  //     const customConfig = this.state;
-  //     console.log(customConfig);
-  //     return customConfig.map((obj) => obj.key).indexOf(key);
-  //   };
+  // getUnitIndex = (key) => {
+  //   const customConfig = this.state;
+  //   console.log(customConfig);
+  //   return customConfig.map((obj) => obj.key).indexOf(key);
+  // };
 
   //   setCustomInputs = (value, field) => {
   //     clearTimeout(setDebounce);
@@ -122,11 +106,26 @@ class App extends Component {
 
   handleChange(e) {
     console.log("custom thing selected!");
-    this.setState({
-      name: e.target.value,
-    });
+    const index = e.target.selectedIndex - 1;
+    clearTimeout(setDebounce);
+    setDebounce = setTimeout(() => {
+      this.setState({
+        // name: e.target.value,
+        key: customFeatures[index],
+        // description: customFeatures[index].description,
+        // objective: customFeatures[index].objective,
+        // bestPractices: customFeatures[index].bestPractices,
+        // minSpend: customFeatures[index].minSpend,
+        // cpmUpcharge: customFeatures[index].floorCPM,
+        // clientRequirements: customFeatures[index].clientRequirements,
+        // programmatic: customFeatures[index].programmatic,
+        // designTime: customFeatures[index].turnaroundTime,
+        // cesTime: customFeatures[index].cesTurnaroundTime,
+      });
+    }, 250);
+
     console.log(this.state);
-    console.log(e.target.value);
+    console.log(index);
   }
 
   render() {

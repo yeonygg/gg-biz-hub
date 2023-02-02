@@ -892,4 +892,19 @@ footer {
 .custom-page-select {
   display: flex;
 }
+<<<<<<< HEAD
 >>>>>>> 5cd902b (created custom creatives page)
+=======
+
+.custom-card-description-box {
+  width: 45%;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #f7f8f8;
+}
+
+.custom-sla-info-wrapper {
+  width: 55%;
+  padding: 2rem 2rem 2rem 4rem;
+}
+>>>>>>> f3ffec8 (updated and added styles to custom card)
