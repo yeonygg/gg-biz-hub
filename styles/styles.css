@@ -1,4 +1,5 @@
 .main-heading {
+<<<<<<< HEAD
   margin: 5rem 3rem 2rem 3rem;
 }
 
@@ -455,3 +456,434 @@ footer {
   display: flex;
   justify-content: space-between;
 }
+=======
+    margin: 5rem 3rem 2rem 3rem;
+  }
+  
+  .card-style {
+    padding: 2rem;
+  }
+  
+  .client-section {
+    display: flex !important;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .add-on-section {
+    display: flex;
+    padding-bottom: 1.5rem;
+    padding-top: 0rem;
+  }
+  
+  .buttons-section {
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .sub-heading {
+    margin-bottom: 10px;
+  }
+  
+  .card {
+    margin: 1.5rem 3rem 0.5rem 3rem;
+  }
+  
+  .result-card {
+    margin: 1.5rem 3rem 0.5rem 3rem;
+    background-color: #f7f8f8;
+  }
+  
+  .client-name-input {
+    flex: 1 1 auto;
+    margin: 0 0.5rem;
+  }
+  
+  .campaign-name-input {
+    flex: 1 1 auto;
+    margin: 0 0.5rem;
+  }
+  
+  .campaign-budget-input {
+    flex: 0 1 15%;
+    margin: 0 0.5rem;
+  }
+  
+  .client-name {
+    flex: 1 1 auto;
+    margin: 0 0.5rem;
+  }
+  
+  .campaign-name {
+    width: 40%;
+    padding-right: 4rem;
+  }
+  
+  .num-units-input {
+    flex: 0 1 15%;
+    margin: 0 0.5rem;
+  }
+  
+  .add-on-input {
+    width: 24%;
+  }
+  
+  .toggle-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0 1 15%;
+    margin: 0 0.5rem;
+  }
+  
+  .clear-all-button {
+    margin-left: 0.75rem;
+  }
+  
+  .plus-alignment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 2rem;
+    padding-top: 0;
+  }
+  
+  footer {
+    display: flex;
+    padding: 5rem 3rem;
+    justify-content: flex-end;
+  }
+  
+  .pier-body-text.pier-body-text--xs.pier-body-text--light {
+    margin-bottom: 0;
+  }
+  
+  .client-section div:first-child {
+    margin-left: 0;
+  }
+  .client-section div:last-child {
+    margin-right: 0;
+  }
+  
+  .creative-plan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .launch-gantt {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    border: 1px solid #e3e7e8;
+    border-radius: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .gantt-row,
+  .gantt-header {
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    align-content: stretch;
+  }
+  
+  .gantt-task,
+  .gantt-task-header {
+    flex: 0 0 20%;
+    border-right: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 0.5rem;
+  }
+  
+  .gantt-cell {
+    flex: 1 1 auto;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 0.25rem;
+  }
+  
+  .gantt-header-cell {
+    flex: 1 1 0%;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    border-left: 1px solid #f0f0f0;
+  }
+  
+  .gantt-cell:last-child {
+    border-right: none;
+  }
+  
+  .gantt-row:last-child .gantt-cell,
+  .gantt-row:last-child .gantt-task {
+    border-bottom: none;
+  }
+  
+  .gantt-cell--filled {
+    background-color: #08d18b;
+  }
+  
+  .pier-body-text--xxs {
+    font-size: 0.65rem;
+  }
+  
+  .filled {
+    background-color: #08d18b;
+    height: calc(100% - 20px);
+    width: calc(100% + 2px);
+    position: absolute;
+    top: 10px;
+    left: -1px;
+    z-index: 9;
+  }
+  
+  .filled::after {
+    white-space: pre;
+  }
+  
+  .-first {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    width: calc(100% - 2px);
+    left: 2px;
+  }
+  
+  .-last {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    width: calc(100% - 2px);
+    right: 2px;
+  }
+  
+  .-last.-first {
+    width: calc(100% - 4px);
+  }
+  
+  .-odd {
+    background-color: #f0f0f0;
+    border-bottom: 1px solid white;
+  }
+  
+  .-even:first-child {
+    border-left: 1px solid #bcc5ca;
+  }
+  
+  [data-tooltip]::after {
+    /* white-space: pre; */
+  }
+  
+  .gantt-legend {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.75rem;
+  }
+  .gantt-key {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 auto;
+  }
+  
+  .gantt-color {
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+  }
+  
+  [data-owner="Account Manager"] {
+    background-color: #25b9ef;
+  }
+  [data-owner="Campaign Manager"] {
+    background-color: #08d18b;
+  }
+  [data-owner="Design Manager"] {
+    background-color: #fcd93d;
+  }
+  [data-owner="Designer"] {
+    background-color: #fca522;
+  }
+  [data-owner="Creative Engineer"] {
+    background-color: #e24550;
+  }
+  
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (max-width: 600px) {
+    body {
+      padding: 0.5rem;
+    }
+    .main-heading {
+      margin: 0 0 0.5rem 0;
+    }
+    .card,
+    .result-card {
+      margin: 0rem 0rem 0.5rem 0rem;
+    }
+    .card-style {
+      padding: 0.5rem;
+    }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    body {
+      padding: 1rem;
+    }
+    .main-heading {
+      margin: 1rem 1rem 1rem 1rem;
+    }
+    .card,
+    .result-card {
+      margin: 0rem 0rem 1rem 0rem;
+    }
+    .card-style {
+      padding: 1rem;
+    }
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    body {
+      padding: 1rem 2.75rem 3rem 2.75rem;
+    }
+    .main-heading {
+      margin: 1rem 1rem 1rem 1rem;
+    }
+    .card-style {
+      padding: 2rem;
+    }
+  }
+  
+  .spend-sla-section {
+    display: flex;
+  }
+  
+  .spend-card {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    width: 50%;
+  }
+  
+  .design-card {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    width: 25%;
+    text-align: center;
+  }
+  
+  .ces-card {
+    margin-bottom: 1rem;
+    width: 25%;
+  }
+  
+  .sla-heading {
+    padding-top: 2rem;
+    padding-bottom: 0.75rem;
+    font-size: 120px;
+    color: #08d18b;
+  }
+  
+  .meter-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .meter-copy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+  }
+  
+  .budget-meter-spend {
+    font-size: 0.9rem;
+    color: #53626d;
+    font-weight: bold;
+    z-index: 5;
+    margin-bottom: 0;
+  }
+  
+  .spend-meter {
+    width: 100%;
+    height: 1.6rem;
+    border-radius: 3rem;
+    background-color: #e3e7e8;
+  }
+  
+  .spend-meter:after {
+    content: attr(data-spend);
+    position: absolute;
+    left: 10px;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 1;
+  }
+  
+  .spend-meter__filled {
+    height: 100%;
+    width: attr(data-filled);
+    border-radius: 3rem;
+    transition: all 500ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  }
+  
+  .spend-meter__icon {
+    position: absolute;
+    top: calc(50% - 1.5rem);
+    transform: translateX(-1.5rem);
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: 2px solid;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    z-index: 2;
+    transition: all 500ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    color: #e24550;
+    border-color: #e24550;
+  }
+  
+  .spend-meter__icon--green {
+    color: #08d18b;
+    border-color: #08d18b;
+  }
+  
+  .spend-meter__icon i {
+    font-size: 1.6rem;
+  }
+  
+  .spend-meter__filled--red {
+    background: linear-gradient(
+      90deg,
+      rgba(252, 165, 34, 1) 0%,
+      rgba(226, 69, 80, 1) 100%
+    );
+  }
+  
+  .spend-meter__filled--green {
+    background: linear-gradient(90deg, #08d18b 0%, #25b9ef 100%);
+  }
+  
+  .spend-meter__icon-holder {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 1rem;
+    right: 1rem;
+  }
+  
+>>>>>>> aa4e963 (updated css order)
