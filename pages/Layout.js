@@ -19,7 +19,11 @@ const Layout = () => {
         className="-d-flex"
         style={{ width: "100vw", height: "100vh", position: "fixed" }}
       >
+<<<<<<< HEAD
         <Nav isCollapsible={true} dark={true} width={"240px"}>
+=======
+        <Nav isCollapsible={true} dark={true}>
+>>>>>>> 5cd902b (created custom creatives page)
           <NavItemGroup />
           <Heading size="sm" className="-m-l-6" dark={true}>
             Navigation

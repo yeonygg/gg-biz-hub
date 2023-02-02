@@ -430,6 +430,7 @@ footer {
   right: 1rem;
 }
 
+<<<<<<< HEAD
 .custom-select-wrapper {
   display: flex;
   width: 100%;
@@ -887,3 +888,8 @@ footer {
   }
   
 >>>>>>> aa4e963 (updated css order)
+=======
+.custom-page-select {
+  display: flex;
+}
+>>>>>>> 5cd902b (created custom creatives page)
