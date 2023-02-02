@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {
   Card,
   Section,
@@ -214,6 +215,16 @@ const CustomCard = (props) => {
           </div>
 
           <Section></Section>
+=======
+import { Card, Section, Heading } from "pier-design-system";
+
+const CustomCard = (props) => {
+  return (
+    <div>
+      <Card>
+        <Section padding="lg">
+          <Heading>{props.custom.name}</Heading>
+>>>>>>> 20d30b9 (updated custom page)
         </Section>
       </Card>
     </div>
