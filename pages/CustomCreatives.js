@@ -39,14 +39,11 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      key: [0],
-      hidden: true,
+      selectCustomFeatures: [null]
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    console.log(this.state);
   }
 
+<<<<<<< HEAD
   handleChange(e, key, index) {
     // console.log("custom thing selected!");
     // const index = e.target.selectedIndex - 1;
@@ -66,6 +63,16 @@ class App extends Component {
     newArray[index] = key;
     this.setState({
       key: newArray,
+=======
+  handleChange = (e, value, index) => {
+    console.log('prev array: ',this.state.selectCustomFeatures)
+    console.log('value: '+value, 'index: '+index);
+    const newArray = this.state.selectCustomFeatures;
+    newArray[+index] = +value; //convert to number
+    console.log('new array',newArray)
+    this.setState({
+      selectCustomFeatures: newArray
+>>>>>>> cbdb026 (fixed custom feature select functionality)
     });
   }
 
@@ -74,6 +81,7 @@ class App extends Component {
   }
 
   createCustomSelect = () => {
+<<<<<<< HEAD
     //const custom = this.state;
     //const newCustom = Object.assign({}, this.state);
     //newCustom.key = UUIDV4();
@@ -81,14 +89,28 @@ class App extends Component {
     //console.log(custom.key);
     const newCustomArray = this.state.key;
     newCustomArray.push(0);
+=======
+    const newCustomArray = this.state.selectCustomFeatures;
+    newCustomArray.push(null);
+>>>>>>> cbdb026 (fixed custom feature select functionality)
     this.setState({
-      key: newCustomArray,
+      selectCustomFeatures: newCustomArray,
     });
+  };
 
+<<<<<<< HEAD
     console.log(this.state.key);
+=======
+  getCustomFeatures = () => {
+    const selectedFeatures = this.state.selectCustomFeatures.map((id) => customFeatures.find((feature) => feature.id === id));
+    console.log('selected features: ');
+    console.log(selectedFeatures)
+    return selectedFeatures;
+>>>>>>> cbdb026 (fixed custom feature select functionality)
   };
 
   render() {
+    console.log('render');
     return (
       <div>
         <Section padding="sm"></Section>
@@ -112,12 +134,19 @@ class App extends Component {
 
               <div className="-d-block" style={{ width: "100%" }}>
                 {" "}
-                {this.state.key.map((index) => (
+                {this.state.selectCustomFeatures.map((value, index) => (
                   <CustomSelectRow
                     changeHandler={this.handleChange}
+<<<<<<< HEAD
                     index={this.state.index}
                     key={UUIDV4()}
                     config={this.state}
+=======
+                    index={index}
+                    value={this.state.selectCustomFeatures[index]}
+                    key={Math.random()*10000}
+                    config={customFeatures}
+>>>>>>> cbdb026 (fixed custom feature select functionality)
                     addCustom={this.createCustomSelect}
                   />
                 ))}
@@ -136,11 +165,18 @@ class App extends Component {
             </div>
           </Section>
         </Card>
+<<<<<<< HEAD
         {/* this.state.key.map((index) => {
           <CustomCard custom={index} />;
         }) */}
 
         <CustomCard custom={this.state} />
+=======
+        {this.getCustomFeatures().map((feature, index) => (
+          
+            feature != undefined && <CustomCard key={index} feature={feature} />
+        ))}
+>>>>>>> cbdb026 (fixed custom feature select functionality)
 
         <Link href="/">Home</Link>
       </div>

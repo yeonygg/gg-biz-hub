@@ -5,6 +5,7 @@ const CustomSelectRow = (props) => {
   const handleChange = (e, field) => {
     const value = e.target.value;
 <<<<<<< HEAD
+<<<<<<< HEAD
     const index = props.index;
     props.changeHandler(e, value, index);
 =======
@@ -13,6 +14,10 @@ const CustomSelectRow = (props) => {
     props.changeHandler(e, value, index);
     console.log(props.config);
 >>>>>>> 15e60ac (updated functions for custom creative page)
+=======
+    const index = props.index;
+    props.changeHandler(e, value, index);
+>>>>>>> cbdb026 (fixed custom feature select functionality)
   };
   return (
     <div className="custom-select-wrapper">
@@ -30,6 +35,7 @@ const CustomSelectRow = (props) => {
         error={false}
         capleft={false}
 <<<<<<< HEAD
+<<<<<<< HEAD
         defaultValue=""
         required=""
         value={props.value}
@@ -41,19 +47,23 @@ const CustomSelectRow = (props) => {
         {customFeatures.map((custom) => (
           <option key={custom.id} value={custom.id}>{custom.name}</option>
 =======
+=======
+        defaultValue=""
+>>>>>>> cbdb026 (fixed custom feature select functionality)
         required=""
+        value={props.value}
       >
-        <option disabled={true} selected={true} value="">
+        <option disabled={true} selected value="">
           Select your Custom Add On
         </option>
-        {/* customFeatures.map(function (customIndex) {
-                const custom = customFeatures[customIndex];
-                return <option key={custom.id}>{custom.name}</option>;
-              }) */}
 
         {customFeatures.map((custom) => (
+<<<<<<< HEAD
           <option key={custom.id}>{custom.name}</option>
 >>>>>>> 15e60ac (updated functions for custom creative page)
+=======
+          <option key={custom.id} value={custom.id}>{custom.name}</option>
+>>>>>>> cbdb026 (fixed custom feature select functionality)
         ))}
       </InputSelect>
       <Tooltip text="Add Custom Creative">
