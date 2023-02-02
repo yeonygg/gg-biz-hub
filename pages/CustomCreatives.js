@@ -60,10 +60,6 @@ class App extends Component {
 >>>>>>> ad48fd8 (fixed issues with cards and buttons)
   };
 
-  getAllCustomFeatures = () => {
-    return customFeatures.map((feature) => feature);
-  };
-
   // removeCustomSelect = () => {
   //   const newCustomArray = this.state.selectCustomFeatures;
   //   const index = this.getCustomFeatures(id);
@@ -156,6 +152,7 @@ class App extends Component {
                     addCustom={this.createCustomSelect}
                     removeCustom={this.removeCustomSelect}
                     total={this.state.selectCustomFeatures.length - 1}
+                    toggleAll={this.state.toggleAll}
                   />
                 ))}
               </div>

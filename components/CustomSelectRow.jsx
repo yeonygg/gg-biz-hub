@@ -30,6 +30,14 @@ const CustomSelectRow = (props) => {
     }
   };
 
+  const disabled = () => {
+    let disable = false;
+    if (props.toggleAll === true) {
+      disable = true;
+    }
+    return disable;
+  };
+
   plusButton();
 
   return (
@@ -43,7 +51,7 @@ const CustomSelectRow = (props) => {
 >>>>>>> 15e60ac (updated functions for custom creative page)
         }}
         size="sm"
-        disabled={false}
+        disabled={disabled()}
         dark={false}
         error={false}
         capleft={false}
@@ -95,7 +103,7 @@ const CustomSelectRow = (props) => {
               title="Button"
               icon="far fa-plus"
               size="sm"
-              disabled={false}
+              disabled={disabled()}
               dark={false}
               pill={false}
               hero={true}
@@ -113,7 +121,7 @@ const CustomSelectRow = (props) => {
             title="Button"
             icon="far fa-trash"
             size="sm"
-            disabled={false}
+            disabled={disabled()}
             dark={false}
             pill={false}
             hero={false}
