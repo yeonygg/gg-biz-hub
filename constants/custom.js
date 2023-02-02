@@ -11,6 +11,9 @@ var customFeatures = [
     floorCPM: 2,
     openCPM: 2,
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e9136a3 (added info to custom features data sheet)
     description:
       "Pipe in dynamic content within a unit via external data source",
     objective: "Primary: Awareness or Conversion",
@@ -18,8 +21,11 @@ var customFeatures = [
       "Requires client to supply desired API credentials. For retail clients, need external data source to ensure daily product offerings daily based on store availabilities. Can also be used in conjuction with Click2Cart functionality.",
     programmatic: "Feasible",
     clientRequirements: "Client Supplied API + Credentials",
+<<<<<<< HEAD
 =======
 >>>>>>> d01c238 (moved constants and helper folders)
+=======
+>>>>>>> e9136a3 (added info to custom features data sheet)
   },
   {
     id: 1,
@@ -33,6 +39,9 @@ var customFeatures = [
     floorCPM: 2,
     openCPM: 2,
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e9136a3 (added info to custom features data sheet)
     description:
       "Dynamically pull in weather condition or time of day directly within the creative based on the user's location.",
     objective: "Primary: Awareness Recommended Metrics: CTR, Engagement",
@@ -40,8 +49,11 @@ var customFeatures = [
       "Requires API connection to weather app. List of weather that can be tracked can be found here. Creative can be dynamically served in the adserver based on time of day. Can be leveraged within In-Screen/In-Image blend.",
     programmatic: "TBD",
     clientRequirements: "List of Permutations and triggers",
+<<<<<<< HEAD
 =======
 >>>>>>> d01c238 (moved constants and helper folders)
+=======
+>>>>>>> e9136a3 (added info to custom features data sheet)
   },
   {
     id: 2,

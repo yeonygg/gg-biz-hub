@@ -27,7 +27,11 @@ import UUIDV4 from "../helpers/helpers";
 >>>>>>> d01c238 (moved constants and helper folders)
 =======
 import Navigation from "../components/Navigation";
+<<<<<<< HEAD
 >>>>>>> 5cd902b (created custom creatives page)
+=======
+import CustomCreatives from "./CustomCreatives";
+>>>>>>> e9136a3 (added info to custom features data sheet)
 
 import {
   Card,
@@ -377,7 +381,21 @@ class App extends Component {
             <footer style={{ height: "15px" }}></footer>
           </main>
         </div>
+<<<<<<< HEAD
 >>>>>>> 5cd902b (created custom creatives page)
+=======
+        <div style={{ visibility: "hidden" }}>
+          {this.state.campaign.unitConfig.map((config, index) => (
+            <CustomCreatives
+              deleteHandler={this.removeUnitConfig}
+              changeHandler={this.setUnitConfig}
+              key={config.key}
+              index={config.key}
+              config={config}
+            />
+          ))}
+        </div>
+>>>>>>> e9136a3 (added info to custom features data sheet)
       </Fragment>
     );
   }
