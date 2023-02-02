@@ -1,5 +1,8 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3706f26 (updated custom card)
 import {
   Card,
   Section,
@@ -9,6 +12,7 @@ import {
   IconButton,
   Tooltip,
 } from "pier-design-system";
+<<<<<<< HEAD
 import unitTypes from "../constants/units";
 
 const CustomCard = (props) => {
@@ -220,6 +224,8 @@ const CustomCard = (props) => {
 import { Card, Section, Heading } from "pier-design-system";
 =======
 import { Card, Section, Heading, BodyText, HR } from "pier-design-system";
+=======
+>>>>>>> 3706f26 (updated custom card)
 import unitTypes from "../constants/units";
 >>>>>>> f3ffec8 (updated and added styles to custom card)
 
@@ -239,15 +245,35 @@ const CustomCard = (props) => {
           style={{ marginRight: "10px", color: "#08D18B" }}
         ></i>
       ));
-    } else {
+    } else if (programmatic == "TBD") {
       iconCode = (
         <i
           className="fas fa-question"
           style={{ marginRight: "10px", color: "#25B9EF" }}
         ></i>
       );
+    } else {
+      iconCode = (
+        <i
+          className="fas fa-times"
+          style={{ marginRight: "10px", color: "#E24550" }}
+        ></i>
+      );
     }
     return iconCode;
+  };
+
+  const designTime = () => {
+    let time = "";
+    const dsTime = props.custom.key.turnaroundTime;
+    if (dsTime <= 1) {
+      time = dsTime + " Business Day";
+    } else if (dsTime === "TBD") {
+      time = "TBD";
+    } else {
+      time = dsTime + " Business Days";
+    }
+    return time;
   };
 
   const cesTime = () => {
@@ -255,6 +281,8 @@ const CustomCard = (props) => {
     const cesTime = props.custom.key.cesTurnaroundTime;
     if (cesTime <= 1) {
       time = cesTime + " Business Day";
+    } else if (cesTime === "TBD") {
+      time = "TBD";
     } else {
       time = cesTime + " Business Days";
     }
@@ -266,6 +294,8 @@ const CustomCard = (props) => {
     let minimum = "";
     if (spend > 0) {
       minimum = "$" + spend.toLocaleString("en-US");
+    } else if (spend === "TBD") {
+      minimum = "TBD";
     } else {
       minimum = "";
     }
@@ -276,10 +306,27 @@ const CustomCard = (props) => {
       <Card>
         <Section padding="lg">
 <<<<<<< HEAD
+<<<<<<< HEAD
           <Heading>{props.custom.name}</Heading>
 >>>>>>> 20d30b9 (updated custom page)
 =======
           <Heading>{props.custom.key.name}</Heading>
+=======
+          <div className="custom-card-heading-wrapper">
+            <Heading>{props.custom.key.name}</Heading>
+            <Tooltip text="Remove Card">
+              <IconButton
+                title="Button"
+                icon="fas fa-times"
+                size="sm"
+                disabled={false}
+                dark={false}
+                pill={false}
+              />
+            </Tooltip>
+          </div>
+
+>>>>>>> 3706f26 (updated custom card)
           <div className="-d-flex">
             <div className="custom-card-description-box">
               <div style={{ marginBottom: "2rem" }}>
@@ -314,7 +361,10 @@ const CustomCard = (props) => {
                 className="-d-flex -justify-content-between"
                 style={{ paddingBottom: "1rem" }}
               >
-                <BodyText size="sm" style={{ fontWeight: "bold" }}>
+                <BodyText
+                  size="sm"
+                  style={{ fontWeight: "bold", width: "55%" }}
+                >
                   Programmatic
                 </BodyText>
 
@@ -332,9 +382,7 @@ const CustomCard = (props) => {
                   Design Timeline
                 </BodyText>
 
-                <BodyText size="sm">
-                  {props.custom.key.turnaroundTime} Business Days
-                </BodyText>
+                <BodyText size="sm">{designTime()}</BodyText>
               </div>
               <HR />
 

@@ -457,6 +457,7 @@ footer {
   display: flex;
   justify-content: space-between;
 }
+<<<<<<< HEAD
 =======
     margin: 5rem 3rem 2rem 3rem;
   }
@@ -908,3 +909,5 @@ footer {
   padding: 2rem 2rem 2rem 4rem;
 }
 >>>>>>> f3ffec8 (updated and added styles to custom card)
+=======
+>>>>>>> 3706f26 (updated custom card)
