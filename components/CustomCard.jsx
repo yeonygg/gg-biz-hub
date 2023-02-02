@@ -303,7 +303,6 @@ const CustomCard = (props) => {
   };
 
   const showCard = () => {
-    console.log("something");
     const visibility = props.custom.hidden;
     let card = "";
     if (visibility === false) {

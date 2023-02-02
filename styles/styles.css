@@ -431,10 +431,16 @@ footer {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .custom-select-wrapper {
   display: flex;
   width: 100%;
   margin-bottom: 2rem;
+=======
+.custom-select-wrapper {
+  display: flex;
+  width: 100%;
+>>>>>>> 15e60ac (updated functions for custom creative page)
 }
 
 .custom-body-text {
