@@ -215,6 +215,7 @@ class App extends Component {
               array={this.state.selectCustomFeatures}
             />
           ))}
+        <Section padding="lg"></Section>
       </div>
     );
   }
