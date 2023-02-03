@@ -1,12 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { Component } from "react";
-=======
->>>>>>> 5cd902b (created custom creatives page)
-=======
-import { Component } from "react";
->>>>>>> 20d30b9 (updated custom page)
 import {
   Card,
   Section,
@@ -15,22 +8,12 @@ import {
   InputSelect,
   IconButton,
   Tooltip,
-<<<<<<< HEAD
-<<<<<<< HEAD
   InputToggle,
-=======
->>>>>>> 5cd902b (created custom creatives page)
-=======
   InputToggle,
->>>>>>> 20d30b9 (updated custom page)
 } from "pier-design-system";
 import Link from "next/link";
-import CustomAdd from "../components/CustomAdd";
 import customFeatures from "../constants/custom";
-<<<<<<< HEAD
-<<<<<<< HEAD
 import CustomCard from "../components/CustomCard";
-import UUIDV4 from "../helpers/helpers";
 import CustomSelectRow from "../components/CustomSelectRow";
 
 let setDebounce;
@@ -39,80 +22,64 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      selectCustomFeatures: [null]
+      selectCustomFeatures: [null],
     };
   }
 
-<<<<<<< HEAD
-  handleChange(e, key, index) {
-    // console.log("custom thing selected!");
-    // const index = e.target.selectedIndex - 1;
-    // clearTimeout(setDebounce);
-    // setDebounce = setTimeout(() => {
-    //   this.setState({
-    //     key: this.state.key.push(customFeatures[index]),
-    //     // key: customFeatures[index],
-    //     hidden: false,
-    //   });
-    // }, 250);
-
-    console.log(e);
-    console.log(key);
-    console.log(index);
-    const newArray = this.state.key;
-    newArray[index] = key;
-    this.setState({
-      key: newArray,
-=======
   handleChange = (e, value, index) => {
     const newArray = this.state.selectCustomFeatures;
     newArray[+index] = +value; //convert to number
     this.setState({
-      selectCustomFeatures: newArray
->>>>>>> cbdb026 (fixed custom feature select functionality)
+
+      selectCustomFeatures: newArray,
     });
-    console.log(this.state);
-  }
+  };
 
   addCard(e) {
     console.log("button clicked!");
   }
 
   createCustomSelect = () => {
-<<<<<<< HEAD
-    //const custom = this.state;
-    //const newCustom = Object.assign({}, this.state);
-    //newCustom.key = UUIDV4();
-    //custom.key.push(0);
-    //console.log(custom.key);
-    const newCustomArray = this.state.key;
-    newCustomArray.push(0);
-=======
     const newCustomArray = this.state.selectCustomFeatures;
     newCustomArray.push(null);
->>>>>>> cbdb026 (fixed custom feature select functionality)
     this.setState({
       selectCustomFeatures: newCustomArray,
     });
   };
 
-<<<<<<< HEAD
-    console.log(this.state.key);
-=======
   getCustomFeatures = () => {
-<<<<<<< HEAD
-    const selectedFeatures = this.state.selectCustomFeatures.map((id) => customFeatures.find((feature) => feature.id === id));
-    console.log('selected features: ');
-    console.log(selectedFeatures)
-    return selectedFeatures;
->>>>>>> cbdb026 (fixed custom feature select functionality)
-=======
+
     return this.state.selectCustomFeatures.map((id) => customFeatures.find((feature) => feature.id === id));
->>>>>>> f6ca1b4 (fixed sloppy syntax)
+  };
+
+  removeCustomSelect = () => {
+    const newCustomArray = this.state.selectCustomFeatures;
+    const index = this.getCustomFeatures(id);
+    newCustomArray.splice(index, 1);
+    this.updateCustom(selectCustomFeatures);
+  };
+
+  updateCustom = (selectCustomFeatures) => {
+    this.setState({
+      selectCustomFeatures: selectCustomFeatures,
+    });
+    // console.log(this.state.campaign.unitConfig);
+>>>>>>> 36fd239 (added function for listing applicable unit types)
   };
 
   render() {
-    console.log('render');
+    // console.log("render");
+    const handleToggle = (event, field) => {
+      if (field === "showAll") {
+        for (let i = 0; i < this.state.selectCustomFeatures.length; i++) {
+          if (event.target.checked === true) {
+            console.log("testing");
+          } else {
+            console.log("else testing");
+          }
+        }
+      }
+    };
     return (
       <div>
         <Section padding="sm"></Section>
@@ -146,7 +113,7 @@ class App extends Component {
 =======
                     index={index}
                     value={this.state.selectCustomFeatures[index]}
-                    key={Math.random()*10000}
+                    key={Math.random() * 10000}
                     config={customFeatures}
 >>>>>>> cbdb026 (fixed custom feature select functionality)
                     addCustom={this.createCustomSelect}
@@ -161,12 +128,16 @@ class App extends Component {
                 disabled={false}
                 dark={false}
                 error={false}
+                onChange={(event) => {
+                  handleToggle(event, "showAll");
+                }}
               >
                 Show All Custom Creatives
               </InputToggle>
             </div>
           </Section>
         </Card>
+<<<<<<< HEAD
 <<<<<<< HEAD
         {/* this.state.key.map((index) => {
           <CustomCard custom={index} />;
@@ -179,6 +150,12 @@ class App extends Component {
             feature != undefined && <CustomCard key={index} feature={feature} />
         ))}
 >>>>>>> cbdb026 (fixed custom feature select functionality)
+=======
+        {this.getCustomFeatures().map(
+          (feature, index) =>
+            feature != undefined && <CustomCard key={index} feature={feature} />
+        )}
+>>>>>>> 36fd239 (added function for listing applicable unit types)
 
         <Link href="/">Home</Link>
       </div>

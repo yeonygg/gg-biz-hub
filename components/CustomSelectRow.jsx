@@ -19,6 +19,8 @@ const CustomSelectRow = (props) => {
     props.changeHandler(e, value, index);
 >>>>>>> cbdb026 (fixed custom feature select functionality)
   };
+
+  const handleIconButton = () => {};
   return (
     <div className="custom-select-wrapper">
       <InputSelect
@@ -45,6 +47,7 @@ const CustomSelectRow = (props) => {
         </option>
 
         {customFeatures.map((custom) => (
+<<<<<<< HEAD
           <option key={custom.id} value={custom.id}>{custom.name}</option>
 =======
 =======
@@ -64,6 +67,11 @@ const CustomSelectRow = (props) => {
 =======
           <option key={custom.id} value={custom.id}>{custom.name}</option>
 >>>>>>> cbdb026 (fixed custom feature select functionality)
+=======
+          <option key={custom.id} value={custom.id}>
+            {custom.name}
+          </option>
+>>>>>>> 36fd239 (added function for listing applicable unit types)
         ))}
       </InputSelect>
       <Tooltip text="Add Custom Creative">
