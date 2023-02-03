@@ -17,6 +17,28 @@ const CustomCard = (props) => {
   //     console.log(unitTypes.customFeatures);
   //   }
   // }
+
+  const disabled = () => {
+    let disable = false;
+    console.log(props.array.length);
+    if (props.array.length === 1) {
+      console.log(props.array);
+      disable = true;
+    } else if (props.toggleAll === true) {
+      disable = true;
+    } else {
+      disable = false;
+    }
+    return disable;
+  };
+
+  const removeTooltip = () => {
+    let tooltip = "Remove Card";
+    if (disabled() === true) {
+      tooltip = "";
+    }
+    return tooltip;
+  };
   const icon = () => {
     let iconCode = "";
     const programmatic = props.feature.programmatic;
@@ -124,18 +146,23 @@ const CustomCard = (props) => {
     return objective.join(separator);
   };
 
+  const handleDelete = (event) => {
+    props.removeCustom(props.index);
+  };
+
   return (
     <div>
      <Card style={{ marginBottom: "1rem" }}>
         <Section padding="lg">
           <div className="custom-card-heading-wrapper">
             <Heading>{props.feature.name}</Heading>
-            <Tooltip text="Remove Card">
+            <Tooltip text={removeTooltip()}>
               <IconButton
+                onClick={handleDelete}
                 title="Button"
                 icon="fas fa-times"
                 size="sm"
-                disabled={false}
+                disabled={disabled()}
                 dark={false}
                 pill={false}
               />

@@ -63,44 +63,37 @@ class App extends Component {
 >>>>>>> ad48fd8 (fixed issues with cards and buttons)
   };
 
-  // removeCustomSelect = () => {
-  //   const newCustomArray = this.state.selectCustomFeatures;
-  //   const index = this.getCustomFeatures(id);
-  //   newCustomArray.splice(index, 1);
-  //   this.updateCustom(selectCustomFeatures);
-  // };
-
-  getUnitIndex = (selectCustomFeatures) => {
-    const array = this.state.selectCustomFeatures;
-    return array.map((obj) => obj.selectCustomFeatures);
-    // .indexOf(selectCustomFeatures);
-  };
-
-  removeCustomSelect = (index, selectCustomFeatures) => {
+  removeCustomSelect = (index) => {
     const array = this.state.selectCustomFeatures;
     array.splice(index, 1);
-    this.updateCustom;
+    this.setState({
+      selectCustomFeatures: array,
+    });
     console.log(this.state.selectCustomFeatures);
   };
 
+<<<<<<< HEAD
   updateCustom = (selectCustomFeatures) => {
     this.setState({
       selectCustomFeatures: selectCustomFeatures,
     });
     // console.log(this.state.campaign.unitConfig);
 >>>>>>> 36fd239 (added function for listing applicable unit types)
+=======
+  removeCardFromAll = () => {
+    const allArray = customFeatures;
+>>>>>>> 456b100 (finished updating all, everything working)
   };
 
   handleToggle = (event) => {
     this.setState({
       toggleAll: event.target.checked,
     });
+    console.log(this.state.selectCustomFeatures);
   };
 
   render() {
     // console.log("render");
-
-    // const row = document.querySelector(".custom-select-wrapper");
 
     return (
       <div>
@@ -206,6 +199,8 @@ class App extends Component {
                   index={index}
                   handleDelete={index}
                   feature={feature}
+                  array={this.state.selectCustomFeatures}
+                  removeCustom={this.removeCustomSelect}
                 />
               )
           )}
@@ -213,7 +208,12 @@ class App extends Component {
 
         {this.state.toggleAll &&
           customFeatures.map((feature, index) => (
-            <CustomCard key={index} feature={feature} />
+            <CustomCard
+              key={index}
+              feature={feature}
+              toggleAll={this.state.toggleAll}
+              array={this.state.selectCustomFeatures}
+            />
           ))}
       </div>
     );
