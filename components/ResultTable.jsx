@@ -9,6 +9,68 @@ const ResultTable = (props) => {
 
   const tableData = () => {
     let data = [];
+    for (let i = 0; i < unit.length; i++) {
+      const row = {
+        "Unit Type": unit[i].unitType,
+        "Floor CPM":
+          "$" + parseFloat(unit[i].floorCPM).toFixed(2).toLocaleString(),
+        "Floor VCPM":
+          "$" + parseFloat(unit[i].floorVCPM).toFixed(2).toLocaleString(),
+        "Open CPM":
+          "$" + parseFloat(unit[i].openCPM).toFixed(2).toLocaleString(),
+      };
+
+      if (unit[i].customOn === true) {
+        const customRow = {
+          "Unit Type": unit[i].unitType,
+          "Floor CPM":
+            "$" +
+            parseFloat(
+              parseFloat(unit[i].floorCPM) + parseFloat(unit[i].customFloorCPM)
+            )
+              .toFixed(2)
+              .toLocaleString(),
+          "Floor VCPM":
+            "$" + parseFloat(unit[i].floorVCPM).toFixed(2).toLocaleString(),
+          "Open CPM":
+            "$" +
+            parseFloat(
+              parseFloat(unit[i].openCPM) + parseFloat(unit[i].customOpenCPM)
+            )
+              .toFixed(2)
+              .toLocaleString(),
+        };
+        data.push(customRow);
+      } else {
+        data.push(row);
+      }
+    }
+    return data;
+  };
+
+  return (
+    <Section padding="sm" className="client-section">
+      <Table
+        size="sm"
+        columns={["Unit Type", "Floor CPM", "Open CPM", "Floor VCPM"]}
+        data={tableData()}
+      />
+    </Section>
+  );
+};
+
+export default ResultTable;
+import { Section, Table } from "pier-design-system";
+
+const ResultTable = (props) => {
+  const unit = props.campaign.unitConfig;
+
+  {
+    parseFloat(props.campaign.campaignBudget).toFixed(2).toLocaleString();
+  }
+
+  const tableData = () => {
+    let data = [];
     let blend = [];
     let floorAverage = [];
     let openAverage = [];

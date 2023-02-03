@@ -59,14 +59,6 @@ class App extends Component {
     };
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 20d30b9 (updated custom page)
-=======
->>>>>>> 20d30b9 (updated custom page)
   setCustomtConfig = (key, value, field) => {
     const campaign = this.state.campaign;
     const unit = this.getUnitConfig(key);
@@ -75,16 +67,6 @@ class App extends Component {
     this.updateCampaign(campaign);
   };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 5cd902b (created custom creatives page)
-=======
->>>>>>> 20d30b9 (updated custom page)
-=======
->>>>>>> 5cd902b (created custom creatives page)
-=======
->>>>>>> 20d30b9 (updated custom page)
   setCampaignInputs = (value, field) => {
     clearTimeout(setDebounce);
     const campaign = this.state.campaign;
@@ -120,21 +102,7 @@ class App extends Component {
     campaign.unitConfig.splice(index, 1);
     this.updateCampaign(campaign);
   };
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> 5cd902b (created custom creatives page)
-=======
-
->>>>>>> 20d30b9 (updated custom page)
-=======
->>>>>>> 5cd902b (created custom creatives page)
-=======
-
->>>>>>> 20d30b9 (updated custom page)
   createUnitConfig = () => {
     const campaign = this.state.campaign;
     const newUnit = Object.assign({}, unitSchema);
