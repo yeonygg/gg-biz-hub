@@ -12,9 +12,7 @@ import CampaignOutput from "../components/CampaignOutput";
 import { useState, useEffect, Component } from "react";
 import { InputToggle } from "pier-design-system";
 import UUIDV4 from "../helpers/helpers";
-import Layout from "./Layout";
 import { Fragment } from "react";
-import CustomCreatives from "./CustomCreatives";
 import Link from "next/link";
 
 import {
@@ -261,18 +259,21 @@ class App extends Component {
               </div>
               <footer style={{ height: "15px" }}></footer>
             </Card>
+
+            <div id="capture">
+              <CampaignOutput campaign={this.state.campaign} />
+              <div className="spend-sla-section">
+                <SpendCard campaign={this.state.campaign} />
+                <DesignCard campaign={this.state.campaign} />
+                <CesCard campaign={this.state.campaign} />
+              </div>
+
+              <RateBreakdownCard campaign={this.state.campaign} />
+            </div>
+            <footer>
+              <img src="/logo.svg" width="175px" />
+            </footer>
           </main>
-        </div>
-        <div style={{ visibility: "hidden" }}>
-          {this.state.campaign.unitConfig.map((config, index) => (
-            <CustomCreatives
-              deleteHandler={this.removeUnitConfig}
-              changeHandler={this.setUnitConfig}
-              key={config.key}
-              index={config.key}
-              config={config}
-            />
-          ))}
         </div>
       </Fragment>
     );
