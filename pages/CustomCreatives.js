@@ -17,13 +17,12 @@ import customFeatures from "../constants/custom";
 import CustomCard from "../components/CustomCard";
 import CustomSelectRow from "../components/CustomSelectRow";
 
-let setDebounce;
-
 class App extends Component {
   constructor() {
     super();
     this.state = {
       selectCustomFeatures: [null],
+      showAll: false,
     };
   }
 
@@ -54,6 +53,10 @@ class App extends Component {
   };
 
   getAllCustomFeatures = () => {
+    this.setState({
+      selectCustomFeatures: [null],
+      showAll: true,
+    });
     return customFeatures.map((feature) => feature);
   };
 
@@ -67,6 +70,7 @@ class App extends Component {
   updateCustom = (selectCustomFeatures) => {
     this.setState({
       selectCustomFeatures: selectCustomFeatures,
+      showAll: false,
     });
     // console.log(this.state.campaign.unitConfig);
 >>>>>>> 36fd239 (added function for listing applicable unit types)
@@ -86,26 +90,18 @@ class App extends Component {
 
   render() {
     // console.log("render");
+
     const handleToggle = (event, field) => {
       if (field === "showAll") {
-        let toggleCode = "";
         if (event.target.checked === true) {
+          this.setState({
+            selectCustomFeatures: [null],
+            showAll: true,
+          });
           console.log("testing");
-          toggleCode = `{this.getAllCustomFeatures().map((feature, index) => (
-          <CustomCard key={index} feature={feature} />
-        ))}`;
-        } else {
-          console.log("else testing");
-          toggleCode = `{this.getCustomFeatures().map(
-          (feature, index) =>
-            feature != undefined && <CustomCard key={index} feature={feature} />
-        )}`;
         }
-        return toggleCode;
       }
     };
-
-    const [toggle, setToggle] = useState(true);
 
     const handleLast = () => {
       const array = this.state.selectCustomFeatures;
@@ -183,6 +179,7 @@ class App extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         {/* this.state.key.map((index) => {
           <CustomCard custom={index} />;
         }) */}
@@ -206,10 +203,18 @@ class App extends Component {
             feature != undefined && <CustomCard key={index} feature={feature} />
         )*/}
 >>>>>>> 3aa6639 (got the show all cards code working)
+=======
+        {this.getCustomFeatures().map(
+          (feature, index) =>
+            feature != undefined && <CustomCard key={index} feature={feature} />
+        )}
+>>>>>>> b1a47b0 (updated custom pages code)
 
-        {/*this.getAllCustomFeatures().map((feature, index) => (
-          <CustomCard key={index} feature={feature} />
-        ))*/}
+        <div style={{ visibility: "hidden" }}>
+          {this.getAllCustomFeatures().map((feature, index) => (
+            <CustomCard key={index} feature={feature} />
+          ))}
+        </div>
 
         <Link href="/">Home</Link>
       </div>
