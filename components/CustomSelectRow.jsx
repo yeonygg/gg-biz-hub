@@ -23,11 +23,14 @@ const CustomSelectRow = (props) => {
 >>>>>>> cbdb026 (fixed custom feature select functionality)
   };
 
-  console.log(props.isLast);
+  // console.log(props.isLast);
   const plusButton = () => {
+    const array = props.config;
     if (props.isLast === true) {
     }
   };
+
+  plusButton();
 
   return (
     <div className="custom-select-wrapper">
@@ -82,38 +85,42 @@ const CustomSelectRow = (props) => {
 >>>>>>> 36fd239 (added function for listing applicable unit types)
         ))}
       </InputSelect>
-      <div ref={addButton}>
-        <Tooltip text="Add Custom Creative">
+      {props.total === props.index && (
+        <div ref={addButton}>
+          <Tooltip text="Add Custom Creative">
+            <IconButton
+              onClick={props.addCustom}
+              style={{ marginLeft: "1rem" }}
+              className="plus-button"
+              title="Button"
+              icon="far fa-plus"
+              size="sm"
+              disabled={false}
+              dark={false}
+              pill={false}
+              hero={true}
+            />
+          </Tooltip>
+        </div>
+      )}
+
+      {props.total != props.index && (
+        <Tooltip text="Delete Custom Creative">
           <IconButton
-            onClick={props.addCustom}
+            onClick={props.removeCustom}
             style={{ marginLeft: "1rem" }}
-            className="plus-button"
+            className="trash-button"
             title="Button"
-            icon="far fa-plus"
+            icon="far fa-trash"
             size="sm"
             disabled={false}
             dark={false}
             pill={false}
-            hero={true}
+            hero={false}
+            secondary={true}
           />
         </Tooltip>
-      </div>
-
-      <Tooltip text="Delete Custom Creative">
-        <IconButton
-          onClick={props.removeCustom}
-          style={{ marginLeft: "1rem" }}
-          className="trash-button"
-          title="Button"
-          icon="far fa-trash"
-          size="sm"
-          disabled={false}
-          dark={false}
-          pill={false}
-          hero={false}
-          secondary={true}
-        />
-      </Tooltip>
+      )}
     </div>
   );
 };

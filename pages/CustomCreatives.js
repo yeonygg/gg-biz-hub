@@ -23,6 +23,7 @@ class App extends Component {
     super();
     this.state = {
       selectCustomFeatures: [null],
+      toggleAll: false,
     };
   }
 
@@ -48,8 +49,19 @@ class App extends Component {
   };
 
   getCustomFeatures = () => {
+<<<<<<< HEAD
 
     return this.state.selectCustomFeatures.map((id) => customFeatures.find((feature) => feature.id === id));
+=======
+    console.log(customFeatures.map((feature) => feature));
+    return this.state.selectCustomFeatures.map((id) =>
+      customFeatures.find((feature) => feature.id === id)
+    );
+>>>>>>> ad48fd8 (fixed issues with cards and buttons)
+  };
+
+  getAllCustomFeatures = () => {
+    return customFeatures.map((feature) => feature);
   };
 
   // removeCustomSelect = () => {
@@ -79,31 +91,27 @@ class App extends Component {
     return last;
   };
 
+  handleToggle = (event) => {
+    console.log(event.target.checked);
+    this.setState({
+      toggleAll: event.target.checked,
+    });
+  };
+
+  handleLast = () => {
+    const array = this.state.selectCustomFeatures;
+    console.log(array);
+    let last = false;
+    const lastIndex = array.length - 1;
+    if (array.length > 1) {
+      console.log(array[lastIndex]);
+      last = true;
+    }
+    return last;
+  };
+
   render() {
     // console.log("render");
-    const handleToggle = (event, field) => {
-      if (field === "showAll") {
-        for (let i = 0; i < this.state.selectCustomFeatures.length; i++) {
-          if (event.target.checked === true) {
-            console.log("testing");
-          } else {
-            console.log("else testing");
-          }
-        }
-      }
-    };
-
-    const handleLast = () => {
-      const array = this.state.selectCustomFeatures;
-      console.log(array);
-      let last = false;
-      const lastIndex = array.length - 1;
-      if (array.length > 1) {
-        console.log(array[lastIndex]);
-        last = true;
-      }
-      return last;
-    };
 
     // const row = document.querySelector(".custom-select-wrapper");
 
@@ -111,6 +119,8 @@ class App extends Component {
       <div>
         <Section padding="sm"></Section>
         <Heading>Creative - Custom Creatives</Heading>
+        <Link href="/">Home</Link>
+
         <Card className="-m-b-6">
           <Section
             padding="lg"
@@ -145,7 +155,7 @@ class App extends Component {
 >>>>>>> cbdb026 (fixed custom feature select functionality)
                     addCustom={this.createCustomSelect}
                     removeCustom={this.removeCustomSelect}
-                    isLast={handleLast()}
+                    total={this.state.selectCustomFeatures.length - 1}
                   />
                 ))}
               </div>
@@ -157,15 +167,14 @@ class App extends Component {
                 disabled={false}
                 dark={false}
                 error={false}
-                onChange={(event) => {
-                  handleToggle(event, "showAll");
-                }}
+                onChange={this.handleToggle}
               >
                 Show All Custom Creatives
               </InputToggle>
             </div>
           </Section>
         </Card>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -199,8 +208,25 @@ class App extends Component {
             feature != undefined && <CustomCard key={index} feature={feature} />
         )}
 >>>>>>> b1a47b0 (updated custom pages code)
+=======
+        {!this.state.toggleAll &&
+          this.getCustomFeatures().map(
+            (feature, index) =>
+              feature != undefined && (
+                <CustomCard
+                  key={index}
+                  index={index}
+                  handleDelete={index}
+                  feature={feature}
+                />
+              )
+          )}
+>>>>>>> ad48fd8 (fixed issues with cards and buttons)
 
-        <Link href="/">Home</Link>
+        {this.state.toggleAll &&
+          customFeatures.map((feature, index) => (
+            <CustomCard key={index} feature={feature} />
+          ))}
       </div>
     );
   }
