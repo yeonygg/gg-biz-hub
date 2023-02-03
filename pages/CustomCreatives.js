@@ -1,5 +1,6 @@
 import React from "react";
 import { Component } from "react";
+import { useState, useEffect } from "react";
 import {
   Card,
   Section,
@@ -53,8 +54,7 @@ class App extends Component {
   };
 
   getAllCustomFeatures = () => {
-    console.log(this.state.selectCustomFeatures);
-    return this.state.selectCustomFeatures.map((id) => customFeatures.id);
+    return customFeatures.map((feature) => feature);
   };
 
   // removeCustomSelect = () => {
@@ -88,19 +88,24 @@ class App extends Component {
     // console.log("render");
     const handleToggle = (event, field) => {
       if (field === "showAll") {
+        let toggleCode = "";
         if (event.target.checked === true) {
           console.log("testing");
-          return ``;
+          toggleCode = `{this.getAllCustomFeatures().map((feature, index) => (
+          <CustomCard key={index} feature={feature} />
+        ))}`;
         } else {
           console.log("else testing");
-          return `
-              (feature, index) =>
-                feature != undefined && (
-                  <CustomCard key={index} feature={feature} />
-                `;
+          toggleCode = `{this.getCustomFeatures().map(
+          (feature, index) =>
+            feature != undefined && <CustomCard key={index} feature={feature} />
+        )}`;
         }
+        return toggleCode;
       }
     };
+
+    const [toggle, setToggle] = useState(true);
 
     const handleLast = () => {
       const array = this.state.selectCustomFeatures;
@@ -177,6 +182,7 @@ class App extends Component {
         </Card>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         {/* this.state.key.map((index) => {
           <CustomCard custom={index} />;
         }) */}
@@ -194,10 +200,16 @@ class App extends Component {
             feature != undefined && <CustomCard key={index} feature={feature} />
         )}
 >>>>>>> 36fd239 (added function for listing applicable unit types)
+=======
+        {/*this.getCustomFeatures().map(
+          (feature, index) =>
+            feature != undefined && <CustomCard key={index} feature={feature} />
+        )*/}
+>>>>>>> 3aa6639 (got the show all cards code working)
 
-        {/* this.getAllCustomFeatures().map((index, feature) => (
+        {/*this.getAllCustomFeatures().map((feature, index) => (
           <CustomCard key={index} feature={feature} />
-        )) */}
+        ))*/}
 
         <Link href="/">Home</Link>
       </div>

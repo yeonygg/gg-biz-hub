@@ -26,7 +26,6 @@ const CustomSelectRow = (props) => {
   console.log(props.isLast);
   const plusButton = () => {
     const array = props.config;
-    console.log(array);
     if (props.isLast === true) {
     }
   };
