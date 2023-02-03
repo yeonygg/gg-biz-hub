@@ -15,6 +15,7 @@ import UUIDV4 from "../helpers/helpers";
 import Layout from "./Layout";
 import { Fragment } from "react";
 import CustomCreatives from "./CustomCreatives";
+import Link from "next/link";
 
 import {
   Card,
@@ -161,6 +162,7 @@ class App extends Component {
             <Heading className="main-heading">
               Rate, Spend, and SLA Generator
             </Heading>
+            <Link href="./CustomCreatives">Custom Creatives</Link>
             <Card className="card">
               <div className={accordionClass}>
                 <div
