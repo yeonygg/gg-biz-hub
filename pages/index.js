@@ -14,9 +14,7 @@ import { useState, useEffect, Component } from "react";
 import { InputToggle } from "pier-design-system";
 import UUIDV4 from "../helpers/helpers";
 import { Fragment } from "react";
-import Link from "next/link";
 import Layout from "./Layout";
-import { Fragment } from "react";
 import Navigation from "../components/Navigation";
 import CustomCreatives from "./CustomCreatives";
 import {
@@ -152,7 +150,6 @@ class App extends Component {
       : "pier-accordion pier-accordion--card";
 
     return (
-
       <Fragment>
         <div className={styles.container}>
           <div

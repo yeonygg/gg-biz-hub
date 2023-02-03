@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 import { faGameConsoleHandheld } from "@fortawesome/sharp-solid-svg-icons";
 import {
   Card,
@@ -153,7 +151,7 @@ const CustomCard = (props) => {
 
   return (
     <div>
-     <Card style={{ marginBottom: "1rem" }}>
+      <Card style={{ marginBottom: "1rem" }}>
         <Section padding="lg">
           <div className="custom-card-heading-wrapper">
             <Heading>{props.feature.name}</Heading>
@@ -282,26 +280,9 @@ const CustomCard = (props) => {
           </div>
 
           <Section></Section>
-
-          </Section>
-
-          </Card>
-    
-    </div>
-
-=======
-import { Card, Section, Heading } from "pier-design-system";
-
-const CustomCard = (props) => {
-  return (
-    <div>
-      <Card>
-        <Section padding="lg">
-          <Heading>{props.custom.name}</Heading>
         </Section>
       </Card>
     </div>
->>>>>>> 20d30b9 (updated custom page)
   );
 };
 

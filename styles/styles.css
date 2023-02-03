@@ -2,16 +2,7 @@
   margin: 5rem 3rem 2rem 3rem;
 }
 
-<<<<<<< HEAD
 .client-section {
-=======
-.card-style {
-  padding: 2rem;
-}
-
-.campaign-card-style {
-  padding: 2rem;
->>>>>>> b6d2304 (updated campaign section style changes)
   display: flex;
 }
 
@@ -69,29 +60,22 @@
 .client-name-input {
   display: flex;
   flex: 1 1 auto;
-  margin: 0;
-}
-
-.unit-name-input {
-  display: flex;
-  margin: 0;
-  width: 60%;
+  margin: 0 0.5rem;
 }
 
 .campaign-name-input {
   flex: 1 1 auto;
-  margin: 0;
+  margin: 0 0.5rem;
 }
 
 .campaign-budget-input {
   flex: 0 1 15%;
-  margin: 0;
-  width: 60%;
+  margin: 0 0.5rem;
 }
 
 .client-name {
   flex: 1 1 auto;
-  margin: 0;
+  margin: 0 0.5rem;
 }
 
 .campaign-name {
@@ -100,20 +84,20 @@
 }
 
 .num-units-input {
-  flex: 0 1 20%;
+  flex: 0 1 15%;
   margin: 0 0.5rem;
 }
 
 .add-on-input {
-  width: 100%;
+  width: 24%;
 }
 
 .toggle-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex: 0 1 5%;
-  margin: 0 1rem;
+  flex: 0 1 15%;
+  margin: 0 0.5rem;
 }
 
 .clear-all-button {
@@ -466,7 +450,6 @@ footer {
   right: 1rem;
 }
 
-<<<<<<< HEAD
 .custom-select-wrapper {
   display: flex;
   width: 100%;
@@ -492,8 +475,8 @@ footer {
 .custom-card-heading-wrapper {
   display: flex;
   justify-content: space-between;
-=======
+}
+
 .custom-page-select {
   display: flex;
->>>>>>> 5cd902b (created custom creatives page)
 }
