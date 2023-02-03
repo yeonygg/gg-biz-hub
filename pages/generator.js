@@ -63,6 +63,7 @@ class App extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 20d30b9 (updated custom page)
 =======
@@ -85,6 +86,8 @@ class App extends Component {
 >>>>>>> 5cd902b (created custom creatives page)
 =======
 >>>>>>> 20d30b9 (updated custom page)
+=======
+>>>>>>> 5cd902b (created custom creatives page)
   setCampaignInputs = (value, field) => {
     clearTimeout(setDebounce);
     const campaign = this.state.campaign;
@@ -124,6 +127,7 @@ class App extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 5cd902b (created custom creatives page)
@@ -135,6 +139,8 @@ class App extends Component {
 =======
 
 >>>>>>> 20d30b9 (updated custom page)
+=======
+>>>>>>> 5cd902b (created custom creatives page)
   createUnitConfig = () => {
     const campaign = this.state.campaign;
     const newUnit = Object.assign({}, unitSchema);
