@@ -23,7 +23,11 @@ import Link from "next/link";
 import Layout from "./Layout";
 import { Fragment } from "react";
 import Navigation from "../components/Navigation";
+<<<<<<< HEAD
 >>>>>>> 5cd902b (created custom creatives page)
+=======
+import CustomCreatives from "./CustomCreatives";
+>>>>>>> e9136a3 (added info to custom features data sheet)
 
 import {
   Card,
@@ -375,6 +379,17 @@ class App extends Component {
             <footer style={{ height: "15px" }}></footer>
 >>>>>>> 5cd902b (created custom creatives page)
           </main>
+        </div>
+        <div style={{ visibility: "hidden" }}>
+          {this.state.campaign.unitConfig.map((config, index) => (
+            <CustomCreatives
+              deleteHandler={this.removeUnitConfig}
+              changeHandler={this.setUnitConfig}
+              key={config.key}
+              index={config.key}
+              config={config}
+            />
+          ))}
         </div>
       </Fragment>
     );
