@@ -13,7 +13,8 @@ var unitTypes = [
     openCPM: 8.5,
     customizable: true,
     customFeatures: [
-      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 21,
+      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21,
+      23,
     ],
   },
   {
@@ -29,7 +30,8 @@ var unitTypes = [
     openCPM: 8.5,
     customizable: true,
     customFeatures: [
-      0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 21, 22, 23,
+      0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21, 23,
+      24, 25,
     ],
   },
   {
@@ -44,7 +46,7 @@ var unitTypes = [
     floorVCPM: 16,
     openCPM: 14.5,
     customizable: true,
-    customFeatures: [2, 4, 14, 15, 17],
+    customFeatures: [2, 4, 14, 15, 17, 22],
   },
   {
     id: 3,
@@ -71,7 +73,7 @@ var unitTypes = [
     floorVCPM: 14.25,
     openCPM: 12,
     customizable: true,
-    customFeatures: [0, 1, 2, 5, 13, 14, 15],
+    customFeatures: [0, 1, 2, 5, 14, 15, 17],
   },
   {
     id: 5,
@@ -85,7 +87,7 @@ var unitTypes = [
     floorVCPM: 10.5,
     openCPM: 9.5,
     customizable: true,
-    customFeatures: [2, 15],
+    customFeatures: [2, 15, 17],
   },
   {
     id: 6,
@@ -100,7 +102,8 @@ var unitTypes = [
     openCPM: 15,
     customizable: true,
     customFeatures: [
-      0, 1, 2, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 21, 22, 23,
+      0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21, 23,
+      24, 25,
     ],
   },
   {
@@ -116,7 +119,8 @@ var unitTypes = [
     openCPM: 12,
     customizable: true,
     customFeatures: [
-      0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 22, 23,
+      0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+      23, 24, 25,
     ],
   },
   {
@@ -131,7 +135,10 @@ var unitTypes = [
     floorVCPM: 16,
     openCPM: 14.5,
     customizable: true,
-    customFeatures: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+    customFeatures: [
+      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+      21, 23,
+    ],
   },
   {
     id: 9,
