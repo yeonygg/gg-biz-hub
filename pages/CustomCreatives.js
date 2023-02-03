@@ -50,10 +50,13 @@ class App extends Component {
 
   getCustomFeatures = () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     return this.state.selectCustomFeatures.map((id) => customFeatures.find((feature) => feature.id === id));
 =======
     console.log(customFeatures.map((feature) => feature));
+=======
+>>>>>>> abe449d (got the remove index from array function working)
     return this.state.selectCustomFeatures.map((id) =>
       customFeatures.find((feature) => feature.id === id)
     );
@@ -67,6 +70,19 @@ class App extends Component {
   //   this.updateCustom(selectCustomFeatures);
   // };
 
+  getUnitIndex = (selectCustomFeatures) => {
+    const array = this.state.selectCustomFeatures;
+    return array.map((obj) => obj.selectCustomFeatures);
+    // .indexOf(selectCustomFeatures);
+  };
+
+  removeCustomSelect = (index, selectCustomFeatures) => {
+    const array = this.state.selectCustomFeatures;
+    array.splice(index, 1);
+    this.updateCustom;
+    console.log(this.state.selectCustomFeatures);
+  };
+
   updateCustom = (selectCustomFeatures) => {
     this.setState({
       selectCustomFeatures: selectCustomFeatures,
@@ -75,35 +91,10 @@ class App extends Component {
 >>>>>>> 36fd239 (added function for listing applicable unit types)
   };
 
-  removeCustomSelect = () => {
-    const array = this.state.selectCustomFeatures;
-    console.log(array);
-    let last = false;
-    const lastIndex = array.length - 1;
-    if (array.length > 1) {
-      console.log(array[lastIndex]);
-      last = true;
-    }
-    return last;
-  };
-
   handleToggle = (event) => {
-    console.log(event.target.checked);
     this.setState({
       toggleAll: event.target.checked,
     });
-  };
-
-  handleLast = () => {
-    const array = this.state.selectCustomFeatures;
-    console.log(array);
-    let last = false;
-    const lastIndex = array.length - 1;
-    if (array.length > 1) {
-      console.log(array[lastIndex]);
-      last = true;
-    }
-    return last;
   };
 
   render() {

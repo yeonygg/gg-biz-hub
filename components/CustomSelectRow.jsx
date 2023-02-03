@@ -23,13 +23,6 @@ const CustomSelectRow = (props) => {
 >>>>>>> cbdb026 (fixed custom feature select functionality)
   };
 
-  // console.log(props.isLast);
-  const plusButton = () => {
-    const array = props.config;
-    if (props.isLast === true) {
-    }
-  };
-
   const disabled = () => {
     let disable = false;
     if (props.toggleAll === true) {
@@ -38,7 +31,9 @@ const CustomSelectRow = (props) => {
     return disable;
   };
 
-  plusButton();
+  const handleDelete = (event) => {
+    props.removeCustom(props.index);
+  };
 
   return (
     <div className="custom-select-wrapper">
@@ -115,7 +110,7 @@ const CustomSelectRow = (props) => {
       {props.total != props.index && (
         <Tooltip text="Delete Custom Creative">
           <IconButton
-            onClick={props.removeCustom}
+            onClick={handleDelete}
             style={{ marginLeft: "1rem" }}
             className="trash-button"
             title="Button"
