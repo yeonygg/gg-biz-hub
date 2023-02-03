@@ -1,3 +1,5 @@
+
+import { faGameConsoleHandheld } from "@fortawesome/sharp-solid-svg-icons";
 import {
   Card,
   Section,
@@ -15,6 +17,28 @@ const CustomCard = (props) => {
   //     console.log(unitTypes.customFeatures);
   //   }
   // }
+
+  const disabled = () => {
+    let disable = false;
+    console.log(props.array.length);
+    if (props.array.length === 1) {
+      console.log(props.array);
+      disable = true;
+    } else if (props.toggleAll === true) {
+      disable = true;
+    } else {
+      disable = false;
+    }
+    return disable;
+  };
+
+  const removeTooltip = () => {
+    let tooltip = "Remove Card";
+    if (disabled() === true) {
+      tooltip = "";
+    }
+    return tooltip;
+  };
   const icon = () => {
     let iconCode = "";
     const programmatic = props.feature.programmatic;
@@ -82,20 +106,63 @@ const CustomCard = (props) => {
     return minimum;
   };
 
+  const units = () => {
+    const selectedUnitIndex = props.feature.id;
+    let units = [];
+    for (let i = 0; i < unitTypes.length; i++) {
+      if (unitTypes[i].hasOwnProperty("customFeatures")) {
+        for (let j = 0; j < unitTypes[i].customFeatures.length; j++) {
+          if (unitTypes[i].customFeatures[j] === selectedUnitIndex) {
+            units.push(unitTypes[i].name);
+          }
+        }
+      }
+    }
+    const separator = "," + "\n";
+
+    return units.join(separator);
+  };
+
   // console.log(props.custom.hidden);
+  const objective = () => {
+    const object = props.feature.objective;
+    // console.log(object.hasOwnProperty("primary"));
+    let objective = [];
+    const separator = "\n";
+    if (object.hasOwnProperty("primary")) {
+      objective.push(`Primary: ${props.feature.objective.primary}`);
+    }
+
+    if (object.hasOwnProperty("secondary")) {
+      objective.push(`Secondary: ${props.feature.objective.secondary}`);
+    }
+
+    if (object.hasOwnProperty("recommendedMetrics")) {
+      objective.push(
+        `Recommended Metrics: ${props.feature.objective.recommendedMetrics}`
+      );
+    }
+
+    return objective.join(separator);
+  };
+
+  const handleDelete = (event) => {
+    props.removeCustom(props.index);
+  };
 
   return (
     <div>
-      <Card style={{ marginBottom: "1rem" }}>
+     <Card style={{ marginBottom: "1rem" }}>
         <Section padding="lg">
           <div className="custom-card-heading-wrapper">
             <Heading>{props.feature.name}</Heading>
-            <Tooltip text="Remove Card">
+            <Tooltip text={removeTooltip()}>
               <IconButton
+                onClick={handleDelete}
                 title="Button"
                 icon="fas fa-times"
                 size="sm"
-                disabled={false}
+                disabled={disabled()}
                 dark={false}
                 pill={false}
               />
@@ -110,11 +177,11 @@ const CustomCard = (props) => {
                 </BodyText>
                 <BodyText size="xs">{props.feature.description}</BodyText>
               </div>
-              <div style={{ marginBottom: "2rem" }}>
+              <div style={{ marginBottom: "2rem", whiteSpace: "pre" }}>
                 <BodyText size="md" style={{ fontWeight: "bold" }}>
                   Objective
                 </BodyText>
-                <BodyText size="xs">{props.feature.objective}</BodyText>
+                <BodyText size="xs">{objective()}</BodyText>
               </div>
               <div style={{ marginBottom: "2rem" }}>
                 <BodyText size="md" style={{ fontWeight: "bold" }}>
@@ -208,15 +275,19 @@ const CustomCard = (props) => {
                   Applicable Unit Types
                 </BodyText>
 
-                <BodyText size="sm">put unit types here</BodyText>
+                <BodyText size="xs">{units()}</BodyText>
               </div>
             </div>
           </div>
 
           <Section></Section>
-        </Section>
-      </Card>
+
+          </Section>
+
+          </Card>
+    
     </div>
+
   );
 };
 

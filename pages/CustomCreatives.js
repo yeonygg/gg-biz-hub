@@ -9,12 +9,224 @@ import {
   IconButton,
   Tooltip,
   InputToggle,
+  InputToggle,
 } from "pier-design-system";
 import Link from "next/link";
-import CustomAdd from "../components/CustomAdd";
 import customFeatures from "../constants/custom";
 import CustomCard from "../components/CustomCard";
+import CustomSelectRow from "../components/CustomSelectRow";
+
+let setDebounce;
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      selectCustomFeatures: [null],
+      toggleAll: false,
+    };
+  }
+
+  handleChange = (e, value, index) => {
+    const newArray = this.state.selectCustomFeatures;
+    newArray[+index] = +value; //convert to number
+    this.setState({
+
+      selectCustomFeatures: newArray,
+    });
+  };
+
+  addCard(e) {
+    console.log("button clicked!");
+  }
+
+  createCustomSelect = () => {
+    const newCustomArray = this.state.selectCustomFeatures;
+    newCustomArray.push(null);
+    this.setState({
+      selectCustomFeatures: newCustomArray,
+    });
+  };
+
+  getCustomFeatures = () => {
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+    return this.state.selectCustomFeatures.map((id) => customFeatures.find((feature) => feature.id === id));
+=======
+    console.log(customFeatures.map((feature) => feature));
+=======
+>>>>>>> abe449d (got the remove index from array function working)
+    return this.state.selectCustomFeatures.map((id) =>
+      customFeatures.find((feature) => feature.id === id)
+    );
+>>>>>>> ad48fd8 (fixed issues with cards and buttons)
+  };
+
+  removeCustomSelect = (index) => {
+    const array = this.state.selectCustomFeatures;
+    array.splice(index, 1);
+    this.setState({
+      selectCustomFeatures: array,
+    });
+    console.log(this.state.selectCustomFeatures);
+  };
+
+<<<<<<< HEAD
+  updateCustom = (selectCustomFeatures) => {
+    this.setState({
+      selectCustomFeatures: selectCustomFeatures,
+    });
+    // console.log(this.state.campaign.unitConfig);
+>>>>>>> 36fd239 (added function for listing applicable unit types)
+=======
+  removeCardFromAll = () => {
+    const allArray = customFeatures;
+>>>>>>> 456b100 (finished updating all, everything working)
+  };
+
+  handleToggle = (event) => {
+    this.setState({
+      toggleAll: event.target.checked,
+    });
+    console.log(this.state.selectCustomFeatures);
+  };
+
+  render() {
+    // console.log("render");
+
+    return (
+      <div>
+        <Section padding="sm"></Section>
+        <Heading>Creative - Custom Creatives</Heading>
+        <Link href="/">Home</Link>
+
+        <Card className="-m-b-6">
+          <Section
+            padding="lg"
+            className="-flex-row -justify-content-center -align-items-center"
+            style={{ marginTop: "1.125rem" }}
+          >
+            <div className="-d-flex" style={{ width: "100%" }}>
+              <div className="custom-body-text">
+                <BodyText
+                  style={{
+                    fontWeight: "bold",
+                  }}
+                >
+                  Select Custom Creative
+                </BodyText>
+              </div>
+
+              <div className="-d-block" style={{ width: "100%" }}>
+                {" "}
+                {this.state.selectCustomFeatures.map((value, index) => (
+                  <CustomSelectRow
+                    changeHandler={this.handleChange}
+<<<<<<< HEAD
+                    index={this.state.index}
+                    key={UUIDV4()}
+                    config={this.state}
+=======
+                    index={index}
+                    value={this.state.selectCustomFeatures[index]}
+                    key={Math.random() * 10000}
+                    config={customFeatures}
+>>>>>>> cbdb026 (fixed custom feature select functionality)
+                    addCustom={this.createCustomSelect}
+                    removeCustom={this.removeCustomSelect}
+                    total={this.state.selectCustomFeatures.length - 1}
+                    toggleAll={this.state.toggleAll}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="-d-flex -justify-content-end -m-t-6">
+              <InputToggle
+                size="sm"
+                disabled={false}
+                dark={false}
+                error={false}
+                onChange={this.handleToggle}
+              >
+                Show All Custom Creatives
+              </InputToggle>
+            </div>
+          </Section>
+        </Card>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        {/* this.state.key.map((index) => {
+          <CustomCard custom={index} />;
+        }) */}
+
+        <CustomCard custom={this.state} />
+=======
+        {this.getCustomFeatures().map((feature, index) => (
+          
+            feature != undefined && <CustomCard key={index} feature={feature} />
+        ))}
+>>>>>>> cbdb026 (fixed custom feature select functionality)
+=======
+        {this.getCustomFeatures().map(
+          (feature, index) =>
+            feature != undefined && <CustomCard key={index} feature={feature} />
+        )}
+>>>>>>> 36fd239 (added function for listing applicable unit types)
+=======
+        {/*this.getCustomFeatures().map(
+          (feature, index) =>
+            feature != undefined && <CustomCard key={index} feature={feature} />
+        )*/}
+>>>>>>> 3aa6639 (got the show all cards code working)
+=======
+        {this.getCustomFeatures().map(
+          (feature, index) =>
+            feature != undefined && <CustomCard key={index} feature={feature} />
+        )}
+>>>>>>> b1a47b0 (updated custom pages code)
+=======
+        {!this.state.toggleAll &&
+          this.getCustomFeatures().map(
+            (feature, index) =>
+              feature != undefined && (
+                <CustomCard
+                  key={index}
+                  index={index}
+                  handleDelete={index}
+                  feature={feature}
+                  array={this.state.selectCustomFeatures}
+                  removeCustom={this.removeCustomSelect}
+                />
+              )
+          )}
+>>>>>>> ad48fd8 (fixed issues with cards and buttons)
+
+        {this.state.toggleAll &&
+          customFeatures.map((feature, index) => (
+            <CustomCard
+              key={index}
+              feature={feature}
+              toggleAll={this.state.toggleAll}
+              array={this.state.selectCustomFeatures}
+            />
+          ))}
+        <Section padding="lg"></Section>
+      </div>
+    );
+  }
+}
+
+export default App;
+=======
+=======
+import CustomCard from "../components/CustomCard";
 import UUIDV4 from "../helpers/helpers";
+>>>>>>> 20d30b9 (updated custom page)
 
 let setDebounce;
 
@@ -152,6 +364,14 @@ class App extends Component {
                 return <option key={custom.id}>{custom.name}</option>;
               }) */}
 
+<<<<<<< HEAD
+      <Link href="/">Home</Link>
+    </div>
+  );
+};
+export default CustomCreatives;
+>>>>>>> 5cd902b (created custom creatives page)
+=======
                 {customFeatures.map((custom) => (
                   <option key={custom.id}>{custom.name}</option>
                 ))}
@@ -192,3 +412,4 @@ class App extends Component {
 }
 
 export default App;
+>>>>>>> 20d30b9 (updated custom page)

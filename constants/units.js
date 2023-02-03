@@ -44,7 +44,7 @@ var unitTypes = [
     floorVCPM: 16,
     openCPM: 14.5,
     customizable: true,
-    customFeatures: [2, 4, 14, 15],
+    customFeatures: [2, 4, 14, 15, 17],
   },
   {
     id: 3,
