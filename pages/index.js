@@ -12,8 +12,11 @@ import CampaignOutput from "../components/CampaignOutput";
 import { useState, useEffect, Component } from "react";
 import { InputToggle } from "pier-design-system";
 import UUIDV4 from "../helpers/helpers";
+<<<<<<< HEAD
 import { Fragment } from "react";
 import Link from "next/link";
+=======
+>>>>>>> d01c238 (moved constants and helper folders)
 
 import {
   Card,

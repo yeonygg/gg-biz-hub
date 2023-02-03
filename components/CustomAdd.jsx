@@ -6,7 +6,7 @@ import {
   InputToggle,
   IconButton,
 } from "pier-design-system";
-import customFeatures from "../constants/custom";
+import customFeatures from "../../constants/custom";
 import { useState } from "react";
 
 const CustomAdd = (props) => {
