@@ -2,15 +2,18 @@
   margin: 5rem 3rem 2rem 3rem;
 }
 
-.card-style {
-  padding: 2rem;
+.client-section {
+  display: flex;
 }
 
+<<<<<<< HEAD
 .campaign-card-style {
   padding: 2rem;
   display: flex;
 }
 
+=======
+>>>>>>> develop
 .client-section {
   display: block;
   justify-content: space-between;
@@ -462,6 +465,36 @@ footer {
   right: 1rem;
 }
 
+<<<<<<< HEAD
+=======
+.custom-select-wrapper {
+  display: flex;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.custom-body-text {
+  width: 40%;
+}
+
+.custom-card-description-box {
+  width: 45%;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #f7f8f8;
+}
+
+.custom-sla-info-wrapper {
+  width: 55%;
+  padding: 2rem 2rem 2rem 4rem;
+}
+
+.custom-card-heading-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+>>>>>>> develop
 .custom-page-select {
   display: flex;
 }

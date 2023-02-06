@@ -1,4 +1,4 @@
-import { Section, Table } from "pier-design-system";
+import { Table, Section } from "pier-design-system";
 
 const ResultTable = (props) => {
   const unit = props.campaign.unitConfig;
@@ -43,8 +43,8 @@ const ResultTable = (props) => {
         "Unit Type": unit[i].unitType,
         "Floor CPM":
           "$" + parseFloat(unit[i].floorCPM).toFixed(2).toLocaleString(),
-        "Floor VCPM": vcpmZero(),
-
+        "Floor VCPM":
+          "$" + parseFloat(unit[i].floorVCPM).toFixed(2).toLocaleString(),
         "Open CPM":
           "$" + parseFloat(unit[i].openCPM).toFixed(2).toLocaleString(),
       };
@@ -69,7 +69,6 @@ const ResultTable = (props) => {
               .toFixed(2)
               .toLocaleString(),
         };
-
         data.push(customRow);
       } else {
         data.push(row);

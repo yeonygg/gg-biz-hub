@@ -19,14 +19,22 @@ const Layout = () => {
         className="-d-flex"
         style={{ width: "100vw", height: "100vh", position: "fixed" }}
       >
+<<<<<<< HEAD
         <Nav children="null" isCollapsible={true} dark={true} width={"240px"}>
+=======
+        <Nav isCollapsible={true} dark={true}>
+>>>>>>> develop
           <NavItemGroup />
           <Heading size="sm" className="-m-l-6" dark={true}>
             Navigation
           </Heading>
           <NavItemGroup>
             <NavItemContainer dark={true}>
+<<<<<<< HEAD
               <NavItem children="null" dark={true} icon="fas fa-file">
+=======
+              <NavItem dark={true} icon="fas fa-file">
+>>>>>>> develop
                 item with dropdown
               </NavItem>
               <NavItemDropdown>

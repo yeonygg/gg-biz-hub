@@ -1614,10 +1614,23 @@ picomatch@^2.3.1:
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+pier-design-system@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/pier-design-system/-/pier-design-system-1.0.5.tgz#1832523bb74066e8b093015a3cb774a407595028"
+  integrity sha512-G4HefieV6ZPTaTQULoTlzVQM4CRQRXOySvxRE2K8G/Gtp6nLER4fNHuhGTOdltNwokBU3Doe63CimQBjcje86Q==
+=======
+>>>>>>> develop
 pier-design-system@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/pier-design-system/-/pier-design-system-1.0.3.tgz#3329badaf2844d6f96ac8b8abcac195cd25a3b1c"
   integrity sha512-e5p+FdWEML+R9SzkOF61fkFKBFlPa5Z60Bewkz+aX1M0hWlLq0RiaC7qHYq/KD0D/CRcT6awb1o11BI4Ecpohw==
+<<<<<<< HEAD
+=======
+>>>>>>> 5cd902b (created custom creatives page)
+>>>>>>> develop
   dependencies:
     caniuse-lite "^1.0.30001410"
     prop-types "^15.7.2"
