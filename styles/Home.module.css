@@ -1,5 +1,9 @@
 .container {
-  padding: 0 2rem;
+  display: flex;
+  justify-content: stretch;
+  position: fixed;
+  height: 100%;
+  width: 100%;
 }
 
 @media only screen and (max-width: 768px) {

@@ -12,6 +12,7 @@ import ResultTable from "./ResultTable";
 import LaunchTimeline from "./LaunchTimeline";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import Table from "./Table";
 
 const RateBreakdownCard = (props) => {
   const resultHead = "Plan Breakdown";
@@ -63,20 +64,9 @@ const RateBreakdownCard = (props) => {
           }}
         >
           <SubHeading text={resultHead} body={bodyText} />
-          <InputToggle
-            size="sm"
-            disabled={false}
-            dark={false}
-            error={false}
-            onChange={(event) => {
-              handleToggle(event, "isBlend");
-            }}
-          >
-            Blend CPMs
-          </InputToggle>
         </div>
 
-        <ResultTable campaign={props.campaign} toggleOn={toggle} />
+        <Table campaign={props.campaign} toggleOn={toggle} />
         <HR className="-m-b-3" />
         <LaunchTimeline campaign={props.campaign} />
         <HR />

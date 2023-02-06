@@ -1,7 +1,7 @@
 import { InputSelect, IconButton, Tooltip } from "pier-design-system";
-import customFeatures from "../constants/custom";
+import spendTiers from "../constants/spends";
 
-const CustomSelectRow = (props) => {
+const SpendThresholdRow = (props) => {
   const handleChange = (e, field) => {
     const value = e.target.value;
     const index = props.index;
@@ -37,12 +37,12 @@ const CustomSelectRow = (props) => {
         value={props.value}
       >
         <option disabled={true} selected value="">
-          Select your Custom Add On
+          Select your Threshold
         </option>
 
-        {customFeatures.map((custom) => (
-          <option key={custom.id} value={custom.id}>
-            {custom.name}
+        {spendTiers.map((threshold) => (
+          <option key={threshold.id} value={threshold.id}>
+            {threshold.title}
           </option>
         ))}
       </InputSelect>
@@ -84,4 +84,4 @@ const CustomSelectRow = (props) => {
   );
 };
 
-export default CustomSelectRow;
+export default SpendThresholdRow;

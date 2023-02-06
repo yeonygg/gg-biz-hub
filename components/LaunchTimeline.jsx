@@ -191,20 +191,20 @@ const LaunchTimeline = (props) => {
       if (phase.sequence === i / 2) {
         if (phase.time < 1) {
           td.push(
-            <div class={`gantt-cell ${bgClass}`} key={i}>
+            <div className={`gantt-cell ${bgClass}`} key={`${phase.owner}_${i}`}>
               <div
                 data-owner={phase.owner}
-                class="filled -first -last pier-tooltip pier-tooltip--top"
+                className="filled -first -last pier-tooltip pier-tooltip--top"
                 data-tooltip={`Day ${Math.ceil(i / 2)}: ${phase.description}`}
               ></div>
             </div>
           );
         } else {
           td.push(
-            <div class={`gantt-cell ${bgClass}`} key={i}>
+            <div className={`gantt-cell ${bgClass}`} key={`${phase.owner}_${i}`}>
               <div
                 data-owner={phase.owner}
-                class="filled -first pier-tooltip pier-tooltip--top"
+                className="filled -first pier-tooltip pier-tooltip--top"
                 data-tooltip={`Day ${Math.ceil(i / 2)}: ${phase.description}`}
               ></div>
             </div>
@@ -213,10 +213,10 @@ const LaunchTimeline = (props) => {
         blocksFilled = phase.time * 2;
       } else if (blocksFilled > 2) {
         td.push(
-          <div class={`gantt-cell ${bgClass}`} key={i}>
+          <div className={`gantt-cell ${bgClass}`} key={`${phase.owner}_${i}`}>
             <div
               data-owner={phase.owner}
-              class="filled pier-tooltip pier-tooltip--top"
+              className="filled pier-tooltip pier-tooltip--top"
               data-tooltip={`Day ${Math.ceil(i / 2)}: ${phase.description}`}
             ></div>
           </div>
@@ -224,17 +224,17 @@ const LaunchTimeline = (props) => {
         blocksFilled--;
       } else if (blocksFilled == 2) {
         td.push(
-          <div class={`gantt-cell ${bgClass}`} key={i}>
+          <div className={`gantt-cell ${bgClass}`} key={`${phase.owner}_${i}`}>
             <div
               data-owner={phase.owner}
-              class="filled -last pier-tooltip pier-tooltip--top"
+              className="filled -last pier-tooltip pier-tooltip--top"
               data-tooltip={`Day ${Math.ceil(i / 2)}: ${phase.description}`}
             ></div>
           </div>
         );
         blocksFilled--;
       } else {
-        td.push(<div class={`gantt-cell ${bgClass}`} key={i}></div>);
+        td.push(<div className={`gantt-cell ${bgClass}`} key={`${phase.owner}_${i}`}></div>);
       }
       oddCount = oddCount < 3 ? oddCount + 1 : 0;
     }
@@ -246,8 +246,8 @@ const LaunchTimeline = (props) => {
     for (let i = 1; i <= totalTime; i++) {
       td.push(
         <div
-          class="gantt-header-cell pier-body-text pier-body-text--xxs pier-body-text--light"
-          key={i}
+          className="gantt-header-cell pier-body-text pier-body-text--xxs pier-body-text--light"
+          key={`header_${i}`}
         >{`Day ${i}`}</div>
       );
     }
@@ -260,12 +260,12 @@ const LaunchTimeline = (props) => {
     <Section padding="sm" className="launch-timeline">
       <Heading size="xs">Launch Timeline</Heading>
       <div className="launch-gantt">
-        <div class="gantt-header">
-          <div class="gantt-task-header">&nbsp;</div>
+        <div className="gantt-header">
+          <div className="gantt-task-header">&nbsp;</div>
           {generateHeader()}
         </div>
         {phases.map((phase) => (
-          <div className="gantt-row" key={phase}>
+          <div className="gantt-row" key={phase.name}>
             <div className="gantt-task -text-a-right">{phase.name}</div>
             {generateCells(phase)}
           </div>

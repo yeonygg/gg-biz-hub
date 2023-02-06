@@ -1614,23 +1614,10 @@ picomatch@^2.3.1:
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 pier-design-system@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/pier-design-system/-/pier-design-system-1.0.5.tgz#1832523bb74066e8b093015a3cb774a407595028"
   integrity sha512-G4HefieV6ZPTaTQULoTlzVQM4CRQRXOySvxRE2K8G/Gtp6nLER4fNHuhGTOdltNwokBU3Doe63CimQBjcje86Q==
-=======
->>>>>>> develop
-pier-design-system@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/pier-design-system/-/pier-design-system-1.0.3.tgz#3329badaf2844d6f96ac8b8abcac195cd25a3b1c"
-  integrity sha512-e5p+FdWEML+R9SzkOF61fkFKBFlPa5Z60Bewkz+aX1M0hWlLq0RiaC7qHYq/KD0D/CRcT6awb1o11BI4Ecpohw==
-<<<<<<< HEAD
-=======
->>>>>>> 5cd902b (created custom creatives page)
->>>>>>> develop
   dependencies:
     caniuse-lite "^1.0.30001410"
     prop-types "^15.7.2"
@@ -1698,6 +1685,11 @@ react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-table@^7.8.0:
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.8.0.tgz#07858c01c1718c09f7f1aed7034fcfd7bda907d2"
+  integrity sha512-hNaz4ygkZO4bESeFfnfOft73iBUj8K5oKi1EcSHPAibEydfsX2MyU6Z8KCr3mv3C9Kqqh71U+DhZkFvibbnPbA==
 
 react@18.2.0:
   version "18.2.0"

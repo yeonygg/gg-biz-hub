@@ -82,8 +82,8 @@ const CustomCard = (props) => {
   const cesTime = () => {
     let time = "";
     const cesTime = props.feature.cesTurnaroundTime;
-    if (cesTime <= 1) {
-      time = cesTime + " Business Day";
+    if (props.feature.cesRequired === false) {
+      time = "1 Business Day";
     } else if (cesTime === "TBD") {
       time = "TBD";
     } else {
@@ -95,7 +95,9 @@ const CustomCard = (props) => {
   const minSpend = () => {
     const spend = props.feature.minSpend;
     let minimum = "";
-    if (spend > 0) {
+    if (props.feature.name == "Scrollable Text") {
+      minimum = "Minimum spend + $25,000";
+    } else if (spend > 0) {
       minimum = "$" + spend.toLocaleString("en-US");
     } else if (spend === "TBD") {
       minimum = "TBD";
@@ -117,7 +119,7 @@ const CustomCard = (props) => {
         }
       }
     }
-    const separator = "," + "\n";
+    const separator = ", ";
 
     return units.join(separator);
   };

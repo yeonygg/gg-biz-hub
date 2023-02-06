@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;700&display=swap");
+
 .main-heading {
   margin: 5rem 3rem 2rem 3rem;
 }
@@ -59,7 +61,7 @@
 
 .result-card {
   margin: 1.5rem 3rem 0.5rem 3rem;
-  background-color: #f7f8f8;
+  background-color: #fff;
 }
 
 .client-name-input {
@@ -473,7 +475,21 @@ footer {
 }
 
 .custom-card-description-box {
-  width: 45%;
+  width: 50%;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #f7f8f8;
+}
+
+.custom-card-description-box-1 {
+  width: 50%;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #f7f8f8;
+}
+
+.custom-card-description-box-2 {
+  width: 40%;
   padding: 2rem;
   border-radius: 12px;
   background-color: #f7f8f8;
@@ -492,3 +508,105 @@ footer {
 .custom-page-select {
   display: flex;
 }
+
+.campaign-minimum-wrapper {
+  width: 28.5%;
+}
+
+.exception-info-wrapper {
+  background-color: #f7f8f8;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 71.5%;
+  margin-bottom: 5rem;
+}
+
+.exception-section {
+  display: flex;
+}
+
+.sla-row-1 {
+  display: flex;
+  margin-top: 3rem;
+  width: 100%;
+  background-color: #f7f8f8;
+  padding: 0.5rem;
+}
+
+.sla-row-2 {
+  display: flex;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.sla-row-3 {
+  display: flex;
+  width: 100%;
+  background-color: #f7f8f8;
+  padding: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+ul {
+  padding-left: 0;
+}
+
+ul li {
+  float: left;
+  width: 50%;
+}
+
+#design-buckets {
+  font-family: "Mulish", sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#design-buckets th {
+  padding: 0.625rem 0.75rem;
+  text-align: left;
+  background-color: #ffffff;
+  color: #0e1e2a;
+  border-top: solid 1px #d0d6d8;
+  border-bottom: solid 1px #d0d6d8;
+}
+
+#design-buckets tr {
+  background-color: #ffffff;
+  color: #53626d;
+}
+
+#design-buckets td {
+  padding: 0.625rem 0.75rem;
+}
+
+#design-buckets tr:last-child {
+  border-bottom: solid 1px #d0d6d8;
+}
+
+#design-buckets tr:nth-child(odd) {
+  background-color: #f7f8f8;
+}
+
+.study-card-description-box {
+  width: 100%;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #f7f8f8;
+}
+
+.nav-section {
+  width: 260px;
+  position: relative;
+  z-index: 99;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.sla-content {
+  width: 100%;
+  flex: 1 1 0%;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 2rem;
+}
+

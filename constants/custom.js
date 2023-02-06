@@ -60,7 +60,7 @@ var customFeatures = [
     id: 3,
     name: "Extended Rollover",
     abbrev: "null",
-    minSpend: 25000,
+    minSpend: 50000,
     highImpact: true,
     turnaroundTime: 3,
     cesRequired: false,
@@ -355,7 +355,7 @@ var customFeatures = [
   },
   {
     id: 18,
-    name: "Expandable Accordian",
+    name: "Expandable Accordion",
     abbrev: "null",
     minSpend: 125000,
     highImpact: true,
