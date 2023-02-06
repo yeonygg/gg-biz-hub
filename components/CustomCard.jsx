@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import { Card, Section, Heading } from "pier-design-system";
-
-const CustomCard = (props) => {
-  return (
-    <div>
-      <Card>
-        <Section padding="lg">
-          <Heading>{props.custom.name}</Heading>
-=======
 import { faGameConsoleHandheld } from "@fortawesome/sharp-solid-svg-icons";
 import {
   Card,
@@ -290,7 +280,6 @@ const CustomCard = (props) => {
           </div>
 
           <Section></Section>
->>>>>>> develop
         </Section>
       </Card>
     </div>

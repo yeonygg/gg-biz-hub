@@ -10,7 +10,7 @@ const CampaignInputs = (props) => {
 
   return (
     <Section padding="sm" className="client-section">
-      <div className="client-name-input -m-b-8">
+      <div className="campaign-name-input -m-b-8">
         <InputGroup label="client name" size="sm" error="" dark={false}>
           <InputText
             size="sm"

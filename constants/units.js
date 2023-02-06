@@ -13,12 +13,8 @@ var unitTypes = [
     openCPM: 8.5,
     customizable: true,
     customFeatures: [
-<<<<<<< HEAD
-      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 21,
-=======
       0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21,
       23,
->>>>>>> develop
     ],
   },
   {
@@ -34,12 +30,8 @@ var unitTypes = [
     openCPM: 8.5,
     customizable: true,
     customFeatures: [
-<<<<<<< HEAD
-      0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 21, 22, 23,
-=======
       0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21, 23,
       24, 25,
->>>>>>> develop
     ],
   },
   {
@@ -54,11 +46,7 @@ var unitTypes = [
     floorVCPM: 16,
     openCPM: 14.5,
     customizable: true,
-<<<<<<< HEAD
-    customFeatures: [2, 4, 14, 15],
-=======
     customFeatures: [2, 4, 14, 15, 17, 22],
->>>>>>> develop
   },
   {
     id: 3,
@@ -85,11 +73,7 @@ var unitTypes = [
     floorVCPM: 14.25,
     openCPM: 12,
     customizable: true,
-<<<<<<< HEAD
-    customFeatures: [0, 1, 2, 5, 13, 14, 15],
-=======
     customFeatures: [0, 1, 2, 5, 14, 15, 17],
->>>>>>> develop
   },
   {
     id: 5,
@@ -103,11 +87,7 @@ var unitTypes = [
     floorVCPM: 10.5,
     openCPM: 9.5,
     customizable: true,
-<<<<<<< HEAD
-    customFeatures: [2, 15],
-=======
     customFeatures: [2, 15, 17],
->>>>>>> develop
   },
   {
     id: 6,
@@ -122,12 +102,8 @@ var unitTypes = [
     openCPM: 15,
     customizable: true,
     customFeatures: [
-<<<<<<< HEAD
-      0, 1, 2, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 21, 22, 23,
-=======
       0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21, 23,
       24, 25,
->>>>>>> develop
     ],
   },
   {
@@ -143,12 +119,8 @@ var unitTypes = [
     openCPM: 12,
     customizable: true,
     customFeatures: [
-<<<<<<< HEAD
-      0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 22, 23,
-=======
       0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
       23, 24, 25,
->>>>>>> develop
     ],
   },
   {
@@ -163,14 +135,10 @@ var unitTypes = [
     floorVCPM: 16,
     openCPM: 14.5,
     customizable: true,
-<<<<<<< HEAD
-    customFeatures: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-=======
     customFeatures: [
       0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
       21, 23,
     ],
->>>>>>> develop
   },
   {
     id: 9,
@@ -181,11 +149,7 @@ var unitTypes = [
     turnaroundTime: 5,
     cesRequired: true,
     floorCPM: 22,
-<<<<<<< HEAD
-    floorVCPM: "tbd",
-=======
     floorVCPM: "TBD",
->>>>>>> develop
     openCPM: 25,
     customizable: false,
     isSkin: true,
@@ -199,11 +163,7 @@ var unitTypes = [
     turnaroundTime: 5,
     cesRequired: true,
     floorCPM: 18,
-<<<<<<< HEAD
-    floorVCPM: "tbd",
-=======
     floorVCPM: "TBD",
->>>>>>> develop
     openCPM: 21,
     customizable: false,
     isSkin: true,
@@ -217,11 +177,7 @@ var unitTypes = [
     turnaroundTime: 3,
     cesRequired: true,
     floorCPM: 8,
-<<<<<<< HEAD
-    floorVCPM: "tbd",
-=======
     floorVCPM: "TBD",
->>>>>>> develop
     openCPM: 10,
     customizable: false,
     isSkin: true,
@@ -248,11 +204,7 @@ var unitTypes = [
     turnaroundTime: 2,
     cesRequired: false,
     floorCPM: 2.5,
-<<<<<<< HEAD
-    floorVCPM: "tbd",
-=======
     floorVCPM: "Custom rate",
->>>>>>> develop
     openCPM: 3.5,
     customizable: false,
   },
@@ -265,11 +217,7 @@ var unitTypes = [
     turnaroundTime: 0,
     cesRequired: true,
     floorCPM: 7,
-<<<<<<< HEAD
-    floorVCPM: "tbd",
-=======
     floorVCPM: "TBD",
->>>>>>> develop
     openCPM: 10,
     customizable: false,
   },
@@ -282,11 +230,7 @@ var unitTypes = [
     turnaroundTime: 0,
     cesRequired: true,
     floorCPM: 9.5,
-<<<<<<< HEAD
-    floorVCPM: "tbd",
-=======
     floorVCPM: "TBD",
->>>>>>> develop
     openCPM: 12,
     customizable: false,
   },

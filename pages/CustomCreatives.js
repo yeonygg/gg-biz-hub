@@ -11,120 +11,16 @@ import {
   InputToggle,
 } from "pier-design-system";
 import Link from "next/link";
-<<<<<<< HEAD
-import CustomAdd from "../components/CustomAdd";
-import customFeatures from "../constants/custom";
-import CustomCard from "../components/CustomCard";
-import UUIDV4 from "../helpers/helpers";
-
-let setDebounce;
-
-let customSchema = {
-  key: null,
-  name: "",
-  description: "",
-  minSpend: 0,
-  designTime: 0,
-  cesTime: 0,
-  programmatic: "",
-  cpmUpcharge: 0,
-  objective: "",
-  bestPractices: "",
-  clientRequirements: "",
-};
-
-=======
 import customFeatures from "../constants/custom";
 import CustomCard from "../components/CustomCard";
 import CustomSelectRow from "../components/CustomSelectRow";
 
 let setDebounce;
 
->>>>>>> develop
 class App extends Component {
   constructor() {
     super();
     this.state = {
-<<<<<<< HEAD
-      key: null,
-      name: "",
-      description: "",
-      minSpend: 0,
-      designTime: 0,
-      cesTime: 0,
-      programmatic: "",
-      cpmUpcharge: 0,
-      objective: "",
-      bestPractices: "",
-      clientRequirements: "",
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  //   getCustomInputs = (key) => {
-  //     const customConfig = this.state;
-  //     const index = this.getUnitIndex(key);
-  //     return customConfig[index];
-  //   };
-
-  //   getUnitIndex = (key) => {
-  //     const customConfig = this.state;
-  //     console.log(customConfig);
-  //     return customConfig.map((obj) => obj.key).indexOf(key);
-  //   };
-
-  //   setCustomInputs = (value, field) => {
-  //     clearTimeout(setDebounce);
-  //     const customSelect = this.state;
-  //     customSelect[field] = value;
-  //     setDebounce = setTimeout(() => {
-  //       this.updateCustom(customSelect);
-  //       console.log(this.state.customSelect);
-  //     }, 250);
-  //   };
-
-  //   removeCustomConfig = (key) => {
-  //     const customSelect = this.state;
-  //     const index = this.getUnitIndex(key);
-  //     customSelect.splice(index, 1);
-  //     this.updateCustom(customSelect);
-  //   };
-
-  //   createUnitConfig = () => {
-  //     const customSelect = this.state;
-  //     const newUnit = Object.assign({}, customSchema);
-  //     newUnit.key = UUIDV4();
-  //     customSelect.push(newUnit);
-  //     this.updateCustom(customSelect);
-  //   };
-
-  //   setUnitConfig = (key, value, field) => {
-  //     const customSelect = this.state;
-  //     const unit = this.getCustomInputs(key);
-  //     unit[field] = value;
-  //     customSelect.unitConfig[this.getUnitIndex(key)] = unit;
-  //     this.updateCustom(customSelect);
-  //   };
-
-  //   updateCustom = (customSelect) => {
-  //     this.setState({
-  //       customSelect: customSelect,
-  //     });
-  //     // console.log(this.state.campaign.unitConfig);
-  //   };
-
-  handleChange(e) {
-    console.log("custom thing selected!");
-    this.setState({
-      name: e.target.value,
-    });
-    console.log(this.state);
-    console.log(e.target.value);
-  }
-
-  render() {
-=======
       selectCustomFeatures: [null],
       toggleAll: false,
     };
@@ -186,70 +82,18 @@ class App extends Component {
   render() {
     // console.log("render");
 
->>>>>>> develop
     return (
       <div>
         <Section padding="sm"></Section>
         <Heading>Creative - Custom Creatives</Heading>
-<<<<<<< HEAD
-=======
         <Link href="/">Home</Link>
 
->>>>>>> develop
         <Card className="-m-b-6">
           <Section
             padding="lg"
             className="-flex-row -justify-content-center -align-items-center"
             style={{ marginTop: "1.125rem" }}
           >
-<<<<<<< HEAD
-            <div className="custom-page-select">
-              <BodyText
-                style={{
-                  fontWeight: "bold",
-                  width: "45%",
-                  paddingRight: "4rem",
-                }}
-              >
-                Select Custom Creative
-              </BodyText>
-
-              <InputSelect
-                size="sm"
-                disabled={false}
-                dark={false}
-                error={false}
-                capleft={false}
-                required=""
-                onChange={this.handleChange}
-              >
-                <option disabled={true} selected={true} value="">
-                  Select your Custom Add On
-                </option>
-                {/* customFeatures.map(function (customIndex) {
-                const custom = customFeatures[customIndex];
-                return <option key={custom.id}>{custom.name}</option>;
-              }) */}
-
-                {customFeatures.map((custom) => (
-                  <option key={custom.id}>{custom.name}</option>
-                ))}
-              </InputSelect>
-              <Tooltip text="Add Custom Creative">
-                <IconButton
-                  style={{ marginLeft: "1rem" }}
-                  className="plus-button"
-                  title="Button"
-                  icon="far fa-plus"
-                  size="sm"
-                  disabled={false}
-                  dark={false}
-                  pill={false}
-                  hero={true}
-                />
-              </Tooltip>
-            </div>
-=======
             <div className="-d-flex" style={{ width: "100%" }}>
               <div className="custom-body-text">
                 <BodyText
@@ -279,17 +123,13 @@ class App extends Component {
               </div>
             </div>
 
->>>>>>> develop
             <div className="-d-flex -justify-content-end -m-t-6">
               <InputToggle
                 size="sm"
                 disabled={false}
                 dark={false}
                 error={false}
-<<<<<<< HEAD
-=======
                 onChange={this.handleToggle}
->>>>>>> develop
               >
                 Show All Custom Creatives
               </InputToggle>
@@ -297,11 +137,6 @@ class App extends Component {
           </Section>
         </Card>
 
-<<<<<<< HEAD
-        <CustomCard custom={this.state} />
-
-        <Link href="/">Home</Link>
-=======
         {/* this.state.key.map((index) => {
           <CustomCard custom={index} />;
         }) */}
@@ -332,7 +167,6 @@ class App extends Component {
           ))}
 
         <Section padding="lg"></Section>
->>>>>>> develop
       </div>
     );
   }

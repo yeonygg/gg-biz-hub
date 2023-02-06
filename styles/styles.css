@@ -6,14 +6,11 @@
   display: flex;
 }
 
-<<<<<<< HEAD
 .campaign-card-style {
   padding: 2rem;
   display: flex;
 }
 
-=======
->>>>>>> develop
 .client-section {
   display: block;
   justify-content: space-between;
@@ -465,8 +462,6 @@ footer {
   right: 1rem;
 }
 
-<<<<<<< HEAD
-=======
 .custom-select-wrapper {
   display: flex;
   width: 100%;
@@ -494,7 +489,6 @@ footer {
   justify-content: space-between;
 }
 
->>>>>>> develop
 .custom-page-select {
   display: flex;
 }

@@ -13,18 +13,8 @@ import CampaignOutput from "../components/CampaignOutput";
 import { useState, useEffect, Component } from "react";
 import { InputToggle } from "pier-design-system";
 import UUIDV4 from "../helpers/helpers";
-<<<<<<< HEAD
-import Layout from "./Layout";
 import { Fragment } from "react";
-import Navigation from "../components/Navigation";
-import CustomCreatives from "./CustomCreatives";
 
-=======
-import { Fragment } from "react";
-import Layout from "./Layout";
-import Navigation from "../components/Navigation";
-import CustomCreatives from "./CustomCreatives";
->>>>>>> develop
 import {
   Card,
   Heading,
@@ -190,11 +180,7 @@ class App extends Component {
                   </h1>
                 </div>
                 <div className="pier-accordion__content">
-<<<<<<< HEAD
                   <div className="campaign-card-style">
-=======
-                  <div className="card-style">
->>>>>>> develop
                     <div className="campaign-section-wrapper">
                       <SubHeading
                         text={this.state.campaignText}
@@ -312,25 +298,8 @@ class App extends Component {
 
               <RateBreakdownCard campaign={this.state.campaign} />
             </div>
-<<<<<<< HEAD
-            <footer style={{ height: "15px" }}></footer>
           </main>
         </div>
-        <div style={{ visibility: "hidden" }}>
-          {this.state.campaign.unitConfig.map((config, index) => (
-            <CustomCreatives
-              deleteHandler={this.removeUnitConfig}
-              changeHandler={this.setUnitConfig}
-              key={config.key}
-              index={config.key}
-              config={config}
-            />
-          ))}
-        </div>
-=======
-          </main>
-        </div>
->>>>>>> develop
       </Fragment>
     );
   }
