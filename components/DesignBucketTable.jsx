@@ -5,6 +5,7 @@ import { Columns } from "../constants/Columns";
 import { useTable } from "react-table";
 
 const DesignBucketTable = (props) => {
+<<<<<<< HEAD
   const isExpedited = props.isExpedited;
   const offset = isExpedited ? 1 : 0;
 
@@ -22,11 +23,28 @@ const DesignBucketTable = (props) => {
   //In this case buckets or isExpedited changing would work
   const data = useMemo(() => buckets, [isExpedited]);
 
+=======
+  const columns = useMemo(() => Columns, []);
+  const data = useMemo(() => designBuckets, []);
+>>>>>>> feature/creative-business-rules
   const tableInstance = useTable({
     columns,
     data,
   });
 
+<<<<<<< HEAD
+=======
+  const expedited = () => {
+    let days = "";
+
+    if (designBuckets[0].isExpedited === false) {
+      days = designBuckets[0].standardUnits - 1;
+    }
+  };
+
+  expedited();
+
+>>>>>>> feature/creative-business-rules
   const {
     getTableProps,
     getTableBodyProps,
@@ -35,8 +53,13 @@ const DesignBucketTable = (props) => {
     rows,
     prepareRow,
   } = tableInstance;
+<<<<<<< HEAD
 
   return (
+=======
+  return (
+    <Fragment>
+>>>>>>> feature/creative-business-rules
       <table {...getTableProps()} id="design-buckets">
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -55,7 +78,10 @@ const DesignBucketTable = (props) => {
             return (
               <tr key={designBuckets.id} {...row.getRowProps}>
                 {row.cells.map((cell) => {
+<<<<<<< HEAD
                   // console.log(cell);
+=======
+>>>>>>> feature/creative-business-rules
                   return (
                     <td key={designBuckets.id} {...cell.getCellProps()}>
                       {cell.render("Cell")}
@@ -68,6 +94,10 @@ const DesignBucketTable = (props) => {
           <tr></tr>
         </tbody>
       </table>
+<<<<<<< HEAD
+=======
+    </Fragment>
+>>>>>>> feature/creative-business-rules
   );
 };
 

@@ -3,6 +3,13 @@ var studies = [
   {
     id: 0,
     title: "Brand Lift",
+<<<<<<< HEAD
+=======
+    minSpends: {
+      partner: { name: "Upwave", minSpend: 75000, upgradeSpend: 200000 },
+    },
+
+>>>>>>> feature/creative-business-rules
     studyPartners: ["Kantar Millward Brown", "Upwave", "Dynata"],
     description:
       "Studies that rely users to respond to survey questions. Respondents are usually representative of the general US population (ranges in age, gender, race, geo, etc.). These partners (i.e. MWB, Upwave) are best for measuring lift in Brand Awareness, Consideration/Purchase Intent, Favorability, and other attitudinal metrics",

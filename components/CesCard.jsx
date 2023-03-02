@@ -51,16 +51,18 @@ const CesCard = (props) => {
   };
 
   return (
-    <Card className="design-card" style={{ marginRight: 0 }}>
-      <div className="card-style">
-        <SubHeading text={resultHead} />
+    <div className="sla-card-style">
+      <SubHeading text={resultHead} />
+      <div className="sla-result-text">
+        {" "}
         <Heading style={{ color: "#25B9EF" }} className="sla-heading">
           {cesSLA()}
         </Heading>
-        <BodyText>{plural()}</BodyText>
-        <Section padding="xs"></Section>
+        <BodyText size="xs">{plural()}</BodyText>
       </div>
-    </Card>
+
+      <Section padding="xs"></Section>
+    </div>
   );
 };
 

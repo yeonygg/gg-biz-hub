@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 import CustomAdd from "./CustomAdd";
 import unitTypes from "../constants/units";
 import customFeatures from "../constants/custom";
 import { useState } from "react";
+=======
+import { useState } from "react";
+import studies from "../constants/studies";
+>>>>>>> feature/creative-business-rules
 
 import {
   InputGroup,
@@ -16,7 +21,11 @@ import {
 } from "pier-design-system";
 
 const AddStudyRow = (props) => {
+<<<<<<< HEAD
   const customUnitIndex = props.config.customFeatures;
+=======
+  // const customUnitIndex = props.config.customFeatures;
+>>>>>>> feature/creative-business-rules
 
   const handleChange = (event, field) => {
     const value =
@@ -136,6 +145,7 @@ const AddStudyRow = (props) => {
     }
   };
 
+<<<<<<< HEAD
   const handleDelete = (event) => {
     props.deleteHandler(props.index);
   };
@@ -179,6 +189,94 @@ const AddStudyRow = (props) => {
         <div className="toggle-button">
           <div></div>
           <Tooltip text="Delete creative">
+=======
+  return (
+    <div>
+      <Section padding="xs" className="study-section">
+        <InputGroup
+          label="type of study"
+          size="sm"
+          dark={false}
+          style={{ marginRight: "1rem", width: "50%" }}
+        >
+          <InputSelect
+            disabled={false}
+            dark={false}
+            error={false}
+            capleft={false}
+            required=""
+            size="sm"
+          >
+            <option value="">Select your study</option>
+            {studies.map((study) => (
+              <option key={study.id} value={study.id}>
+                {study.title}
+              </option>
+            ))}
+          </InputSelect>
+        </InputGroup>
+
+        <InputGroup
+          label="study partner"
+          size="sm"
+          dark={false}
+          style={{ marginRight: "1rem", width: "40%" }}
+        >
+          <InputSelect
+            disabled={false}
+            dark={false}
+            error={false}
+            capleft={false}
+            required=""
+            size="sm"
+          >
+            <option value="">Select your partner</option>
+            {studies.map((study) => (
+              <option key={study.id} value={study.id}>
+                {study.title}
+              </option>
+            ))}
+          </InputSelect>
+        </InputGroup>
+
+        <InputGroup
+          label="NO. of studies"
+          size="sm"
+          dark={false}
+          style={{ width: "35%" }}
+        >
+          <InputSelect
+            disabled={false}
+            dark={false}
+            error={false}
+            capleft={false}
+            required=""
+            size="sm"
+          >
+            <option value="">Select quantity</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </InputSelect>
+        </InputGroup>
+        <div className="study-toggle-button">
+          <div className="-m-r-3">
+            {" "}
+            <Tooltip text="Add study">
+              <IconButton
+                title="Button"
+                icon="far fa-plus"
+                size="sm"
+                disabled={false}
+                dark={false}
+                pill={false}
+                danger={false}
+                hero={true}
+              />
+            </Tooltip>
+          </div>
+
+          <Tooltip text="Delete study">
+>>>>>>> feature/creative-business-rules
             <IconButton
               title="Button"
               icon="far fa-trash"
@@ -187,11 +285,15 @@ const AddStudyRow = (props) => {
               dark={false}
               pill={false}
               danger={true}
+<<<<<<< HEAD
               onClick={handleDelete}
+=======
+>>>>>>> feature/creative-business-rules
             />
           </Tooltip>
         </div>
       </Section>
+<<<<<<< HEAD
       {props.config.customOn && (
         <div>
           {" "}
@@ -241,6 +343,8 @@ const AddStudyRow = (props) => {
           </Section>
         </div>
       )}
+=======
+>>>>>>> feature/creative-business-rules
     </div>
   );
 };

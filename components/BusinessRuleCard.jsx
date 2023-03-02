@@ -10,7 +10,10 @@ import {
   Table,
 } from "pier-design-system";
 import unitTypes from "../constants/units";
+<<<<<<< HEAD
 import spendTiers from "../constants/spends";
+=======
+>>>>>>> feature/creative-business-rules
 import customFeatures from "../constants/custom";
 
 const BusinessRuleCard = (props) => {

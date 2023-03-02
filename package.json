@@ -21,9 +21,14 @@
     "next": "12.3.1",
     "pier-design-system": "^1.0.5",
     "prop-types": "^15.8.1",
+<<<<<<< HEAD
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-router-dom": "^6.8.2",
+=======
+    "react": "18.2.0",
+    "react-dom": "^18.2.0",
+>>>>>>> feature/creative-business-rules
     "react-table": "^7.8.0"
   },
   "devDependencies": {

@@ -188,14 +188,14 @@ const DesignCard = (props) => {
   //Design SLA END
 
   return (
-    <Card className="design-card">
-      <div className="card-style">
-        <SubHeading text={resultHead} />
+    <div className="sla-card-style -m-r-5">
+      <SubHeading text={resultHead} />
+      <div className="sla-result-text">
+        {" "}
         <Heading className="sla-heading">{designSLA()}</Heading>
-        <BodyText>{plural()}</BodyText>
-        <Section padding="xs"></Section>
+        <BodyText size="xs">{plural()}</BodyText>
       </div>
-    </Card>
+    </div>
   );
 };
 

@@ -4,8 +4,13 @@
   margin: 5rem 3rem 2rem 3rem;
 }
 
-.client-section {
+.client-output-card {
   display: flex;
+  width: 60%;
+  align-items: center;
+  border: solid 1px #08d18b;
+  border-radius: 1rem;
+  padding: 2rem;
 }
 
 .campaign-card-style {
@@ -15,13 +20,21 @@
 
 .client-section {
   display: block;
+  width: 100%;
+
   justify-content: space-between;
-  padding: 0.5rem 0.75rem;
 }
 
 .plan-section {
   display: flex;
   padding: 0.5rem 0.75rem;
+  justify-content: space-between;
+}
+
+.study-section {
+  display: flex;
+  padding: 0.5rem 0rem;
+  margin-bottom: 2rem;
   justify-content: space-between;
 }
 
@@ -62,6 +75,18 @@
 .result-card {
   margin: 1.5rem 3rem 0.5rem 3rem;
   background-color: #fff;
+<<<<<<< HEAD
+=======
+}
+
+.sla-card-style {
+  background-color: #f7f8f8;
+  border-radius: 1rem;
+}
+
+.sla-section {
+  width: 20%;
+>>>>>>> feature/creative-business-rules
 }
 
 .client-name-input {
@@ -112,6 +137,14 @@
   align-items: center;
   flex: 0 1 5%;
   margin: 0 1rem;
+}
+
+.study-toggle-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 1rem;
+  flex: 0 1 5%;
 }
 
 .clear-all-button {
@@ -359,10 +392,15 @@ footer {
 }
 
 .sla-heading {
-  padding-top: 2rem;
   padding-bottom: 0.75rem;
-  font-size: 120px;
+  font-size: 70px;
   color: #08d18b;
+}
+
+.sla-result-text {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
 }
 
 .meter-wrapper {
@@ -594,6 +632,7 @@ ul li {
   border-radius: 12px;
   background-color: #f7f8f8;
 }
+<<<<<<< HEAD
 
 .nav-section {
   width: 260px;
@@ -610,3 +649,5 @@ ul li {
   padding: 2rem;
 }
 
+=======
+>>>>>>> feature/creative-business-rules

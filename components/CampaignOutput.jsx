@@ -46,28 +46,25 @@ const CampaignOutput = (props) => {
   };
 
   return (
-    <Card className="card -p-a-4">
-      <Section padding="sm" className="client-section">
-        <div className="client-name">
-          <Heading className="-m-b-3" size="md">
-            {toTitleCase(props.campaign.clientName)}
-          </Heading>
-          <Heading className="-m-b-0" size="xs">
-            {toTitleCase(props.campaign.campaignName)}
-          </Heading>
-        </div>
-
-        <div className="campaign-budget -text-a-right">
-          <Heading className="-m-b-0" size="xs">
-            Budget
-          </Heading>
-          <Heading className="-m-b-0" size="lg">
-            $
-            {parseFloat(props.campaign.campaignBudget).toLocaleString("eng-US")}
-          </Heading>
-        </div>
-      </Section>
-    </Card>
+    <div className="client-output-card">
+      {" "}
+      <div className="client-name">
+        <Heading className="-m-b-3" size="sm">
+          {toTitleCase(props.campaign.clientName)}
+        </Heading>
+        <Heading className="-m-b-0" size="xs">
+          {toTitleCase(props.campaign.campaignName)}
+        </Heading>
+      </div>
+      <div className="campaign-budget">
+        <Heading className="-m-b-0" size="lg">
+          ${parseFloat(props.campaign.campaignBudget).toLocaleString("eng-US")}
+        </Heading>
+        <Heading className="-m-b-0" size="xs">
+          Campaign Budget
+        </Heading>
+      </div>
+    </div>
   );
 };
 
