@@ -86,7 +86,7 @@ var customFeatures = [
     floorCPM: 2,
     openCPM: 2,
     description:
-      "Scrollable text boxes (automatic or manual) for additional health information/legal text reuqired for the product",
+      "Scrollable text boxes (automatic or manual) for additional health information/legal text required for the product",
     objective: { primary: "Awareness", recommendedMetrics: "CTR, Engagement" },
     bestPractices:
       "Generally only leveraged within an In-Screen/In-Image and In-Screen Expandable/In-Image Expandable units. Great for Pharmaceutical campaigns",
