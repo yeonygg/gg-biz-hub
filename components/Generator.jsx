@@ -306,8 +306,8 @@ function Generator() {
                             Add DMP
                           </InputCheckbox>
                         </div>
+                        <HR />
                       </Section>
-                      <HR />
                     </Accordion>
                   </div>
                   <div className="-m-t-6 -float-right">
