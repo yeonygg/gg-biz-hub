@@ -75,8 +75,6 @@
 .result-card {
   margin: 1.5rem 3rem 0.5rem 3rem;
   background-color: #fff;
-<<<<<<< HEAD
-=======
 }
 
 .sla-card-style {
@@ -86,7 +84,6 @@
 
 .sla-section {
   width: 20%;
->>>>>>> feature/creative-business-rules
 }
 
 .client-name-input {
@@ -632,7 +629,6 @@ ul li {
   border-radius: 12px;
   background-color: #f7f8f8;
 }
-<<<<<<< HEAD
 
 .nav-section {
   width: 260px;
@@ -641,7 +637,7 @@ ul li {
   transition: all 0.2s ease-in-out 0s;
 }
 
-.sla-content {
+.outer-content {
   width: 100%;
   flex: 1 1 0%;
   overflow: auto;
@@ -649,5 +645,7 @@ ul li {
   padding: 2rem;
 }
 
-=======
->>>>>>> feature/creative-business-rules
+.inner-content {
+  max-width: 1200px;
+  margin: 0px auto;
+}

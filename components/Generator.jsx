@@ -44,7 +44,6 @@ let unitSchema = {
 };
 
 function Generator() {
-
   const [accordionOpen, setAccordion] = useState(true);
   const [campaignText, setcampaignText] = useState("Campaign Details");
   const [bodyText, setBodyText] = useState("Fill in required campaign info");
@@ -56,7 +55,7 @@ function Generator() {
     campaignName: undefined,
     campaignBudget: 0,
     unitConfig: [],
-  })
+  });
 
   const setCustomConfig = (key, value, field) => {
     const unit = getUnitConfig(key);
@@ -110,9 +109,9 @@ function Generator() {
   };
 
   const updateCampaign = (updatedCampaign) => {
-    console.log('update');
+    console.log("update");
     console.log(updatedCampaign);
-    setCampaign({...updatedCampaign});
+    setCampaign({ ...updatedCampaign });
   };
 
   const toggleAccordion = () => {
@@ -123,17 +122,9 @@ function Generator() {
     if (field === "isExpedited") {
       for (let i = 0; i < campaign.unitConfig.length; i++) {
         if (event.target.checked === true) {
-          setUnitConfig(
-            campaign.unitConfig[i].key,
-            true,
-            "isExpedited"
-          );
+          setUnitConfig(campaign.unitConfig[i].key, true, "isExpedited");
         } else {
-          setUnitConfig(
-            campaign.unitConfig[i].key,
-            false,
-            "isExpedited"
-          );
+          setUnitConfig(campaign.unitConfig[i].key, false, "isExpedited");
         }
       }
     }
@@ -147,9 +138,9 @@ function Generator() {
     setDmp(event.target.checked);
   };
 
-    const accordionClass = accordionOpen
-      ? "pier-accordion pier-accordion--open pier-accordion--card"
-      : "pier-accordion pier-accordion--card";
+  const accordionClass = accordionOpen
+    ? "pier-accordion pier-accordion--open pier-accordion--card"
+    : "pier-accordion pier-accordion--card";
 
   return (
     <Fragment>
@@ -159,10 +150,7 @@ function Generator() {
         </Heading>
         <Card className="card">
           <div className={accordionClass}>
-            <div
-              className="pier-accordion__title"
-              onClick={toggleAccordion}
-            >
+            <div className="pier-accordion__title" onClick={toggleAccordion}>
               <h1 className="pier-accordion__heading">
                 <span className="pier-accordion__icon fas fa-cog"></span>
                 Configure Campaign
@@ -171,10 +159,7 @@ function Generator() {
             <div className="pier-accordion__content">
               <div className="campaign-card-style">
                 <div className="campaign-section-wrapper">
-                  <SubHeading
-                    text={campaignText}
-                    body={bodyText}
-                  />
+                  <SubHeading text={campaignText} body={bodyText} />
 
                   <Section padding="xs">
                     {" "}
@@ -286,18 +271,13 @@ function Generator() {
                       <div className="pier-accordion__content">
                         <Section>
                           <div className="-d-flex -justify-content-between ">
-                            <BodyText
-                              size="lg"
-                              style={{ fontWeight: "bold" }}
-                            >
+                            <BodyText size="lg" style={{ fontWeight: "bold" }}>
                               Additional Studies
-                              </BodyText>
-                              <BodyText
-                                size="xs"
-                                style={{ color: "#A5B2B8" }}
-                              >
+                              <BodyText size="xs" style={{ color: "#A5B2B8" }}>
                                 Optional field to add studies to the campaign
+                              </BodyText>
                             </BodyText>
+
                             <InputCheckbox
                               onChange={addStudy}
                               size="sm"
@@ -311,19 +291,13 @@ function Generator() {
                           </div>
                           <HR />
                           <div className="-d-flex -justify-content-between  -m-t-7">
-                            <BodyText
-                              size="lg"
-                              style={{ fontWeight: "bold" }}
-                            >
+                            <BodyText size="lg" style={{ fontWeight: "bold" }}>
                               Additional DMPs
-                              
-                            </BodyText>
-                              <BodyText
-                                size="xs"
-                                style={{ color: "#A5B2B8" }}
-                              >
+                              <BodyText size="xs" style={{ color: "#A5B2B8" }}>
                                 Optional field to add DMPs to the campaign
                               </BodyText>
+                            </BodyText>
+
                             <InputCheckbox
                               onChange={addDmp}
                               size="sm"
@@ -371,6 +345,5 @@ function Generator() {
     </Fragment>
   );
 }
-
 
 export default Generator;

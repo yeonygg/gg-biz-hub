@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 import React from "react";
 import { useState, useEffect, Component } from "react";
-=======
->>>>>>> feature/creative-business-rules
 import {
   BodyText,
   Button,
@@ -16,13 +13,6 @@ import Link from "next/link";
 import DesignBucketTable from "./DesignBucketTable";
 import designBuckets from "../constants/designbuckets";
 
-<<<<<<< HEAD
-function DesignBucketsCard () {
-  const [isExpedited, setExpedited] = useState(false);
-
-  const handleExpedited = (e) => {
-    setExpedited(!isExpedited);
-=======
 const DesignBucketsCard = () => {
   const handleExpedited = (e) => {
     for (let i = 0; i < designBuckets.length; i++) {
@@ -34,7 +24,6 @@ const DesignBucketsCard = () => {
         console.log(designBuckets[i].isExpedited);
       }
     }
->>>>>>> feature/creative-business-rules
   };
 
   return (
@@ -63,11 +52,7 @@ const DesignBucketsCard = () => {
           </BodyText>
 
           <div className="design-sla-table -m-b-4">
-<<<<<<< HEAD
-            <DesignBucketTable isExpedited={isExpedited} />
-=======
             <DesignBucketTable expedited={handleExpedited} />
->>>>>>> feature/creative-business-rules
           </div>
 
           <div className="-d-flex -justify-content-between -p-t-5">
@@ -80,7 +65,7 @@ const DesignBucketsCard = () => {
             >
               Show Expedited
             </InputToggle>
-            <Link href="/">
+            <Link href="/Generator">
               <Button
                 size="sm"
                 title="Button"

@@ -5,11 +5,7 @@ import { Columns, Generator } from "../constants/Columns";
 import { useTable } from "react-table";
 
 const Table = (props) => {
-<<<<<<< HEAD
   const rates = [...props.campaign.unitConfig];
-=======
-  const rates = props.campaign.unitConfig;
->>>>>>> feature/creative-business-rules
 
   const columns = Generator;
   const data = rates;
@@ -27,7 +23,6 @@ const Table = (props) => {
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr key={designBuckets.id} {...headerGroup.getHeaderGroupProps()}>
-<<<<<<< HEAD
               {headerGroup.headers.map((column) => {
                 console.log(column);
                 return (
@@ -36,13 +31,6 @@ const Table = (props) => {
                   </th>
                 );
               })}
-=======
-              {headerGroup.headers.map((column) => (
-                <th key={designBuckets.id} {...column.getHeaderProps}>
-                  {column.render("Header")}
-                </th>
-              ))}
->>>>>>> feature/creative-business-rules
             </tr>
           ))}
         </thead>
@@ -53,11 +41,7 @@ const Table = (props) => {
               <tr key={designBuckets.id} {...row.getRowProps}>
                 {row.cells.map((cell) => {
                   return (
-<<<<<<< HEAD
                     <td key={cell.getCellProps().key} {...cell.getCellProps()}>
-=======
-                    <td key={1} {...cell.getCellProps()}>
->>>>>>> feature/creative-business-rules
                       {cell.render("Cell")}
                     </td>
                   );

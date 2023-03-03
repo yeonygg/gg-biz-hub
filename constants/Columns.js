@@ -26,11 +26,7 @@ export const Columns = [
       >
         Standard{" "}
         <Tooltip text="In-Screen/In-Image, In-Screen Expandable Video, In-Image 6 sec Canvas, In-Screen Frame, In-Screen Expandable Corner, In-Article Shoppable">
-<<<<<<< HEAD
           <i style={{ color: "#25B9EF" }} className="fas fa-info-circle"></i>
-=======
-          <i style={{ color: "#25B9EF" }} class="fas fa-info-circle"></i>
->>>>>>> feature/creative-business-rules
         </Tooltip>
       </div>
     ),
@@ -46,11 +42,7 @@ export const Columns = [
       >
         High Impact{" "}
         <Tooltip text="In-Image Canvas, In-Image Expandable, In-Screen Expandable">
-<<<<<<< HEAD
           <i style={{ color: "#25B9EF" }} className="fas fa-info-circle"></i>
-=======
-          <i style={{ color: "#25B9EF" }} class="fas fa-info-circle"></i>
->>>>>>> feature/creative-business-rules
         </Tooltip>
       </div>
     ),
@@ -67,11 +59,7 @@ export const Columns = [
       >
         Skins/Scrollers{" "}
         <Tooltip text="Desktop Skin, Mobile Skin, Mobile Scroller">
-<<<<<<< HEAD
           <i style={{ color: "#25B9EF" }} className="fas fa-info-circle"></i>
-=======
-          <i style={{ color: "#25B9EF" }} class="fas fa-info-circle"></i>
->>>>>>> feature/creative-business-rules
         </Tooltip>
       </div>
     ),

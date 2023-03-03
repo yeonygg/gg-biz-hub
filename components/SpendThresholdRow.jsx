@@ -1,9 +1,5 @@
 import { InputSelect, IconButton, Tooltip } from "pier-design-system";
-<<<<<<< HEAD
-import spendTiers from "../constants/spends";
-=======
 import designSpendTiers from "../constants/designspends";
->>>>>>> feature/creative-business-rules
 
 const SpendThresholdRow = (props) => {
   const handleChange = (e, field) => {
@@ -44,11 +40,7 @@ const SpendThresholdRow = (props) => {
           Select your Threshold
         </option>
 
-<<<<<<< HEAD
-        {spendTiers.map((threshold) => (
-=======
         {designSpendTiers.map((threshold) => (
->>>>>>> feature/creative-business-rules
           <option key={threshold.id} value={threshold.id}>
             {threshold.title}
           </option>

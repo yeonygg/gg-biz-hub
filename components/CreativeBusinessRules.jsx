@@ -24,7 +24,7 @@ import spendTiers from "../constants/spends";
 
 let setDebounce;
 
-function CreativeBusinessRules () {
+function CreativeBusinessRules() {
   const [spendThreshold, setSpendThreshold] = useState([null]);
   const [toggleAll, setToggle] = useState(false);
 
@@ -84,13 +84,13 @@ function CreativeBusinessRules () {
                 Campaign & Unit Minimums
               </BodyText>
               <BodyText
-                  size="xs"
-                  style={{
-                    color: "#A5B2B8",
-                  }}
-                >
-                  All Campaigns must be over $25,000
-                </BodyText>
+                size="xs"
+                style={{
+                  color: "#A5B2B8",
+                }}
+              >
+                All Campaigns must be over $25,000
+              </BodyText>
             </div>
 
             <div className="exception-info-wrapper">
@@ -119,8 +119,8 @@ function CreativeBusinessRules () {
                   >
                     All Exception requestions should go through Salesforce. If
                     Exception requires faster than 24 hr turnaround, after SF
-                    submission, you can email adquestions@gumgum.com for
-                    quicker response.
+                    submission, you can email adquestions@gumgum.com for quicker
+                    response.
                   </BodyText>
                 </div>
 
@@ -217,7 +217,6 @@ function CreativeBusinessRules () {
       <Section padding="lg"></Section>
     </Fragment>
   );
-  
 }
 
 export default CreativeBusinessRules;
