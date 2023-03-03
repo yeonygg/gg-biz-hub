@@ -141,113 +141,29 @@ const SpendMeter = (props) => {
   const iconColor =
     percentCalc() < 1 ? "spend-meter__icon--red" : "spend-meter__icon--green";
   return (
-    <Section padding="xs">
-      <div className="meter-wrapper">
-        <div className="meter-copy -m-b-4">
-          <BodyText style={{ fontWeight: "bold", marginBottom: 0 }}>
-            Stated Campaign Budget
-          </BodyText>
-          <BodyText className="budget-meter-spend">{spendNumber()}</BodyText>
-        </div>
+    <div className="meter-wrapper -m-b-6">
+      <div className="meter-copy -m-b-4 -m-t-5">
+        <BodyText style={{ fontWeight: "bold", marginBottom: 0 }}>
+          Stated Campaign Budget
+        </BodyText>
+        <BodyText className="budget-meter-spend">{spendNumber()}</BodyText>
+      </div>
 
-        <div className="spend-meter" data-spend={`$${budget}`}>
+      <div className="spend-meter" data-spend={`$${budget}`}>
+        <div
+          className={`spend-meter__filled ${barClass}`}
+          style={{ width: `${percentCalc() * 100}%` }}
+        ></div>
+        <div className="spend-meter__icon-holder">
           <div
-            className={`spend-meter__filled ${barClass}`}
-            style={{ width: `${percentCalc() * 100}%` }}
-          ></div>
-          <div className="spend-meter__icon-holder">
-            <div
-              className={`spend-meter__icon ${iconColor}`}
-              style={{ left: `${percentCalc() * 100}%` }}
-            >
-              <i className={iconClass} />
-            </div>
+            className={`spend-meter__icon ${iconColor}`}
+            style={{ left: `${percentCalc() * 100}%` }}
+          >
+            <i className={iconClass} />
           </div>
         </div>
-        {/* 
-        <svg width={width} height="80" aria-label={label}>
-          <defs>
-            <linearGradient id="primaryGradient" gradientTransform="rotate(0)">
-              <stop offset="-7%" stop-color="#08D18B" />
-              <stop offset="107%" stop-color="#25B9EF" />
-            </linearGradient>
-          </defs>
-
-          <defs>
-            <linearGradient
-              id="circlePrimaryGradient"
-              gradientTransform="rotate(0)"
-            >
-              <stop offset="-7%" stop-color="#25B9EF" />
-              <stop offset="107%" stop-color="#08D18B" />
-            </linearGradient>
-          </defs>
-
-          <defs>
-            <linearGradient id="dangerGradient" gradientTransform="rotate(0)">
-              <stop offset="-7%" stop-color="#FCA522" />
-              <stop offset="107%" stop-color="#E24550" />
-            </linearGradient>
-          </defs>
-
-          <defs>
-            <linearGradient
-              id="circleDangerGradient"
-              gradientTransform="rotate(0)"
-            >
-              <stop offset="-7%" stop-color="#E24550" />
-              <stop offset="107%" stop-color="#FCA522" />
-            </linearGradient>
-          </defs>
-          <rect
-            width={width}
-            height={height}
-            fill="#E3E7E8"
-            rx={r}
-            ry={r}
-            y="25"
-          />
-
-          <rect
-            width={w + "%"}
-            height={height}
-            fill={colorSwitch()}
-            rx={r}
-            ry={r}
-            y="25"
-            style={style}
-          />
-          <ellipse
-            cx={circlePosition()}
-            cy="45%"
-            rx="27"
-            ry="27"
-            fill={circleColorSwitch()}
-            style={style}
-          ></ellipse>
-          <ellipse
-            cx={circlePosition()}
-            cy="45%"
-            rx="25"
-            ry="25"
-            fill="#fff"
-            style={style}
-          ></ellipse>
-          <ellipse
-            cx={circlePosition()}
-            cy="45%"
-            rx="14"
-            ry="14"
-            fill={circleColorSwitch()}
-            style={style}
-          ></ellipse>
-          <svg width="12" y="-4" x={iconPosition()}>
-            {iconSwitch()}
-          </svg>
-        </svg>
-        */}
       </div>
-    </Section>
+    </div>
   );
 };
 

@@ -15,10 +15,7 @@ import jsPDF from "jspdf";
 import Table from "./Table";
 
 const RateBreakdownCard = (props) => {
-  const resultHead = "Plan Breakdown";
-  const bodyText =
-    "Click the Share button to share this information with the client";
-  // console.log(props.campaign);
+  const resultHead = "Launch Timeline";
 
   const printDocument = () => {
     const input = document.getElementById("capture");
@@ -54,20 +51,8 @@ const RateBreakdownCard = (props) => {
 
   return (
     <Card className="result-card">
-      <div className="card-style">
-        <div
-          className="-p-b-5 -p-r-4"
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <SubHeading text={resultHead} body={bodyText} />
-        </div>
-
-        <Table campaign={props.campaign} toggleOn={toggle} />
-        <HR className="-m-b-3" />
+      <Section padding="xl">
+        {" "}
         <LaunchTimeline campaign={props.campaign} />
         <HR />
         <div className="buttons-section">
@@ -83,7 +68,7 @@ const RateBreakdownCard = (props) => {
             Share
           </Button>
         </div>
-      </div>
+      </Section>
     </Card>
   );
 };

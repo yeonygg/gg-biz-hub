@@ -248,31 +248,27 @@ const SpendCard = (props) => {
   // console.log(icon());
 
   return (
-    <Card className="spend-card">
-      <div className="card-style">
-        <SubHeading text={resultHead} />
+    <div className="card-style">
+      <SubHeading text={resultHead} />
 
-        <Section padding="xs">
-          <Heading
-            style={{ color: [textColor()], marginBottom: "0.75rem" }}
-            size="lg"
-          >
-            ${spendFunction().toLocaleString("en-US")}
-          </Heading>
-          <BodyText
-            size="xs"
-            style={{ color: [textColor()], paddingBottom: "2rem" }}
-          >
-            {icon()}
-            {spendMessage()}
-          </BodyText>
-        </Section>
-        <SpendMeter
-          campaignBudget={props.campaign.campaignBudget}
-          minSpend={spendFunction()}
-        />
-      </div>
-    </Card>
+      <Heading
+        style={{ color: [textColor()], marginBottom: "0.75rem" }}
+        size="lg"
+      >
+        ${spendFunction().toLocaleString("en-US")}
+      </Heading>
+      <BodyText
+        size="xs"
+        style={{ color: [textColor()], paddingBottom: "2rem" }}
+      >
+        {icon()}
+        {spendMessage()}
+      </BodyText>
+      <SpendMeter
+        campaignBudget={props.campaign.campaignBudget}
+        minSpend={spendFunction()}
+      />
+    </div>
   );
 };
 

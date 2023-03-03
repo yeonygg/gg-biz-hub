@@ -3,6 +3,7 @@ import {
   InputText,
   Section,
   Heading,
+  BodyText,
   Card,
 } from "pier-design-system";
 
@@ -52,17 +53,17 @@ const CampaignOutput = (props) => {
         <Heading className="-m-b-3" size="sm">
           {toTitleCase(props.campaign.clientName)}
         </Heading>
-        <Heading className="-m-b-0" size="xs">
+        <BodyText className="-m-b-0" size="sm" style={{ fontWeight: "bold" }}>
           {toTitleCase(props.campaign.campaignName)}
-        </Heading>
+        </BodyText>
       </div>
       <div className="campaign-budget">
         <Heading className="-m-b-0" size="lg">
           ${parseFloat(props.campaign.campaignBudget).toLocaleString("eng-US")}
         </Heading>
-        <Heading className="-m-b-0" size="xs">
+        <BodyText className="-m-b-0" size="sm" style={{ fontWeight: "bold" }}>
           Campaign Budget
-        </Heading>
+        </BodyText>
       </div>
     </div>
   );

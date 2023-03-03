@@ -12,7 +12,7 @@ import CesCard from "../components/CesCard";
 import CampaignOutput from "../components/CampaignOutput";
 import { useState, useEffect, Fragment } from "react";
 import UUIDV4 from "../helpers/helpers";
-
+import RateTableSection from "./RateTableSection";
 import {
   Card,
   Heading,
@@ -258,63 +258,59 @@ function Generator() {
                     </Button>
                   </div>
                   <div className="-m-t-11">
-                    <div className={accordionClass}>
-                      <div
-                        className="pier-accordion__title"
-                        onClick={toggleAccordion}
-                      >
-                        <h1 className="pier-accordion__heading">
-                          <span className="pier-accordion__icon fas fa-cog"></span>
-                          Add Studies and DMP's
-                        </h1>
-                      </div>
-                      <div className="pier-accordion__content">
-                        <Section>
-                          <div className="-d-flex -justify-content-between ">
-                            <BodyText size="lg" style={{ fontWeight: "bold" }}>
-                              Additional Studies
-                              <BodyText size="xs" style={{ color: "#A5B2B8" }}>
-                                Optional field to add studies to the campaign
-                              </BodyText>
+                    <Accordion
+                      title="Add Studies and DMP's"
+                      startOpen={false}
+                      inCard={false}
+                      icon="fas fa-cog"
+                      disabled={false}
+                      dark={false}
+                    >
+                      <Section>
+                        <div className="-d-flex -justify-content-between ">
+                          <BodyText size="lg" style={{ fontWeight: "bold" }}>
+                            Additional Studies
+                            <BodyText size="xs" style={{ color: "#A5B2B8" }}>
+                              Optional field to add studies to the campaign
                             </BodyText>
+                          </BodyText>
 
-                            <InputCheckbox
-                              onChange={addStudy}
-                              size="sm"
-                              disabled={false}
-                              dark={false}
-                              error={false}
-                              partial={false}
-                            >
-                              Add Study
-                            </InputCheckbox>
-                          </div>
-                          <HR />
-                          <div className="-d-flex -justify-content-between  -m-t-7">
-                            <BodyText size="lg" style={{ fontWeight: "bold" }}>
-                              Additional DMPs
-                              <BodyText size="xs" style={{ color: "#A5B2B8" }}>
-                                Optional field to add DMPs to the campaign
-                              </BodyText>
-                            </BodyText>
-
-                            <InputCheckbox
-                              onChange={addDmp}
-                              size="sm"
-                              disabled={false}
-                              dark={false}
-                              error={false}
-                              partial={false}
-                            >
-                              Add DMP
-                            </InputCheckbox>
-                          </div>
-                        </Section>
+                          <InputCheckbox
+                            onChange={addStudy}
+                            size="sm"
+                            disabled={false}
+                            dark={false}
+                            error={false}
+                            partial={false}
+                          >
+                            Add Study
+                          </InputCheckbox>
+                        </div>
                         <HR />
-                      </div>
-                    </div>
+                        <div className="-d-flex -justify-content-between  -m-t-7">
+                          <BodyText size="lg" style={{ fontWeight: "bold" }}>
+                            Additional DMPs
+                            <BodyText size="xs" style={{ color: "#A5B2B8" }}>
+                              Optional field to add DMPs to the campaign
+                            </BodyText>
+                          </BodyText>
+
+                          <InputCheckbox
+                            onChange={addDmp}
+                            size="sm"
+                            disabled={false}
+                            dark={false}
+                            error={false}
+                            partial={false}
+                          >
+                            Add DMP
+                          </InputCheckbox>
+                        </div>
+                      </Section>
+                      <HR />
+                    </Accordion>
                   </div>
-                  {/* <div className="-m-t-6 -float-right">
+                  <div className="-m-t-6 -float-right">
                     <Button
                       title="Button"
                       icon="fas fa-cog"
@@ -325,19 +321,34 @@ function Generator() {
                     >
                       Generate
                     </Button>
-                  </div> */}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </Card>
         <div id="capture">
-          <CampaignOutput campaign={campaign} />
-          <div className="spend-sla-section">
-            <SpendCard campaign={campaign} />
-            <DesignCard campaign={campaign} />
-            <CesCard campaign={campaign} />
-          </div>
+          <Card style={{ padding: "1rem" }}>
+            <Section padding="xl">
+              <div className="-d-flex -m-b-6">
+                <CampaignOutput campaign={campaign} />
+
+                <DesignCard campaign={campaign} />
+                <CesCard campaign={campaign} />
+              </div>
+              <HR />
+              <div className="-d-flex">
+                <div className="spend-sla-section">
+                  <SpendCard campaign={campaign} />
+                </div>
+
+                <div className="rate-sla-section">
+                  {" "}
+                  <RateTableSection campaign={campaign} />
+                </div>
+              </div>
+            </Section>
+          </Card>
 
           <RateBreakdownCard campaign={campaign} />
         </div>

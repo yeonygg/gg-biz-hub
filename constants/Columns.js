@@ -91,7 +91,6 @@ export const Generator = [
   {
     Header: "Floor CPM",
     accessor: "floorCPM",
-    Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
   },
   {
     Header: "Open CPM",
