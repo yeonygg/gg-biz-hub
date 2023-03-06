@@ -109,13 +109,13 @@ export const Dmp = [
         style={{
           textAlign: "left",
           minWidth: "200px",
-          maxWidth: "500px",
+          maxWidth: "400px",
         }}
       >
         Data Type
       </div>
     ),
-    accessor: "totalCreatives",
+    accessor: "dataType",
     headerStyle: { textAlign: "right" },
   },
   {
@@ -129,7 +129,7 @@ export const Dmp = [
         $0k-$99k{" "}
       </div>
     ),
-    accessor: "standardUnits",
+    accessor: "column1",
     Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
   },
   {
@@ -137,47 +137,39 @@ export const Dmp = [
       <div
         style={{
           textAlign: "center",
+          color: "#08D18B",
         }}
       >
-        High Impact{" "}
-        <Tooltip text="In-Image Canvas, In-Image Expandable, In-Screen Expandable">
-          <i style={{ color: "#25B9EF" }} className="fas fa-info-circle"></i>
-        </Tooltip>
+        $100k-$199k{" "}
       </div>
     ),
-    accessor: "highImpact",
+    accessor: "column2",
     headerStyle: { textAlign: "center" },
-    Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
+    Cell: (row) => (
+      <div style={{ textAlign: "center" }}>
+        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
+        {row.value}
+      </div>
+    ),
   },
   {
     Header: () => (
       <div
         style={{
           textAlign: "center",
+          color: "#08D18B",
         }}
       >
-        Skins/Scrollers{" "}
-        <Tooltip text="Desktop Skin, Mobile Skin, Mobile Scroller">
-          <i style={{ color: "#25B9EF" }} className="fas fa-info-circle"></i>
-        </Tooltip>
+        $300k+{" "}
       </div>
     ),
-    accessor: "skins",
+    accessor: "column3",
     headerStyle: { textAlign: "center" },
-    Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
-  },
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "center",
-        }}
-      >
-        In-Video CTV{" "}
+    Cell: (row) => (
+      <div style={{ textAlign: "center" }}>
+        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
+        {row.value}
       </div>
     ),
-    accessor: "inVideoMin",
-    headerStyle: { textAlign: "center" },
-    Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
   },
 ];
