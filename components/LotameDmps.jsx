@@ -7,23 +7,9 @@ import {
   Section,
   Table,
 } from "pier-design-system";
-import Link from "next/link";
-import DesignBucketTable from "./DesignBucketTable";
-import designBuckets from "../constants/designbuckets";
+import DmpTable from "./dmpTable";
 
 const LotameDmps = () => {
-  const handleExpedited = (e) => {
-    for (let i = 0; i < designBuckets.length; i++) {
-      if (e.target.checked === true) {
-        designBuckets[i].isExpedited = true;
-        console.log(designBuckets[i].isExpedited);
-      } else {
-        designBuckets[i].isExpedited = false;
-        console.log(designBuckets[i].isExpedited);
-      }
-    }
-  };
-
   return (
     <div>
       <Card className="-m-b-6">
@@ -50,7 +36,7 @@ const LotameDmps = () => {
           </BodyText>
 
           <div className="design-sla-table -m-b-4">
-            <DesignBucketTable />
+            <DmpTable />
           </div>
           <Section></Section>
         </Section>

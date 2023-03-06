@@ -101,3 +101,83 @@ export const Generator = [
     accessor: "floorVCPM",
   },
 ];
+
+export const Dmp = [
+  {
+    Header: () => (
+      <div
+        style={{
+          textAlign: "left",
+          minWidth: "200px",
+          maxWidth: "500px",
+        }}
+      >
+        Data Type
+      </div>
+    ),
+    accessor: "totalCreatives",
+    headerStyle: { textAlign: "right" },
+  },
+  {
+    Header: () => (
+      <div
+        style={{
+          textAlign: "center",
+          color: "#08D18B",
+        }}
+      >
+        $0k-$99k{" "}
+      </div>
+    ),
+    accessor: "standardUnits",
+    Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
+  },
+  {
+    Header: () => (
+      <div
+        style={{
+          textAlign: "center",
+        }}
+      >
+        High Impact{" "}
+        <Tooltip text="In-Image Canvas, In-Image Expandable, In-Screen Expandable">
+          <i style={{ color: "#25B9EF" }} className="fas fa-info-circle"></i>
+        </Tooltip>
+      </div>
+    ),
+    accessor: "highImpact",
+    headerStyle: { textAlign: "center" },
+    Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
+  },
+  {
+    Header: () => (
+      <div
+        style={{
+          textAlign: "center",
+        }}
+      >
+        Skins/Scrollers{" "}
+        <Tooltip text="Desktop Skin, Mobile Skin, Mobile Scroller">
+          <i style={{ color: "#25B9EF" }} className="fas fa-info-circle"></i>
+        </Tooltip>
+      </div>
+    ),
+    accessor: "skins",
+    headerStyle: { textAlign: "center" },
+    Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
+  },
+  {
+    Header: () => (
+      <div
+        style={{
+          textAlign: "center",
+        }}
+      >
+        In-Video CTV{" "}
+      </div>
+    ),
+    accessor: "inVideoMin",
+    headerStyle: { textAlign: "center" },
+    Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
+  },
+];
