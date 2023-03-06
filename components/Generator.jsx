@@ -13,6 +13,7 @@ import CampaignOutput from "../components/CampaignOutput";
 import { useState, useEffect, Fragment } from "react";
 import UUIDV4 from "../helpers/helpers";
 import RateTableSection from "./RateTableSection";
+import AddStudyRow from "./AddStudyRow";
 import {
   Card,
   Heading,
@@ -41,6 +42,13 @@ let unitSchema = {
   turnaroundTime: 0,
   minSpend: 0,
   customFeatures: [],
+};
+
+let studySchema = {
+  key: null,
+  studyType: "Brand Lift",
+  studyPartner: [],
+  studyQuantity: 0,
 };
 
 function Generator() {
@@ -276,7 +284,7 @@ function Generator() {
                           </BodyText>
 
                           <InputCheckbox
-                            onChange={addStudy}
+                            onChange={createUnitConfig}
                             size="sm"
                             disabled={false}
                             dark={false}
@@ -286,6 +294,15 @@ function Generator() {
                             Add Study
                           </InputCheckbox>
                         </div>
+                        {campaign.unitConfig.map((config, index) => (
+                          <AddStudyRow
+                            deleteHandler={removeUnitConfig}
+                            changeHandler={setUnitConfig}
+                            key={config.key}
+                            index={config.key}
+                            config={config}
+                          />
+                        ))}
                         <HR />
                         <div className="-d-flex -justify-content-between  -m-t-7">
                           <BodyText size="lg" style={{ fontWeight: "bold" }}>

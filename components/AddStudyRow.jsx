@@ -12,7 +12,6 @@ import {
   IconButton,
   Tooltip,
   InputCheckbox,
-  BodyText,
 } from "pier-design-system";
 
 const AddStudyRow = (props) => {
@@ -142,105 +141,106 @@ const AddStudyRow = (props) => {
 
   return (
     <div>
-      <Section padding="xs" className="plan-section">
-        <div className="unit-name-input">
-          <BodyText size="lg" style={{ fontWeight: "bold" }}>
-            Additional Studies
-          </BodyText>
-
+      <div className="-d-flex">
+        <InputGroup
+          label="unit type"
+          size="sm"
+          error=""
+          dark={false}
+          className="-m-r-4"
+        >
+          <InputSelect
+            size="sm"
+            disabled={false}
+            dark={false}
+            error={false}
+            capleft={false}
+            required=""
+            onChange={(event) => {
+              handleChange(event, "unitType");
+            }}
+          >
+            <option>Select Unit type</option>
+            {unitTypes.map((unit) => (
+              <option key={unit.id}>{unit.name}</option>
+            ))}
+          </InputSelect>
+        </InputGroup>
+        <InputGroup
+          label="unit type"
+          size="sm"
+          error=""
+          dark={false}
+          className="-m-r-4"
+        >
+          <InputSelect
+            size="sm"
+            disabled={false}
+            dark={false}
+            error={false}
+            capleft={false}
+            required=""
+            onChange={(event) => {
+              handleChange(event, "unitType");
+            }}
+          >
+            <option>Select Unit type</option>
+            {unitTypes.map((unit) => (
+              <option key={unit.id}>{unit.name}</option>
+            ))}
+          </InputSelect>
+        </InputGroup>
+        <InputGroup label="unit type" size="sm" error="" dark={false}>
+          <InputSelect
+            size="sm"
+            disabled={false}
+            dark={false}
+            error={false}
+            capleft={false}
+            required=""
+            onChange={(event) => {
+              handleChange(event, "unitType");
+            }}
+          >
+            <option>Select Unit type</option>
+            {unitTypes.map((unit) => (
+              <option key={unit.id}>{unit.name}</option>
+            ))}
+          </InputSelect>
+        </InputGroup>
+        {props.total === props.index && (
           <div className="toggle-button">
-            <InputCheckbox
-              size="sm"
-              disabled={props.config.isCustomizable ? false : true}
-              dark={false}
-              error={false}
-              partial={false}
-              onChange={(event) => {
-                handleChange(event, "customOn");
-              }}
-            >
-              Custom
-            </InputCheckbox>
+            <Tooltip text="Add Study">
+              <IconButton
+                title="Button"
+                icon="far fa-plus"
+                size="sm"
+                disabled={false}
+                dark={false}
+                pill={false}
+                hero={true}
+                onClick={handleDelete}
+              />
+            </Tooltip>
           </div>
-        </div>
-
-        <div className="num-units-input">
-          <InputGroup label="Version Count" size="sm" error="" dark={false}>
-            <InputText
-              size="sm"
-              placeholder="Enter Number"
-              onChange={(event) => {
-                handleChange(event, "versionCount");
-              }}
-            />
-          </InputGroup>
-        </div>
-
-        <div className="toggle-button">
-          <div></div>
-          <Tooltip text="Delete creative">
-            <IconButton
-              title="Button"
-              icon="far fa-trash"
-              size="sm"
-              disabled={false}
-              dark={false}
-              pill={false}
-              danger={true}
-              onClick={handleDelete}
-            />
-          </Tooltip>
-        </div>
-      </Section>
-      {props.config.customOn && (
-        <div>
-          {" "}
-          <Section padding="xs" className="add-on-section">
-            <div style={{ width: "40%", display: "flex" }}>
-              <div className="plus-alignment">
-                <IconButton
-                  title="Button"
-                  icon="fas fa-plus"
-                  size="sm"
-                  disabled={true}
-                  dark={false}
-                  pill={false}
-                />
-              </div>
-
-              <div className="add-on-input">
-                <InputGroup
-                  label="custom add on"
-                  size="sm"
-                  error=""
-                  dark={false}
-                >
-                  <InputSelect
-                    size="sm"
-                    disabled={false}
-                    dark={false}
-                    error={false}
-                    capleft={false}
-                    required=""
-                    onChange={(event) => {
-                      handleChange(event, "customUnit");
-                    }}
-                  >
-                    <option disabled={true} selected={true} value="">
-                      Select your add on
-                    </option>
-                    {customUnitIndex.map(function (customIndex) {
-                      const custom = customFeatures[customIndex];
-                      return <option key={custom.id}>{custom.name}</option>;
-                    })}
-                  </InputSelect>
-                </InputGroup>
-              </div>
-            </div>
-            <div style={{ width: "60%" }}></div>
-          </Section>
-        </div>
-      )}
+        )}
+        {props.total != props.index && (
+          <div className="toggle-button">
+            <Tooltip text="Delete creative">
+              <IconButton
+                title="Button"
+                icon="far fa-trash"
+                size="sm"
+                disabled={false}
+                dark={false}
+                pill={false}
+                danger={true}
+                onClick={handleDelete}
+              />
+            </Tooltip>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

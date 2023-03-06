@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React, { Fragment } from "react";
 import { useState, useEffect, Component } from "react";
 import {
   Card,
@@ -17,14 +17,13 @@ import CustomSelectRow from "../components/CustomSelectRow";
 
 let setDebounce;
 
-function CustomCreatives () {
-
+function CustomCreatives() {
   const [selectCustomFeatures, setCustomFeatures] = useState([null]);
-  const [toggleAll, setToggle] = useState(false)
+  const [toggleAll, setToggle] = useState(false);
 
   const handleChange = (e, value, index) => {
     const newArray = selectCustomFeatures;
-    newArray[+index] = +value; 
+    newArray[+index] = +value;
     setCustomFeatures([...newArray]);
   };
 
@@ -143,7 +142,6 @@ function CustomCreatives () {
       <Section padding="lg"></Section>
     </Fragment>
   );
-  
 }
 
 export default CustomCreatives;
