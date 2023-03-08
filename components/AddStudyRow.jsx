@@ -18,11 +18,14 @@ import {
 const AddStudyRow = (props) => {
   console.log(props.config.studyPartner);
   const studyConfig = props.config.studyPartner;
-
+  const numConfig = props.config.studyQuantity;
   const handleChange = (event, field) => {
     const value = event.target.value;
+    console.log(value);
     const checkCustomizable = unitTypes.map((obj) => obj.name).indexOf(value);
     const index = value;
+    const numIndex = studyConfig[index];
+    console.log(numIndex);
     props.changeHandler(props.index, value, field);
 
     if (field === "studyType") {
@@ -31,6 +34,14 @@ const AddStudyRow = (props) => {
         props.index,
         studies[index].studyPartners,
         "studyPartner"
+      );
+    }
+
+    if (field === "partners") {
+      props.changeHandler(
+        props.index,
+        studyConfig[value].maxStudies,
+        "studyQuantity"
       );
     }
   };
@@ -83,18 +94,24 @@ const AddStudyRow = (props) => {
             capleft={false}
             required=""
             onChange={(event) => {
-              handleChange(event, "partnerType");
+              handleChange(event, "partners");
             }}
           >
             <option>Select Unit type</option>
             {studyConfig.map((partner) => (
-              <option key={partner.name} value={partner.name}>
+              <option key={partner.name} value={partner.id}>
                 {partner.name}
               </option>
             ))}
           </InputSelect>
         </InputGroup>
-        <InputGroup label="unit type" size="sm" error="" dark={false}>
+        <InputGroup
+          label="unit type"
+          size="sm"
+          error=""
+          dark={false}
+          style={{ width: "70%" }}
+        >
           <InputSelect
             size="sm"
             disabled={false}
@@ -107,8 +124,8 @@ const AddStudyRow = (props) => {
             }}
           >
             <option>Select Unit type</option>
-            {studyConfig.map((unit) => (
-              <option key={unit.id}>{unit.name}</option>
+            {numConfig.map((num) => (
+              <option key={num}>{num}</option>
             ))}
           </InputSelect>
         </InputGroup>
