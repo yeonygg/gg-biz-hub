@@ -21,11 +21,9 @@ const AddStudyRow = (props) => {
   const numConfig = props.config.studyQuantity;
   const handleChange = (event, field) => {
     const value = event.target.value;
-    console.log(value);
-    const checkCustomizable = unitTypes.map((obj) => obj.name).indexOf(value);
+    const checkCustomizable = studyConfig.indexOf(value);
     const index = value;
-    const numIndex = studyConfig[index];
-    console.log(numIndex);
+    console.log(checkCustomizable);
     props.changeHandler(props.index, value, field);
 
     if (field === "studyType") {
@@ -44,11 +42,21 @@ const AddStudyRow = (props) => {
         "studyQuantity"
       );
     }
+
+    if (field === "quantity") {
+      props.changeHandler(props.index);
+    }
   };
 
   const handleDelete = (event) => {
     props.deleteHandler(props.index);
   };
+
+  const handleAdd = (event) => {
+    props.addHandler(props.index);
+  };
+
+  console.log(props.config);
 
   return (
     <div>
@@ -106,7 +114,7 @@ const AddStudyRow = (props) => {
           </InputSelect>
         </InputGroup>
         <InputGroup
-          label="unit type"
+          label="No of units"
           size="sm"
           error=""
           dark={false}
@@ -120,16 +128,15 @@ const AddStudyRow = (props) => {
             capleft={false}
             required=""
             onChange={(event) => {
-              handleChange(event, "unitType");
+              handleChange(event, "quantity");
             }}
           >
             <option>Select Unit type</option>
-            {numConfig.map((num) => (
-              <option key={num}>{num}</option>
-            ))}
+            {props.config.studyQuantity.length > 0 &&
+              numConfig.map((num) => <option key={num}>{num}</option>)}
           </InputSelect>
         </InputGroup>
-        {props.total === props.index && (
+        {props.config.length === 1 && (
           <div className="toggle-button">
             <Tooltip text="Add Study">
               <IconButton
@@ -140,12 +147,12 @@ const AddStudyRow = (props) => {
                 dark={false}
                 pill={false}
                 hero={true}
-                onClick={handleDelete}
+                onClick={handleAdd}
               />
             </Tooltip>
           </div>
         )}
-        {props.total != props.index && (
+        {/*props.total != props.index && (
           <div className="toggle-button">
             <Tooltip text="Delete creative">
               <IconButton
@@ -160,7 +167,7 @@ const AddStudyRow = (props) => {
               />
             </Tooltip>
           </div>
-        )}
+        )*/}
       </div>
     </div>
   );

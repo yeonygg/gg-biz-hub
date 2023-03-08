@@ -338,6 +338,7 @@ function Generator() {
                         </div>
                         {campaign.studyConfig.map((config, index) => (
                           <AddStudyRow
+                            addHandler={createStudyConfig}
                             deleteHandler={removeStudyConfig}
                             changeHandler={setStudyConfig}
                             key={config.key}

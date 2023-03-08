@@ -11,9 +11,6 @@ import {
   List,
   ListItem,
 } from "pier-design-system";
-import unitTypes from "../constants/units";
-import customFeatures from "../constants/custom";
-import studies from "../constants/studies";
 import { Fragment } from "react";
 
 const StudiesCard = (props) => {
@@ -48,13 +45,13 @@ const StudiesCard = (props) => {
       partners = (
         <List key={props.study.id} size="sm" style={{ padding: "0" }}>
           <ListItem style={{ width: "100%", marginBottom: "0.875rem" }}>
-            {studyPartners[0]}
+            {studyPartners[0].name}
           </ListItem>
           <ListItem style={{ width: "100%", marginBottom: "0.875rem" }}>
-            {studyPartners[1]}
+            {studyPartners[1].name}
           </ListItem>
           <ListItem style={{ width: "100%", marginBottom: "0.875rem" }}>
-            {studyPartners[2]}
+            {studyPartners[2].name}
           </ListItem>
         </List>
       );
@@ -62,7 +59,7 @@ const StudiesCard = (props) => {
       partners = (
         <List key={props.study.id} size="sm" style={{ padding: "0" }}>
           <ListItem style={{ width: "100%", marginBottom: "0.875rem" }}>
-            {studyPartners}
+            {studyPartners[0].name}
           </ListItem>
         </List>
       );
