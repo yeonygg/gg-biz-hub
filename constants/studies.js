@@ -3,7 +3,29 @@ var studies = [
   {
     id: 0,
     title: "Brand Lift",
-    studyPartners: ["Kantar Millward Brown", "Upwave", "Dynata"],
+    studyPartners: [
+      {
+        id: 0,
+        name: "Kantar Millward Brown",
+        minSpend: 100000,
+        maxStudies: [1],
+        cpmUpcharge: [{ 100: 2.0, 150: 1.0 }],
+      },
+      {
+        id: 1,
+        name: "Upwave",
+        minSpend: 0,
+        maxStudies: [1, 2],
+        cpmUpcharge: 0,
+      },
+      {
+        id: 2,
+        name: "Dynata",
+        minSpend: 100000,
+        maxStudies: [1],
+        cpmUpcharge: [{ 100: 2.0, 150: 1.0 }],
+      },
+    ],
     description:
       "Studies that rely users to respond to survey questions. Respondents are usually representative of the general US population (ranges in age, gender, race, geo, etc.). These partners (i.e. MWB, Upwave) are best for measuring lift in Brand Awareness, Consideration/Purchase Intent, Favorability, and other attitudinal metrics",
     goodCandidates: {
@@ -32,7 +54,15 @@ var studies = [
   {
     id: 1,
     title: "Foot Traffic",
-    studyPartners: ["Foursquare/Placed"],
+    studyPartners: [
+      {
+        id: 0,
+        name: "Foursquare/Placed",
+        minSpend: 0,
+        maxStudies: [1, 2],
+        cpmUpcharge: [{ 0: 0.5, 100: 0.5, 150: 0, 200: 0 }],
+      },
+    ],
     description:
       "Studies that track ad exposure and user location to measure in-store foot traffic and thereby typically return on Ad Spend, in-store conversions, cost per visit, and incremental sales",
     goodCandidates: {
@@ -49,7 +79,15 @@ var studies = [
   {
     id: 2,
     title: "Attention",
-    studyPartners: ["Lumen"],
+    studyPartners: [
+      {
+        id: 0,
+        name: "Lumen",
+        minSpend: 75000,
+        maxStudies: [1, 2],
+        cpmUpcharge: [{ 0: 0, 100: 0, 150: 0, 200: 0 }],
+      },
+    ],
     description:
       "Eye tracking and attention predictions at speed and scale—boost stand out, enhance engagement, drive communication, increase sales",
     goodCandidates: {
@@ -66,7 +104,29 @@ var studies = [
   {
     id: 3,
     title: "Sales ROI (Sales Lift)",
-    studyPartners: ["IRI", "Catalina", "ANSA"],
+    studyPartners: [
+      {
+        id: 0,
+        name: "IRI",
+        minSpend: 250000,
+        maxStudies: [1],
+        cpmUpcharge: [{ 0: 0, 100: 0, 150: 0, 200: 0 }],
+      },
+      {
+        id: 1,
+        name: "Catalina",
+        minSpend: 250000,
+        maxStudies: [1],
+        cpmUpcharge: [{ 0: 0, 100: 0, 150: 0, 200: 0 }],
+      },
+      {
+        id: 2,
+        name: "ANSA",
+        minSpend: 75000,
+        maxStudies: [1],
+        cpmUpcharge: [{ 75: 0.75, 150: 0, 250: 0, 500: 0 }],
+      },
+    ],
     description:
       "Uses household level data to build exposed vs. control groups, which can then attribute purchase data to the campaign. Metrics include sales lift, ROI, competitive share lift, etc.",
     goodCandidates: {

@@ -49,6 +49,7 @@ let studySchema = {
   studyType: "Brand Lift",
   studyPartner: [],
   studyQuantity: 0,
+  minSpend: 0,
 };
 
 function Generator() {
@@ -63,14 +64,8 @@ function Generator() {
     campaignName: undefined,
     campaignBudget: 0,
     unitConfig: [],
+    studyConfig: [],
   });
-
-  const setCustomConfig = (key, value, field) => {
-    const unit = getUnitConfig(key);
-    unit[field] = value;
-    campaign.unitConfig[getUnitIndex(key)] = unit;
-    updateCampaign(campaign);
-  };
 
   const setCampaignInputs = (value, field) => {
     clearTimeout(setDebounce);
@@ -117,10 +112,49 @@ function Generator() {
   };
 
   const updateCampaign = (updatedCampaign) => {
-    console.log("update");
     console.log(updatedCampaign);
     setCampaign({ ...updatedCampaign });
   };
+
+  //starting study config
+
+  const getStudyConfig = (key) => {
+    const studyConfig = campaign.studyConfig;
+    const index = getStudyIndex(key);
+    return studyConfig[index];
+  };
+
+  const getStudyIndex = (key) => {
+    const studyConfig = campaign.studyConfig;
+    return studyConfig.map((obj) => obj.key).indexOf(key);
+  };
+
+  const setStudyConfig = (key, value, field) => {
+    const study = getStudyConfig(key);
+    study[field] = value;
+    campaign.studyConfig[getStudyIndex(key)] = study;
+    updateCampaign(campaign);
+  };
+
+  const removeStudyConfig = (key) => {
+    const index = getStudyIndex(key);
+    campaign.studyConfig.splice(index, 1);
+    updateCampaign(campaign);
+  };
+
+  const createStudyConfig = () => {
+    const newStudy = Object.assign({}, studySchema);
+    newStudy.key = UUIDV4();
+    campaign.studyConfig.push(newStudy);
+    updateCampaign(campaign);
+  };
+
+  const deleteAllStudies = () => {
+    campaign.studyConfig = [];
+    updateCampaign(campaign);
+  };
+
+  //ending study config
 
   const toggleAccordion = () => {
     setAccordion(!accordionOpen);
@@ -138,8 +172,14 @@ function Generator() {
     }
   };
 
-  const addStudy = (event) => {
-    setStudy(event.target.checked);
+  const handleStudyCheckbox = (event) => {
+    if (event.target.checked === true) {
+      console.log("checked");
+      createStudyConfig();
+    } else {
+      console.log("unchecked");
+      deleteAllStudies();
+    }
   };
 
   const addDmp = (event) => {
@@ -284,7 +324,9 @@ function Generator() {
                           </BodyText>
 
                           <InputCheckbox
-                            onChange={createUnitConfig}
+                            onChange={(event) => {
+                              handleStudyCheckbox(event);
+                            }}
                             size="sm"
                             disabled={false}
                             dark={false}
@@ -294,10 +336,10 @@ function Generator() {
                             Add Study
                           </InputCheckbox>
                         </div>
-                        {campaign.unitConfig.map((config, index) => (
+                        {campaign.studyConfig.map((config, index) => (
                           <AddStudyRow
-                            deleteHandler={removeUnitConfig}
-                            changeHandler={setUnitConfig}
+                            deleteHandler={removeStudyConfig}
+                            changeHandler={setStudyConfig}
                             key={config.key}
                             index={config.key}
                             config={config}

@@ -1,5 +1,6 @@
 import CustomAdd from "./CustomAdd";
 import unitTypes from "../constants/units";
+import studies from "../constants/studies";
 import customFeatures from "../constants/custom";
 import { useState } from "react";
 
@@ -15,122 +16,21 @@ import {
 } from "pier-design-system";
 
 const AddStudyRow = (props) => {
-  const customUnitIndex = props.config.customFeatures;
+  console.log(props.config.studyPartner);
+  const studyConfig = props.config.studyPartner;
 
   const handleChange = (event, field) => {
-    const value =
-      event.target.type === "checkbox"
-        ? event.target.checked
-        : event.target.value;
+    const value = event.target.value;
     const checkCustomizable = unitTypes.map((obj) => obj.name).indexOf(value);
-    if (field === "unitCount" || field === "versionCount") value = ~~value;
+    const index = value;
     props.changeHandler(props.index, value, field);
 
-    if (field === "unitType") {
+    if (field === "studyType") {
       // console.log(checkCustomizable);
       props.changeHandler(
         props.index,
-        unitTypes[checkCustomizable].floorCPM,
-        "floorCPM"
-      );
-      props.changeHandler(
-        props.index,
-        unitTypes[checkCustomizable].openCPM,
-        "openCPM"
-      );
-      props.changeHandler(
-        props.index,
-        unitTypes[checkCustomizable].turnaroundTime,
-        "turnaroundTime"
-      );
-      props.changeHandler(
-        props.index,
-        unitTypes[checkCustomizable].customFeatures,
-        "customFeatures"
-      );
-      props.changeHandler(
-        props.index,
-        unitTypes[checkCustomizable].minSpend,
-        "minSpend"
-      );
-      props.changeHandler(
-        props.index,
-        unitTypes[checkCustomizable].floorVCPM,
-        "floorVCPM"
-      );
-      props.changeHandler(
-        props.index,
-        unitTypes[checkCustomizable].highImpact,
-        "highImpact"
-      );
-      if (checkCustomizable) {
-        props.changeHandler(
-          props.index,
-          unitTypes[checkCustomizable].customizable,
-          "isCustomizable"
-        );
-      }
-      if (checkCustomizable) {
-        props.changeHandler(
-          props.index,
-          unitTypes[checkCustomizable].isSkin,
-          "isSkin"
-        );
-      }
-      if (checkCustomizable) {
-        props.changeHandler(
-          props.index,
-          unitTypes[checkCustomizable].cesRequired,
-          "cesRequired"
-        );
-      }
-    }
-    if (field === "customOn") {
-      if (event.target.checked === true) {
-        props.changeHandler(props.index, true, "customOn");
-      } else {
-        props.changeHandler(props.index, false, "customOn");
-      }
-    }
-
-    if (field === "customUnit") {
-      const custIndex = customFeatures.map((obj) => obj.name).indexOf(value);
-      props.changeHandler(
-        props.index,
-        customFeatures[custIndex].turnaroundTime,
-        "customTurnaroundTime"
-      );
-
-      const ceTurnaround = customFeatures[custIndex].cesRequired
-        ? customFeatures[custIndex].cesTurnaroundTime
-        : 1;
-      customFeatures[custIndex].cesRequired &&
-        props.changeHandler(props.index, ceTurnaround, "cesTurnaroundTime");
-
-      props.changeHandler(
-        props.index,
-        customFeatures[custIndex].floorCPM,
-        "customFloorCPM"
-      );
-      props.changeHandler(
-        props.index,
-        customFeatures[custIndex].openCPM,
-        "customOpenCPM"
-      );
-      props.changeHandler(
-        props.index,
-        customFeatures[custIndex].minSpend,
-        "customMinSpend"
-      );
-      props.changeHandler(
-        props.index,
-        customFeatures[custIndex].cesTurnaroundTime,
-        "cesTurnaroundTime"
-      );
-      props.changeHandler(
-        props.index,
-        customFeatures[custIndex].cesRequired,
-        "cesRequired"
+        studies[index].studyPartners,
+        "studyPartner"
       );
     }
   };
@@ -141,9 +41,9 @@ const AddStudyRow = (props) => {
 
   return (
     <div>
-      <div className="-d-flex">
+      <div className="-d-flex -m-b-6">
         <InputGroup
-          label="unit type"
+          label="type of study"
           size="sm"
           error=""
           dark={false}
@@ -157,17 +57,19 @@ const AddStudyRow = (props) => {
             capleft={false}
             required=""
             onChange={(event) => {
-              handleChange(event, "unitType");
+              handleChange(event, "studyType");
             }}
           >
             <option>Select Unit type</option>
-            {unitTypes.map((unit) => (
-              <option key={unit.id}>{unit.name}</option>
+            {studies.map((study) => (
+              <option key={study.id} value={study.id}>
+                {study.title}
+              </option>
             ))}
           </InputSelect>
         </InputGroup>
         <InputGroup
-          label="unit type"
+          label="study partner"
           size="sm"
           error=""
           dark={false}
@@ -181,12 +83,14 @@ const AddStudyRow = (props) => {
             capleft={false}
             required=""
             onChange={(event) => {
-              handleChange(event, "unitType");
+              handleChange(event, "partnerType");
             }}
           >
             <option>Select Unit type</option>
-            {unitTypes.map((unit) => (
-              <option key={unit.id}>{unit.name}</option>
+            {studyConfig.map((partner) => (
+              <option key={partner.name} value={partner.name}>
+                {partner.name}
+              </option>
             ))}
           </InputSelect>
         </InputGroup>
@@ -203,7 +107,7 @@ const AddStudyRow = (props) => {
             }}
           >
             <option>Select Unit type</option>
-            {unitTypes.map((unit) => (
+            {studyConfig.map((unit) => (
               <option key={unit.id}>{unit.name}</option>
             ))}
           </InputSelect>

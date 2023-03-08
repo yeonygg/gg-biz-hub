@@ -24,7 +24,7 @@ const Table = (props) => {
           {headerGroups.map((headerGroup) => (
             <tr key={designBuckets.id} {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => {
-                console.log(column);
+                // console.log(column);
                 return (
                   <th key={column.id} {...column.getHeaderProps}>
                     {column.render("Header")}
