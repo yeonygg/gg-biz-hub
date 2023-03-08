@@ -14,6 +14,8 @@ import { useState, useEffect, Fragment } from "react";
 import UUIDV4 from "../helpers/helpers";
 import RateTableSection from "./RateTableSection";
 import AddStudyRow from "./AddStudyRow";
+import AddDmpRow from "./AddDmpRow";
+
 import {
   Card,
   Heading,
@@ -52,6 +54,12 @@ let studySchema = {
   minSpend: 0,
 };
 
+let dmpSchema = {
+  key: null,
+  dmpType: "Lotame LDX ($0.20)",
+  minSpend: 0,
+};
+
 function Generator() {
   const [accordionOpen, setAccordion] = useState(true);
   const [campaignText, setcampaignText] = useState("Campaign Details");
@@ -65,6 +73,7 @@ function Generator() {
     campaignBudget: 0,
     unitConfig: [],
     studyConfig: [],
+    dmpConfig: [],
   });
 
   const setCampaignInputs = (value, field) => {
@@ -156,6 +165,46 @@ function Generator() {
 
   //ending study config
 
+  //starting dmp config
+
+  const getDmpConfig = (key) => {
+    const dmpConfig = campaign.dmpConfig;
+    const index = getDmpIndex(key);
+    return dmpConfig[index];
+  };
+
+  const getDmpIndex = (key) => {
+    const dmpConfig = campaign.dmpConfig;
+    return dmpConfig.map((obj) => obj.key).indexOf(key);
+  };
+
+  const setDmpConfig = (key, value, field) => {
+    const dmp = getStudyConfig(key);
+    dmp[field] = value;
+    campaign.dmpConfig[getDmpIndex(key)] = dmp;
+    updateCampaign(campaign);
+  };
+
+  const removeDmpConfig = (key) => {
+    const index = getDmpIndex(key);
+    campaign.dmpConfig.splice(index, 1);
+    updateCampaign(campaign);
+  };
+
+  const createDmpConfig = () => {
+    const newDmp = Object.assign({}, dmpSchema);
+    newDmp.key = UUIDV4();
+    campaign.dmpConfig.push(newDmp);
+    updateCampaign(campaign);
+  };
+
+  const deleteAllDmps = () => {
+    campaign.dmpConfig = [];
+    updateCampaign(campaign);
+  };
+
+  //ending dmp config
+
   const toggleAccordion = () => {
     setAccordion(!accordionOpen);
   };
@@ -174,16 +223,20 @@ function Generator() {
 
   const handleStudyCheckbox = (event) => {
     if (event.target.checked === true) {
+      createStudyConfig();
+    } else {
+      deleteAllStudies();
+    }
+  };
+
+  const handleDmpCheckbox = (event) => {
+    if (event.target.checked === true) {
       console.log("checked");
       createStudyConfig();
     } else {
       console.log("unchecked");
       deleteAllStudies();
     }
-  };
-
-  const addDmp = (event) => {
-    setDmp(event.target.checked);
   };
 
   const accordionClass = accordionOpen
@@ -341,9 +394,11 @@ function Generator() {
                             addHandler={createStudyConfig}
                             deleteHandler={removeStudyConfig}
                             changeHandler={setStudyConfig}
-                            key={config.key}
+                            key={config.index}
                             index={config.key}
                             config={config}
+                            total={campaign.studyConfig.length}
+                            campaign={campaign.studyConfig}
                           />
                         ))}
                         <HR />
@@ -356,7 +411,9 @@ function Generator() {
                           </BodyText>
 
                           <InputCheckbox
-                            onChange={addDmp}
+                            onChange={(event) => {
+                              handleDmpCheckbox(event);
+                            }}
                             size="sm"
                             disabled={false}
                             dark={false}
@@ -366,6 +423,18 @@ function Generator() {
                             Add DMP
                           </InputCheckbox>
                         </div>
+                        {campaign.dmpConfig.map((config, index) => (
+                          <AddDmpRow
+                            addHandler={createDmpConfig}
+                            deleteHandler={removeDmpConfig}
+                            changeHandler={setDmpConfig}
+                            key={config.index}
+                            index={config.key}
+                            config={config}
+                            total={campaign.dmpConfig.length}
+                            campaign={campaign.dmpConfig}
+                          />
+                        ))}
                         <HR />
                       </Section>
                     </Accordion>

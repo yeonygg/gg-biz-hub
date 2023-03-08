@@ -15,24 +15,21 @@ import {
   InputCheckbox,
 } from "pier-design-system";
 
-const AddStudyRow = (props) => {
-  console.log(props.config.studyPartner);
-  const studyConfig = props.config.studyPartner;
-  const numConfig = props.config.studyQuantity;
-  const campaign = props.campaign;
+const AddDmpRow = (props) => {
+  const dmpConfig = props.config.dmpPartner;
   const handleChange = (event, field) => {
     const value = event.target.value;
-    const checkCustomizable = studyConfig.indexOf(value);
+    const checkCustomizable = dmpConfig.indexOf(value);
     const index = value;
     console.log(checkCustomizable);
     props.changeHandler(props.index, value, field);
 
-    if (field === "studyType") {
+    if (field === "dmpType") {
       // console.log(checkCustomizable);
       props.changeHandler(
         props.index,
         studies[index].studyPartners,
-        "studyPartner"
+        "dmpPartner"
       );
     }
 
@@ -64,7 +61,7 @@ const AddStudyRow = (props) => {
     <div>
       <div className="-d-flex -m-b-6">
         <InputGroup
-          label="type of study"
+          label="data type"
           size="sm"
           error=""
           dark={false}
@@ -89,55 +86,7 @@ const AddStudyRow = (props) => {
             ))}
           </InputSelect>
         </InputGroup>
-        <InputGroup
-          label="study partner"
-          size="sm"
-          error=""
-          dark={false}
-          className="-m-r-4"
-        >
-          <InputSelect
-            size="sm"
-            disabled={false}
-            dark={false}
-            error={false}
-            capleft={false}
-            required=""
-            onChange={(event) => {
-              handleChange(event, "partners");
-            }}
-          >
-            <option>Select Unit type</option>
-            {studyConfig.map((partner) => (
-              <option key={partner.name} value={partner.id}>
-                {partner.name}
-              </option>
-            ))}
-          </InputSelect>
-        </InputGroup>
-        <InputGroup
-          label="No of studies"
-          size="sm"
-          error=""
-          dark={false}
-          style={{ width: "70%" }}
-        >
-          <InputSelect
-            size="sm"
-            disabled={false}
-            dark={false}
-            error={false}
-            capleft={false}
-            required=""
-            onChange={(event) => {
-              handleChange(event, "quantity");
-            }}
-          >
-            <option>Select Unit type</option>
-            {props.config.studyQuantity.length > 0 &&
-              numConfig.map((num) => <option key={num}>{num}</option>)}
-          </InputSelect>
-        </InputGroup>
+
         {props.total && (
           <div className="toggle-button">
             <Tooltip text="Add Study">
@@ -175,4 +124,4 @@ const AddStudyRow = (props) => {
   );
 };
 
-export default AddStudyRow;
+export default AddDmpRow;
