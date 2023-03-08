@@ -56,7 +56,7 @@ let studySchema = {
 
 let dmpSchema = {
   key: null,
-  dmpType: "Lotame LDX ($0.20)",
+  dmpType: "GumGum First Part (Contextual)",
   minSpend: 0,
 };
 
@@ -179,7 +179,7 @@ function Generator() {
   };
 
   const setDmpConfig = (key, value, field) => {
-    const dmp = getStudyConfig(key);
+    const dmp = getDmpConfig(key);
     dmp[field] = value;
     campaign.dmpConfig[getDmpIndex(key)] = dmp;
     updateCampaign(campaign);
@@ -232,10 +232,10 @@ function Generator() {
   const handleDmpCheckbox = (event) => {
     if (event.target.checked === true) {
       console.log("checked");
-      createStudyConfig();
+      createDmpConfig();
     } else {
       console.log("unchecked");
-      deleteAllStudies();
+      deleteAllDmps();
     }
   };
 
