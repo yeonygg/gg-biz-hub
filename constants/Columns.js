@@ -129,7 +129,7 @@ export const Dmp = [
         $0k-$99k{" "}
       </div>
     ),
-    accessor: "column1",
+    accessor: "tableInfo.column1",
     Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
   },
   {
@@ -143,7 +143,7 @@ export const Dmp = [
         $100k-$199k{" "}
       </div>
     ),
-    accessor: "column2",
+    accessor: "tableInfo.column2",
     headerStyle: { textAlign: "center" },
     Cell: (row) => (
       <div style={{ textAlign: "center" }}>

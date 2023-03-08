@@ -4,17 +4,21 @@ var dmp = [
     id: 0,
     dataType: "GumGum First Part (Contextual)",
     minSpend: 0,
-    column1: "Unlocked",
-    column2: "Unlocked",
-    column3: "Unlocked",
+    tableInfo: [
+      { column1: "Unlocked" },
+      { column2: "Unlocked" },
+      { column3: "Unlocked" },
+    ],
   },
   {
     id: 1,
     dataType: "Lotame LDX ($0.20)",
     minSpend: 0,
-    column1: "$0.20 CPM Upcharge",
-    column2: "Unlocked",
-    column3: "Unlocked",
+    tableInfo: [
+      { column1: "$0.20 CPM Upcharge" },
+      { column2: "Unlocked" },
+      { column3: "Unlocked" },
+    ],
   },
   {
     id: 2,

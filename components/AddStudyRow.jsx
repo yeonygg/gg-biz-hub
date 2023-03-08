@@ -27,26 +27,26 @@ const AddStudyRow = (props) => {
     console.log(checkCustomizable);
     props.changeHandler(props.index, value, field);
 
-    if (field === "studyType") {
-      // console.log(checkCustomizable);
-      props.changeHandler(
-        props.index,
-        studies[index].studyPartners,
-        "studyPartner"
-      );
-    }
+    // if (field === "studyType") {
+    //   // console.log(checkCustomizable);
+    //   props.changeHandler(
+    //     props.index,
+    //     studies[index].studyPartners,
+    //     "studyPartner"
+    //   );
+    // }
 
-    if (field === "partners") {
-      props.changeHandler(
-        props.index,
-        studyConfig[value].maxStudies,
-        "studyQuantity"
-      );
-    }
+    // if (field === "partners") {
+    //   props.changeHandler(
+    //     props.index,
+    //     studyConfig[value].maxStudies,
+    //     "studyQuantity"
+    //   );
+    // }
 
-    if (field === "quantity") {
-      props.changeHandler(props.index);
-    }
+    //   if (field === "quantity") {
+    //     props.changeHandler(props.index);
+    //   }
   };
 
   const handleDelete = (event) => {
@@ -57,8 +57,7 @@ const AddStudyRow = (props) => {
     props.addHandler(props.index);
   };
 
-  console.log(props.campaign[props.total - 1]);
-  console.log(props.total - 1);
+  console.log(props.id);
 
   return (
     <div>
@@ -83,7 +82,7 @@ const AddStudyRow = (props) => {
           >
             <option>Select Unit type</option>
             {studies.map((study) => (
-              <option key={study.id} value={study.id}>
+              <option key={study.id} value={study.name}>
                 {study.title}
               </option>
             ))}

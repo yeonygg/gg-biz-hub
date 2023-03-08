@@ -29,6 +29,7 @@ import {
   InputToggle,
   InputCheckbox,
 } from "pier-design-system";
+import studies from "../constants/studies";
 
 let setDebounce;
 let unitSchema = {
@@ -131,6 +132,11 @@ function Generator() {
     const studyConfig = campaign.studyConfig;
     const index = getStudyIndex(key);
     return studyConfig[index];
+  };
+
+  const getStudy = () => {
+    const studyConfig = campaign.studyConfig;
+    return studyConfig.map((id) => studies.find((study) => study.id === id));
   };
 
   const getStudyIndex = (key) => {
@@ -396,6 +402,7 @@ function Generator() {
                             changeHandler={setStudyConfig}
                             key={config.index}
                             index={config.key}
+                            id={getStudy()}
                             config={config}
                             total={campaign.studyConfig.length}
                             campaign={campaign.studyConfig}
