@@ -46,7 +46,7 @@ var dmp = [
   },
   {
     id: 5,
-    dataType: "Custom Audiences",
+    dataType: "ABM Data",
     minSpend: 100000,
     column1: "",
     column2: "$3.00 CPM Upcharge",

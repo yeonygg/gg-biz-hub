@@ -19,12 +19,23 @@ import {
 const AddDmpRow = (props) => {
   const handleChange = (event, field) => {
     const value = event.target.value;
-    const index = value;
     props.changeHandler(props.index, value, field);
+
+    const index = () => {
+      for (let i = 0; i < dmp.length; i++) {
+        if (dmp[i].dataType === value) {
+          console.log(dmp[i].id);
+          return dmp[i].id;
+        }
+      }
+    };
+
+    index();
 
     if (field === "dmpType") {
       // console.log(checkCustomizable);
-      props.changeHandler(props.index, dmp.dataType, "dmpType");
+      props.changeHandler(props.index, value, "dmpType");
+      props.changeHandler(props.index, dmp[index()].minSpend, "minSpend");
     }
   };
 
@@ -59,7 +70,7 @@ const AddDmpRow = (props) => {
           >
             <option>Select DMP type</option>
             {dmp.map((dmp) => (
-              <option key={dmp.id} value={dmp.id}>
+              <option key={dmp.id} value={dmp.dataType}>
                 {dmp.dataType}
               </option>
             ))}

@@ -13,7 +13,6 @@ import {
 
 const AddStudyRow = (props) => {
   const studyPartners = props.config.studyPartners;
-  console.log(studyPartners);
   const numConfig = props.config.studyQuantity;
   const campaign = props.campaign;
   const handleChange = (event, field) => {
