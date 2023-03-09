@@ -7,9 +7,7 @@ import dmp from "../constants/dmps";
 
 const DmpTable = () => {
   const populateFunctions = () => {
-    for (let i = 0; i < dmp.length; i++) {
-      console.log("done");
-    }
+    for (let i = 0; i < dmp.length; i++) {}
   };
   populateFunctions();
   const columns = useMemo(() => Dmp, []);

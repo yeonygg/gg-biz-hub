@@ -1,5 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { Tooltip } from "pier-design-system";
+import dmp from "./dmps";
 
 export const Columns = [
   {
@@ -129,7 +130,8 @@ export const Dmp = [
         $0k-$99k{" "}
       </div>
     ),
-    accessor: "tableInfo.column1",
+
+    accessor: "tableInfo[0].column1",
     Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
   },
   {
@@ -143,7 +145,7 @@ export const Dmp = [
         $100k-$199k{" "}
       </div>
     ),
-    accessor: "tableInfo.column2",
+    accessor: "tableInfo[1].column2",
     headerStyle: { textAlign: "center" },
     Cell: (row) => (
       <div style={{ textAlign: "center" }}>
@@ -163,7 +165,7 @@ export const Dmp = [
         $300k+{" "}
       </div>
     ),
-    accessor: "column3",
+    accessor: "tableInfo[2].column3",
     headerStyle: { textAlign: "center" },
     Cell: (row) => (
       <div style={{ textAlign: "center" }}>

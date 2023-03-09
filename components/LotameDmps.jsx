@@ -35,10 +35,9 @@ const LotameDmps = () => {
             </BodyText>
           </BodyText>
 
-          <div className="design-sla-table -m-b-4">
+          <div className="design-sla-table -m-b-9">
             <DmpTable />
           </div>
-          <Section></Section>
         </Section>
       </Card>
     </div>
