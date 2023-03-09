@@ -50,7 +50,10 @@ let unitSchema = {
 let studySchema = {
   key: null,
   studyType: "Brand Lift",
-  studyPartner: [],
+  studyPartners: [],
+  studyQuantity: [],
+  selectedQuantity: 1,
+  selectedPartner: "",
   studyQuantity: 0,
   minSpend: 0,
 };
@@ -402,7 +405,7 @@ function Generator() {
                             changeHandler={setStudyConfig}
                             key={config.index}
                             index={config.key}
-                            id={getStudy()}
+                            id={getStudyIndex()}
                             config={config}
                             total={campaign.studyConfig.length}
                             campaign={campaign.studyConfig}

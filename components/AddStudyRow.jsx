@@ -6,47 +6,56 @@ import { useState } from "react";
 
 import {
   InputGroup,
-  InputText,
   InputSelect,
-  Section,
-  InputToggle,
   IconButton,
   Tooltip,
-  InputCheckbox,
 } from "pier-design-system";
 
 const AddStudyRow = (props) => {
-  console.log(props.config.studyPartner);
-  const studyConfig = props.config.studyPartner;
+  const studyPartners = props.config.studyPartners;
+  console.log(studyPartners);
   const numConfig = props.config.studyQuantity;
   const campaign = props.campaign;
   const handleChange = (event, field) => {
     const value = event.target.value;
-    const checkCustomizable = studyConfig.indexOf(value);
-    const index = value;
-    console.log(checkCustomizable);
     props.changeHandler(props.index, value, field);
+    const index = () => {
+      for (let i = 0; i < studies.length; i++) {
+        if (studies[i].title === value) {
+          return studies[i].id;
+        }
+      }
+    };
 
-    // if (field === "studyType") {
-    //   // console.log(checkCustomizable);
-    //   props.changeHandler(
-    //     props.index,
-    //     studies[index].studyPartners,
-    //     "studyPartner"
-    //   );
-    // }
+    const partnerIndex = () => {
+      for (let i = 0; i < studyPartners.length; i++) {
+        if (studyPartners[i].name === value) {
+          return studyPartners[i].id;
+        }
+      }
+    };
 
-    // if (field === "partners") {
-    //   props.changeHandler(
-    //     props.index,
-    //     studyConfig[value].maxStudies,
-    //     "studyQuantity"
-    //   );
-    // }
+    if (field === "studyType") {
+      props.changeHandler(props.index, value, "studyType");
+      props.changeHandler(
+        props.index,
+        studies[index()].studyPartners,
+        "studyPartners"
+      );
+    }
 
-    //   if (field === "quantity") {
-    //     props.changeHandler(props.index);
-    //   }
+    if (field === "selectedPartner") {
+      props.changeHandler(props.index, value, "selectedPartner");
+      props.changeHandler(
+        props.index,
+        studyPartners[partnerIndex()].maxStudies,
+        "studyQuantity"
+      );
+    }
+
+    if (field === "selectedQuantity") {
+      props.changeHandler(props.index, value, "selectedQuantity");
+    }
   };
 
   const handleDelete = (event) => {
@@ -56,8 +65,6 @@ const AddStudyRow = (props) => {
   const handleAdd = (event) => {
     props.addHandler(props.index);
   };
-
-  console.log(props.id);
 
   return (
     <div>
@@ -103,15 +110,16 @@ const AddStudyRow = (props) => {
             capleft={false}
             required=""
             onChange={(event) => {
-              handleChange(event, "partners");
+              handleChange(event, "selectedPartner");
             }}
           >
             <option>Select Unit type</option>
-            {studyConfig.map((partner) => (
-              <option key={partner.name} value={partner.id}>
-                {partner.name}
-              </option>
-            ))}
+            {studyPartners.length > 0 &&
+              studyPartners.map((partner) => (
+                <option key={partner.id} value={partner.name}>
+                  {partner.name}
+                </option>
+              ))}
           </InputSelect>
         </InputGroup>
         <InputGroup
@@ -129,12 +137,16 @@ const AddStudyRow = (props) => {
             capleft={false}
             required=""
             onChange={(event) => {
-              handleChange(event, "quantity");
+              handleChange(event, "selectedQuantity");
             }}
           >
             <option>Select Unit type</option>
             {props.config.studyQuantity.length > 0 &&
-              numConfig.map((num) => <option key={num}>{num}</option>)}
+              numConfig.map((num) => (
+                <option key={num} value={num}>
+                  {num}
+                </option>
+              ))}
           </InputSelect>
         </InputGroup>
         {props.total && (
