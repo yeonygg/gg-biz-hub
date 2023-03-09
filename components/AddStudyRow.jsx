@@ -65,6 +65,9 @@ const AddStudyRow = (props) => {
     props.addHandler(props.index);
   };
 
+  console.log(props.total);
+  console.log(props.id);
+
   return (
     <div>
       <div className="-d-flex -m-b-6">
@@ -148,7 +151,7 @@ const AddStudyRow = (props) => {
               ))}
           </InputSelect>
         </InputGroup>
-        {props.total && (
+        {props.total === props.id + 1 && (
           <div className="toggle-button">
             <Tooltip text="Add Study">
               <IconButton
@@ -164,7 +167,7 @@ const AddStudyRow = (props) => {
             </Tooltip>
           </div>
         )}
-        {props.total && (
+        {props.total != props.id + 1 && (
           <div className="toggle-button">
             <Tooltip text="Delete creative">
               <IconButton

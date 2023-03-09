@@ -405,7 +405,7 @@ function Generator() {
                             changeHandler={setStudyConfig}
                             key={config.index}
                             index={config.key}
-                            id={getStudyIndex()}
+                            id={index}
                             config={config}
                             total={campaign.studyConfig.length}
                             campaign={campaign.studyConfig}
@@ -439,6 +439,7 @@ function Generator() {
                             deleteHandler={removeDmpConfig}
                             changeHandler={setDmpConfig}
                             key={config.index}
+                            id={index}
                             index={config.key}
                             config={config}
                             total={campaign.dmpConfig.length}

@@ -30,8 +30,6 @@ const AddDmpRow = (props) => {
       }
     };
 
-    index();
-
     if (field === "dmpType") {
       // console.log(checkCustomizable);
       props.changeHandler(props.index, value, "dmpType");
@@ -50,13 +48,7 @@ const AddDmpRow = (props) => {
   return (
     <div>
       <div className="-d-flex -m-b-6">
-        <InputGroup
-          label="data type"
-          size="sm"
-          error=""
-          dark={false}
-          className="-m-r-4"
-        >
+        <InputGroup label="data type" size="sm" error="" dark={false}>
           <InputSelect
             size="sm"
             disabled={false}
@@ -77,7 +69,7 @@ const AddDmpRow = (props) => {
           </InputSelect>
         </InputGroup>
 
-        {props.total && (
+        {props.total === props.id + 1 && (
           <div className="toggle-button">
             <Tooltip text="Add Study">
               <IconButton
@@ -93,7 +85,7 @@ const AddDmpRow = (props) => {
             </Tooltip>
           </div>
         )}
-        {props.total && (
+        {props.total != props.id + 1 && (
           <div className="toggle-button">
             <Tooltip text="Delete creative">
               <IconButton
