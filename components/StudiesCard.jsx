@@ -12,6 +12,7 @@ import {
   ListItem,
 } from "pier-design-system";
 import { Fragment } from "react";
+import StudySpendTable from "./StudySpendTable";
 
 const StudiesCard = (props) => {
   const disabled = () => {
@@ -241,6 +242,7 @@ const StudiesCard = (props) => {
           </div>
           <Section className="-m-t-5">
             <Heading size="sm">Minimum Spends</Heading>
+            <StudySpendTable />
           </Section>
 
           <Section>

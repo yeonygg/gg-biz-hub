@@ -175,3 +175,76 @@ export const Dmp = [
     ),
   },
 ];
+
+export const studySpendTable = [
+  {
+    Header: () => (
+      <div
+        style={{
+          textAlign: "left",
+          minWidth: "200px",
+          maxWidth: "400px",
+        }}
+      >
+        Partner Name
+      </div>
+    ),
+    accessor: "studyPartners.name",
+    headerStyle: { textAlign: "right" },
+  },
+  {
+    Header: () => (
+      <div
+        style={{
+          textAlign: "center",
+          color: "#08D18B",
+        }}
+      >
+        $0k-$99k{" "}
+      </div>
+    ),
+
+    accessor: "tableInfo[0].column1",
+    Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
+  },
+  {
+    Header: () => (
+      <div
+        style={{
+          textAlign: "center",
+          color: "#08D18B",
+        }}
+      >
+        $100k-$199k{" "}
+      </div>
+    ),
+    accessor: "tableInfo[1].column2",
+    headerStyle: { textAlign: "center" },
+    Cell: (row) => (
+      <div style={{ textAlign: "center" }}>
+        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
+        {row.value}
+      </div>
+    ),
+  },
+  {
+    Header: () => (
+      <div
+        style={{
+          textAlign: "center",
+          color: "#08D18B",
+        }}
+      >
+        $300k+{" "}
+      </div>
+    ),
+    accessor: "tableInfo[2].column3",
+    headerStyle: { textAlign: "center" },
+    Cell: (row) => (
+      <div style={{ textAlign: "center" }}>
+        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
+        {row.value}
+      </div>
+    ),
+  },
+];

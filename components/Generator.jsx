@@ -369,10 +369,11 @@ function Generator() {
                   </div>
                   <div className="-m-t-11">
                     <Accordion
+                      size="sm"
                       title="Add Studies and DMP's"
                       startOpen={false}
                       inCard={false}
-                      icon="fas fa-cog"
+                      icon="fas fa-chart-bar"
                       disabled={false}
                       dark={false}
                     >
