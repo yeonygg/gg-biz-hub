@@ -16,8 +16,7 @@ import StudiesCard from "../components/StudiesCard";
 
 let setDebounce;
 
-function Studies () {
-
+function Studies() {
   const [selectedStudies, setStudies] = useState([null]);
   const [toggleAll, setToggle] = useState(false);
 
@@ -52,7 +51,6 @@ function Studies () {
   const handleToggle = (event) => {
     setToggle(event.target.checked);
   };
-
 
   return (
     <div>
@@ -141,7 +139,6 @@ function Studies () {
       <Section padding="lg"></Section>
     </div>
   );
-  
 }
 
 export default Studies;

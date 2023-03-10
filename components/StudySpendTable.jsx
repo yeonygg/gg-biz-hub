@@ -6,13 +6,15 @@ import { useTable } from "react-table";
 import dmp from "../constants/dmps";
 import studies from "../constants/studies";
 
-const StudySpendTable = () => {
+const StudySpendTable = (props) => {
   const populateFunctions = () => {
     for (let i = 0; i < dmp.length; i++) {}
   };
   populateFunctions();
+  const selectedStudy = props.study.studyPartners;
   const columns = useMemo(() => studySpendTable, []);
-  const data = useMemo(() => studies, []);
+  const data = useMemo(() => selectedStudy, []);
+  console.log(data);
 
   const tableInstance = useTable({
     columns,

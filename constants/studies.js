@@ -6,24 +6,44 @@ var studies = [
     studyPartners: [
       {
         id: 0,
-        name: "Kantar Millward Brown",
-        minSpend: 100000,
-        maxStudies: [1],
-        cpmUpcharge: [{ 100: 2.0, 150: 1.0 }],
-      },
-      {
-        id: 1,
+        spendThresholds: ["$75k-99k", "$100k-149k", "$150k-199k", "$200k+"],
         name: "Upwave",
         minSpend: 0,
         maxStudies: [1, 2],
         cpmUpcharge: 0,
+        table: [
+          { column1: "Unlocked" },
+          { column2: "Unlocked" },
+          { column3: "Unlocked" },
+          { column4: "You can offer 2 studies if feasible" },
+        ],
       },
+      {
+        id: 1,
+        name: "Kantar Millward Brown",
+        minSpend: 100000,
+        maxStudies: [1],
+        cpmUpcharge: [{ 100: 2.0, 150: 1.0 }],
+        table: [
+          { column1: "" },
+          { column2: "$2.00 CPM Upcharge" },
+          { column3: "$1.00 CPM Upcharge" },
+          { column4: "Unlocked" },
+        ],
+      },
+
       {
         id: 2,
         name: "Dynata",
         minSpend: 100000,
         maxStudies: [1],
         cpmUpcharge: [{ 100: 2.0, 150: 1.0 }],
+        table: [
+          { column1: "" },
+          { column2: "$2.00 CPM Upcharge" },
+          { column3: "$1.00 CPM Upcharge" },
+          { column4: "Unlocked" },
+        ],
       },
     ],
     description:
@@ -61,6 +81,12 @@ var studies = [
         minSpend: 0,
         maxStudies: [1, 2],
         cpmUpcharge: [{ 0: 0.5, 100: 0.5, 150: 0, 200: 0 }],
+        table: [
+          { column1: "$0.50 CPM Upcharge" },
+          { column2: "$0.50 CPM Upcharge" },
+          { column3: "Unlocked" },
+          { column4: "You can offer 2 studies if feasible" },
+        ],
       },
     ],
     description:
@@ -86,6 +112,12 @@ var studies = [
         minSpend: 75000,
         maxStudies: [1, 2],
         cpmUpcharge: [{ 0: 0, 100: 0, 150: 0, 200: 0 }],
+        table: [
+          { column1: "Unlocked" },
+          { column2: "Unlocked" },
+          { column3: "You can offer 2 studies if feasible" },
+          { column4: "You can offer 2 studies if feasible" },
+        ],
       },
     ],
     description:
@@ -107,24 +139,42 @@ var studies = [
     studyPartners: [
       {
         id: 0,
-        name: "IRI",
-        minSpend: 250000,
-        maxStudies: [1],
-        cpmUpcharge: [{ 0: 0, 100: 0, 150: 0, 200: 0 }],
-      },
-      {
-        id: 1,
-        name: "Catalina",
-        minSpend: 250000,
-        maxStudies: [1],
-        cpmUpcharge: [{ 0: 0, 100: 0, 150: 0, 200: 0 }],
-      },
-      {
-        id: 2,
         name: "ANSA",
         minSpend: 75000,
         maxStudies: [1],
         cpmUpcharge: [{ 75: 0.75, 150: 0, 250: 0, 500: 0 }],
+        table: [
+          { column1: "$0.75 CPM Upcharge" },
+          { column2: "Unlocked" },
+          { column3: "Unlocked" },
+          { column4: "Unlocked" },
+        ],
+      },
+      {
+        id: 1,
+        name: "IRI",
+        minSpend: 250000,
+        maxStudies: [1],
+        cpmUpcharge: [{ 0: 0, 100: 0, 150: 0, 200: 0 }],
+        table: [
+          { column1: "" },
+          { column2: "" },
+          { column3: "Unlocked" },
+          { column4: "Unlocked" },
+        ],
+      },
+      {
+        id: 2,
+        name: "Catalina",
+        minSpend: 250000,
+        maxStudies: [1],
+        cpmUpcharge: [{ 0: 0, 100: 0, 150: 0, 200: 0 }],
+        table: [
+          { column1: "" },
+          { column2: "" },
+          { column3: "Unlocked" },
+          { column4: "Unlocked" },
+        ],
       },
     ],
     description:

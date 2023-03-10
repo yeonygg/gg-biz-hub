@@ -242,7 +242,7 @@ const StudiesCard = (props) => {
           </div>
           <Section className="-m-t-5">
             <Heading size="sm">Minimum Spends</Heading>
-            <StudySpendTable />
+            <StudySpendTable study={props.study} />
           </Section>
 
           <Section>

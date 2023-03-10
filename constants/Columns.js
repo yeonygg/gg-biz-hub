@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { Tooltip } from "pier-design-system";
 import dmp from "./dmps";
+import studies from "./studies";
 
 export const Columns = [
   {
@@ -189,7 +190,7 @@ export const studySpendTable = [
         Partner Name
       </div>
     ),
-    accessor: "studyPartners.name",
+    accessor: "name",
     headerStyle: { textAlign: "right" },
   },
   {
@@ -200,11 +201,11 @@ export const studySpendTable = [
           color: "#08D18B",
         }}
       >
-        $0k-$99k{" "}
+        $0k-99k{" "}
       </div>
     ),
 
-    accessor: "tableInfo[0].column1",
+    accessor: "table[0].column1",
     Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
   },
   {
@@ -215,17 +216,12 @@ export const studySpendTable = [
           color: "#08D18B",
         }}
       >
-        $100k-$199k{" "}
+        $100k-$149k{" "}
       </div>
     ),
-    accessor: "tableInfo[1].column2",
+    accessor: "table[1].column2",
     headerStyle: { textAlign: "center" },
-    Cell: (row) => (
-      <div style={{ textAlign: "center" }}>
-        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
-        {row.value}
-      </div>
-    ),
+    Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
   },
   {
     Header: () => (
@@ -235,16 +231,26 @@ export const studySpendTable = [
           color: "#08D18B",
         }}
       >
-        $300k+{" "}
+        $150k-199k{" "}
       </div>
     ),
-    accessor: "tableInfo[2].column3",
+    accessor: "table[2].column3",
     headerStyle: { textAlign: "center" },
-    Cell: (row) => (
-      <div style={{ textAlign: "center" }}>
-        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
-        {row.value}
+    Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
+  },
+  {
+    Header: () => (
+      <div
+        style={{
+          textAlign: "center",
+          color: "#08D18B",
+        }}
+      >
+        $200k+{" "}
       </div>
     ),
+    accessor: "table[3].column4",
+    headerStyle: { textAlign: "center" },
+    Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
   },
 ];
