@@ -1,4 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
+
+const checkIcon =
+  '<i style={{ color: "#08D18B" }} className="fas fa-check"></i>';
 var studies = [
   {
     id: 0,
@@ -12,7 +15,9 @@ var studies = [
         maxStudies: [1, 2],
         cpmUpcharge: 0,
         table: [
-          { column1: "Unlocked" },
+          {
+            column1: "Unlocked",
+          },
           { column2: "Unlocked" },
           { column3: "Unlocked" },
           { column4: "You can offer 2 studies if feasible" },

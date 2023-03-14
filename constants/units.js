@@ -13,6 +13,7 @@ var unitTypes = [
     floorVCPM: 12,
     openCPM: 8.5,
     customizable: true,
+    rateCatergory: "in-screen",
     customFeatures: [
       0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21,
       23,
@@ -30,6 +31,7 @@ var unitTypes = [
     floorVCPM: 10,
     openCPM: 8.5,
     customizable: true,
+    rateCatergory: "in-image",
     customFeatures: [
       0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21, 23,
       24, 25,
@@ -47,6 +49,8 @@ var unitTypes = [
     floorVCPM: 16,
     openCPM: 14.5,
     customizable: true,
+    rateCatergory: "in-screen",
+
     customFeatures: [2, 4, 14, 15, 17, 22],
   },
   {
@@ -60,6 +64,8 @@ var unitTypes = [
     floorCPM: 13,
     floorVCPM: 18.5,
     openCPM: 15,
+    rateCatergory: "in-image",
+
     customizable: false,
   },
   {
@@ -74,6 +80,8 @@ var unitTypes = [
     floorVCPM: 14.25,
     openCPM: 12,
     customizable: true,
+    rateCatergory: "in-screen",
+
     customFeatures: [0, 1, 2, 5, 14, 15, 17],
   },
   {
@@ -88,6 +96,8 @@ var unitTypes = [
     floorVCPM: 10.5,
     openCPM: 9.5,
     customizable: true,
+    rateCatergory: "in-screen",
+
     customFeatures: [2, 15, 17],
   },
   {
@@ -102,6 +112,8 @@ var unitTypes = [
     floorVCPM: 18.5,
     openCPM: 15,
     customizable: true,
+    rateCatergory: "in-image",
+
     customFeatures: [
       0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21, 23,
       24, 25,
@@ -119,6 +131,8 @@ var unitTypes = [
     floorVCPM: 14.25,
     openCPM: 12,
     customizable: true,
+    rateCatergory: "in-image",
+
     customFeatures: [
       0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
       23, 24, 25,
@@ -136,6 +150,8 @@ var unitTypes = [
     floorVCPM: 16,
     openCPM: 14.5,
     customizable: true,
+    rateCatergory: "in-screen",
+
     customFeatures: [
       0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
       21, 23,
@@ -154,6 +170,7 @@ var unitTypes = [
     openCPM: 25,
     customizable: false,
     isSkin: true,
+    rateCatergory: "skins-scrollers",
   },
   {
     id: 10,
@@ -168,6 +185,7 @@ var unitTypes = [
     openCPM: 21,
     customizable: false,
     isSkin: true,
+    rateCatergory: "skins-scrollers",
   },
   {
     id: 11,
@@ -182,6 +200,7 @@ var unitTypes = [
     openCPM: 10,
     customizable: false,
     isSkin: true,
+    rateCatergory: "skins-scrollers",
   },
   {
     id: 12,
@@ -194,6 +213,8 @@ var unitTypes = [
     floorCPM: 3.5,
     floorVCPM: 5,
     openCPM: 5,
+    rateCatergory: "in-screen",
+
     customizable: false,
   },
   {
@@ -207,6 +228,8 @@ var unitTypes = [
     floorCPM: 2.5,
     floorVCPM: "Custom rate",
     openCPM: 3.5,
+    rateCatergory: "in-screen",
+
     customizable: false,
   },
   {
@@ -221,6 +244,7 @@ var unitTypes = [
     floorVCPM: "TBD",
     openCPM: 10,
     customizable: false,
+    rateCatergory: "enhanced display-video",
   },
   {
     id: 15,
@@ -234,6 +258,7 @@ var unitTypes = [
     floorVCPM: "TBD",
     openCPM: 12,
     customizable: false,
+    rateCatergory: "enhanced display-video",
   },
   {
     id: 16,
@@ -247,6 +272,7 @@ var unitTypes = [
     floorCPM: 8,
     openCPM: 10,
     customizable: false,
+    rateCatergory: "enhanced display-video",
   },
   {
     id: 17,
@@ -260,6 +286,7 @@ var unitTypes = [
     floorVCPM: 11,
     openCPM: 12,
     customizable: false,
+    rateCatergory: "enhanced display-video",
   },
   {
     id: 18,
@@ -269,12 +296,37 @@ var unitTypes = [
     highImpact: true,
     turnaroundTime: 7,
     cesRequired: true,
+    rateCatergory: "other",
 
     floorCPM: 14,
     floorVCPM: 21.5,
     openCPM: 17,
     customizable: false,
   },
+
+  {
+    id: 19,
+    name: "In-Game",
+    rateCatergory: "other",
+    customizable: false,
+    abbrev: "null",
+    minSpend: "TBD",
+    highImpact: true,
+    turnaroundTime: "TBD",
+    cesTurnaroundTime: "TBD",
+    cesRequired: false,
+    floorCPM: "TBD",
+    openCPM: "TBD",
+  },
 ];
 
 export default unitTypes;
+
+export const rateCatergories = [
+  { category: "Blend (Direct Only)" },
+  { category: "In-Image" },
+  { category: "In-Screen" },
+  { category: "Enhanced Display/Video" },
+  { category: "Skins/Scrollers" },
+  { category: "Other - In-Game/Video" },
+];

@@ -48,10 +48,10 @@ function Nav() {
                 Creative Rules
               </div>
             </NavLink>
-            <NavLink to="/rate-card">
+            <NavLink to="/rates">
               <div className="pier-nav__sub-item pier-nav__sub-item--dark">
                 <div className="pier-nav__sub-item-line"></div>
-                Rate Card
+                Rates
               </div>
             </NavLink>
             <NavLink to="/studies">

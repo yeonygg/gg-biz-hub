@@ -5,6 +5,8 @@ import Generator from "../components/Generator";
 import Studies from "../components/Studies";
 import CustomCreatives from "../components/CustomCreatives";
 import CreativeBusinessRules from "../components/CreativeBusinessRules";
+import Rates from "../components/Rates";
+
 import {
   BrowserRouter,
   Routes,
@@ -41,6 +43,8 @@ function App() {
               <Routes>
                 <Route path="/generator" element={<Generator />} />
                 <Route path="/studies" element={<Studies />} />
+                <Route path="/rates" element={<Rates />} />
+
                 <Route path="/custom-creatives" element={<CustomCreatives />} />
                 <Route
                   path="/creative-rules"
