@@ -323,10 +323,10 @@ var unitTypes = [
 export default unitTypes;
 
 export const rateCatergories = [
-  { id: 0, category: "Blend (Direct Only)" },
-  { id: 1, category: "In-Image" },
-  { id: 2, category: "In-Screen" },
-  { id: 3, category: "Enhanced Display/Video" },
-  { id: 4, category: "Skins/Scrollers" },
-  { id: 5, category: "Other - In-Game/Video" },
+  { id: 0, category: "Blend (Direct Only)", value: 'blend'},
+  { id: 1, category: "In-Image", value: 'in-image'},
+  { id: 2, category: "In-Screen", value: 'in-screen'},
+  { id: 3, category: "Enhanced Display/Video", value: 'enhanced display-video'},
+  { id: 4, category: "Skins/Scrollers", value: 'skins-scrollers'},
+  { id: 5, category: "Other - In-Game/Video", value: 'other'},
 ];

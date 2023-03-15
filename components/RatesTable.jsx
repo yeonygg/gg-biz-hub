@@ -8,46 +8,52 @@ const RatesTable = (props) => {
   console.log(props.rate);
   console.log(unitTypes);
   const columns = useMemo(() => Rates, []);
-
-  const rate = () => {
-    const info = [];
-    if (props.rate.category === "In-Image") {
-      for (let i = 0; i < unitTypes.length; i++) {
-        if (unitTypes[i].rateCatergory === "in-image") {
-          info.push(unitTypes[i]);
-        }
-      }
-    } else if (props.rate.category === "In-Screen") {
-      for (let i = 0; i < unitTypes.length; i++) {
-        if (unitTypes[i].rateCatergory === "in-screen") {
-          info.push(unitTypes[i]);
-        }
-      }
-    } else if (props.rate.category === "Enhanced Display/Video") {
-      for (let i = 0; i < unitTypes.length; i++) {
-        if (unitTypes[i].rateCatergory === "enhanced display-video") {
-          info.push(unitTypes[i]);
-        }
-      }
-    } else if (props.rate.category === "Skins/Scrollers") {
-      for (let i = 0; i < unitTypes.length; i++) {
-        if (unitTypes[i].rateCatergory === "skins-scrollers") {
-          info.push(unitTypes[i]);
-        }
-      }
-    } else if (props.rate.category === "Other - In-Game/Video") {
-      for (let i = 0; i < unitTypes.length; i++) {
-        if (unitTypes[i].rateCatergory === "other") {
-          info.push(unitTypes[i]);
-        }
-      }
-    }
-    return info;
-  };
+  const cat = props.rate.value;
+  const info = unitTypes.filter(unit => unit.rateCatergory === cat);
+  // const rate = () => {
+  //const info = []
+  // if (props.rate.category === "In-Image") {
+  //   for (let i = 0; i < unitTypes.length; i++) {
+  //     if (unitTypes[i].rateCatergory === "in-image") {
+  //       info.push(unitTypes[i]);
+  //     }
+  //   }
+  // } else if (props.rate.category === "In-Screen") {
+  //   for (let i = 0; i < unitTypes.length; i++) {
+  //     if (unitTypes[i].rateCatergory === "in-screen") {
+  //       info.push(unitTypes[i]);
+  //     }
+  //   }
+  // } else if (props.rate.category === "Enhanced Display/Video") {
+  //   for (let i = 0; i < unitTypes.length; i++) {
+  //     if (unitTypes[i].rateCatergory === "enhanced display-video") {
+  //       info.push(unitTypes[i]);
+  //     }
+  //   }
+  // } else if (props.rate.category === "Skins/Scrollers") {
+  //   for (let i = 0; i < unitTypes.length; i++) {
+  //     if (unitTypes[i].rateCatergory === "skins-scrollers") {
+  //       info.push(unitTypes[i]);
+  //     }
+  //   }
+  // } else if (props.rate.category === "Other - In-Game/Video") {
+  //   for (let i = 0; i < unitTypes.length; i++) {
+  //     if (unitTypes[i].rateCatergory === "other") {
+  //       info.push(unitTypes[i]);
+  //     }
+  //   }
+  // };
+  //   return info;
+  // };
 
   // parseFloat(${cpm.floorCPM}).toFixed(2).toLocaleString()
 
-  const cpmRates = rate().map((cpm) => {
+  const cpmRates = info
+  .map((a) => {
+    return { ...a };
+  })
+  .map((cpm) => {
+    console.log('floor cpm: '+cpm.floorCPM);
     cpm.name = `${cpm.name}`;
     cpm.floorCPM = `${
       "$" + parseFloat(cpm.floorCPM).toFixed(2).toLocaleString()
