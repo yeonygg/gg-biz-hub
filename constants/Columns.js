@@ -104,6 +104,25 @@ export const Generator = [
   },
 ];
 
+export const Rates = [
+  {
+    Header: "Unit Type",
+    accessor: "name",
+  },
+  {
+    Header: "Floor CPM",
+    accessor: "floorCPM",
+  },
+  {
+    Header: "Open CPM",
+    accessor: "openCPM",
+  },
+  {
+    Header: "Floor VCPM",
+    accessor: "floorVCPM",
+  },
+];
+
 export const Dmp = [
   {
     Header: () => (

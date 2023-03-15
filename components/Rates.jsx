@@ -26,7 +26,6 @@ function Rates() {
     const newArray = selectRates;
     newArray[+index] = +value;
     setRates([...newArray]);
-    console.log(newArray);
   };
 
   const createRates = () => {
@@ -36,7 +35,9 @@ function Rates() {
   };
 
   const getRates = () => {
-    return selectRates.map((id) => unitTypes.find((rate) => rate.id === id));
+    return selectRates.map((id) =>
+      rateCatergories.find((rate) => rate.id === id)
+    );
   };
 
   const removeRates = (index) => {
@@ -115,29 +116,29 @@ function Rates() {
       }) */}
 
       {!toggleAll &&
-        rateCatergories.map(
+        getRates().map(
           (rate, index) =>
             rate != undefined && (
               <RatesCard
                 key={index}
                 index={index}
                 handleDelete={index}
-                feature={rate}
+                rate={rate}
                 array={selectRates}
                 removeCustom={removeRates}
               />
             )
         )}
 
-      {/*toggleAll &&
-        unitTypes.map((feature, index) => (
+      {toggleAll &&
+        rateCatergories.map((feature, index) => (
           <RatesCard
             key={index}
             feature={feature}
             toggleAll={toggleAll}
-            array={selectCustomFeatures}
+            array={selectRates}
           />
-        ))*/}
+        ))}
 
       <Section padding="lg"></Section>
     </Fragment>

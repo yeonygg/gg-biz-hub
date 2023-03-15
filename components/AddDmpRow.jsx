@@ -24,7 +24,6 @@ const AddDmpRow = (props) => {
     const index = () => {
       for (let i = 0; i < dmp.length; i++) {
         if (dmp[i].dataType === value) {
-          console.log(dmp[i].id);
           return dmp[i].id;
         }
       }

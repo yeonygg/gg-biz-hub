@@ -9,16 +9,9 @@ import {
   Tooltip,
 } from "pier-design-system";
 import unitTypes from "../constants/units";
+import RatesTable from "./RatesTable";
 
 const RatesCard = (props) => {
-  // for (let i = 0; i < unitTypes.length; i++) {
-  //   for (let j = 0; j < unitTypes[i].customFeatures.length; j++) {
-  //     console.log(unitTypes.customFeatures);
-  //   }
-  // }
-
-  console.log(props.feature);
-
   const disabled = () => {
     let disable = false;
     if (props.array.length === 1) {
@@ -30,6 +23,8 @@ const RatesCard = (props) => {
     }
     return disable;
   };
+
+  console.log(props.rate);
 
   const removeTooltip = () => {
     let tooltip = "Remove Card";
@@ -50,7 +45,7 @@ const RatesCard = (props) => {
       <Card style={{ marginBottom: "1rem" }}>
         <Section padding="lg">
           <div className="custom-card-heading-wrapper">
-            <Heading>{props.feature.category}</Heading>
+            <Heading>{props.rate.category}</Heading>
             <Tooltip text={removeTooltip()}>
               <IconButton
                 onClick={handleDelete}
@@ -63,6 +58,7 @@ const RatesCard = (props) => {
               />
             </Tooltip>
           </div>
+          <RatesTable rate={props.rate} />
 
           <Section></Section>
         </Section>

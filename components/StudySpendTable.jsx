@@ -7,14 +7,20 @@ import dmp from "../constants/dmps";
 import studies from "../constants/studies";
 
 const StudySpendTable = (props) => {
-  const populateFunctions = () => {
-    for (let i = 0; i < dmp.length; i++) {}
-  };
-  populateFunctions();
   const selectedStudy = props.study.studyPartners;
   const columns = useMemo(() => studySpendTable, []);
-  const data = useMemo(() => selectedStudy, []);
-  console.log(data);
+
+  console.log(selectedStudy);
+
+  //   const minSpend = selectedStudy.map((study) => {
+  //     study.table[0].column1 = `(<i style={{ color: "#08D18B" }} className="fas fa-check"></i>) &nbsp;
+  //  ${study.table[0].column1}`;
+  //     study.table[1].column2 = `<i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
+  //  ${study.table[1].column2}`;
+
+  //     return study;
+  //   });
+  const data = useMemo(() => selectedStudy, [selectedStudy]);
 
   const tableInstance = useTable({
     columns,

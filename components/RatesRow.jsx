@@ -7,7 +7,6 @@ const RatesRow = (props) => {
     const value = e.target.value;
     const index = props.index;
     props.changeHandler(e, value, index);
-    console.log(value);
   };
 
   const disabled = () => {
