@@ -9,7 +9,7 @@ const RatesTable = (props) => {
   console.log(unitTypes);
   const columns = useMemo(() => Rates, []);
   const cat = props.rate.value;
-  const info = unitTypes.filter(unit => unit.rateCatergory === cat);
+  const info = unitTypes.filter((unit) => unit.rateCatergory === cat);
   // const rate = () => {
   //const info = []
   // if (props.rate.category === "In-Image") {
@@ -49,19 +49,19 @@ const RatesTable = (props) => {
   // parseFloat(${cpm.floorCPM}).toFixed(2).toLocaleString()
 
   const cpmRates = info
-  .map((a) => {
-    return { ...a };
-  })
-  .map((cpm) => {
-    console.log('floor cpm: '+cpm.floorCPM);
-    cpm.name = `${cpm.name}`;
-    cpm.floorCPM = `${
-      "$" + parseFloat(cpm.floorCPM).toFixed(2).toLocaleString()
-    }`;
-    return cpm;
-  });
+    .map((a) => {
+      return { ...a };
+    })
+    .map((cpm) => {
+      console.log("floor cpm: " + cpm.floorCPM);
+      cpm.name = `${cpm.name}`;
+      cpm.floorCPM = `${
+        "$" + parseFloat(cpm.floorCPM).toFixed(2).toLocaleString()
+      }`;
+      return cpm;
+    });
 
-  const data = useMemo(() => cpmRates, [cpmRates]);
+  const data = useMemo(() => info, [info]);
 
   const tableInstance = useTable({
     columns,
