@@ -131,10 +131,10 @@ function Rates() {
         )}
 
       {toggleAll &&
-        rateCatergories.map((feature, index) => (
+        rateCatergories.map((rate, index) => (
           <RatesCard
             key={index}
-            feature={feature}
+            rate={rate}
             toggleAll={toggleAll}
             array={selectRates}
           />

@@ -12,12 +12,66 @@ import SpendMeter from "./SpendMeter";
 
 const SpendCard = (props) => {
   const resultHead = "Minimum Spend";
-  const bodyText =
-    "Click the Share button to share this information with the client";
 
   const spendFunction = () => {
     const unit = props.campaign.unitConfig;
+    const study = props.campaign.studyConfig;
+    const dmp = props.campaign.dmpConfig;
+
+    console.log(dmp);
     // console.log(unit);
+
+    //start of study minspend
+    for (let i = 0; i < study.length; i++) {
+      let minSpend = "";
+      if (
+        study[i].selectedPartner === "Upwave" &&
+        study[i].selectedQuantity === "1"
+      ) {
+        minSpend = 75000;
+      } else if (
+        study[i].selectedPartner === "Upwave" &&
+        study[i].selectedQuantity === "2"
+      ) {
+        minSpend = 200000;
+      } else if (study[i].selectedPartner === "Kantar Millward Brown") {
+        minSpend = 100000;
+      } else if (study[i].selectedPartner === "Dynata") {
+        minSpend = 100000;
+      } else if (
+        study[i].selectedPartner === "Foursquare/Placed" &&
+        study[i].selectedQuantity === "2"
+      ) {
+        minSpend = 200000;
+      } else if (
+        study[i].selectedPartner === "Lumen" &&
+        study[i].selectedQuantity === "1"
+      ) {
+        minSpend = 75000;
+      } else if (study[i].selectedPartner === "ANSA") {
+        minSpend = 75000;
+      } else if (study[i].selectedPartner === "IRI") {
+        minSpend = 250000;
+      } else if (study[i].selectedPartner === "Catalina") {
+        minSpend = 250000;
+      }
+      console.log(minSpend);
+      return minSpend;
+    }
+
+    //start of dmp minspend
+
+    for (let i = 0; i < dmp.length; i++) {
+      let minSpend = "";
+      if (dmp[i].dmpType === "Custom Audiences") {
+        minSpend = 100000;
+      } else if (dmp[i].dmpType === "Advertiser First Part Data Ingestion") {
+        minSpend = 100000;
+      } else if (dmp[i].dmpType === "ABM Data") {
+        minSpend = 100000;
+      }
+      return minSpend;
+    }
 
     const standard = [];
     const hiUnit = [];

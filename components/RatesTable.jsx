@@ -53,15 +53,25 @@ const RatesTable = (props) => {
       return { ...a };
     })
     .map((cpm) => {
-      console.log("floor cpm: " + cpm.floorCPM);
       cpm.name = `${cpm.name}`;
-      cpm.floorCPM = `${
-        "$" + parseFloat(cpm.floorCPM).toFixed(2).toLocaleString()
-      }`;
+      cpm.floorCPM =
+        cpm.floorCPM === "TBD"
+          ? "TBD"
+          : `${"$" + parseFloat(cpm.floorCPM).toFixed(2).toLocaleString()}`;
+      cpm.openCPM =
+        cpm.openCPM === "TBD"
+          ? "TBD"
+          : `${"$" + parseFloat(cpm.openCPM).toFixed(2).toLocaleString()}`;
+      cpm.floorVCPM =
+        cpm.floorVCPM === "TBD"
+          ? "TBD"
+          : cpm.floorVCPM === "Custom rate"
+          ? "Custom rate"
+          : `${"$" + parseFloat(cpm.floorVCPM).toFixed(2).toLocaleString()}`;
       return cpm;
     });
 
-  const data = useMemo(() => info, [info]);
+  const data = useMemo(() => cpmRates, [cpmRates]);
 
   const tableInstance = useTable({
     columns,
