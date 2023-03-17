@@ -48,6 +48,11 @@ const SpendCard = (props) => {
         study[i].selectedQuantity === "1"
       ) {
         minSpend = 75000;
+      } else if (
+        study[i].selectedPartner === "Lumen" &&
+        study[i].selectedQuantity === "2"
+      ) {
+        minSpend = 200000;
       } else if (study[i].selectedPartner === "ANSA") {
         minSpend = 75000;
       } else if (study[i].selectedPartner === "IRI") {
