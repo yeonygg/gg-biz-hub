@@ -14,6 +14,8 @@ import {
 const AddStudyRow = (props) => {
   const studyPartners = props.config.studyPartners;
   const numConfig = props.config.studyQuantity;
+  const spendConfig = props.config.minSpend;
+
   const campaign = props.campaign;
   const handleChange = (event, field) => {
     const value = event.target.value;
@@ -51,14 +53,15 @@ const AddStudyRow = (props) => {
 
     if (field === "selectedQuantity") {
       props.changeHandler(props.index, value, "selectedQuantity");
+
       //getting the index of number of studies
-      const index = studyPartners.findIndex(
-        (partner) => partner.name === value
-      );
+      const index = numConfig.findIndex((partner) => partner === Number(value));
+
+      props.changeHandler(props.index, spendConfig[index], "selectedMinSpend");
     }
   };
 
-  console.log(campaign);
+  console.log(spendConfig);
 
   const handleDelete = (event) => {
     props.deleteHandler(props.index);
