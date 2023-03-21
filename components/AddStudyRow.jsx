@@ -41,14 +41,20 @@ const AddStudyRow = (props) => {
         studyPartners[index].maxStudies,
         "studyQuantity"
       );
+
+      props.changeHandler(
+        props.index,
+        studyPartners[index].minSpend,
+        "minSpend"
+      );
     }
 
     if (field === "selectedQuantity") {
       props.changeHandler(props.index, value, "selectedQuantity");
-      console.log(numConfig);
-      console.log(numConfig.findIndex((num) => num === value));
-      console.log(value);
-      props.changeHandler(props.index, studyPartners.minSpend, "minSpend");
+      //getting the index of number of studies
+      const index = studyPartners.findIndex(
+        (partner) => partner.name === value
+      );
     }
   };
 
