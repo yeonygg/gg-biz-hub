@@ -13,17 +13,12 @@ import SpendMeter from "./SpendMeter";
 const SpendCard = (props) => {
   const resultHead = "Minimum Spend";
 
-  const spendFunction = () => {
-    const unit = props.campaign.unitConfig;
-    const study = props.campaign.studyConfig;
-    const dmp = props.campaign.dmpConfig;
-
-    console.log(dmp);
-    // console.log(unit);
-
+  const studySpendFunction = () => {
     //start of study minspend
+    const study = props.campaign.studyConfig;
+
     for (let i = 0; i < study.length; i++) {
-      let minSpend = "";
+      let minSpend = 0;
       if (
         study[i].selectedPartner === "Upwave" &&
         study[i].selectedQuantity === "1"
@@ -60,23 +55,29 @@ const SpendCard = (props) => {
       } else if (study[i].selectedPartner === "Catalina") {
         minSpend = 250000;
       }
-      console.log(minSpend);
       return minSpend;
     }
+  };
 
+  const dmpSpendFunction = () => {
+    const dmp = props.campaign.dmpConfig;
     //start of dmp minspend
 
     for (let i = 0; i < dmp.length; i++) {
-      let minSpend = "";
+      let minSpend = 0;
       if (dmp[i].dmpType === "Custom Audiences") {
-        minSpend = 100000;
+        minSpend = dmp[i].minSpend;
       } else if (dmp[i].dmpType === "Advertiser First Part Data Ingestion") {
-        minSpend = 100000;
+        minSpend = dmp[i].minSpend;
       } else if (dmp[i].dmpType === "ABM Data") {
-        minSpend = 100000;
+        minSpend = dmp[i].minSpend;
       }
       return minSpend;
     }
+  };
+
+  const creativeSpendFunction = () => {
+    const unit = props.campaign.unitConfig;
 
     const standard = [];
     const hiUnit = [];
@@ -256,6 +257,35 @@ const SpendCard = (props) => {
     }
 
     return minSpend;
+  };
+
+  const spendFunction = () => {
+    let spend = 0;
+    const study = props.campaign.studyConfig;
+    const dmp = props.campaign.dmpConfig;
+
+    if (study.length < 1 && dmp.length < 1) {
+      spend = creativeSpendFunction();
+    }
+    if (
+      creativeSpendFunction() >= studySpendFunction() &&
+      creativeSpendFunction() >= dmpSpendFunction()
+    ) {
+      spend = creativeSpendFunction();
+    } else if (creativeSpendFunction() >= dmpSpendFunction()) {
+      spend = creativeSpendFunction();
+    } else if (
+      creativeSpendFunction() <= studySpendFunction() &&
+      studySpendFunction() >= dmpSpendFunction
+    ) {
+      spend = studySpendFunction();
+    } else if (
+      creativeSpendFunction() <= dmpSpendFunction() &&
+      studySpendFunction() <= dmpSpendFunction()
+    ) {
+      spend = dmpSpendFunction();
+    }
+    return spend;
   };
 
   const inputBudget = props.campaign.campaignBudget;

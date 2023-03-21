@@ -17,45 +17,42 @@ const AddStudyRow = (props) => {
   const campaign = props.campaign;
   const handleChange = (event, field) => {
     const value = event.target.value;
-    props.changeHandler(props.index, value, field);
-    const index = () => {
-      for (let i = 0; i < studies.length; i++) {
-        if (studies[i].title === value) {
-          return studies[i].id;
-        }
-      }
-    };
-
-    const partnerIndex = () => {
-      for (let i = 0; i < studyPartners.length; i++) {
-        if (studyPartners[i].name === value) {
-          return studyPartners[i].id;
-        }
-      }
-    };
 
     if (field === "studyType") {
       props.changeHandler(props.index, value, "studyType");
+      const index = studies.findIndex((study) => study.title === value);
+
       props.changeHandler(
         props.index,
-        studies[index()].studyPartners,
+        studies[index].studyPartners,
         "studyPartners"
       );
     }
 
     if (field === "selectedPartner") {
       props.changeHandler(props.index, value, "selectedPartner");
+
+      const index = studyPartners.findIndex(
+        (partner) => partner.name === value
+      );
+
       props.changeHandler(
         props.index,
-        studyPartners[partnerIndex()].maxStudies,
+        studyPartners[index].maxStudies,
         "studyQuantity"
       );
     }
 
     if (field === "selectedQuantity") {
       props.changeHandler(props.index, value, "selectedQuantity");
+      console.log(numConfig);
+      console.log(numConfig.findIndex((num) => num === value));
+      console.log(value);
+      props.changeHandler(props.index, studyPartners.minSpend, "minSpend");
     }
   };
+
+  console.log(campaign);
 
   const handleDelete = (event) => {
     props.deleteHandler(props.index);
