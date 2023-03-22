@@ -23,7 +23,7 @@ const AddStudyRow = (props) => {
     if (field === "studyType") {
       props.changeHandler(props.index, value, "studyType");
       const index = studies.findIndex((study) => study.title === value);
-
+      //populates the studyPartners array
       props.changeHandler(
         props.index,
         studies[index].studyPartners,
@@ -37,13 +37,13 @@ const AddStudyRow = (props) => {
       const index = studyPartners.findIndex(
         (partner) => partner.name === value
       );
-
+      //populates the maxStudies array with maxStudies values in studyPartners
       props.changeHandler(
         props.index,
         studyPartners[index].maxStudies,
         "studyQuantity"
       );
-
+      //populates the minspend array with minspend values in studyPartners
       props.changeHandler(
         props.index,
         studyPartners[index].minSpend,
@@ -56,12 +56,10 @@ const AddStudyRow = (props) => {
 
       //getting the index of number of studies
       const index = numConfig.findIndex((partner) => partner === Number(value));
-
+      //sets the selectedMinSpend prop
       props.changeHandler(props.index, spendConfig[index], "selectedMinSpend");
     }
   };
-
-  console.log(spendConfig);
 
   const handleDelete = (event) => {
     props.deleteHandler(props.index);
@@ -70,9 +68,6 @@ const AddStudyRow = (props) => {
   const handleAdd = (event) => {
     props.addHandler(props.index);
   };
-
-  console.log(props.total);
-  console.log(props.id);
 
   return (
     <div>

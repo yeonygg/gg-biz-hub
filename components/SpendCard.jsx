@@ -16,63 +16,70 @@ const SpendCard = (props) => {
   const studySpendFunction = () => {
     //start of study minspend
     const study = props.campaign.studyConfig;
+    if (study.length < 1) {
+      return 0;
+    } else {
+      for (let i = 0; i < study.length; i++) {
+        let minSpend = 0;
 
-    for (let i = 0; i < study.length; i++) {
-      let minSpend = 0;
-      if (
-        study[i].selectedPartner === "Upwave" &&
-        study[i].selectedQuantity === "1"
-      ) {
-        minSpend = 75000;
-      } else if (
-        study[i].selectedPartner === "Upwave" &&
-        study[i].selectedQuantity === "2"
-      ) {
-        minSpend = 200000;
-      } else if (study[i].selectedPartner === "Kantar Millward Brown") {
-        minSpend = 100000;
-      } else if (study[i].selectedPartner === "Dynata") {
-        minSpend = 100000;
-      } else if (
-        study[i].selectedPartner === "Foursquare/Placed" &&
-        study[i].selectedQuantity === "2"
-      ) {
-        minSpend = 200000;
-      } else if (
-        study[i].selectedPartner === "Lumen" &&
-        study[i].selectedQuantity === "1"
-      ) {
-        minSpend = 75000;
-      } else if (
-        study[i].selectedPartner === "Lumen" &&
-        study[i].selectedQuantity === "2"
-      ) {
-        minSpend = 200000;
-      } else if (study[i].selectedPartner === "ANSA") {
-        minSpend = 75000;
-      } else if (study[i].selectedPartner === "IRI") {
-        minSpend = 250000;
-      } else if (study[i].selectedPartner === "Catalina") {
-        minSpend = 250000;
+        if (
+          study[i].selectedPartner === "Upwave" &&
+          study[i].selectedQuantity === "1"
+        ) {
+          minSpend = study[i].selectedMinSpend;
+        } else if (
+          study[i].selectedPartner === "Upwave" &&
+          study[i].selectedQuantity === "2"
+        ) {
+          minSpend = study[i].selectedMinSpend;
+        } else if (study[i].selectedPartner === "Kantar Millward Brown") {
+          minSpend = study[i].selectedMinSpend;
+        } else if (study[i].selectedPartner === "Dynata") {
+          minSpend = study[i].selectedMinSpend;
+        } else if (
+          study[i].selectedPartner === "Foursquare/Placed" &&
+          study[i].selectedQuantity === "2"
+        ) {
+          minSpend = study[i].selectedMinSpend;
+        } else if (
+          study[i].selectedPartner === "Lumen" &&
+          study[i].selectedQuantity === "1"
+        ) {
+          minSpend = study[i].selectedMinSpend;
+        } else if (
+          study[i].selectedPartner === "Lumen" &&
+          study[i].selectedQuantity === "2"
+        ) {
+          minSpend = study[i].selectedMinSpend;
+        } else if (study[i].selectedPartner === "ANSA") {
+          minSpend = study[i].selectedMinSpend;
+        } else if (study[i].selectedPartner === "IRI") {
+          minSpend = study[i].selectedMinSpend;
+        } else if (study[i].selectedPartner === "Catalina") {
+          minSpend = study[i].selectedMinSpend;
+        }
+        return minSpend;
       }
-      return minSpend;
     }
   };
 
   const dmpSpendFunction = () => {
     const dmp = props.campaign.dmpConfig;
     //start of dmp minspend
-
-    for (let i = 0; i < dmp.length; i++) {
-      let minSpend = 0;
-      if (dmp[i].dmpType === "Custom Audiences") {
-        minSpend = dmp[i].minSpend;
-      } else if (dmp[i].dmpType === "Advertiser First Part Data Ingestion") {
-        minSpend = dmp[i].minSpend;
-      } else if (dmp[i].dmpType === "ABM Data") {
-        minSpend = dmp[i].minSpend;
+    if (dmp.length < 1) {
+      return 0;
+    } else {
+      for (let i = 0; i < dmp.length; i++) {
+        let minSpend = 0;
+        if (dmp[i].dmpType === "Custom Audiences") {
+          minSpend = dmp[i].minSpend;
+        } else if (dmp[i].dmpType === "Advertiser First Part Data Ingestion") {
+          minSpend = dmp[i].minSpend;
+        } else if (dmp[i].dmpType === "ABM Data") {
+          minSpend = dmp[i].minSpend;
+        }
+        return minSpend;
       }
-      return minSpend;
     }
   };
 
@@ -259,6 +266,10 @@ const SpendCard = (props) => {
     return minSpend;
   };
 
+  console.log(creativeSpendFunction());
+  console.log(studySpendFunction());
+  console.log(dmpSpendFunction());
+
   const spendFunction = () => {
     let spend = 0;
     const study = props.campaign.studyConfig;
@@ -266,27 +277,26 @@ const SpendCard = (props) => {
 
     if (study.length < 1 && dmp.length < 1) {
       spend = creativeSpendFunction();
-    }
-    if (
-      creativeSpendFunction() >= studySpendFunction() &&
-      creativeSpendFunction() >= dmpSpendFunction()
+    } else if (
+      creativeSpendFunction() > studySpendFunction() &&
+      creativeSpendFunction() > dmpSpendFunction()
     ) {
       spend = creativeSpendFunction();
-    } else if (creativeSpendFunction() >= dmpSpendFunction()) {
-      spend = creativeSpendFunction();
     } else if (
-      creativeSpendFunction() <= studySpendFunction() &&
-      studySpendFunction() >= dmpSpendFunction
+      studySpendFunction() > creativeSpendFunction() &&
+      studySpendFunction() > dmpSpendFunction()
     ) {
       spend = studySpendFunction();
     } else if (
-      creativeSpendFunction() <= dmpSpendFunction() &&
-      studySpendFunction() <= dmpSpendFunction()
+      creativeSpendFunction() < dmpSpendFunction() &&
+      studySpendFunction() < dmpSpendFunction()
     ) {
       spend = dmpSpendFunction();
     }
     return spend;
   };
+
+  console.log(spendFunction());
 
   const inputBudget = props.campaign.campaignBudget;
   const textColor = () => {
