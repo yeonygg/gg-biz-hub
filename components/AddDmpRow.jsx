@@ -70,7 +70,7 @@ const AddDmpRow = (props) => {
 
         {props.total === props.id + 1 && (
           <div className="toggle-button">
-            <Tooltip text="Add Study">
+            <Tooltip text="Add DMP">
               <IconButton
                 title="Button"
                 icon="far fa-plus"
@@ -86,7 +86,7 @@ const AddDmpRow = (props) => {
         )}
         {props.total != props.id + 1 && (
           <div className="toggle-button">
-            <Tooltip text="Delete creative">
+            <Tooltip text="Delete DMP">
               <IconButton
                 title="Button"
                 icon="far fa-trash"

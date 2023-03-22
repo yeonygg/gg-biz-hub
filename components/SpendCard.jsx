@@ -278,18 +278,18 @@ const SpendCard = (props) => {
     if (study.length < 1 && dmp.length < 1) {
       spend = creativeSpendFunction();
     } else if (
-      creativeSpendFunction() > studySpendFunction() &&
-      creativeSpendFunction() > dmpSpendFunction()
+      creativeSpendFunction() >= studySpendFunction() &&
+      creativeSpendFunction() >= dmpSpendFunction()
     ) {
       spend = creativeSpendFunction();
     } else if (
-      studySpendFunction() > creativeSpendFunction() &&
-      studySpendFunction() > dmpSpendFunction()
+      studySpendFunction() >= creativeSpendFunction() &&
+      studySpendFunction() >= dmpSpendFunction()
     ) {
       spend = studySpendFunction();
     } else if (
-      creativeSpendFunction() < dmpSpendFunction() &&
-      studySpendFunction() < dmpSpendFunction()
+      creativeSpendFunction() <= dmpSpendFunction() &&
+      studySpendFunction() <= dmpSpendFunction()
     ) {
       spend = dmpSpendFunction();
     }

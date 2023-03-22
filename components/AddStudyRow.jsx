@@ -170,11 +170,12 @@ const AddStudyRow = (props) => {
         )}
         {props.total != props.id + 1 && (
           <div className="toggle-button">
-            <Tooltip text="Delete creative">
+            <Tooltip text="Delete study">
               <IconButton
                 title="Button"
                 icon="far fa-trash"
                 size="sm"
+                position="left"
                 disabled={false}
                 dark={false}
                 pill={false}
