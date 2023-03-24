@@ -16,70 +16,83 @@ const SpendCard = (props) => {
   const studySpendFunction = () => {
     //start of study minspend
     const study = props.campaign.studyConfig;
+    //returning a value of 0 instead of undefined so spend function can still return a number value for spend
     if (study.length < 1) {
       return 0;
-    } else {
-      for (let i = 0; i < study.length; i++) {
-        let minSpend = 0;
+    }
+    //loops through the studyConfig to return the minSpend of the selected partner
+    else {
+      let minSpend = [];
 
+      for (let i = 0; i < study.length; i++) {
         if (
           study[i].selectedPartner === "Upwave" &&
           study[i].selectedQuantity === "1"
         ) {
-          minSpend = study[i].selectedMinSpend;
+          minSpend.push(study[i].selectedMinSpend);
         } else if (
           study[i].selectedPartner === "Upwave" &&
           study[i].selectedQuantity === "2"
         ) {
-          minSpend = study[i].selectedMinSpend;
+          minSpend.push(study[i].selectedMinSpend);
         } else if (study[i].selectedPartner === "Kantar Millward Brown") {
-          minSpend = study[i].selectedMinSpend;
+          minSpend.push(study[i].selectedMinSpend);
         } else if (study[i].selectedPartner === "Dynata") {
-          minSpend = study[i].selectedMinSpend;
+          minSpend.push(study[i].selectedMinSpend);
         } else if (
           study[i].selectedPartner === "Foursquare/Placed" &&
           study[i].selectedQuantity === "2"
         ) {
-          minSpend = study[i].selectedMinSpend;
+          minSpend.push(study[i].selectedMinSpend);
         } else if (
           study[i].selectedPartner === "Lumen" &&
           study[i].selectedQuantity === "1"
         ) {
-          minSpend = study[i].selectedMinSpend;
+          minSpend.push(study[i].selectedMinSpend);
         } else if (
           study[i].selectedPartner === "Lumen" &&
           study[i].selectedQuantity === "2"
         ) {
-          minSpend = study[i].selectedMinSpend;
+          minSpend.push(study[i].selectedMinSpend);
         } else if (study[i].selectedPartner === "ANSA") {
-          minSpend = study[i].selectedMinSpend;
+          minSpend.push(study[i].selectedMinSpend);
         } else if (study[i].selectedPartner === "IRI") {
-          minSpend = study[i].selectedMinSpend;
+          minSpend.push(study[i].selectedMinSpend);
         } else if (study[i].selectedPartner === "Catalina") {
-          minSpend = study[i].selectedMinSpend;
+          minSpend.push(study[i].selectedMinSpend);
         }
-        return minSpend;
       }
+      return Math.max(...minSpend);
     }
   };
 
   const dmpSpendFunction = () => {
     const dmp = props.campaign.dmpConfig;
     //start of dmp minspend
+
+    //returning a value of 0 instead of undefined so spend function can still return a number value for spend
     if (dmp.length < 1) {
       return 0;
     } else {
+      //loops through the dmpConfig to return the minSpend of the selected partner
+      let minSpend = [];
+
       for (let i = 0; i < dmp.length; i++) {
-        let minSpend = 0;
-        if (dmp[i].dmpType === "Custom Audiences") {
-          minSpend = dmp[i].minSpend;
+        if (
+          dmp[i].dmpType === "3rd Party Branded Data" ||
+          dmp[i].dmpType === "Lotame LDX ($0.20)" ||
+          dmp[i].dmpType === "GumGum First Part (Contextual)"
+        ) {
+          minSpend.push(dmp[i].minSpend);
+        } else if (dmp[i].dmpType === "Custom Audiences") {
+          minSpend.push(dmp[i].minSpend);
         } else if (dmp[i].dmpType === "Advertiser First Part Data Ingestion") {
-          minSpend = dmp[i].minSpend;
+          minSpend.push(dmp[i].minSpend);
         } else if (dmp[i].dmpType === "ABM Data") {
-          minSpend = dmp[i].minSpend;
+          minSpend.push(dmp[i].minSpend);
         }
-        return minSpend;
       }
+      return Math.max(...minSpend);
     }
   };
 
@@ -266,10 +279,6 @@ const SpendCard = (props) => {
     return minSpend;
   };
 
-  console.log(creativeSpendFunction());
-  console.log(studySpendFunction());
-  console.log(dmpSpendFunction());
-
   const spendFunction = () => {
     let spend = 0;
     const study = props.campaign.studyConfig;
@@ -295,8 +304,6 @@ const SpendCard = (props) => {
     }
     return spend;
   };
-
-  console.log(spendFunction());
 
   const inputBudget = props.campaign.campaignBudget;
   const textColor = () => {

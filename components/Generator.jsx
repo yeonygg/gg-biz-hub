@@ -156,6 +156,7 @@ function Generator() {
 
   const removeStudyConfig = (key) => {
     const index = getStudyIndex(key);
+    console.log(index);
     campaign.studyConfig.splice(index, 1);
     updateCampaign(campaign);
   };
@@ -184,6 +185,8 @@ function Generator() {
 
   const getDmpIndex = (key) => {
     const dmpConfig = campaign.dmpConfig;
+    console.log(dmpConfig.map((obj) => obj.key));
+    console.log(dmpConfig.map((obj) => obj.key).indexOf(key));
     return dmpConfig.map((obj) => obj.key).indexOf(key);
   };
 
@@ -194,16 +197,17 @@ function Generator() {
     updateCampaign(campaign);
   };
 
-  const removeDmpConfig = (key) => {
-    const index = getDmpIndex(key);
-    campaign.dmpConfig.splice(index, 1);
-    updateCampaign(campaign);
-  };
-
   const createDmpConfig = () => {
     const newDmp = Object.assign({}, dmpSchema);
     newDmp.key = UUIDV4();
     campaign.dmpConfig.push(newDmp);
+    updateCampaign(campaign);
+  };
+
+  const removeDmpConfig = (key) => {
+    const index = getDmpIndex(key);
+    console.log(index);
+    campaign.dmpConfig.splice(index, 1);
     updateCampaign(campaign);
   };
 

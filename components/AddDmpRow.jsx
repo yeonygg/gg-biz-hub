@@ -21,27 +21,21 @@ const AddDmpRow = (props) => {
     const value = event.target.value;
     props.changeHandler(props.index, value, field);
 
-    const index = () => {
-      for (let i = 0; i < dmp.length; i++) {
-        if (dmp[i].dataType === value) {
-          return dmp[i].id;
-        }
-      }
-    };
-
+    console.log(value);
     if (field === "dmpType") {
-      // console.log(checkCustomizable);
+      const index = dmp.findIndex((dmp) => dmp.dataType === value);
+      console.log(index);
       props.changeHandler(props.index, value, "dmpType");
-      props.changeHandler(props.index, dmp[index()].minSpend, "minSpend");
+      props.changeHandler(props.index, dmp[index].minSpend, "minSpend");
     }
-  };
-
-  const handleDelete = (event) => {
-    props.deleteHandler(props.index);
   };
 
   const handleAdd = (event) => {
     props.addHandler(props.index);
+  };
+
+  const handleDelete = (event) => {
+    props.deleteHandler(props.index);
   };
 
   return (

@@ -15,19 +15,33 @@ const AddStudyRow = (props) => {
   const studyPartners = props.config.studyPartners;
   const numConfig = props.config.studyQuantity;
   const spendConfig = props.config.minSpend;
+  // const studyType = props.config.studyType;
 
+  // const [studyType, setStudyType] = useState("");
   const campaign = props.campaign;
   const handleChange = (event, field) => {
     const value = event.target.value;
 
     if (field === "studyType") {
+      setStudyType(value);
+      //sets the studyType property with the value selected
       props.changeHandler(props.index, value, "studyType");
+      //searches for the index of the value name in the studies constant
       const index = studies.findIndex((study) => study.title === value);
-      //populates the studyPartners array
+
+      props.changeHandler(props.index, "", "studyQuantity");
+      props.changeHandler(props.index, "", "selectedQuantity");
+
+      //sets the studyPartners array into the study config
       props.changeHandler(
         props.index,
         studies[index].studyPartners,
         "studyPartners"
+      );
+      props.changeHandler(
+        props.index,
+        studies[index].studyPartners[0].name,
+        "selectedPartner"
       );
     }
 
@@ -49,6 +63,18 @@ const AddStudyRow = (props) => {
         studyPartners[index].minSpend,
         "minSpend"
       );
+
+      if (numConfig.length < 2) {
+        props.changeHandler(props.index, 1, "selectedQuantity");
+      }
+
+      if (numConfig.length < 2) {
+        props.changeHandler(
+          props.index,
+          studyPartners[index].minSpend[0],
+          "selectedMinSpend"
+        );
+      }
     }
 
     if (field === "selectedQuantity") {
@@ -90,7 +116,7 @@ const AddStudyRow = (props) => {
               handleChange(event, "studyType");
             }}
           >
-            <option>Select Unit type</option>
+            <option>Select study type</option>
             {studies.map((study) => (
               <option key={study.id} value={study.name}>
                 {study.title}
@@ -116,13 +142,12 @@ const AddStudyRow = (props) => {
               handleChange(event, "selectedPartner");
             }}
           >
-            <option>Select Unit type</option>
-            {studyPartners.length > 0 &&
-              studyPartners.map((partner) => (
-                <option key={partner.id} value={partner.name}>
-                  {partner.name}
-                </option>
-              ))}
+            <option selected="selected">Select study partner</option>
+            {studyPartners.map((partner) => (
+              <option key={partner.id} value={partner.name}>
+                {partner.name}
+              </option>
+            ))}
           </InputSelect>
         </InputGroup>
         <InputGroup
@@ -143,8 +168,14 @@ const AddStudyRow = (props) => {
               handleChange(event, "selectedQuantity");
             }}
           >
-            <option>Select Unit type</option>
-            {props.config.studyQuantity.length > 0 &&
+            <option>Select number of studies</option>
+            {props.config.studyQuantity.length === 1 &&
+              numConfig.map((num) => (
+                <option selected="selected" key={num} value={num[0]}>
+                  {num}
+                </option>
+              ))}
+            {props.config.studyQuantity.length > 1 &&
               numConfig.map((num) => (
                 <option key={num} value={num}>
                   {num}

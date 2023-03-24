@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect, Component } from "react";
 import { NavLink } from "react-router-dom";
 import Image from "next/image";
+import { Tag } from "pier-design-system";
 
 function Nav() {
   return (
@@ -66,7 +67,10 @@ function Nav() {
           <NavLink to="/generator">
             <div className="pier-nav__item pier-nav__item--dark">
               <span className="pier-nav__item-icon fas fa-cog"></span>
-              SLA Generator
+              SLA Generator &nbsp;
+              <Tag size="sm" theme="hero">
+                Beta
+              </Tag>
             </div>
           </NavLink>
         </div>
