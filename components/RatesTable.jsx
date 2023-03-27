@@ -67,6 +67,8 @@ const RatesTable = (props) => {
           ? "TBD"
           : cpm.floorVCPM === "Custom rate"
           ? "Custom rate"
+          : cpm.floorVCPM === "N/A"
+          ? "N/A"
           : `${"$" + parseFloat(cpm.floorVCPM).toFixed(2).toLocaleString()}`;
       return cpm;
     });
