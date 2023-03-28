@@ -201,16 +201,16 @@ var customFeatures = [
     highImpact: true,
     turnaroundTime: "TBD",
     cesTurnaroundTime: "TBD",
-    cesRequired: false,
-    floorCPM: "TBD",
-    openCPM: "TBD",
+    cesRequired: true,
+    floorCPM: 2,
+    openCPM: 2,
     description:
       "Any game that is interrogated within the ad unit. Requires a higher level of engineering than most of creative capabilities. ",
     objective: { primary: "Awareness", recommendedMetrics: "Engagement" },
     bestPractices:
       "Brainstorm session with client & creative services team is highly encouraged.",
     programmatic: "Feasible",
-    clientRequirements: "TBD",
+    clientRequirements: "Variable",
   },
   {
     id: 11,
@@ -234,7 +234,7 @@ var customFeatures = [
   },
   {
     id: 12,
-    name: "Hotspot Integration 3D",
+    name: "Hotspot Integration + 3D Assets",
     abbrev: "null",
     minSpend: 250000,
     highImpact: true,
@@ -253,7 +253,7 @@ var customFeatures = [
   },
   {
     id: 13,
-    name: "Hotspot Integration no-3D",
+    name: "Hotspot Integration (No 3D Assets needed)",
     abbrev: "null",
     minSpend: 225000,
     highImpact: true,
@@ -320,8 +320,8 @@ var customFeatures = [
     turnaroundTime: "TBD",
     cesTurnaroundTime: "TBD",
     cesRequired: true,
-    floorCPM: 0,
-    openCPM: 0,
+    floorCPM: "TBD",
+    openCPM: "TBD",
     description:
       "Functions much like an ad unit with multiple CTAs but with an emphasis on showcasing three products within a single ad unit. This does not click out to a lightbox, instead each product would click out to a landing page with more information on that product.",
     objective: {
@@ -337,7 +337,7 @@ var customFeatures = [
   },
   {
     id: 17,
-    name: "Multiple Tune-ins",
+    name: "Multiple Tune-ins (Date Logic)",
     abbrev: "null",
     minSpend: 25000,
     highImpact: true,
@@ -375,7 +375,7 @@ var customFeatures = [
   },
   {
     id: 19,
-    name: "Lightbox - Standard Shoppable",
+    name: "Lightbox - Shoppable (standard)",
     abbrev: "null",
     minSpend: 125000,
     highImpact: true,
@@ -392,14 +392,14 @@ var customFeatures = [
       recommendedMetrics: "Engagement",
     },
     bestPractices:
-      "Great for showcasing multiple products in one unit. Max of 4 products or a minimum of 3 within the accordion. Only leveraged within an In-Screen Expandable unit.",
+      "Client demos do not include functioning Lightbox to start. We highly recommend getting client approval on the statics before proceeding to animation/production.",
     programmatic: "Lightboxes are generally not recommended for Programmatic",
     clientRequirements:
       "Images to be used on each slice, landing page clickouts for each.",
   },
   {
     id: 20,
-    name: "Lightbox - Custom Shoppable",
+    name: "Lightbox - Shoppable (carousel or custom navigation)",
     abbrev: "null",
     minSpend: 150000,
     highImpact: true,
@@ -419,7 +419,7 @@ var customFeatures = [
   },
   {
     id: 21,
-    name: "Lightbox - Multiple Click-outs",
+    name: "Lightbox - Multiple (3-5) Click-outs",
     abbrev: "null",
     minSpend: 125000,
     highImpact: true,
@@ -461,7 +461,7 @@ var customFeatures = [
   },
   {
     id: 23,
-    name: "Lightbox - Host Micro-site",
+    name: "Lightbox - Host a Micro-site",
     abbrev: "null",
     minSpend: 100000,
     highImpact: true,
@@ -480,7 +480,7 @@ var customFeatures = [
   },
   {
     id: 24,
-    name: "In-image - Color Matching",
+    name: "In-Image - Color Matching",
     abbrev: "null",
     minSpend: 125000,
     highImpact: true,
@@ -498,7 +498,7 @@ var customFeatures = [
   },
   {
     id: 25,
-    name: "In-image - Facial Recognition",
+    name: "In-Image - Facial Recognition (e.g., Smiles, Eyes, Noses, etc.)",
     abbrev: "null",
     minSpend: 225000,
     highImpact: true,
