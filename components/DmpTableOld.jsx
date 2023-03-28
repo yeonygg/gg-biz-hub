@@ -5,7 +5,7 @@ import { Dmp } from "../constants/Columns";
 import { useTable } from "react-table";
 import dmp from "../constants/dmps";
 
-const DmpTable = () => {
+const DmpTableOld = () => {
   const columns = useMemo(() => Dmp, []);
   const data = useMemo(() => dmp, []);
 
@@ -58,4 +58,4 @@ const DmpTable = () => {
   );
 };
 
-export default DmpTable;
+export default DmpTableOld;

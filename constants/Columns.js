@@ -123,6 +123,21 @@ export const Rates = [
   },
 ];
 
+export const DmpNew = [
+  {
+    Header: "Spend Tier",
+    accessor: "name",
+  },
+  {
+    Header: "Locked Status",
+    accessor: "floorCPM",
+  },
+  {
+    Header: "CPM Upcharge",
+    accessor: "openCPM",
+  },
+];
+
 export const Dmp = [
   {
     Header: () => (
@@ -324,7 +339,7 @@ export const studySpendTable = [
       </div>
     ),
 
-    accessor: "table[0].column",
+    accessor: "table[0].column1",
     Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
   },
   {
@@ -338,7 +353,7 @@ export const studySpendTable = [
         $100k-$149k{" "}
       </div>
     ),
-    accessor: "table[1].column",
+    accessor: "table[1].column2",
     headerStyle: { textAlign: "center" },
     Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
   },
@@ -353,7 +368,7 @@ export const studySpendTable = [
         $150k-199k{" "}
       </div>
     ),
-    accessor: "table[2].column",
+    accessor: "table[2].column3",
     headerStyle: { textAlign: "center" },
     Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
   },

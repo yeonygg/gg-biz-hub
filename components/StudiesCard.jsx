@@ -36,7 +36,7 @@ const StudiesCard = (props) => {
   };
 
   const handleDelete = (event) => {
-    props.removeCustom(props.index);
+    props.removeStudy(props.index);
   };
 
   const handleStudyPartners = () => {

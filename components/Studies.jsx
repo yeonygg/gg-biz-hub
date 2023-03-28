@@ -12,24 +12,30 @@ import spendTiers from "../constants/spends";
 import LotameDmps from "../components/LotameDmps";
 import StudyRow from "../components/StudyRow";
 import studies from "../constants/studies";
+import dmp from "../constants/dmps";
 import StudiesCard from "../components/StudiesCard";
+import DmpRow from "./DmpRow";
+import DmpCard from "./DmpCard";
 
 let setDebounce;
 
 function Studies() {
   const [selectedStudies, setStudies] = useState([null]);
-  const [toggleAll, setToggle] = useState(false);
+  const [toggleAllStudies, setToggleStudies] = useState(false);
 
-  const handleChange = (e, value, index) => {
+  const [selectedDmps, setDmps] = useState([null]);
+  const [toggleAllDmps, setToggleDmps] = useState(false);
+
+  const handleChangeStudy = (e, value, index) => {
     const newArray = selectedStudies;
     newArray[+index] = +value; //convert to number
     setStudies([...newArray]);
   };
 
-  const createCustomSelect = () => {
-    const newCustomArray = selectedStudies;
-    newCustomArray.push(null);
-    setStudies([...newCustomArray]);
+  const createStudySelect = () => {
+    const newStudyArray = selectedStudies;
+    newStudyArray.push(null);
+    setStudies([...newStudyArray]);
   };
 
   const getStudies = () => {
@@ -38,24 +44,127 @@ function Studies() {
     );
   };
 
-  const removeCustomSelect = (index) => {
+  const removeStudySelect = (index) => {
     const array = selectedStudies;
     array.splice(index, 1);
     setStudies([...array]);
   };
 
-  const updateCustom = (studies) => {
+  const updateStudy = (studies) => {
     setStudies([...studies]);
   };
 
-  const handleToggle = (event) => {
+  const handleToggleStudy = (event) => {
+    setToggle(event.target.checked);
+  };
+
+  const handleChangeDmp = (e, value, index) => {
+    const newArray = selectedDmps;
+    newArray[+index] = +value; //convert to number
+    setDmps([...newArray]);
+  };
+
+  const createDmpSelect = () => {
+    const newDmpArray = selectedDmps;
+    newDmpArray.push(null);
+    setDmps([...newDmpArray]);
+  };
+
+  const getDmps = () => {
+    return selectedDmps.map((id) => dmp.find((dmp) => dmp.id === id));
+  };
+
+  const removeDmpSelect = (index) => {
+    const array = selectedDmps;
+    array.splice(index, 1);
+    setDmps([...array]);
+  };
+
+  const updateDmp = (dmps) => {
+    setDmps([...dmps]);
+  };
+
+  const handleToggleDmps = (event) => {
     setToggle(event.target.checked);
   };
 
   return (
     <div>
       <Heading>Research and Data Study Rules</Heading>
-      <LotameDmps />
+      <Card className="-m-b-6">
+        <Section
+          padding="lg"
+          className="-flex-row -justify-content-center -align-items-center"
+          style={{ marginTop: "1.125rem" }}
+        >
+          <div className="-d-flex" style={{ width: "100%" }}>
+            <div className="custom-body-text">
+              <BodyText
+                style={{
+                  fontWeight: "bold",
+                }}
+              >
+                Select a DMP
+              </BodyText>
+            </div>
+
+            <div className="-d-block" style={{ width: "100%" }}>
+              {" "}
+              {selectedDmps.map((value, index) => (
+                <DmpRow
+                  changeHandler={handleChangeDmp}
+                  index={index}
+                  value={selectedDmps[index]}
+                  config={dmp}
+                  key={Math.random() * 10000}
+                  addDmp={createDmpSelect}
+                  removeDmp={removeDmpSelect}
+                  total={selectedDmps.length - 1}
+                  toggleAll={toggleAllDmps}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="-d-flex -justify-content-end -m-t-6">
+            <InputToggle
+              size="sm"
+              disabled={false}
+              dark={false}
+              error={false}
+              onChange={handleToggleDmps}
+            >
+              Show All DMPs
+            </InputToggle>
+          </div>
+        </Section>
+      </Card>
+      {!toggleAllDmps &&
+        getDmps().map(
+          (dmp, index) =>
+            dmp != undefined && (
+              <DmpCard
+                key={index}
+                index={index}
+                handleDelete={index}
+                config={spendTiers}
+                dmp={dmp}
+                array={selectedDmps}
+                removeDmp={removeDmpSelect}
+                value={selectedDmps[index]}
+              />
+            )
+        )}
+
+      {toggleAllDmps &&
+        dmp.map((dmp, index) => (
+          <DmpCard
+            key={index}
+            dmp={dmp}
+            toggleAll={toggleAllDmps}
+            array={selectedDmps}
+          />
+        ))}
       <Card className="-m-b-6">
         <Section
           padding="lg"
@@ -77,15 +186,15 @@ function Studies() {
               {" "}
               {selectedStudies.map((value, index) => (
                 <StudyRow
-                  changeHandler={handleChange}
+                  changeHandler={handleChangeStudy}
                   index={index}
                   value={selectedStudies[index]}
                   config={studies}
                   key={Math.random() * 10000}
-                  addCustom={createCustomSelect}
-                  removeCustom={removeCustomSelect}
+                  addStudy={createStudySelect}
+                  removeStudy={removeStudySelect}
                   total={selectedStudies.length - 1}
-                  toggleAll={toggleAll}
+                  toggleAll={toggleAllStudies}
                 />
               ))}
             </div>
@@ -97,7 +206,7 @@ function Studies() {
               disabled={false}
               dark={false}
               error={false}
-              onChange={handleToggle}
+              onChange={handleToggleStudy}
             >
               Show All Studies
             </InputToggle>
@@ -105,11 +214,7 @@ function Studies() {
         </Section>
       </Card>
 
-      {/* this.state.key.map((index) => {
-        <CustomCard custom={index} />;
-      }) */}
-
-      {!toggleAll &&
+      {!toggleAllStudies &&
         getStudies().map(
           (study, index) =>
             study != undefined && (
@@ -120,18 +225,18 @@ function Studies() {
                 config={spendTiers}
                 study={study}
                 array={selectedStudies}
-                removeCustom={removeCustomSelect}
+                removeStudy={removeStudySelect}
                 value={selectedStudies[index]}
               />
             )
         )}
 
-      {toggleAll &&
+      {toggleAllStudies &&
         studies.map((study, index) => (
           <StudiesCard
             key={index}
             study={study}
-            toggleAll={toggleAll}
+            toggleAll={toggleAllStudies}
             array={selectedStudies}
           />
         ))}

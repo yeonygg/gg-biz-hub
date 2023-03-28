@@ -1,7 +1,8 @@
 import { InputSelect, IconButton, Tooltip } from "pier-design-system";
 import studies from "../constants/studies";
+import dmp from "../constants/dmps";
 
-const StudyRow = (props) => {
+const DmpRow = (props) => {
   const handleChange = (e, field) => {
     const value = e.target.value;
     const index = props.index;
@@ -20,7 +21,7 @@ const StudyRow = (props) => {
   };
 
   const handleDelete = (event) => {
-    props.removeStudy(props.index);
+    props.removeDmp(props.index);
   };
 
   return (
@@ -37,12 +38,12 @@ const StudyRow = (props) => {
         value={props.value}
       >
         <option disabled={true} selected value="">
-          Select your Study
+          Select your DMP
         </option>
 
-        {studies.map((study) => (
-          <option key={study.id} value={study.id}>
-            {study.title}
+        {dmp.map((dmp) => (
+          <option key={dmp.id} value={dmp.id}>
+            {dmp.dataType}
           </option>
         ))}
       </InputSelect>
@@ -50,7 +51,7 @@ const StudyRow = (props) => {
       {props.total === props.index && (
         <Tooltip text="Add Custom Creative">
           <IconButton
-            onClick={props.addStudy}
+            onClick={props.addDmp}
             style={{ marginLeft: "1rem" }}
             icon="far fa-plus"
             className="plus-button"
@@ -84,4 +85,4 @@ const StudyRow = (props) => {
   );
 };
 
-export default StudyRow;
+export default DmpRow;

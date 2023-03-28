@@ -24,20 +24,10 @@ const LotameDmps = () => {
               marginBottom: "3rem",
             }}
           >
-            Lotame DMPs
-            <BodyText
-              size="xs"
-              style={{
-                color: "#A5B2B8",
-              }}
-            >
-              Minimum Spends
-            </BodyText>
+            Select a Lotame DMP
           </BodyText>
 
-          <div className="design-sla-table -m-b-9">
-            <DmpTable />
-          </div>
+          <div className="design-sla-table -m-b-9"></div>
         </Section>
       </Card>
     </div>
