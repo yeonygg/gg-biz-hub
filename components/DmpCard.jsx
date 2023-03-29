@@ -14,6 +14,7 @@ import {
 import { Fragment } from "react";
 import StudySpendTable from "./StudySpendTable";
 import DmpTableNew from "./DmpTableNew";
+import DmpTableOld from "./DmpTableOld";
 
 const DmpCard = (props) => {
   const disabled = () => {
@@ -61,7 +62,7 @@ const DmpCard = (props) => {
           </div>
 
           <div className="-d-flex"></div>
-          <DmpTableNew />
+          <DmpTableOld selectedDmp={props.dmp.id} />
         </Section>
       </Card>
     </div>

@@ -4,57 +4,27 @@ import designBuckets from "../constants/designbuckets";
 import { Dmp, DmpNew } from "../constants/Columns";
 import { useTable } from "react-table";
 import dmp from "../constants/dmps";
+import dmpspends from "../constants/dmpspends";
+import { BodyText } from "pier-design-system";
 
-const DmpTableNew = () => {
-  const columns = useMemo(() => DmpNew, []);
-  const data = useMemo(() => dmp, []);
+const DmpTableNew = (props) => {
+  let array = [];
+  for (let i = 0; i < dmp.length; i++) {
+    if (dmp[i].id === props.selectedDmp) {
+      array.push(dmp[i]);
+    }
+  }
 
-  const tableInstance = useTable({
-    columns,
-    data,
-  });
-
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    footerGroups,
-    rows,
-    prepareRow,
-  } = tableInstance;
+  console.log(array[0].spendTiers);
 
   return (
-    <table {...getTableProps()} id="design-buckets">
-      <thead>
-        {headerGroups.map((headerGroup) => (
-          <tr key={designBuckets.id} {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column) => (
-              <th key={designBuckets.id} {...column.getHeaderProps}>
-                {column.render("Header")}
-              </th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map((row) => {
-          prepareRow(row);
-          return (
-            <tr key={designBuckets.id} {...row.getRowProps}>
-              {row.cells.map((cell) => {
-                // console.log(cell);
-                return (
-                  <td key={designBuckets.id} {...cell.getCellProps()}>
-                    {cell.render("Cell")}
-                  </td>
-                );
-              })}
-            </tr>
-          );
-        })}
-        <tr></tr>
-      </tbody>
-    </table>
+    <Fragment>
+      {" "}
+      <BodyText size="sm" style={{ fontWeight: "bold" }}>
+        Spend Tiers
+      </BodyText>
+      <div>{array[0].spendTiers}</div>
+    </Fragment>
   );
 };
 

@@ -4,6 +4,13 @@
   margin: 5rem 3rem 2rem 3rem;
 }
 
+.home-main-card {
+  background-image: url("/main-graphic.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 540px;
+}
+
 .client-output-card {
   display: flex;
   width: 60%;
@@ -83,6 +90,14 @@
   background-color: #f7f8f8;
   border-radius: 1rem;
   padding: 1rem;
+}
+
+.main-card-style {
+  width: 33%;
+  height: 300px;
+  background-color: #f7f8f8;
+  border-radius: 1rem;
+  padding: 2rem;
 }
 
 .sla-section {

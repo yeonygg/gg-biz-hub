@@ -3,6 +3,7 @@ import { useState, useEffect, Component } from "react";
 import { NavLink } from "react-router-dom";
 import Image from "next/image";
 import { Tag } from "pier-design-system";
+import { Link } from "react-router-dom";
 
 function Nav() {
   return (
@@ -11,15 +12,17 @@ function Nav() {
         className="-d-flex -justify-content-center -m-b-4"
         style={{ width: "100%" }}
       >
-        {" "}
-        <Image
-          alt="gumgum logo"
-          src="/gumgum_logo_dark.svg"
-          width="150%"
-          height="100%"
-          key="1"
-          style={{ verticalAlign: "middle" }}
-        />
+        <Link to="/landing-page">
+          {" "}
+          <Image
+            alt="gumgum logo"
+            src="/gumgum_logo_dark.svg"
+            width="150%"
+            height="100%"
+            key="1"
+            style={{ verticalAlign: "middle" }}
+          />
+        </Link>
       </div>
       <div className="pier-nav__tab pier-nav__tab--dark">
         <button className="pier-button-icon pier-button-icon--xs pier-button-icon--secondary">

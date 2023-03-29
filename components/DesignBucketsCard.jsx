@@ -9,7 +9,7 @@ import {
   Section,
   Table,
 } from "pier-design-system";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import DesignBucketTable from "./DesignBucketTable";
 import designBuckets from "../constants/designbuckets";
 
@@ -65,7 +65,8 @@ const DesignBucketsCard = () => {
             >
               Show Expedited
             </InputToggle>
-            <Link href="/Generator">
+            <Link to="/generator">
+              {" "}
               <Button
                 size="sm"
                 title="Button"

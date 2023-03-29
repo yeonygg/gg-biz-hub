@@ -13,7 +13,7 @@ import {
   Table,
   Button,
 } from "pier-design-system";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import customFeatures from "../constants/custom";
 import unitTypes from "../constants/units";
 import Image from "next/image";

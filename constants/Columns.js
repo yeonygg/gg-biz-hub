@@ -126,15 +126,15 @@ export const Rates = [
 export const DmpNew = [
   {
     Header: "Spend Tier",
-    accessor: "name",
+    accessor: "spendTiers[0]",
   },
   {
     Header: "Locked Status",
-    accessor: "floorCPM",
+    accessor: "cpms",
   },
   {
     Header: "CPM Upcharge",
-    accessor: "openCPM",
+    accessor: "cpms[1].tier50",
   },
 ];
 
