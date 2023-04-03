@@ -19,9 +19,7 @@ const CustomCard = (props) => {
 
   const disabled = () => {
     let disable = false;
-    console.log(props.array.length);
     if (props.array.length === 1) {
-      console.log(props.array);
       disable = true;
     } else if (props.toggleAll === true) {
       disable = true;

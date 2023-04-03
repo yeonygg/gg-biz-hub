@@ -12,6 +12,7 @@ import {
 import unitTypes from "../constants/units";
 import spendTiers from "../constants/spends";
 import customFeatures from "../constants/custom";
+import UUIDV4 from "../helpers/helpers";
 
 const BusinessRuleCard = (props) => {
   const standardUnits = props.spend.supportedStandard;
@@ -89,7 +90,7 @@ const BusinessRuleCard = (props) => {
     if (props.spend.unsupportedHi.length > 0) {
       const hiArray = props.spend.unsupportedHi;
       return (highImpact = hiArray.map((unit) => (
-        <div key={unit} className="-d-flex">
+        <div key={UUIDV4()} className="-d-flex">
           <i
             className="fas fa-times"
             style={{
@@ -107,7 +108,7 @@ const BusinessRuleCard = (props) => {
     } else if (props.spend.supportedHi.length > 0) {
       const hiArray = props.spend.supportedHi;
       return (highImpact = hiArray.map((unit) => (
-        <div key={unit} className="-d-flex">
+        <div key={UUIDV4()} className="-d-flex">
           <i
             className="fas fa-check"
             style={{ marginRight: "10px", color: "#08D18B" }}
@@ -116,39 +117,6 @@ const BusinessRuleCard = (props) => {
           <BodyText size="sm" style={{ fontWeight: "bold" }}>
             ({unitTypes[unit].abbrev})
           </BodyText>
-        </div>
-      )));
-    }
-  };
-
-  const handleSkin = () => {
-    let skin = "";
-    if (props.spend.unsupportedSkins.length > 1) {
-      const skinArray = props.spend.unsupportedSkins;
-      return (skin = skinArray.map((unit) => (
-        <div key={unit} className="-d-flex">
-          <i
-            className="fas fa-times"
-            style={{
-              marginRight: "10px",
-              color: "#E24550",
-              marginTop: "0.25rem",
-            }}
-          ></i>{" "}
-          <BodyText size="sm">{unitTypes[unit].name}</BodyText> &nbsp;
-          <BodyText size="sm" style={{ fontWeight: "bold" }}></BodyText>
-        </div>
-      )));
-    } else if (props.spend.supportedSkins.length > 1) {
-      const skinArray = props.spend.supportedSkins;
-      return (skin = skinArray.map((unit) => (
-        <div key={unit} className="-d-flex">
-          <i
-            className="fas fa-check"
-            style={{ marginRight: "10px", color: "#08D18B" }}
-          ></i>{" "}
-          <BodyText size="sm">{unitTypes[unit].name}</BodyText> &nbsp;
-          <BodyText size="sm" style={{ fontWeight: "bold" }}></BodyText>
         </div>
       )));
     }
@@ -340,8 +308,7 @@ const BusinessRuleCard = (props) => {
                 </BodyText>
 
                 {standardUnits.map((unit) => (
-                  // eslint-disable-next-line react/jsx-key
-                  <div className="-d-flex">
+                  <div key={UUIDV4()} className="-d-flex">
                     <i
                       className="fas fa-check"
                       style={{ marginRight: "10px", color: "#08D18B" }}
@@ -361,9 +328,18 @@ const BusinessRuleCard = (props) => {
                 <div className="-d-block">
                   {" "}
                   {gumgumUnits.map((unit) => (
+<<<<<<< HEAD
                     // eslint-disable-next-line react/jsx-key
                     <ul className="gg-standard-list" data-columns="2">
                       <li> {unitTypes[unit].name}</li>
+=======
+                    <ul
+                      key={UUIDV4()}
+                      className="gg-standard-list"
+                      data-columns="2"
+                    >
+                      <li key={UUIDV4()}> {unitTypes[unit].name}</li>
+>>>>>>> 290fd06 (completed dmp table for data page)
                     </ul>
                   ))}
                 </div>
@@ -404,6 +380,7 @@ const BusinessRuleCard = (props) => {
                 )}
                 {handleHi()}
                 {/*!unit.isGumGum && <><i className="fa-check"></i>{`${unit.name} (${unit.abbrev}) }*/}
+<<<<<<< HEAD
                 <BodyText size="md" style={{ fontWeight: "bold" }}>
                   {skinHeading()}
                   {props.spend.totalSkins > 0 && (
@@ -436,6 +413,37 @@ const BusinessRuleCard = (props) => {
                 {handleLockedSkin()}
                 {unsupportedSkins.map((unit) => (
                   <div key={unit} className="-d-flex">
+=======
+                {skinHeading()}
+                {props.spend.totalSkins > 0 && (
+                  <BodyText
+                    size="xs"
+                    style={{
+                      fontWeight: "bold",
+                      paddingBottom: "0.5rem",
+                    }}
+                  >
+                    {skinVersionMax()}
+                  </BodyText>
+                )}
+
+                {supportedSkins.map((unit) => (
+                  <div key={UUIDV4()} className="-d-flex">
+                    <i
+                      className="fas fa-check"
+                      style={{ marginRight: "10px", color: "#08D18B" }}
+                    ></i>{" "}
+                    <BodyText size="sm">{unitTypes[unit].name}</BodyText> &nbsp;
+                    <BodyText
+                      size="sm"
+                      style={{ fontWeight: "bold" }}
+                    ></BodyText>
+                  </div>
+                ))}
+                {handleLockedSkin()}
+                {unsupportedSkins.map((unit) => (
+                  <div key={UUIDV4()} className="-d-flex">
+>>>>>>> 290fd06 (completed dmp table for data page)
                     <i
                       className="fas fa-times"
                       style={{

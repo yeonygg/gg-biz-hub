@@ -24,8 +24,11 @@ const RatesCard = (props) => {
     return disable;
   };
 
+<<<<<<< HEAD
   console.log(props.rate);
 
+=======
+>>>>>>> 290fd06 (completed dmp table for data page)
   const removeTooltip = () => {
     let tooltip = "Remove Card";
     if (disabled() === true) {

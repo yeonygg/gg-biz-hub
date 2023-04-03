@@ -15,8 +15,60 @@ const SpendCard = (props) => {
 
   const studySpendFunction = () => {
     //start of study minspend
+<<<<<<< HEAD
     const studies = props.campaign.studyConfig;
     return studies.length === 0 ? 0 : Math.max(...studies.map(study => study.minSpend));
+=======
+    const study = props.campaign.studyConfig;
+    //returning a value of 0 instead of undefined so spend function can still return a number value for spend
+    if (study.length < 1) {
+      return 0;
+    }
+    //loops through the studyConfig to return the minSpend of the selected partner
+    else {
+      let minSpend = [];
+
+      for (let i = 0; i < study.length; i++) {
+        if (
+          study[i].selectedPartner === "Upwave" &&
+          study[i].selectedQuantity === "1"
+        ) {
+          minSpend.push(study[i].selectedMinSpend);
+        } else if (
+          study[i].selectedPartner === "Upwave" &&
+          study[i].selectedQuantity === "2"
+        ) {
+          minSpend.push(study[i].selectedMinSpend);
+        } else if (study[i].selectedPartner === "Kantar Millward Brown") {
+          minSpend.push(study[i].selectedMinSpend);
+        } else if (study[i].selectedPartner === "Dynata") {
+          minSpend.push(study[i].selectedMinSpend);
+        } else if (
+          study[i].selectedPartner === "Foursquare/Placed" &&
+          study[i].selectedQuantity === "2"
+        ) {
+          minSpend.push(study[i].selectedMinSpend);
+        } else if (
+          study[i].selectedPartner === "Lumen" &&
+          study[i].selectedQuantity === "1"
+        ) {
+          minSpend.push(study[i].selectedMinSpend);
+        } else if (
+          study[i].selectedPartner === "Lumen" &&
+          study[i].selectedQuantity === "2"
+        ) {
+          minSpend.push(study[i].selectedMinSpend);
+        } else if (study[i].selectedPartner === "ANSA") {
+          minSpend.push(study[i].selectedMinSpend);
+        } else if (study[i].selectedPartner === "IRI") {
+          minSpend.push(study[i].selectedMinSpend);
+        } else if (study[i].selectedPartner === "Catalina") {
+          minSpend.push(study[i].selectedMinSpend);
+        }
+      }
+      return Math.max(...minSpend);
+    }
+>>>>>>> 290fd06 (completed dmp table for data page)
   };
 
   const dmpSpendFunction = () => {

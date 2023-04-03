@@ -3,6 +3,7 @@ import { useMemo, Fragment } from "react";
 import designBuckets from "../constants/designbuckets";
 import { Columns, Generator } from "../constants/Columns";
 import { useTable } from "react-table";
+import UUIDV4 from "../helpers/helpers";
 
 const Table = (props) => {
   const budget = props.campaign.campaignBudget;
@@ -57,11 +58,15 @@ const Table = (props) => {
       <table {...getTableProps()} id="design-buckets">
         <thead>
           {headerGroups.map((headerGroup) => (
+<<<<<<< HEAD
             <tr key={Math.random()*1000000000} {...headerGroup.getHeaderGroupProps()}>
+=======
+            <tr key={UUIDV4()} {...headerGroup.getHeaderGroupProps()}>
+>>>>>>> 290fd06 (completed dmp table for data page)
               {headerGroup.headers.map((column) => {
                 // console.log(column);
                 return (
-                  <th key={column.id} {...column.getHeaderProps}>
+                  <th key={UUIDV4()} {...column.getHeaderProps}>
                     {column.render("Header")}
                   </th>
                 );
@@ -73,7 +78,11 @@ const Table = (props) => {
           {rows.map((row) => {
             prepareRow(row);
             return (
+<<<<<<< HEAD
               <tr key={Math.random()*1000000000} {...row.getRowProps}>
+=======
+              <tr key={UUIDV4()} {...row.getRowProps}>
+>>>>>>> 290fd06 (completed dmp table for data page)
                 {row.cells.map((cell) => {
                   return (
                     <td key={cell.getCellProps().key} {...cell.getCellProps()}>

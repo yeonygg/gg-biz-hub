@@ -192,7 +192,7 @@ function CreativeBusinessRules() {
           (spend, index) =>
             spend != undefined && (
               <BusinessRuleCard
-                key={index}
+                key={Math.random() * 10000}
                 index={index}
                 handleDelete={index}
                 config={spendTiers}
@@ -207,7 +207,7 @@ function CreativeBusinessRules() {
       {toggleAll &&
         spendTiers.map((spend, index) => (
           <BusinessRuleCard
-            key={index}
+            key={Math.random() * 10000}
             spend={spend}
             toggleAll={toggleAll}
             array={spendThreshold}

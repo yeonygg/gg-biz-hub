@@ -17,6 +17,7 @@ import {
 } from "pier-design-system";
 
 const AddDmpRow = (props) => {
+<<<<<<< HEAD
 
   const handleChange = (event, field) => {
     const value = event.target.value;
@@ -42,6 +43,16 @@ const AddDmpRow = (props) => {
           value: dmp[index].cpmUpcharge
         }
       ]);
+=======
+  const handleChange = (event, field) => {
+    const value = event.target.value;
+    props.changeHandler(props.index, value, field);
+
+    if (field === "dmpType") {
+      const index = dmp.findIndex((dmp) => dmp.dataType === value);
+      props.changeHandler(props.index, value, "dmpType");
+      props.changeHandler(props.index, dmp[index].minSpend, "minSpend");
+>>>>>>> 290fd06 (completed dmp table for data page)
     }
   };
 
@@ -64,11 +75,21 @@ const AddDmpRow = (props) => {
             error={false}
             capleft={false}
             required=""
+<<<<<<< HEAD
+=======
+            // value={props.value != null ? props.value : ""}
+>>>>>>> 290fd06 (completed dmp table for data page)
             onChange={(event) => {
               handleChange(event, "dmpType");
             }}
           >
+<<<<<<< HEAD
             <option>Select DMP type</option>
+=======
+            <option disabled={true} value="">
+              Select DMP type
+            </option>
+>>>>>>> 290fd06 (completed dmp table for data page)
             {dmp.map((dmp) => (
               <option key={dmp.id} value={dmp.dataType}>
                 {dmp.dataType}

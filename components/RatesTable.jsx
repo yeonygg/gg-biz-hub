@@ -4,6 +4,7 @@ import designBuckets from "../constants/designbuckets";
 import { useTable } from "react-table";
 import unitTypes from "../constants/units";
 import { Rates } from "../constants/Columns";
+<<<<<<< HEAD
 const RatesTable = (props) => {
   console.log(props.rate);
   console.log(unitTypes);
@@ -47,6 +48,13 @@ const RatesTable = (props) => {
   // };
 
   // parseFloat(${cpm.floorCPM}).toFixed(2).toLocaleString()
+=======
+import UUIDV4 from "../helpers/helpers";
+const RatesTable = (props) => {
+  const columns = useMemo(() => Rates, []);
+  const cat = props.rate.value;
+  const info = unitTypes.filter((unit) => unit.rateCatergory === cat);
+>>>>>>> 290fd06 (completed dmp table for data page)
 
   const cpmRates = info
     .map((a) => {
@@ -93,9 +101,15 @@ const RatesTable = (props) => {
     <table {...getTableProps()} id="design-buckets">
       <thead>
         {headerGroups.map((headerGroup) => (
+<<<<<<< HEAD
           <tr key={designBuckets.id} {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
               <th key={designBuckets.id} {...column.getHeaderProps}>
+=======
+          <tr key={UUIDV4()} {...headerGroup.getHeaderGroupProps()}>
+            {headerGroup.headers.map((column) => (
+              <th key={UUIDV4()} {...column.getHeaderProps}>
+>>>>>>> 290fd06 (completed dmp table for data page)
                 {column.render("Header")}
               </th>
             ))}
@@ -106,11 +120,19 @@ const RatesTable = (props) => {
         {rows.map((row) => {
           prepareRow(row);
           return (
+<<<<<<< HEAD
             <tr key={designBuckets.id} {...row.getRowProps}>
               {row.cells.map((cell) => {
                 // console.log(cell);
                 return (
                   <td key={designBuckets.id} {...cell.getCellProps()}>
+=======
+            <tr key={UUIDV4()} {...row.getRowProps}>
+              {row.cells.map((cell) => {
+                // console.log(cell);
+                return (
+                  <td key={UUIDV4()} {...cell.getCellProps()}>
+>>>>>>> 290fd06 (completed dmp table for data page)
                     {cell.render("Cell")}
                   </td>
                 );
@@ -118,7 +140,10 @@ const RatesTable = (props) => {
             </tr>
           );
         })}
+<<<<<<< HEAD
         <tr></tr>
+=======
+>>>>>>> 290fd06 (completed dmp table for data page)
       </tbody>
     </table>
   );

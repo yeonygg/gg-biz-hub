@@ -33,11 +33,18 @@ const DmpRow = (props) => {
         dark={false}
         error={false}
         capleft={false}
+<<<<<<< HEAD
         defaultValue=""
         required=""
         value={props.value}
       >
         <option disabled={true} selected value="">
+=======
+        required=""
+        value={props.value != null ? props.value : ""}
+      >
+        <option disabled={true} value="">
+>>>>>>> 290fd06 (completed dmp table for data page)
           Select your DMP
         </option>
 

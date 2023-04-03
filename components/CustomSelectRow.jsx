@@ -34,11 +34,10 @@ const CustomSelectRow = (props) => {
         dark={false}
         error={false}
         capleft={false}
-        defaultValue=""
         required=""
-        value={props.value}
+        value={props.value != null ? props.value : ""}
       >
-        <option disabled={true} selected value="">
+        <option disabled={true} value="">
           Select your Custom Add On
         </option>
 
