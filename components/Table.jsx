@@ -3,7 +3,6 @@ import { useMemo, Fragment } from "react";
 import designBuckets from "../constants/designbuckets";
 import { Columns, Generator } from "../constants/Columns";
 import { useTable } from "react-table";
-import UUIDV4 from "../helpers/helpers";
 import { UUIDV4 } from "../helpers/helpers";
 
 const Table = (props) => {
@@ -43,10 +42,6 @@ const Table = (props) => {
     //apply upcharges to each unit rate
     const finalRates = [
       ...baseRates.map((rate) => {
-<<<<<<< HEAD
-        rate.floorCPM += studyUpcharge + dmpUpcharge;
-        rate.openCPM += studyUpcharge + dmpUpcharge;
-=======
         rate.floorVCPM = `${
           "$" + parseFloat(rate.floorVCPM).toFixed(2).toLocaleString()
         }`;
@@ -62,7 +57,6 @@ const Table = (props) => {
             .toFixed(2)
             .toLocaleString()
         }`;
->>>>>>> 0dd7d17 (made rate breakdown table cpms into money - added $ and .00)
         return rate;
       }),
     ];
