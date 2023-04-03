@@ -431,8 +431,7 @@ var customFeatures = [
     description:
       "Within the unit the creative team will include 3-5 seperate clickouts ",
     objective: {
-      primary:
-        "Awareness / Conversion (depending if the client wants users to learn more or drive sales)",
+      primary: "Awareness / Conversion",
       recommendedMetrics: "CTR",
     },
     bestPractices:

@@ -4,8 +4,7 @@ import designBuckets from "../constants/designbuckets";
 import { Dmp, DmpNew } from "../constants/Columns";
 import { useTable } from "react-table";
 import dmp from "../constants/dmps";
-import UUIDV4 from "../helpers/helpers";
-
+import { UUIDV4 } from "../helpers/helpers";
 const DmpTableNew = (props) => {
   const columns = useMemo(() => DmpNew, []);
   const dmpId = props.selectedDmp;

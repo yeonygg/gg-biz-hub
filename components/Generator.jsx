@@ -11,7 +11,7 @@ import DesignCard from "../components/DesignCard";
 import CesCard from "../components/CesCard";
 import CampaignOutput from "../components/CampaignOutput";
 import { useState, useEffect, Fragment } from "react";
-import {UUIDV4} from "../helpers/helpers";
+import { UUIDV4 } from "../helpers/helpers";
 import RateTableSection from "./RateTableSection";
 import AddStudyRow from "./AddStudyRow";
 import AddDmpRow from "./AddDmpRow";
@@ -49,31 +49,18 @@ let unitSchema = {
 
 let studySchema = {
   key: null,
-<<<<<<< HEAD
   studyType: null,
   studyQuantity: null,
   studyPartner: null,
   maxStudies: null,
   cpmUpcharge: null,
-  minSpend: 0
-=======
-  studyType: "Brand Lift",
-  studyPartners: [],
-  studyQuantity: [],
-  selectedQuantity: 1,
-  selectedPartner: "",
-  studyQuantity: 0,
   minSpend: 0,
->>>>>>> 290fd06 (completed dmp table for data page)
 };
 
 let dmpSchema = {
   key: null,
   dmpType: "GumGum First Part (Contextual)",
-<<<<<<< HEAD
   cpmUpcharge: null,
-=======
->>>>>>> 290fd06 (completed dmp table for data page)
   minSpend: 0,
 };
 
@@ -116,7 +103,7 @@ function Generator() {
     const unit = getUnitConfig(key);
     unit[field] = value;
     campaign.unitConfig[getUnitIndex(key)] = unit;
-    updateCampaign({...campaign});
+    updateCampaign({ ...campaign });
   };
 
   const removeUnitConfig = (key) => {
@@ -139,7 +126,6 @@ function Generator() {
 
   const updateCampaign = (updatedCampaign) => {
     setCampaign({ ...updatedCampaign });
-    console.log(campaign)
   };
 
   //starting study config
@@ -160,19 +146,12 @@ function Generator() {
     return studyConfig.map((obj) => obj.key).indexOf(key);
   };
 
-<<<<<<< HEAD
   const setStudyConfig = (updateArray) => {
-    updateArray.forEach(update => {
+    updateArray.forEach((update) => {
       const study = getStudyConfig(update.key);
       study[update.field] = update.value;
-      campaign.studyConfig[getStudyIndex(update.key)] = {...study};
-    })
-=======
-  const setStudyConfig = (key, value, field) => {
-    const study = getStudyConfig(key);
-    study[field] = value;
-    campaign.studyConfig[getStudyIndex(key)] = study;
->>>>>>> 290fd06 (completed dmp table for data page)
+      campaign.studyConfig[getStudyIndex(update.key)] = { ...study };
+    });
     updateCampaign(campaign);
   };
 
@@ -207,27 +186,17 @@ function Generator() {
 
   const getDmpIndex = (key) => {
     const dmpConfig = campaign.dmpConfig;
-<<<<<<< HEAD
     console.log(dmpConfig.map((obj) => obj.key));
     console.log(dmpConfig.map((obj) => obj.key).indexOf(key));
     return dmpConfig.map((obj) => obj.key).indexOf(key);
   };
-  
+
   const setDmpConfig = (updateArray) => {
-    updateArray.forEach(update => {
+    updateArray.forEach((update) => {
       const dmp = getDmpConfig(update.key);
       dmp[update.field] = update.value;
-      campaign.dmpConfig[getDmpIndex(update.key)] = {...dmp};
-    })
-=======
-    return dmpConfig.map((obj) => obj.key).indexOf(key);
-  };
-
-  const setDmpConfig = (key, value, field) => {
-    const dmp = getDmpConfig(key);
-    dmp[field] = value;
-    campaign.dmpConfig[getDmpIndex(key)] = dmp;
->>>>>>> 290fd06 (completed dmp table for data page)
+      campaign.dmpConfig[getDmpIndex(update.key)] = { ...dmp };
+    });
     updateCampaign(campaign);
   };
 
@@ -278,15 +247,8 @@ function Generator() {
 
   const handleDmpCheckbox = (event) => {
     if (event.target.checked === true) {
-<<<<<<< HEAD
-      console.log("checked");
       createDmpConfig();
     } else {
-      console.log("unchecked");
-=======
-      createDmpConfig();
-    } else {
->>>>>>> 290fd06 (completed dmp table for data page)
       deleteAllDmps();
     }
   };
@@ -335,7 +297,7 @@ function Generator() {
                   <HR />
 
                   <Section padding="xs">
-                    <div className="-d-flex -justify-content-between">
+                    <div className="-d-flex -justify-content-between -flex-wrap">
                       <InputToggle
                         size="sm"
                         disabled={false}
@@ -453,11 +415,7 @@ function Generator() {
                             addHandler={createStudyConfig}
                             deleteHandler={removeStudyConfig}
                             changeHandler={setStudyConfig}
-<<<<<<< HEAD
                             key={config.index}
-=======
-                            key={config.key}
->>>>>>> 290fd06 (completed dmp table for data page)
                             index={config.key}
                             id={index}
                             config={config}
@@ -498,11 +456,8 @@ function Generator() {
                             addHandler={createDmpConfig}
                             deleteHandler={removeDmpConfig}
                             changeHandler={setDmpConfig}
-<<<<<<< HEAD
                             key={config.index}
-=======
                             key={config.key}
->>>>>>> 290fd06 (completed dmp table for data page)
                             id={index}
                             index={config.key}
                             config={config}

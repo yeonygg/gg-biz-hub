@@ -2,12 +2,19 @@ import CustomAdd from "./CustomAdd";
 import unitTypes from "../constants/units";
 import studies from "../constants/studies";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import {findHighest} from "../helpers/helpers";
 =======
 >>>>>>> 290fd06 (completed dmp table for data page)
 import customFeatures from "../constants/custom";
 import { useState } from "react";
 import UUIDV4 from "../helpers/helpers";
+=======
+import { findHighest } from "../helpers/helpers";
+import customFeatures from "../constants/custom";
+import { useState } from "react";
+import { UUIDV4 } from "../helpers/helpers";
+>>>>>>> 71a7b04 (updated skin minspends onto spend calcs)
 
 import {
   InputGroup,
@@ -18,6 +25,7 @@ import {
 
 const AddStudyRow = (props) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   const studyPartners = props.config.studyPartners;
   const numConfig = props.config.studyQuantity;
@@ -25,30 +33,32 @@ const AddStudyRow = (props) => {
   // const studyType = props.config.studyType;
 >>>>>>> 290fd06 (completed dmp table for data page)
 
+=======
+>>>>>>> 71a7b04 (updated skin minspends onto spend calcs)
   // const [studyType, setStudyType] = useState("");
   const campaign = props.campaign;
   const handleChange = (event, field) => {
 <<<<<<< HEAD
     const value = parseFloat(event.target.value);
-    switch(field) {
+    switch (field) {
       case "studyType":
         props.changeHandler([
           {
-            field:"studyType",
+            field: "studyType",
             key: props.index,
-            value: value
+            value: value,
           },
           ///reset these values to null since type changed
           {
             field: "studyPartner",
             key: props.index,
-            value: null
+            value: null,
           },
           {
             field: "studyQuantity",
             key: props.index,
-            value: null
-          }
+            value: null,
+          },
         ]);
         break;
 
@@ -57,22 +67,28 @@ const AddStudyRow = (props) => {
           {
             field: "studyPartner",
             key: props.index,
-            value: value
+            value: value,
           },
           ///reset these values to null since partner changed
           {
             field: "studyQuantity",
             key: props.index,
-            value: null
-          }
+            value: null,
+          },
         ]);
         break;
 
       case "studyQuantity":
-          const selectedPartner = studies[props.config.studyType].studyPartners[props.config.studyPartner];
-          const minSpend = Object.keys(selectedPartner.maxStudies).find(key => selectedPartner.maxStudies[key] === value);
-          const cpmUpcharge = selectedPartner.cpmUpcharge;
+        const selectedPartner =
+          studies[props.config.studyType].studyPartners[
+            props.config.studyPartner
+          ];
+        const minSpend = Object.keys(selectedPartner.maxStudies).find(
+          (key) => selectedPartner.maxStudies[key] === value
+        );
+        const cpmUpcharge = selectedPartner.cpmUpcharge;
 
+<<<<<<< HEAD
           props.changeHandler([
             {
               field: "studyQuantity",
@@ -157,6 +173,26 @@ const AddStudyRow = (props) => {
       //sets the selectedMinSpend prop
       props.changeHandler(props.index, spendConfig[index], "selectedMinSpend");
 >>>>>>> 290fd06 (completed dmp table for data page)
+=======
+        props.changeHandler([
+          {
+            field: "studyQuantity",
+            key: props.index,
+            value: value,
+          },
+          {
+            field: "minSpend",
+            key: props.index,
+            value: minSpend,
+          },
+          {
+            field: "cpmUpcharge",
+            key: props.index,
+            value: cpmUpcharge,
+          },
+        ]);
+        break;
+>>>>>>> 71a7b04 (updated skin minspends onto spend calcs)
     }
   };
 
@@ -186,13 +222,17 @@ const AddStudyRow = (props) => {
             capleft={false}
             required=""
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             value={props.value != null ? props.value : ""}
 >>>>>>> 290fd06 (completed dmp table for data page)
+=======
+>>>>>>> 71a7b04 (updated skin minspends onto spend calcs)
             onChange={(event) => {
               handleChange(event, "studyType");
             }}
           >
+<<<<<<< HEAD
 <<<<<<< HEAD
             <option selected={props.config.studyType === null} disabled="true">Select study type</option>
             {studies.map((study) => (
@@ -204,6 +244,20 @@ const AddStudyRow = (props) => {
             {studies.map((study) => (
               <option key={UUIDV4()} value={study.name}>
 >>>>>>> 290fd06 (completed dmp table for data page)
+=======
+            <option selected={props.config.studyType === null} disabled="true">
+              Select study type
+            </option>
+            {studies.map((study) => (
+              <option
+                key={study.id}
+                value={study.id}
+                selected={
+                  props.config.studyType != null &&
+                  props.config.studyType === study.id
+                }
+              >
+>>>>>>> 71a7b04 (updated skin minspends onto spend calcs)
                 {study.title}
               </option>
             ))}
@@ -232,6 +286,7 @@ const AddStudyRow = (props) => {
               handleChange(event, "studyPartner");
             }}
           >
+<<<<<<< HEAD
             <option selected={props.config.studyPartner === null} disabled="true">Select study partner</option>
             {props.config.studyType != null && studies[props.config.studyType].studyPartners.map((partner) => (
               <option key={partner.id} value={partner.id} selected={props.config.studyPartner != null && partner.id===props.config.studyPartner}>
@@ -250,6 +305,27 @@ const AddStudyRow = (props) => {
                 {partner.name}
               </option>
             ))}
+=======
+            <option
+              selected={props.config.studyPartner === null}
+              disabled="true"
+            >
+              Select study partner
+            </option>
+            {props.config.studyType != null &&
+              studies[props.config.studyType].studyPartners.map((partner) => (
+                <option
+                  key={partner.id}
+                  value={partner.id}
+                  selected={
+                    props.config.studyPartner != null &&
+                    partner.id === props.config.studyPartner
+                  }
+                >
+                  {partner.name}
+                </option>
+              ))}
+>>>>>>> 71a7b04 (updated skin minspends onto spend calcs)
           </InputSelect>
         </InputGroup>
         <InputGroup
@@ -275,12 +351,34 @@ const AddStudyRow = (props) => {
               handleChange(event, "studyQuantity");
             }}
           >
-            <option selected={props.config.studyQuantity === null} disabled="true">Select number of studies</option>
+            <option
+              selected={props.config.studyQuantity === null}
+              disabled="true"
+            >
+              Select number of studies
+            </option>
             {props.config.studyPartner != null &&
-              Array.from({length: findHighest(studies[props.config.studyType].studyPartners[props.config.studyPartner].maxStudies)}, (x, i) => i).map((value, index) => (
-                <option key={index} value={value+1} selected={props.config.studyQuantity != null && props.config.studyQuantity===(value+1)}>
-                  {value+1}
+              Array.from(
+                {
+                  length: findHighest(
+                    studies[props.config.studyType].studyPartners[
+                      props.config.studyPartner
+                    ].maxStudies
+                  ),
+                },
+                (x, i) => i
+              ).map((value, index) => (
+                <option
+                  key={index}
+                  value={value + 1}
+                  selected={
+                    props.config.studyQuantity != null &&
+                    props.config.studyQuantity === value + 1
+                  }
+                >
+                  {value + 1}
                 </option>
+<<<<<<< HEAD
               ))
             }
 =======
@@ -305,6 +403,9 @@ const AddStudyRow = (props) => {
                 </option>
               ))}
 >>>>>>> 290fd06 (completed dmp table for data page)
+=======
+              ))}
+>>>>>>> 71a7b04 (updated skin minspends onto spend calcs)
           </InputSelect>
         </InputGroup>
         {props.total === props.id + 1 && (

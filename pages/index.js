@@ -28,7 +28,7 @@ import { Fragment } from "react";
 import AddStudyRow from "../components/AddStudyRow";
 
 function App() {
-  const [sidebarOpen, setSideBarOpen] = useState(true);
+  const [sidebarOpen, setSideBarOpen] = useState(false);
   const handleViewSidebar = () => {
     setSideBarOpen(!sidebarOpen);
   };

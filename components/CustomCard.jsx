@@ -128,6 +128,7 @@ const CustomCard = (props) => {
     // console.log(object.hasOwnProperty("primary"));
     let objective = [];
     const separator = "\n";
+
     if (object.hasOwnProperty("primary")) {
       objective.push(`Primary: ${props.feature.objective.primary}`);
     }
@@ -207,9 +208,8 @@ const CustomCard = (props) => {
                   style={{ fontWeight: "bold", width: "55%" }}
                 >
                   Programmatic
-                </BodyText>
-
-                <BodyText size="sm">
+                </BodyText>{" "}
+                <BodyText size="sm" style={{ textAlign: "right" }}>
                   {icon()}
                   {props.feature.programmatic}
                 </BodyText>

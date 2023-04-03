@@ -66,7 +66,7 @@ var spendTiers = [
   {
     id: 4,
     title: "$100k-$124k",
-    totalVersions: 9,
+    totalVersions: 12,
     totalHighImpact: 2,
     totalSkins: 1,
     totalUnitTypes: 3,

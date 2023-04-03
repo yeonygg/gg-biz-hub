@@ -15,60 +15,10 @@ const SpendCard = (props) => {
 
   const studySpendFunction = () => {
     //start of study minspend
-<<<<<<< HEAD
     const studies = props.campaign.studyConfig;
-    return studies.length === 0 ? 0 : Math.max(...studies.map(study => study.minSpend));
-=======
-    const study = props.campaign.studyConfig;
-    //returning a value of 0 instead of undefined so spend function can still return a number value for spend
-    if (study.length < 1) {
-      return 0;
-    }
-    //loops through the studyConfig to return the minSpend of the selected partner
-    else {
-      let minSpend = [];
-
-      for (let i = 0; i < study.length; i++) {
-        if (
-          study[i].selectedPartner === "Upwave" &&
-          study[i].selectedQuantity === "1"
-        ) {
-          minSpend.push(study[i].selectedMinSpend);
-        } else if (
-          study[i].selectedPartner === "Upwave" &&
-          study[i].selectedQuantity === "2"
-        ) {
-          minSpend.push(study[i].selectedMinSpend);
-        } else if (study[i].selectedPartner === "Kantar Millward Brown") {
-          minSpend.push(study[i].selectedMinSpend);
-        } else if (study[i].selectedPartner === "Dynata") {
-          minSpend.push(study[i].selectedMinSpend);
-        } else if (
-          study[i].selectedPartner === "Foursquare/Placed" &&
-          study[i].selectedQuantity === "2"
-        ) {
-          minSpend.push(study[i].selectedMinSpend);
-        } else if (
-          study[i].selectedPartner === "Lumen" &&
-          study[i].selectedQuantity === "1"
-        ) {
-          minSpend.push(study[i].selectedMinSpend);
-        } else if (
-          study[i].selectedPartner === "Lumen" &&
-          study[i].selectedQuantity === "2"
-        ) {
-          minSpend.push(study[i].selectedMinSpend);
-        } else if (study[i].selectedPartner === "ANSA") {
-          minSpend.push(study[i].selectedMinSpend);
-        } else if (study[i].selectedPartner === "IRI") {
-          minSpend.push(study[i].selectedMinSpend);
-        } else if (study[i].selectedPartner === "Catalina") {
-          minSpend.push(study[i].selectedMinSpend);
-        }
-      }
-      return Math.max(...minSpend);
-    }
->>>>>>> 290fd06 (completed dmp table for data page)
+    return studies.length === 0
+      ? 0
+      : Math.max(...studies.map((study) => study.minSpend));
   };
 
   const dmpSpendFunction = () => {
@@ -107,6 +57,7 @@ const SpendCard = (props) => {
     const standard = [];
     const hiUnit = [];
     const skin = [];
+    const skinMinSpends = [];
     const versionCount = [];
     const custom = [];
     const addOn = [];
@@ -125,6 +76,7 @@ const SpendCard = (props) => {
 
       if (standardUnit.highImpact === true) {
         hiUnit.push(standardUnit.versionCount);
+        skinMinSpends.push(standardUnit.minSpend);
       }
 
       if (standardUnit.isSkin === true) {
@@ -133,7 +85,9 @@ const SpendCard = (props) => {
 
       if (standardUnit.customOn === true) {
         //for multiple versions of ***the same custom execution*** add at 25% of cost of 1
-        const customFeatureCost = standardUnit.customMinSpend + (standardUnit.customMinSpend*(standardUnit.versionCount-1)*0.25);
+        const customFeatureCost =
+          standardUnit.customMinSpend +
+          standardUnit.customMinSpend * (standardUnit.versionCount - 1) * 0.25;
         custom.push(customFeatureCost);
       }
 
@@ -171,120 +125,130 @@ const SpendCard = (props) => {
 
     const highestCustom = Math.max(...custom);
     //for multiple ***different types of custom executions*** we apply a 50% discount for each subsequent one
-    const customMinSpend = Math.round(custom.filter((v, index) => { return index !== custom.indexOf(highestCustom)}).reduce((sum, a) => sum + a*0.5, 0) + highestCustom);
+    const customMinSpend = Math.round(
+      custom
+        .filter((v, index) => {
+          return index !== custom.indexOf(highestCustom);
+        })
+        .reduce((sum, a) => sum + a * 0.5, 0) + highestCustom
+    );
 
-    let minSpend = 0;
+    let minSpend = [];
 
     if (totalVersions == 0) {
       return 0;
     }
     // console.log(minSpend);
-    if (
-      custom.length > 0 &&
-      skinVersions == 0 &&
-      addOns == 0 &&
-      customNull === false
-    ) {
-      return Math.max(minSpend, customMinSpend);
-    }
+    // if (
+    //   custom.length > 0 &&
+    //   skinVersions == 0 &&
+    //   addOns == 0 &&
+    //   customNull === false
+    // ) {
+    //   return Math.max(minSpend, customMinSpend);
+    // }
 
-    if (
-      custom.length > 0 &&
-      skinVersions == 0 &&
-      addOns > 0 &&
-      totalVersions == 1
-    ) {
-      minSpend = minSpends + 25000;
-    }
+    // if (
+    //   custom.length > 0 &&
+    //   skinVersions == 0 &&
+    //   addOns > 0 &&
+    //   totalVersions == 1
+    // ) {
+    //   minSpend = minSpends + 25000;
+    // }
 
-    if (
-      custom.length > 0 &&
-      skinVersions == 0 &&
-      addOns > 0 &&
-      totalVersions > 1 &&
-      hiVersions == 0
-    ) {
-      return Math.max(minSpends + 25000, customMinSpend);
-    }
+    // if (
+    //   custom.length > 0 &&
+    //   skinVersions == 0 &&
+    //   addOns > 0 &&
+    //   totalVersions > 1 &&
+    //   hiVersions == 0
+    // ) {
+    //   return Math.max(minSpends + 25000, customMinSpend);
+    // }
 
-    if (
-      custom.length > 0 &&
-      skinVersions == 0 &&
-      addOns > 0 &&
-      hiVersions == 1
-    ) {
-      minSpend = 75000 + 25000;
-    }
+    // if (
+    //   custom.length > 0 &&
+    //   skinVersions == 0 &&
+    //   addOns > 0 &&
+    //   hiVersions == 1
+    // ) {
+    //   minSpend = 75000 + 25000;
+    // }
 
-    if (
-      custom.length > 1 &&
-      skinVersions == 0 &&
-      addOns > 0 &&
-      hiVersions > 0
-    ) {
-      return Math.max(100000, customMinSpend);
-    }
+    // if (
+    //   custom.length > 1 &&
+    //   skinVersions == 0 &&
+    //   addOns > 0 &&
+    //   hiVersions > 0
+    // ) {
+    //   return Math.max(100000, customMinSpend);
+    // }
     if (
       totalVersions > 0 &&
       totalVersions <= 6 &&
       hiVersions === 0 &&
       standard.length <= 2 &&
-      skinVersions === 0 &&
+      skinVersions < 2 &&
       addOns == 0
     ) {
-      return 25000;
-    } else if (
-      totalVersions > 0 &&
-      totalVersions <= 9 &&
-      standard.length <= 3 &&
-      hiVersions === 0 &&
-      skinVersions === 0 &&
-      addOns == 0
-    ) {
-      minSpend = 50000;
+      minSpend.push(25000);
     } else if (
       totalVersions > 0 &&
       totalVersions <= 9 &&
       standard.length <= 3 &&
       hiVersions === 1 &&
-      skinVersions === 0 &&
+      skinVersions < 2 &&
       addOns == 0
     ) {
-      minSpend = 75000;
+      minSpend.push(50000);
     } else if (
       totalVersions > 0 &&
-      totalVersions <= 15 &&
-      standard.length <= 15 &&
+      totalVersions <= 9 &&
+      standard.length <= 3 &&
       hiVersions === 2 &&
-      skinVersions === 0
+      skinVersions < 2 &&
+      addOns == 0
     ) {
-      minSpend = 125000;
+      minSpend.push(75000);
+    } else if (
+      totalVersions > 0 &&
+      totalVersions > 9 &&
+      totalVersions <= 12 &&
+      standard.length <= 3 &&
+      hiVersions === 2 &&
+      skinVersions < 2
+    ) {
+      minSpend.push(100000);
     } else if (
       totalVersions > 0 &&
       totalVersions <= 15 &&
-      standard.length <= 15 &&
-      hiVersions > 2 &&
-      skinVersions === 0
+      standard.length <= 3 &&
+      hiVersions === 3 &&
+      skinVersions < 2
     ) {
-      minSpend = 200000;
+      minSpend.push(125000);
     } else if (
       totalVersions > 0 &&
-      totalVersions <= 15 &&
-      standard.length <= 15 &&
-      skinVersions > 0 &&
+      totalVersions <= 18 &&
+      standard.length <= 4 &&
+      hiVersions <= 4 &&
       skinVersions <= 2
     ) {
-      minSpend = 200000;
+      minSpend.push(200000);
     } else if (
       totalVersions > 0 &&
-      totalVersions <= 20 &&
-      standard.length <= 20 &&
-      skinVersions > 2
+      totalVersions <= 25 &&
+      standard.length <= 5 &&
+      hiVersions <= 4 &&
+      skinVersions <= 4
     ) {
-      minSpend = 300000;
+      minSpend.push(300000);
     }
 
-    return minSpend;
+    const finalSpendArray = minSpend.concat(skinMinSpends);
+    const highestfinalSpend = Math.max(...finalSpendArray);
+    return Math.max(highestfinalSpend, highestCustom);
   };
 
   const spendFunction = () => {
