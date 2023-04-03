@@ -17,16 +17,31 @@ import {
 } from "pier-design-system";
 
 const AddDmpRow = (props) => {
+
   const handleChange = (event, field) => {
     const value = event.target.value;
-    props.changeHandler(props.index, value, field);
+    // props.changeHandler(props.index, value, field);
 
     console.log(value);
     if (field === "dmpType") {
       const index = dmp.findIndex((dmp) => dmp.dataType === value);
-      console.log(index);
-      props.changeHandler(props.index, value, "dmpType");
-      props.changeHandler(props.index, dmp[index].minSpend, "minSpend");
+      props.changeHandler([
+        {
+          field:"dmpType",
+          key: props.index,
+          value: value
+        },
+        {
+          field: "minSpend",
+          key: props.index,
+          value: dmp[index].minSpend
+        },
+        {
+          field: "cpmUpcharge",
+          key: props.index,
+          value: dmp[index].cpmUpcharge
+        }
+      ]);
     }
   };
 

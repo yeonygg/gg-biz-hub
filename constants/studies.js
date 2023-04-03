@@ -10,9 +10,9 @@ var studies = [
       {
         id: 0,
         name: "Upwave",
-        minSpend: [75000, 200000],
-        maxStudies: [1, 2],
-        cpmUpcharge: 0,
+        minSpend: 75000,
+        maxStudies: {25000: 0, 50000: 0, 75000: 1, 100000: 1, 125000: 1, 200000: 2, 300000: 2},
+        cpmUpcharge: {0: 0, 25000: 0, 50000: 0, 75000: 0, 100000: 0, 125000: 0, 200000: 0, 300000: 0},
         table: [
           {
             column1: "Unlocked",
@@ -25,9 +25,9 @@ var studies = [
       {
         id: 1,
         name: "Kantar Millward Brown",
-        minSpend: [100000],
-        maxStudies: [1],
-        cpmUpcharge: [{ 100: 2.0, 150: 1.0 }],
+        minSpend: 100000,
+        maxStudies: {25000: 0, 50000: 0, 75000: 0, 100000: 1, 125000: 1, 200000: 1, 300000: 1},
+        cpmUpcharge: {0: 0, 25000: 0, 50000: 0, 75000: 0, 100000: 2, 125000: 1, 200000: 0, 300000: 0},
         table: [
           { column1: "" },
           { column2: "$2.00 CPM Upcharge" },
@@ -39,9 +39,9 @@ var studies = [
       {
         id: 2,
         name: "Dynata",
-        minSpend: [100000],
-        maxStudies: [1],
-        cpmUpcharge: [{ 100: 2.0, 150: 1.0 }],
+        minSpend: 100000,
+        maxStudies: {25000: 0, 50000: 0, 75000: 0, 100000: 1, 125000: 1, 200000: 1, 300000: 1},
+        cpmUpcharge: {0: 0, 25000: 0, 50000: 0, 75000: 0, 100000: 2, 125000: 1, 200000: 0, 300000: 0},
         table: [
           { column1: "" },
           { column2: "$2.00 CPM Upcharge" },
@@ -69,7 +69,7 @@ var studies = [
     caveats: {
       title: ["B2B/Tech:", "Household Names:"],
       info: [
-        "These will not typically perform best with Tech, B2B, SaaS, or other niche products that the average user aren’t familiar with. These types of products may have positive lift in Awareness, but likely not with Consideration or Action Intent. We can look at different audience cuts, but that can be limiting and not guaranteed that the data will be stable.",
+        "These will not typically perform best with Tech, B2B, SaaS, or other niche products that the average user aren't familiar with. These types of products may have positive lift in Awareness, but likely not with Consideration or Action Intent. We can look at different audience cuts, but that can be limiting and not guaranteed that the data will be stable.",
         "Brands with household names (i.e. Coca-Cola, Kleenex, Apple) will not drive significant lift in Awareness, as most users are already familiar. Good to run a study when launching a new product/flavor/iteration",
       ],
     },
@@ -82,9 +82,22 @@ var studies = [
       {
         id: 0,
         name: "Foursquare/Placed",
-        minSpend: [0, 200000],
-        maxStudies: [1, 2],
-        cpmUpcharge: [{ 0: 0.5, 100: 0.5, 150: 0, 200: 0 }],
+        minSpend: 0,
+        maxStudies: {25000: 1, 50000: 1, 75000: 1, 100000: 1, 125000: 1, 200000: 2, 300000: 2},
+        cpmUpcharge: {0: 0.5, 25000: 0.5, 50000: 0.5, 75000: 0.5, 100000: 0.5, 125000: 0, 200000: 0, 300000: 0},
+        table: [
+          { column1: "$0.50 CPM Upcharge" },
+          { column2: "$0.50 CPM Upcharge" },
+          { column3: "Unlocked" },
+          { column4: "You can offer 2 studies if feasible" },
+        ],
+      },
+      {
+        id: 1,
+        name: "Cuebiq",
+        minSpend: 0,
+        maxStudies: {25000: 1, 50000: 1, 75000: 1, 100000: 1, 125000: 1, 200000: 2, 300000: 2},
+        cpmUpcharge: {0: 0.5, 25000: 0.5, 50000: 0.5, 75000: 0.5, 100000: 0.5, 125000: 0, 200000: 0, 300000: 0},
         table: [
           { column1: "$0.50 CPM Upcharge" },
           { column2: "$0.50 CPM Upcharge" },
@@ -113,9 +126,9 @@ var studies = [
       {
         id: 0,
         name: "Lumen",
-        minSpend: [75000, 150000],
-        maxStudies: [1, 2],
-        cpmUpcharge: [{ 0: 0, 100: 0, 150: 0, 200: 0 }],
+        minSpend: 50000,
+        maxStudies: {25000: 0, 50000: 1, 75000: 1, 100000: 1, 125000: 1, 200000: 1, 300000: 2},
+        cpmUpcharge: {0: 0, 25000: 0, 50000: 0, 75000: 0, 100000: 0, 125000: 0, 200000: 0, 300000: 0},
         table: [
           { column1: "Unlocked" },
           { column2: "Unlocked" },
@@ -144,9 +157,9 @@ var studies = [
       {
         id: 0,
         name: "ANSA",
-        minSpend: [75000],
-        maxStudies: [1],
-        cpmUpcharge: [{ 75: 0.75, 150: 0, 250: 0, 500: 0 }],
+        minSpend: 100000,
+        maxStudies: {25000: 0, 50000: 0, 75000: 0, 100000: 1, 125000: 1, 200000: 1, 300000: 1},
+        cpmUpcharge: {0: 1, 25000: 1, 50000: 1, 75000: 1, 100000: 1, 125000: 1, 200000: 0, 300000: 0},
         table: [
           { column1: "$0.75 CPM Upcharge" },
           { column2: "Unlocked" },
@@ -157,9 +170,9 @@ var studies = [
       {
         id: 1,
         name: "IRI",
-        minSpend: [250000],
-        maxStudies: [1],
-        cpmUpcharge: [{ 0: 0, 100: 0, 150: 0, 200: 0 }],
+        minSpend: 200000,
+        maxStudies: {25000: 0, 50000: 0, 75000: 0, 100000: 0, 125000: 0, 200000: 1, 300000: 1},
+        cpmUpcharge: {0: 0, 25000: 0, 50000: 0, 75000: 0, 100000: 0, 125000: 0, 200000: 0, 300000: 0},
         table: [
           { column1: "" },
           { column2: "" },
@@ -170,9 +183,9 @@ var studies = [
       {
         id: 2,
         name: "Catalina",
-        minSpend: [250000],
-        maxStudies: [1],
-        cpmUpcharge: [{ 0: 0, 100: 0, 150: 0, 200: 0 }],
+        minSpend: 200000,
+        maxStudies: {25000: 0, 50000: 0, 75000: 0, 100000: 0, 125000: 0, 200000: 1, 300000: 1},
+        cpmUpcharge: {0: 0, 25000: 0, 50000: 0, 75000: 0, 100000: 0, 125000: 0, 200000: 0, 300000: 0},
         table: [
           { column1: "" },
           { column2: "" },
@@ -185,7 +198,7 @@ var studies = [
       "Uses household level data to build exposed vs. control groups, which can then attribute purchase data to the campaign. Metrics include sales lift, ROI, competitive share lift, etc.",
     goodCandidates: {
       title: "CPG Specific Products:",
-      info: "CPG products that don’t have significant market penetration i.e. Squirt rather than Coca-Cola",
+      info: "CPG products that don't have significant market penetration i.e. Squirt rather than Coca-Cola",
     },
 
     caveats: {
@@ -194,6 +207,7 @@ var studies = [
     },
     deliveryTime: "Report delivered approximately 9 weeks post campaign",
   },
+  /*Need to add click2cart functionality here*/
 ];
 
 export default studies;

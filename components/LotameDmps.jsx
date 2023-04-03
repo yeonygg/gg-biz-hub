@@ -7,7 +7,7 @@ import {
   Section,
   Table,
 } from "pier-design-system";
-import DmpTable from "./dmpTable";
+// import DmpTable from "./dmpTable";
 
 const LotameDmps = () => {
   return (

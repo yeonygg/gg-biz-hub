@@ -11,7 +11,7 @@ import DesignCard from "../components/DesignCard";
 import CesCard from "../components/CesCard";
 import CampaignOutput from "../components/CampaignOutput";
 import { useState, useEffect, Fragment } from "react";
-import UUIDV4 from "../helpers/helpers";
+import {UUIDV4} from "../helpers/helpers";
 import RateTableSection from "./RateTableSection";
 import AddStudyRow from "./AddStudyRow";
 import AddDmpRow from "./AddDmpRow";
@@ -49,18 +49,18 @@ let unitSchema = {
 
 let studySchema = {
   key: null,
-  studyType: "Brand Lift",
-  studyPartners: [],
-  studyQuantity: [],
-  selectedQuantity: 1,
-  selectedPartner: "",
-  studyQuantity: 0,
-  minSpend: 0,
+  studyType: null,
+  studyQuantity: null,
+  studyPartner: null,
+  maxStudies: null,
+  cpmUpcharge: null,
+  minSpend: 0
 };
 
 let dmpSchema = {
   key: null,
   dmpType: "GumGum First Part (Contextual)",
+  cpmUpcharge: null,
   minSpend: 0,
 };
 
@@ -103,7 +103,7 @@ function Generator() {
     const unit = getUnitConfig(key);
     unit[field] = value;
     campaign.unitConfig[getUnitIndex(key)] = unit;
-    updateCampaign(campaign);
+    updateCampaign({...campaign});
   };
 
   const removeUnitConfig = (key) => {
@@ -125,8 +125,8 @@ function Generator() {
   };
 
   const updateCampaign = (updatedCampaign) => {
-    console.log(updatedCampaign);
     setCampaign({ ...updatedCampaign });
+    console.log(campaign)
   };
 
   //starting study config
@@ -147,10 +147,12 @@ function Generator() {
     return studyConfig.map((obj) => obj.key).indexOf(key);
   };
 
-  const setStudyConfig = (key, value, field) => {
-    const study = getStudyConfig(key);
-    study[field] = value;
-    campaign.studyConfig[getStudyIndex(key)] = study;
+  const setStudyConfig = (updateArray) => {
+    updateArray.forEach(update => {
+      const study = getStudyConfig(update.key);
+      study[update.field] = update.value;
+      campaign.studyConfig[getStudyIndex(update.key)] = {...study};
+    })
     updateCampaign(campaign);
   };
 
@@ -189,11 +191,13 @@ function Generator() {
     console.log(dmpConfig.map((obj) => obj.key).indexOf(key));
     return dmpConfig.map((obj) => obj.key).indexOf(key);
   };
-
-  const setDmpConfig = (key, value, field) => {
-    const dmp = getDmpConfig(key);
-    dmp[field] = value;
-    campaign.dmpConfig[getDmpIndex(key)] = dmp;
+  
+  const setDmpConfig = (updateArray) => {
+    updateArray.forEach(update => {
+      const dmp = getDmpConfig(update.key);
+      dmp[update.field] = update.value;
+      campaign.dmpConfig[getDmpIndex(update.key)] = {...dmp};
+    })
     updateCampaign(campaign);
   };
 

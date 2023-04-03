@@ -1,4 +1,4 @@
-export default function UUIDV4() {
+function UUIDV4() {
   var d = new Date().getTime(); //Timestamp
   var d2 =
     (typeof performance !== "undefined" &&
@@ -19,3 +19,10 @@ export default function UUIDV4() {
     return (c === "x" ? r : (r & 0x3) | 0x8).toString(16);
   });
 }
+
+function findHighest(obj) {
+  const values = Object.values(obj);
+  return Math.max(...values);
+};
+
+export {UUIDV4, findHighest}

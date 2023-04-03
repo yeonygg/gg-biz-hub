@@ -1,6 +1,7 @@
 import CustomAdd from "./CustomAdd";
 import unitTypes from "../constants/units";
 import studies from "../constants/studies";
+import {findHighest} from "../helpers/helpers";
 import customFeatures from "../constants/custom";
 import { useState } from "react";
 
@@ -12,78 +13,70 @@ import {
 } from "pier-design-system";
 
 const AddStudyRow = (props) => {
-  const studyPartners = props.config.studyPartners;
-  const numConfig = props.config.studyQuantity;
-  const spendConfig = props.config.minSpend;
-  // const studyType = props.config.studyType;
 
-  // const [studyType, setStudyType] = useState("");
-  const campaign = props.campaign;
   const handleChange = (event, field) => {
-    const value = event.target.value;
+    const value = parseFloat(event.target.value);
+    switch(field) {
+      case "studyType":
+        props.changeHandler([
+          {
+            field:"studyType",
+            key: props.index,
+            value: value
+          },
+          ///reset these values to null since type changed
+          {
+            field: "studyPartner",
+            key: props.index,
+            value: null
+          },
+          {
+            field: "studyQuantity",
+            key: props.index,
+            value: null
+          }
+        ]);
+        break;
 
-    if (field === "studyType") {
-      setStudyType(value);
-      //sets the studyType property with the value selected
-      props.changeHandler(props.index, value, "studyType");
-      //searches for the index of the value name in the studies constant
-      const index = studies.findIndex((study) => study.title === value);
+      case "studyPartner":
+        props.changeHandler([
+          {
+            field: "studyPartner",
+            key: props.index,
+            value: value
+          },
+          ///reset these values to null since partner changed
+          {
+            field: "studyQuantity",
+            key: props.index,
+            value: null
+          }
+        ]);
+        break;
 
-      props.changeHandler(props.index, "", "studyQuantity");
-      props.changeHandler(props.index, "", "selectedQuantity");
+      case "studyQuantity":
+          const selectedPartner = studies[props.config.studyType].studyPartners[props.config.studyPartner];
+          const minSpend = Object.keys(selectedPartner.maxStudies).find(key => selectedPartner.maxStudies[key] === value);
+          const cpmUpcharge = selectedPartner.cpmUpcharge;
 
-      //sets the studyPartners array into the study config
-      props.changeHandler(
-        props.index,
-        studies[index].studyPartners,
-        "studyPartners"
-      );
-      props.changeHandler(
-        props.index,
-        studies[index].studyPartners[0].name,
-        "selectedPartner"
-      );
-    }
-
-    if (field === "selectedPartner") {
-      props.changeHandler(props.index, value, "selectedPartner");
-
-      const index = studyPartners.findIndex(
-        (partner) => partner.name === value
-      );
-      //populates the maxStudies array with maxStudies values in studyPartners
-      props.changeHandler(
-        props.index,
-        studyPartners[index].maxStudies,
-        "studyQuantity"
-      );
-      //populates the minspend array with minspend values in studyPartners
-      props.changeHandler(
-        props.index,
-        studyPartners[index].minSpend,
-        "minSpend"
-      );
-
-      if (numConfig.length < 2) {
-        props.changeHandler(props.index, 1, "selectedQuantity");
-      }
-
-      if (numConfig.length < 2) {
-        props.changeHandler(
-          props.index,
-          studyPartners[index].minSpend[0],
-          "selectedMinSpend"
-        );
-      }
-    }
-
-    if (field === "selectedQuantity") {
-      props.changeHandler(props.index, value, "selectedQuantity");
-
-      //getting the index of number of studies
-      const index = numConfig.findIndex((partner) => partner === Number(value));
-      //sets the selectedMinSpend prop
-      props.changeHandler(props.index, spendConfig[index], "selectedMinSpend");
+          props.changeHandler([
+            {
+              field: "studyQuantity",
+              key: props.index,
+              value: value
+            },
+            {
+              field: "minSpend",
+              key: props.index,
+              value: minSpend
+            },
+            {
+              field: "cpmUpcharge",
+              key: props.index,
+              value: cpmUpcharge
+            },
+          ]);
+          break;
     }
   };
 
@@ -116,9 +109,9 @@ const AddStudyRow = (props) => {
               handleChange(event, "studyType");
             }}
           >
-            <option>Select study type</option>
+            <option selected={props.config.studyType === null} disabled="true">Select study type</option>
             {studies.map((study) => (
-              <option key={study.id} value={study.name}>
+              <option key={study.id} value={study.id} selected={props.config.studyType != null && props.config.studyType===study.id}>
                 {study.title}
               </option>
             ))}
@@ -133,18 +126,18 @@ const AddStudyRow = (props) => {
         >
           <InputSelect
             size="sm"
-            disabled={false}
+            disabled={props.config.studyType === null}
             dark={false}
             error={false}
             capleft={false}
             required=""
             onChange={(event) => {
-              handleChange(event, "selectedPartner");
+              handleChange(event, "studyPartner");
             }}
           >
-            <option selected="selected">Select study partner</option>
-            {studyPartners.map((partner) => (
-              <option key={partner.id} value={partner.name}>
+            <option selected={props.config.studyPartner === null} disabled="true">Select study partner</option>
+            {props.config.studyType != null && studies[props.config.studyType].studyPartners.map((partner) => (
+              <option key={partner.id} value={partner.id} selected={props.config.studyPartner != null && partner.id===props.config.studyPartner}>
                 {partner.name}
               </option>
             ))}
@@ -159,28 +152,23 @@ const AddStudyRow = (props) => {
         >
           <InputSelect
             size="sm"
-            disabled={false}
+            disabled={props.config.studyPartner === null}
             dark={false}
             error={false}
             capleft={false}
             required=""
             onChange={(event) => {
-              handleChange(event, "selectedQuantity");
+              handleChange(event, "studyQuantity");
             }}
           >
-            <option>Select number of studies</option>
-            {props.config.studyQuantity.length === 1 &&
-              numConfig.map((num) => (
-                <option selected="selected" key={num} value={num[0]}>
-                  {num}
+            <option selected={props.config.studyQuantity === null} disabled="true">Select number of studies</option>
+            {props.config.studyPartner != null &&
+              Array.from({length: findHighest(studies[props.config.studyType].studyPartners[props.config.studyPartner].maxStudies)}, (x, i) => i).map((value, index) => (
+                <option key={index} value={value+1} selected={props.config.studyQuantity != null && props.config.studyQuantity===(value+1)}>
+                  {value+1}
                 </option>
-              ))}
-            {props.config.studyQuantity.length > 1 &&
-              numConfig.map((num) => (
-                <option key={num} value={num}>
-                  {num}
-                </option>
-              ))}
+              ))
+            }
           </InputSelect>
         </InputGroup>
         {props.total === props.id + 1 && (
