@@ -43,8 +43,26 @@ const Table = (props) => {
     //apply upcharges to each unit rate
     const finalRates = [
       ...baseRates.map((rate) => {
+<<<<<<< HEAD
         rate.floorCPM += studyUpcharge + dmpUpcharge;
         rate.openCPM += studyUpcharge + dmpUpcharge;
+=======
+        rate.floorVCPM = `${
+          "$" + parseFloat(rate.floorVCPM).toFixed(2).toLocaleString()
+        }`;
+        rate.floorCPM = `${
+          "$" +
+          parseFloat((rate.floorCPM += studyUpcharge + dmpUpcharge))
+            .toFixed(2)
+            .toLocaleString()
+        }`;
+        rate.openCPM = `${
+          "$" +
+          parseFloat((rate.openCPM += studyUpcharge + dmpUpcharge))
+            .toFixed(2)
+            .toLocaleString()
+        }`;
+>>>>>>> 0dd7d17 (made rate breakdown table cpms into money - added $ and .00)
         return rate;
       }),
     ];
