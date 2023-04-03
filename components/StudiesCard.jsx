@@ -11,10 +11,12 @@ import {
   List,
   ListItem,
 } from "pier-design-system";
-import unitTypes from "../constants/units";
-import customFeatures from "../constants/custom";
-import studies from "../constants/studies";
 import { Fragment } from "react";
+import StudySpendTable from "./StudySpendTable";
+<<<<<<< HEAD
+=======
+import UUIDV4 from "../helpers/helpers";
+>>>>>>> 290fd06 (completed dmp table for data page)
 
 const StudiesCard = (props) => {
   const disabled = () => {
@@ -38,7 +40,7 @@ const StudiesCard = (props) => {
   };
 
   const handleDelete = (event) => {
-    props.removeCustom(props.index);
+    props.removeStudy(props.index);
   };
 
   const handleStudyPartners = () => {
@@ -46,23 +48,23 @@ const StudiesCard = (props) => {
     let partners = "";
     if (studyPartners.length === 3) {
       partners = (
-        <List key={props.study.id} size="sm" style={{ padding: "0" }}>
+        <List key={UUIDV4()} size="sm" style={{ padding: "0" }}>
           <ListItem style={{ width: "100%", marginBottom: "0.875rem" }}>
-            {studyPartners[0]}
+            {studyPartners[0].name}
           </ListItem>
           <ListItem style={{ width: "100%", marginBottom: "0.875rem" }}>
-            {studyPartners[1]}
+            {studyPartners[1].name}
           </ListItem>
           <ListItem style={{ width: "100%", marginBottom: "0.875rem" }}>
-            {studyPartners[2]}
+            {studyPartners[2].name}
           </ListItem>
         </List>
       );
     } else {
       partners = (
-        <List key={props.study.id} size="sm" style={{ padding: "0" }}>
+        <List key={UUIDV4} size="sm" style={{ padding: "0" }}>
           <ListItem style={{ width: "100%", marginBottom: "0.875rem" }}>
-            {studyPartners}
+            {studyPartners[0].name}
           </ListItem>
         </List>
       );
@@ -81,13 +83,13 @@ const StudiesCard = (props) => {
           <Heading size="sm">Good Candidates</Heading>
           <HR />
           <div className="-d-flex -m-t-7">
-            <div key={0} style={{ width: "60%", paddingRight: "5rem" }}>
+            <div key={UUIDV4()} style={{ width: "60%", paddingRight: "5rem" }}>
               <BodyText style={{ fontWeight: "bold", color: "#25B9EF" }}>
                 {getTitle[0]}
               </BodyText>
               {props.study.goodCandidates.info.consumerProducts.map(
                 (product) => (
-                  <div key={0} className="-d-flex">
+                  <div key={UUIDV4()} className="-d-flex">
                     <i
                       className="fas fa-thumbs-up"
                       style={{
@@ -101,13 +103,13 @@ const StudiesCard = (props) => {
                 )
               )}
             </div>
-            <div key={0} style={{ width: "40%" }}>
+            <div key={UUIDV4()} style={{ width: "40%" }}>
               <BodyText style={{ fontWeight: "bold", color: "#25B9EF" }}>
                 {getTitle[1]}
               </BodyText>
               {props.study.goodCandidates.info.campaignCharacteristics.map(
                 (product) => (
-                  <div key={0} className="-d-flex">
+                  <div key={UUIDV4()} className="-d-flex">
                     <i
                       className="fas fa-thumbs-up"
                       style={{
@@ -127,13 +129,13 @@ const StudiesCard = (props) => {
           </div>
           <HR />
           <div className="-d-flex -m-t-7 -m-b-6">
-            <div key={0} style={{ width: "60%", paddingRight: "5rem" }}>
+            <div key={UUIDV4()} style={{ width: "60%", paddingRight: "5rem" }}>
               <BodyText style={{ fontWeight: "bold" }}>
                 {props.study.caveats.title[0]}
               </BodyText>
               <BodyText size="xs">{props.study.caveats.info[0]}</BodyText>
             </div>
-            <div key={0} style={{ width: "40%" }}>
+            <div key={UUIDV4()} style={{ width: "40%" }}>
               <BodyText style={{ fontWeight: "bold" }}>
                 {props.study.caveats.title[1]}
               </BodyText>
@@ -244,6 +246,7 @@ const StudiesCard = (props) => {
           </div>
           <Section className="-m-t-5">
             <Heading size="sm">Minimum Spends</Heading>
+            <StudySpendTable study={props.study} />
           </Section>
 
           <Section>

@@ -12,8 +12,16 @@ import {
 import unitTypes from "../constants/units";
 import spendTiers from "../constants/spends";
 import customFeatures from "../constants/custom";
-
+import { UUIDV4 } from "../helpers/helpers";
 const BusinessRuleCard = (props) => {
+  const standardUnits = props.spend.supportedStandard;
+  const gumgumUnits = props.spend.supportedGumgum;
+  const unsupportedHiUnits = props.spend.unsupportedHi;
+  const supportedHiUnits = props.spend.supportedHi;
+
+  const unsupportedSkins = props.spend.unsupportedSkins;
+  const supportedSkins = props.spend.supportedSkins;
+
   const disabled = () => {
     let disable = false;
     if (props.array.length === 1) {
@@ -78,10 +86,10 @@ const BusinessRuleCard = (props) => {
 
   const handleHi = () => {
     let highImpact = "";
-    if (props.spend.unsupportedHi.length > 1) {
+    if (props.spend.unsupportedHi.length > 0) {
       const hiArray = props.spend.unsupportedHi;
       return (highImpact = hiArray.map((unit) => (
-        <div key={unit} className="-d-flex">
+        <div key={UUIDV4()} className="-d-flex">
           <i
             className="fas fa-times"
             style={{
@@ -96,10 +104,10 @@ const BusinessRuleCard = (props) => {
           </BodyText>
         </div>
       )));
-    } else if (props.spend.supportedHi.length > 1) {
+    } else if (props.spend.supportedHi.length > 0) {
       const hiArray = props.spend.supportedHi;
       return (highImpact = hiArray.map((unit) => (
-        <div key={unit} className="-d-flex">
+        <div key={UUIDV4()} className="-d-flex">
           <i
             className="fas fa-check"
             style={{ marginRight: "10px", color: "#08D18B" }}
@@ -108,39 +116,6 @@ const BusinessRuleCard = (props) => {
           <BodyText size="sm" style={{ fontWeight: "bold" }}>
             ({unitTypes[unit].abbrev})
           </BodyText>
-        </div>
-      )));
-    }
-  };
-
-  const handleSkin = () => {
-    let skin = "";
-    if (props.spend.unsupportedSkins.length > 1) {
-      const skinArray = props.spend.unsupportedSkins;
-      return (skin = skinArray.map((unit) => (
-        <div key={unit} className="-d-flex">
-          <i
-            className="fas fa-times"
-            style={{
-              marginRight: "10px",
-              color: "#E24550",
-              marginTop: "0.25rem",
-            }}
-          ></i>{" "}
-          <BodyText size="sm">{unitTypes[unit].name}</BodyText> &nbsp;
-          <BodyText size="sm" style={{ fontWeight: "bold" }}></BodyText>
-        </div>
-      )));
-    } else if (props.spend.supportedSkins.length > 1) {
-      const skinArray = props.spend.supportedSkins;
-      return (skin = skinArray.map((unit) => (
-        <div key={unit} className="-d-flex">
-          <i
-            className="fas fa-check"
-            style={{ marginRight: "10px", color: "#08D18B" }}
-          ></i>{" "}
-          <BodyText size="sm">{unitTypes[unit].name}</BodyText> &nbsp;
-          <BodyText size="sm" style={{ fontWeight: "bold" }}></BodyText>
         </div>
       )));
     }
@@ -148,7 +123,31 @@ const BusinessRuleCard = (props) => {
 
   const skinHeading = () => {
     let heading = "";
-    if (props.spend.unsupportedSkins.length > 1) {
+    if (props.spend.supportedSkins.length > 1) {
+      return (heading = (
+        <div className="-d-flex">
+          <BodyText
+            size="md"
+            style={{
+              color: "#08D18B",
+              fontWeight: "bold",
+              marginBottom: "0",
+            }}
+          >
+            Unlocked Skins
+          </BodyText>
+          &nbsp; &nbsp;
+          <i
+            className="fas fa-unlock"
+            style={{
+              marginRight: "10px",
+              color: "#08D18B",
+              paddingTop: "0.3rem",
+            }}
+          ></i>
+        </div>
+      ));
+    } else {
       return (heading = (
         <div className="-d-flex">
           <BodyText
@@ -171,21 +170,30 @@ const BusinessRuleCard = (props) => {
           ></i>
         </div>
       ));
+    }
+  };
+  const handleLockedSkin = () => {
+    let heading = "";
+    if (props.spend.title === "$200k-$299k" || props.spend.title === "$300k+") {
+      return (heading = null);
     } else {
       return (heading = (
         <div className="-d-flex">
           <BodyText
             size="md"
-            style={{ color: "#08D18B", fontWeight: "bold", marginBottom: "0" }}
+            style={{
+              color: "#E24550",
+              fontWeight: "bold",
+            }}
           >
-            Skins
+            Locked Skins
           </BodyText>
           &nbsp; &nbsp;
           <i
-            className="fas fa-unlock"
+            className="fas fa-lock"
             style={{
               marginRight: "10px",
-              color: "#08D18B",
+              color: "#E24550",
               paddingTop: "0.3rem",
             }}
           ></i>
@@ -207,23 +215,17 @@ const BusinessRuleCard = (props) => {
 
   const skinVersionMax = () => {
     let versions = "";
-    if (props.spend.totalSkins > 1) {
+    if (props.spend.totalSkins === 1) {
+      versions = props.spend.totalSkins + " version maximum";
+    } else if (props.spend.totalSkins > 1) {
       versions = props.spend.totalSkins + " versions maximum";
     }
-
     return versions;
   };
 
   const handleDelete = (event) => {
     props.removeCustom(props.index);
   };
-
-  console.log(props.spend);
-
-  const standardUnits = props.spend.supportedStandard;
-  const gumgumUnits = props.spend.supportedGumgum;
-  const hiUnits = props.spend.unsupportedHi;
-  console.log(props.spend);
 
   const ggHeading = () => {
     let heading = "";
@@ -305,8 +307,7 @@ const BusinessRuleCard = (props) => {
                 </BodyText>
 
                 {standardUnits.map((unit) => (
-                  // eslint-disable-next-line react/jsx-key
-                  <div className="-d-flex">
+                  <div key={UUIDV4()} className="-d-flex">
                     <i
                       className="fas fa-check"
                       style={{ marginRight: "10px", color: "#08D18B" }}
@@ -323,51 +324,25 @@ const BusinessRuleCard = (props) => {
                 <BodyText size="md" style={{ fontWeight: "bold" }}>
                   {ggHeading()}
                 </BodyText>
-
-                {gumgumUnits.map((unit) => (
-                  // eslint-disable-next-line react/jsx-key
-                  <ul className="gg-standard-list" data-columns="2">
-                    <li> {unitTypes[unit].name}</li>
-                  </ul>
-                ))}
-              </div>
-            </div>
-
-            <div className="custom-card-description-box-2 -m-l-6">
-              <div>
-                {hiHeading()}
-                {props.spend.totalHighImpact > 0 && (
-                  <BodyText
-                    size="xs"
-                    style={{
-                      fontWeight: "bold",
-                      paddingBottom: ".5rem",
-                    }}
-                  >
-                    {hiVersionMax()}
-                  </BodyText>
-                )}
-
-                {handleHi()}
-
-                {/*!unit.isGumGum && <><i className="fa-check"></i>{`${unit.name} (${unit.abbrev}) }*/}
-
-                <BodyText size="md" style={{ fontWeight: "bold" }}>
-                  {skinHeading()}
-                  {props.spend.totalSkins > 0 && (
-                    <BodyText
-                      size="xs"
-                      style={{
-                        fontWeight: "bold",
-                        paddingBottom: "0.5rem",
-                      }}
+                <div className="-d-block">
+                  {" "}
+                  {gumgumUnits.map((unit) => (
+<<<<<<< HEAD
+                    // eslint-disable-next-line react/jsx-key
+                    <ul className="gg-standard-list" data-columns="2">
+                      <li> {unitTypes[unit].name}</li>
+=======
+                    <ul
+                      key={UUIDV4()}
+                      className="gg-standard-list"
+                      data-columns="2"
                     >
-                      {skinVersionMax()}
-                    </BodyText>
-                  )}
+                      <li key={UUIDV4()}> {unitTypes[unit].name}</li>
+>>>>>>> 290fd06 (completed dmp table for data page)
+                    </ul>
+                  ))}
+                </div>
 
-                  {handleSkin()}
-                </BodyText>
                 <div className="-d-flex">
                   <BodyText
                     size="md"
@@ -387,6 +362,104 @@ const BusinessRuleCard = (props) => {
                 <BodyText size="sm">{unlockedCustom()}</BodyText>
               </div>
             </div>
+
+            <div className="custom-card-description-box-2 -m-l-6">
+              <div>
+                {hiHeading()}
+                {props.spend.totalHighImpact > 0 && (
+                  <BodyText
+                    size="xs"
+                    style={{
+                      fontWeight: "bold",
+                      paddingBottom: ".5rem",
+                    }}
+                  >
+                    {hiVersionMax()}
+                  </BodyText>
+                )}
+                {handleHi()}
+                {/*!unit.isGumGum && <><i className="fa-check"></i>{`${unit.name} (${unit.abbrev}) }*/}
+<<<<<<< HEAD
+                <BodyText size="md" style={{ fontWeight: "bold" }}>
+                  {skinHeading()}
+                  {props.spend.totalSkins > 0 && (
+                    <BodyText
+                      size="xs"
+                      style={{
+                        fontWeight: "bold",
+                        paddingBottom: "0.5rem",
+                      }}
+                    >
+                      {skinVersionMax()}
+                    </BodyText>
+                  )}
+
+                  {supportedSkins.map((unit) => (
+                    <div key={unit} className="-d-flex">
+                      <i
+                        className="fas fa-check"
+                        style={{ marginRight: "10px", color: "#08D18B" }}
+                      ></i>{" "}
+                      <BodyText size="sm">{unitTypes[unit].name}</BodyText>{" "}
+                      &nbsp;
+                      <BodyText
+                        size="sm"
+                        style={{ fontWeight: "bold" }}
+                      ></BodyText>
+                    </div>
+                  ))}
+                </BodyText>
+                {handleLockedSkin()}
+                {unsupportedSkins.map((unit) => (
+                  <div key={unit} className="-d-flex">
+=======
+                {skinHeading()}
+                {props.spend.totalSkins > 0 && (
+                  <BodyText
+                    size="xs"
+                    style={{
+                      fontWeight: "bold",
+                      paddingBottom: "0.5rem",
+                    }}
+                  >
+                    {skinVersionMax()}
+                  </BodyText>
+                )}
+
+                {supportedSkins.map((unit) => (
+                  <div key={UUIDV4()} className="-d-flex">
+                    <i
+                      className="fas fa-check"
+                      style={{ marginRight: "10px", color: "#08D18B" }}
+                    ></i>{" "}
+                    <BodyText size="sm">{unitTypes[unit].name}</BodyText> &nbsp;
+                    <BodyText
+                      size="sm"
+                      style={{ fontWeight: "bold" }}
+                    ></BodyText>
+                  </div>
+                ))}
+                {handleLockedSkin()}
+                {unsupportedSkins.map((unit) => (
+                  <div key={UUIDV4()} className="-d-flex">
+>>>>>>> 290fd06 (completed dmp table for data page)
+                    <i
+                      className="fas fa-times"
+                      style={{
+                        marginRight: "10px",
+                        color: "#E24550",
+                        marginTop: "0.25rem",
+                      }}
+                    ></i>{" "}
+                    <BodyText size="sm">{unitTypes[unit].name}</BodyText> &nbsp;
+                    <BodyText
+                      size="sm"
+                      style={{ fontWeight: "bold" }}
+                    ></BodyText>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </Section>
         <Section>
@@ -401,7 +474,7 @@ const BusinessRuleCard = (props) => {
             <Tooltip text="Share Card">
               <IconButton
                 title="Button"
-                icon="fas fa-share"
+                icon="fas fa-external-link-alt"
                 size="sm"
                 disabled={false}
                 dark={false}

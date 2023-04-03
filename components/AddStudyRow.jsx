@@ -1,138 +1,198 @@
 import CustomAdd from "./CustomAdd";
 import unitTypes from "../constants/units";
+import studies from "../constants/studies";
+<<<<<<< HEAD
+<<<<<<< HEAD
+import {findHighest} from "../helpers/helpers";
+=======
+>>>>>>> 290fd06 (completed dmp table for data page)
 import customFeatures from "../constants/custom";
 import { useState } from "react";
+import UUIDV4 from "../helpers/helpers";
+=======
+import { findHighest } from "../helpers/helpers";
+import customFeatures from "../constants/custom";
+import { useState } from "react";
+import { UUIDV4 } from "../helpers/helpers";
+>>>>>>> 71a7b04 (updated skin minspends onto spend calcs)
 
 import {
   InputGroup,
-  InputText,
   InputSelect,
-  Section,
-  InputToggle,
   IconButton,
   Tooltip,
-  InputCheckbox,
-  BodyText,
 } from "pier-design-system";
 
 const AddStudyRow = (props) => {
-  const customUnitIndex = props.config.customFeatures;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  const studyPartners = props.config.studyPartners;
+  const numConfig = props.config.studyQuantity;
+  const spendConfig = props.config.minSpend;
+  // const studyType = props.config.studyType;
+>>>>>>> 290fd06 (completed dmp table for data page)
 
+=======
+>>>>>>> 71a7b04 (updated skin minspends onto spend calcs)
+  // const [studyType, setStudyType] = useState("");
+  const campaign = props.campaign;
   const handleChange = (event, field) => {
-    const value =
-      event.target.type === "checkbox"
-        ? event.target.checked
-        : event.target.value;
-    const checkCustomizable = unitTypes.map((obj) => obj.name).indexOf(value);
-    if (field === "unitCount" || field === "versionCount") value = ~~value;
-    props.changeHandler(props.index, value, field);
+<<<<<<< HEAD
+    const value = parseFloat(event.target.value);
+    switch (field) {
+      case "studyType":
+        props.changeHandler([
+          {
+            field: "studyType",
+            key: props.index,
+            value: value,
+          },
+          ///reset these values to null since type changed
+          {
+            field: "studyPartner",
+            key: props.index,
+            value: null,
+          },
+          {
+            field: "studyQuantity",
+            key: props.index,
+            value: null,
+          },
+        ]);
+        break;
 
-    if (field === "unitType") {
-      // console.log(checkCustomizable);
+      case "studyPartner":
+        props.changeHandler([
+          {
+            field: "studyPartner",
+            key: props.index,
+            value: value,
+          },
+          ///reset these values to null since partner changed
+          {
+            field: "studyQuantity",
+            key: props.index,
+            value: null,
+          },
+        ]);
+        break;
+
+      case "studyQuantity":
+        const selectedPartner =
+          studies[props.config.studyType].studyPartners[
+            props.config.studyPartner
+          ];
+        const minSpend = Object.keys(selectedPartner.maxStudies).find(
+          (key) => selectedPartner.maxStudies[key] === value
+        );
+        const cpmUpcharge = selectedPartner.cpmUpcharge;
+
+<<<<<<< HEAD
+          props.changeHandler([
+            {
+              field: "studyQuantity",
+              key: props.index,
+              value: value
+            },
+            {
+              field: "minSpend",
+              key: props.index,
+              value: minSpend
+            },
+            {
+              field: "cpmUpcharge",
+              key: props.index,
+              value: cpmUpcharge
+            },
+          ]);
+          break;
+=======
+    const value = event.target.value;
+
+    if (field === "studyType") {
+      setStudyType(value);
+      //sets the studyType property with the value selected
+      props.changeHandler(props.index, value, "studyType");
+      //searches for the index of the value name in the studies constant
+      const index = studies.findIndex((study) => study.title === value);
+
+      props.changeHandler(props.index, "", "studyQuantity");
+      props.changeHandler(props.index, "", "selectedQuantity");
+
+      //sets the studyPartners array into the study config
       props.changeHandler(
         props.index,
-        unitTypes[checkCustomizable].floorCPM,
-        "floorCPM"
+        studies[index].studyPartners,
+        "studyPartners"
       );
       props.changeHandler(
         props.index,
-        unitTypes[checkCustomizable].openCPM,
-        "openCPM"
+        studies[index].studyPartners[0].name,
+        "selectedPartner"
       );
+    }
+
+    if (field === "selectedPartner") {
+      props.changeHandler(props.index, value, "selectedPartner");
+
+      const index = studyPartners.findIndex(
+        (partner) => partner.name === value
+      );
+      //populates the maxStudies array with maxStudies values in studyPartners
       props.changeHandler(
         props.index,
-        unitTypes[checkCustomizable].turnaroundTime,
-        "turnaroundTime"
+        studyPartners[index].maxStudies,
+        "studyQuantity"
       );
+      //populates the minspend array with minspend values in studyPartners
       props.changeHandler(
         props.index,
-        unitTypes[checkCustomizable].customFeatures,
-        "customFeatures"
-      );
-      props.changeHandler(
-        props.index,
-        unitTypes[checkCustomizable].minSpend,
+        studyPartners[index].minSpend,
         "minSpend"
       );
-      props.changeHandler(
-        props.index,
-        unitTypes[checkCustomizable].floorVCPM,
-        "floorVCPM"
-      );
-      props.changeHandler(
-        props.index,
-        unitTypes[checkCustomizable].highImpact,
-        "highImpact"
-      );
-      if (checkCustomizable) {
-        props.changeHandler(
-          props.index,
-          unitTypes[checkCustomizable].customizable,
-          "isCustomizable"
-        );
+
+      if (numConfig.length < 2) {
+        props.changeHandler(props.index, 1, "selectedQuantity");
       }
-      if (checkCustomizable) {
+
+      if (numConfig.length < 2) {
         props.changeHandler(
           props.index,
-          unitTypes[checkCustomizable].isSkin,
-          "isSkin"
-        );
-      }
-      if (checkCustomizable) {
-        props.changeHandler(
-          props.index,
-          unitTypes[checkCustomizable].cesRequired,
-          "cesRequired"
+          studyPartners[index].minSpend[0],
+          "selectedMinSpend"
         );
       }
     }
-    if (field === "customOn") {
-      if (event.target.checked === true) {
-        props.changeHandler(props.index, true, "customOn");
-      } else {
-        props.changeHandler(props.index, false, "customOn");
-      }
-    }
 
-    if (field === "customUnit") {
-      const custIndex = customFeatures.map((obj) => obj.name).indexOf(value);
-      props.changeHandler(
-        props.index,
-        customFeatures[custIndex].turnaroundTime,
-        "customTurnaroundTime"
-      );
+    if (field === "selectedQuantity") {
+      props.changeHandler(props.index, value, "selectedQuantity");
 
-      const ceTurnaround = customFeatures[custIndex].cesRequired
-        ? customFeatures[custIndex].cesTurnaroundTime
-        : 1;
-      customFeatures[custIndex].cesRequired &&
-        props.changeHandler(props.index, ceTurnaround, "cesTurnaroundTime");
-
-      props.changeHandler(
-        props.index,
-        customFeatures[custIndex].floorCPM,
-        "customFloorCPM"
-      );
-      props.changeHandler(
-        props.index,
-        customFeatures[custIndex].openCPM,
-        "customOpenCPM"
-      );
-      props.changeHandler(
-        props.index,
-        customFeatures[custIndex].minSpend,
-        "customMinSpend"
-      );
-      props.changeHandler(
-        props.index,
-        customFeatures[custIndex].cesTurnaroundTime,
-        "cesTurnaroundTime"
-      );
-      props.changeHandler(
-        props.index,
-        customFeatures[custIndex].cesRequired,
-        "cesRequired"
-      );
+      //getting the index of number of studies
+      const index = numConfig.findIndex((partner) => partner === Number(value));
+      //sets the selectedMinSpend prop
+      props.changeHandler(props.index, spendConfig[index], "selectedMinSpend");
+>>>>>>> 290fd06 (completed dmp table for data page)
+=======
+        props.changeHandler([
+          {
+            field: "studyQuantity",
+            key: props.index,
+            value: value,
+          },
+          {
+            field: "minSpend",
+            key: props.index,
+            value: minSpend,
+          },
+          {
+            field: "cpmUpcharge",
+            key: props.index,
+            value: cpmUpcharge,
+          },
+        ]);
+        break;
+>>>>>>> 71a7b04 (updated skin minspends onto spend calcs)
     }
   };
 
@@ -140,107 +200,248 @@ const AddStudyRow = (props) => {
     props.deleteHandler(props.index);
   };
 
+  const handleAdd = (event) => {
+    props.addHandler(props.index);
+  };
+
   return (
     <div>
-      <Section padding="xs" className="plan-section">
-        <div className="unit-name-input">
-          <BodyText size="lg" style={{ fontWeight: "bold" }}>
-            Additional Studies
-          </BodyText>
-
-          <div className="toggle-button">
-            <InputCheckbox
-              size="sm"
-              disabled={props.config.isCustomizable ? false : true}
-              dark={false}
-              error={false}
-              partial={false}
-              onChange={(event) => {
-                handleChange(event, "customOn");
-              }}
+      <div className="-d-flex -m-b-6">
+        <InputGroup
+          label="type of study"
+          size="sm"
+          error=""
+          dark={false}
+          className="-m-r-4"
+        >
+          <InputSelect
+            size="sm"
+            disabled={false}
+            dark={false}
+            error={false}
+            capleft={false}
+            required=""
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            value={props.value != null ? props.value : ""}
+>>>>>>> 290fd06 (completed dmp table for data page)
+=======
+>>>>>>> 71a7b04 (updated skin minspends onto spend calcs)
+            onChange={(event) => {
+              handleChange(event, "studyType");
+            }}
+          >
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <option selected={props.config.studyType === null} disabled="true">Select study type</option>
+            {studies.map((study) => (
+              <option key={study.id} value={study.id} selected={props.config.studyType != null && props.config.studyType===study.id}>
+=======
+            <option disabled={true} value="">
+              Select study type
+            </option>
+            {studies.map((study) => (
+              <option key={UUIDV4()} value={study.name}>
+>>>>>>> 290fd06 (completed dmp table for data page)
+=======
+            <option selected={props.config.studyType === null} disabled="true">
+              Select study type
+            </option>
+            {studies.map((study) => (
+              <option
+                key={study.id}
+                value={study.id}
+                selected={
+                  props.config.studyType != null &&
+                  props.config.studyType === study.id
+                }
+              >
+>>>>>>> 71a7b04 (updated skin minspends onto spend calcs)
+                {study.title}
+              </option>
+            ))}
+          </InputSelect>
+        </InputGroup>
+        <InputGroup
+          label="study partner"
+          size="sm"
+          error=""
+          dark={false}
+          className="-m-r-4"
+        >
+          <InputSelect
+            size="sm"
+<<<<<<< HEAD
+            disabled={props.config.studyType === null}
+=======
+            disabled={false}
+>>>>>>> 290fd06 (completed dmp table for data page)
+            dark={false}
+            error={false}
+            capleft={false}
+            required=""
+<<<<<<< HEAD
+            onChange={(event) => {
+              handleChange(event, "studyPartner");
+            }}
+          >
+<<<<<<< HEAD
+            <option selected={props.config.studyPartner === null} disabled="true">Select study partner</option>
+            {props.config.studyType != null && studies[props.config.studyType].studyPartners.map((partner) => (
+              <option key={partner.id} value={partner.id} selected={props.config.studyPartner != null && partner.id===props.config.studyPartner}>
+=======
+            value={props.value != null ? props.value : ""}
+            onChange={(event) => {
+              handleChange(event, "selectedPartner");
+            }}
+          >
+            <option disabled={true} value="">
+              Select study partner
+            </option>
+            {studyPartners.map((partner) => (
+              <option key={UUIDV4()} value={partner.name}>
+>>>>>>> 290fd06 (completed dmp table for data page)
+                {partner.name}
+              </option>
+            ))}
+=======
+            <option
+              selected={props.config.studyPartner === null}
+              disabled="true"
             >
-              Custom
-            </InputCheckbox>
-          </div>
-        </div>
-
-        <div className="num-units-input">
-          <InputGroup label="Version Count" size="sm" error="" dark={false}>
-            <InputText
-              size="sm"
-              placeholder="Enter Number"
-              onChange={(event) => {
-                handleChange(event, "versionCount");
-              }}
-            />
-          </InputGroup>
-        </div>
-
-        <div className="toggle-button">
-          <div></div>
-          <Tooltip text="Delete creative">
-            <IconButton
-              title="Button"
-              icon="far fa-trash"
-              size="sm"
-              disabled={false}
-              dark={false}
-              pill={false}
-              danger={true}
-              onClick={handleDelete}
-            />
-          </Tooltip>
-        </div>
-      </Section>
-      {props.config.customOn && (
-        <div>
-          {" "}
-          <Section padding="xs" className="add-on-section">
-            <div style={{ width: "40%", display: "flex" }}>
-              <div className="plus-alignment">
-                <IconButton
-                  title="Button"
-                  icon="fas fa-plus"
-                  size="sm"
-                  disabled={true}
-                  dark={false}
-                  pill={false}
-                />
-              </div>
-
-              <div className="add-on-input">
-                <InputGroup
-                  label="custom add on"
-                  size="sm"
-                  error=""
-                  dark={false}
+              Select study partner
+            </option>
+            {props.config.studyType != null &&
+              studies[props.config.studyType].studyPartners.map((partner) => (
+                <option
+                  key={partner.id}
+                  value={partner.id}
+                  selected={
+                    props.config.studyPartner != null &&
+                    partner.id === props.config.studyPartner
+                  }
                 >
-                  <InputSelect
-                    size="sm"
-                    disabled={false}
-                    dark={false}
-                    error={false}
-                    capleft={false}
-                    required=""
-                    onChange={(event) => {
-                      handleChange(event, "customUnit");
-                    }}
-                  >
-                    <option disabled={true} selected={true} value="">
-                      Select your add on
-                    </option>
-                    {customUnitIndex.map(function (customIndex) {
-                      const custom = customFeatures[customIndex];
-                      return <option key={custom.id}>{custom.name}</option>;
-                    })}
-                  </InputSelect>
-                </InputGroup>
-              </div>
-            </div>
-            <div style={{ width: "60%" }}></div>
-          </Section>
-        </div>
-      )}
+                  {partner.name}
+                </option>
+              ))}
+>>>>>>> 71a7b04 (updated skin minspends onto spend calcs)
+          </InputSelect>
+        </InputGroup>
+        <InputGroup
+          label="No of studies"
+          size="sm"
+          error=""
+          dark={false}
+          style={{ width: "70%" }}
+        >
+          <InputSelect
+            size="sm"
+<<<<<<< HEAD
+            disabled={props.config.studyPartner === null}
+=======
+            disabled={false}
+>>>>>>> 290fd06 (completed dmp table for data page)
+            dark={false}
+            error={false}
+            capleft={false}
+            required=""
+<<<<<<< HEAD
+            onChange={(event) => {
+              handleChange(event, "studyQuantity");
+            }}
+          >
+            <option
+              selected={props.config.studyQuantity === null}
+              disabled="true"
+            >
+              Select number of studies
+            </option>
+            {props.config.studyPartner != null &&
+              Array.from(
+                {
+                  length: findHighest(
+                    studies[props.config.studyType].studyPartners[
+                      props.config.studyPartner
+                    ].maxStudies
+                  ),
+                },
+                (x, i) => i
+              ).map((value, index) => (
+                <option
+                  key={index}
+                  value={value + 1}
+                  selected={
+                    props.config.studyQuantity != null &&
+                    props.config.studyQuantity === value + 1
+                  }
+                >
+                  {value + 1}
+                </option>
+<<<<<<< HEAD
+              ))
+            }
+=======
+            value={props.value != null ? props.value : ""}
+            onChange={(event) => {
+              handleChange(event, "selectedQuantity");
+            }}
+          >
+            <option disabled={true} value="">
+              Select number of studies
+            </option>
+            {props.config.studyQuantity.length === 1 &&
+              numConfig.map((num) => (
+                <option key={UUIDV4()} value={num[0]}>
+                  {num}
+                </option>
+              ))}
+            {props.config.studyQuantity.length > 1 &&
+              numConfig.map((num) => (
+                <option key={UUIDV4()} value={num}>
+                  {num}
+                </option>
+              ))}
+>>>>>>> 290fd06 (completed dmp table for data page)
+=======
+              ))}
+>>>>>>> 71a7b04 (updated skin minspends onto spend calcs)
+          </InputSelect>
+        </InputGroup>
+        {props.total === props.id + 1 && (
+          <div className="toggle-button">
+            <Tooltip text="Add Study">
+              <IconButton
+                title="Button"
+                icon="far fa-plus"
+                size="sm"
+                disabled={false}
+                dark={false}
+                pill={false}
+                hero={true}
+                onClick={handleAdd}
+              />
+            </Tooltip>
+          </div>
+        )}
+        {props.total != props.id + 1 && (
+          <div className="toggle-button">
+            <Tooltip text="Delete study">
+              <IconButton
+                title="Button"
+                icon="far fa-trash"
+                size="sm"
+                position="left"
+                disabled={false}
+                dark={false}
+                pill={false}
+                danger={true}
+                onClick={handleDelete}
+              />
+            </Tooltip>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

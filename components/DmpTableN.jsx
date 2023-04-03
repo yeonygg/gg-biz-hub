@@ -1,36 +1,30 @@
 import React from "react";
 import { useMemo, Fragment } from "react";
 import designBuckets from "../constants/designbuckets";
-import { Columns } from "../constants/Columns";
+import { Dmp, DmpNew } from "../constants/Columns";
 import { useTable } from "react-table";
+import dmp from "../constants/dmps";
 import { UUIDV4 } from "../helpers/helpers";
+const DmpTableNew = (props) => {
+  const columns = useMemo(() => DmpNew, []);
+  const dmpId = props.selectedDmp;
+  const selectedDmpArray = dmp[dmpId].info;
 
-const DesignBucketTable = (props) => {
-  const isExpedited = props.isExpedited;
-  const offset = isExpedited ? 1 : 0;
-  const key = Math.floor(Math.random() * 1000000);
-
-  //create deep copy of designBuckets and apply transformations to relevant data if expedited.
-  const buckets = designBuckets
+  const dpmRates = selectedDmpArray
     .map((a) => {
       return { ...a };
     })
-    .map((bucket) => {
-      bucket.standardUnits = `${bucket.standardUnits - offset} Days`;
-      bucket.highImpact = `${bucket.highImpact - offset} Days`;
-      bucket.skins =
-        bucket.skins === null ? "N/A" : `${bucket.skins - offset} Days`;
-      bucket.inVideoMin =
-        bucket.inVideoMin === null
+    .map((dmp) => {
+      dmp.spend = `${dmp.spend}`;
+      dmp.locked = `${dmp.locked}`;
+      dmp.cpmUpcharge =
+        dmp.cpmUpcharge === "N/A"
           ? "N/A"
-          : `${bucket.inVideoMin - offset} Days`;
-      return bucket;
+          : `${"$" + parseFloat(dmp.cpmUpcharge).toFixed(2).toLocaleString()}`;
+      return dmp;
     });
 
-  const columns = useMemo(() => Columns, []);
-  // the dependencies parameter tells it what value changing should trigger a re-render of the data.
-  //In this case buckets or isExpedited changing would work
-  const data = useMemo(() => buckets, [buckets]);
+  const data = useMemo(() => dpmRates, [dpmRates]);
 
   const tableInstance = useTable({
     columns,
@@ -41,8 +35,8 @@ const DesignBucketTable = (props) => {
     tableInstance;
 
   return (
-    <table key={UUIDV4()} {...getTableProps()} id="design-buckets">
-      <thead key={UUIDV4()}>
+    <table {...getTableProps()} id="design-buckets">
+      <thead>
         {headerGroups.map((headerGroup) => (
           <tr key={UUIDV4()} {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
@@ -53,7 +47,7 @@ const DesignBucketTable = (props) => {
           </tr>
         ))}
       </thead>
-      <tbody {...getTableBodyProps()} key={UUIDV4()}>
+      <tbody {...getTableBodyProps()}>
         {rows.map((row) => {
           prepareRow(row);
           return (
@@ -69,9 +63,10 @@ const DesignBucketTable = (props) => {
             </tr>
           );
         })}
+        <tr></tr>
       </tbody>
     </table>
   );
 };
 
-export default DesignBucketTable;
+export default DmpTableNew;

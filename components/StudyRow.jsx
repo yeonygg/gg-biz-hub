@@ -20,7 +20,7 @@ const StudyRow = (props) => {
   };
 
   const handleDelete = (event) => {
-    props.removeCustom(props.index);
+    props.removeStudy(props.index);
   };
 
   return (
@@ -32,11 +32,10 @@ const StudyRow = (props) => {
         dark={false}
         error={false}
         capleft={false}
-        defaultValue=""
         required=""
-        value={props.value}
+        value={props.value != null ? props.value : ""}
       >
-        <option disabled={true} selected value="">
+        <option disabled={true} value="">
           Select your Study
         </option>
 
@@ -50,7 +49,7 @@ const StudyRow = (props) => {
       {props.total === props.index && (
         <Tooltip text="Add Custom Creative">
           <IconButton
-            onClick={props.addCustom}
+            onClick={props.addStudy}
             style={{ marginLeft: "1rem" }}
             icon="far fa-plus"
             className="plus-button"

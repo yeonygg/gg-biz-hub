@@ -12,41 +12,46 @@ import {
 } from "pier-design-system";
 import Link from "next/link";
 import customFeatures from "../constants/custom";
-import CustomCard from "../components/CustomCard";
-import CustomSelectRow from "../components/CustomSelectRow";
+import RatesRow from "./RatesRow";
+import { unitTypes, rateCatergories } from "../constants/units";
+import RatesCard from "./RatesCard";
+<<<<<<< HEAD
+=======
+import UUIDV4 from "../helpers/helpers";
+>>>>>>> 290fd06 (completed dmp table for data page)
 
 let setDebounce;
 
-function CustomCreatives() {
-  const [selectCustomFeatures, setCustomFeatures] = useState([null]);
+function Rates() {
+  const [selectRates, setRates] = useState([null]);
   const [toggleAll, setToggle] = useState(false);
 
   const handleChange = (e, value, index) => {
-    const newArray = selectCustomFeatures;
+    const newArray = selectRates;
     newArray[+index] = +value;
-    setCustomFeatures([...newArray]);
+    setRates([...newArray]);
   };
 
-  const createCustomSelect = () => {
-    const newCustomArray = selectCustomFeatures;
+  const createRates = () => {
+    const newCustomArray = selectRates;
     newCustomArray.push(null);
-    setCustomFeatures([...newCustomArray]);
+    setRates([...newCustomArray]);
   };
 
-  const getCustomFeatures = () => {
-    return selectCustomFeatures.map((id) =>
-      customFeatures.find((feature) => feature.id === id)
+  const getRates = () => {
+    return selectRates.map((id) =>
+      rateCatergories.find((rate) => rate.id === id)
     );
   };
 
-  const removeCustomSelect = (index) => {
-    const array = selectCustomFeatures;
+  const removeRates = (index) => {
+    const array = selectRates;
     array.splice(index, 1);
-    setCustomFeatures([...array]);
+    setRates([...array]);
   };
 
-  const updateCustom = (selectCustomFeatures) => {
-    setCustomFeatures([...selectCustomFeatures]);
+  const updateRates = (selectRates) => {
+    setRates([...selectRates]);
     // console.log(this.state.campaign.unitConfig);
   };
 
@@ -60,7 +65,7 @@ function CustomCreatives() {
 
   return (
     <Fragment>
-      <Heading>Creative - Custom Creatives</Heading>
+      <Heading>CPM Rates</Heading>
       <Card className="-m-b-6">
         <Section
           padding="lg"
@@ -74,22 +79,22 @@ function CustomCreatives() {
                   fontWeight: "bold",
                 }}
               >
-                Select Custom Creative
+                Select Unit Type
               </BodyText>
             </div>
 
             <div className="-d-block" style={{ width: "100%" }}>
               {" "}
-              {selectCustomFeatures.map((value, index) => (
-                <CustomSelectRow
+              {selectRates.map((value, index) => (
+                <RatesRow
                   changeHandler={handleChange}
                   index={index}
-                  value={selectCustomFeatures[index]}
+                  value={selectRates[index]}
                   key={Math.random() * 10000}
-                  config={customFeatures}
-                  addCustom={createCustomSelect}
-                  removeCustom={removeCustomSelect}
-                  total={selectCustomFeatures.length - 1}
+                  config={unitTypes}
+                  addCustom={createRates}
+                  removeCustom={removeRates}
+                  total={selectRates.length - 1}
                   toggleAll={toggleAll}
                 />
               ))}
@@ -104,38 +109,53 @@ function CustomCreatives() {
               error={false}
               onChange={handleToggle}
             >
+<<<<<<< HEAD
               Show All Custom Creatives
+=======
+              Show All Rates
+>>>>>>> 290fd06 (completed dmp table for data page)
             </InputToggle>
           </div>
         </Section>
       </Card>
 
+<<<<<<< HEAD
       {/* this.state.key.map((index) => {
         <CustomCard custom={index} />;
       }) */}
 
+=======
+>>>>>>> 290fd06 (completed dmp table for data page)
       {!toggleAll &&
-        getCustomFeatures().map(
-          (feature, index) =>
-            feature != undefined && (
-              <CustomCard
+        getRates().map(
+          (rate, index) =>
+            rate != undefined && (
+              <RatesCard
+<<<<<<< HEAD
                 key={index}
+=======
+                key={UUIDV4()}
+>>>>>>> 290fd06 (completed dmp table for data page)
                 index={index}
                 handleDelete={index}
-                feature={feature}
-                array={selectCustomFeatures}
-                removeCustom={removeCustomSelect}
+                rate={rate}
+                array={selectRates}
+                removeCustom={removeRates}
               />
             )
         )}
 
       {toggleAll &&
-        customFeatures.map((feature, index) => (
-          <CustomCard
+        rateCatergories.map((rate, index) => (
+          <RatesCard
+<<<<<<< HEAD
             key={index}
-            feature={feature}
+=======
+            key={UUIDV4()}
+>>>>>>> 290fd06 (completed dmp table for data page)
+            rate={rate}
             toggleAll={toggleAll}
-            array={selectCustomFeatures}
+            array={selectRates}
           />
         ))}
 
@@ -144,4 +164,4 @@ function CustomCreatives() {
   );
 }
 
-export default CustomCreatives;
+export default Rates;

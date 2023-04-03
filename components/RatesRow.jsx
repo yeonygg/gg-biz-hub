@@ -1,7 +1,12 @@
 import { InputSelect, IconButton, Tooltip } from "pier-design-system";
-import designSpendTiers from "../constants/designspends";
+import customFeatures from "../constants/custom";
+import { unitTypes, rateCatergories } from "../constants/units";
+<<<<<<< HEAD
+=======
+import UUIDV4 from "../helpers/helpers";
+>>>>>>> 290fd06 (completed dmp table for data page)
 
-const SpendThresholdRow = (props) => {
+const RatesRow = (props) => {
   const handleChange = (e, field) => {
     const value = e.target.value;
     const index = props.index;
@@ -32,16 +37,28 @@ const SpendThresholdRow = (props) => {
         dark={false}
         error={false}
         capleft={false}
+<<<<<<< HEAD
+        defaultValue=""
+        required=""
+        value={props.value}
+      >
+        <option disabled={true} selected value="">
+=======
         required=""
         value={props.value != null ? props.value : ""}
       >
         <option disabled={true} value="">
-          Select your Threshold
+>>>>>>> 290fd06 (completed dmp table for data page)
+          Select your Unit
         </option>
 
-        {designSpendTiers.map((threshold) => (
-          <option key={threshold.id} value={threshold.id}>
-            {threshold.title}
+        {rateCatergories.map((rateCatergory, index) => (
+<<<<<<< HEAD
+          <option key={rateCatergories[index]} value={index}>
+=======
+          <option key={UUIDV4()} value={index}>
+>>>>>>> 290fd06 (completed dmp table for data page)
+            {rateCatergory.category}
           </option>
         ))}
       </InputSelect>
@@ -83,4 +100,4 @@ const SpendThresholdRow = (props) => {
   );
 };
 
-export default SpendThresholdRow;
+export default RatesRow;

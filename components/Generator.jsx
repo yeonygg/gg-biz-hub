@@ -11,8 +11,11 @@ import DesignCard from "../components/DesignCard";
 import CesCard from "../components/CesCard";
 import CampaignOutput from "../components/CampaignOutput";
 import { useState, useEffect, Fragment } from "react";
-import UUIDV4 from "../helpers/helpers";
+import { UUIDV4 } from "../helpers/helpers";
 import RateTableSection from "./RateTableSection";
+import AddStudyRow from "./AddStudyRow";
+import AddDmpRow from "./AddDmpRow";
+
 import {
   Card,
   Heading,
@@ -26,6 +29,7 @@ import {
   InputToggle,
   InputCheckbox,
 } from "pier-design-system";
+import studies from "../constants/studies";
 
 let setDebounce;
 let unitSchema = {
@@ -43,6 +47,23 @@ let unitSchema = {
   customFeatures: [],
 };
 
+let studySchema = {
+  key: null,
+  studyType: null,
+  studyQuantity: null,
+  studyPartner: null,
+  maxStudies: null,
+  cpmUpcharge: null,
+  minSpend: 0,
+};
+
+let dmpSchema = {
+  key: null,
+  dmpType: "GumGum First Part (Contextual)",
+  cpmUpcharge: null,
+  minSpend: 0,
+};
+
 function Generator() {
   const [accordionOpen, setAccordion] = useState(true);
   const [campaignText, setcampaignText] = useState("Campaign Details");
@@ -55,14 +76,9 @@ function Generator() {
     campaignName: undefined,
     campaignBudget: 0,
     unitConfig: [],
+    studyConfig: [],
+    dmpConfig: [],
   });
-
-  const setCustomConfig = (key, value, field) => {
-    const unit = getUnitConfig(key);
-    unit[field] = value;
-    campaign.unitConfig[getUnitIndex(key)] = unit;
-    updateCampaign(campaign);
-  };
 
   const setCampaignInputs = (value, field) => {
     clearTimeout(setDebounce);
@@ -87,7 +103,7 @@ function Generator() {
     const unit = getUnitConfig(key);
     unit[field] = value;
     campaign.unitConfig[getUnitIndex(key)] = unit;
-    updateCampaign(campaign);
+    updateCampaign({ ...campaign });
   };
 
   const removeUnitConfig = (key) => {
@@ -109,10 +125,101 @@ function Generator() {
   };
 
   const updateCampaign = (updatedCampaign) => {
-    console.log("update");
-    console.log(updatedCampaign);
     setCampaign({ ...updatedCampaign });
   };
+
+  //starting study config
+
+  const getStudyConfig = (key) => {
+    const studyConfig = campaign.studyConfig;
+    const index = getStudyIndex(key);
+    return studyConfig[index];
+  };
+
+  const getStudy = () => {
+    const studyConfig = campaign.studyConfig;
+    return studyConfig.map((id) => studies.find((study) => study.id === id));
+  };
+
+  const getStudyIndex = (key) => {
+    const studyConfig = campaign.studyConfig;
+    return studyConfig.map((obj) => obj.key).indexOf(key);
+  };
+
+  const setStudyConfig = (updateArray) => {
+    updateArray.forEach((update) => {
+      const study = getStudyConfig(update.key);
+      study[update.field] = update.value;
+      campaign.studyConfig[getStudyIndex(update.key)] = { ...study };
+    });
+    updateCampaign(campaign);
+  };
+
+  const removeStudyConfig = (key) => {
+    const index = getStudyIndex(key);
+    console.log(index);
+    campaign.studyConfig.splice(index, 1);
+    updateCampaign(campaign);
+  };
+
+  const createStudyConfig = () => {
+    const newStudy = Object.assign({}, studySchema);
+    newStudy.key = UUIDV4();
+    campaign.studyConfig.push(newStudy);
+    updateCampaign(campaign);
+  };
+
+  const deleteAllStudies = () => {
+    campaign.studyConfig = [];
+    updateCampaign(campaign);
+  };
+
+  //ending study config
+
+  //starting dmp config
+
+  const getDmpConfig = (key) => {
+    const dmpConfig = campaign.dmpConfig;
+    const index = getDmpIndex(key);
+    return dmpConfig[index];
+  };
+
+  const getDmpIndex = (key) => {
+    const dmpConfig = campaign.dmpConfig;
+    console.log(dmpConfig.map((obj) => obj.key));
+    console.log(dmpConfig.map((obj) => obj.key).indexOf(key));
+    return dmpConfig.map((obj) => obj.key).indexOf(key);
+  };
+
+  const setDmpConfig = (updateArray) => {
+    updateArray.forEach((update) => {
+      const dmp = getDmpConfig(update.key);
+      dmp[update.field] = update.value;
+      campaign.dmpConfig[getDmpIndex(update.key)] = { ...dmp };
+    });
+    updateCampaign(campaign);
+  };
+
+  const createDmpConfig = () => {
+    const newDmp = Object.assign({}, dmpSchema);
+    newDmp.key = UUIDV4();
+    campaign.dmpConfig.push(newDmp);
+    updateCampaign(campaign);
+  };
+
+  const removeDmpConfig = (key) => {
+    const index = getDmpIndex(key);
+    console.log(index);
+    campaign.dmpConfig.splice(index, 1);
+    updateCampaign(campaign);
+  };
+
+  const deleteAllDmps = () => {
+    campaign.dmpConfig = [];
+    updateCampaign(campaign);
+  };
+
+  //ending dmp config
 
   const toggleAccordion = () => {
     setAccordion(!accordionOpen);
@@ -130,12 +237,20 @@ function Generator() {
     }
   };
 
-  const addStudy = (event) => {
-    setStudy(event.target.checked);
+  const handleStudyCheckbox = (event) => {
+    if (event.target.checked === true) {
+      createStudyConfig();
+    } else {
+      deleteAllStudies();
+    }
   };
 
-  const addDmp = (event) => {
-    setDmp(event.target.checked);
+  const handleDmpCheckbox = (event) => {
+    if (event.target.checked === true) {
+      createDmpConfig();
+    } else {
+      deleteAllDmps();
+    }
   };
 
   const accordionClass = accordionOpen
@@ -182,7 +297,7 @@ function Generator() {
                   <HR />
 
                   <Section padding="xs">
-                    <div className="-d-flex -justify-content-between">
+                    <div className="-d-flex -justify-content-between -flex-wrap">
                       <InputToggle
                         size="sm"
                         disabled={false}
@@ -259,24 +374,33 @@ function Generator() {
                   </div>
                   <div className="-m-t-11">
                     <Accordion
+                      size="sm"
                       title="Add Studies and DMP's"
                       startOpen={false}
                       inCard={false}
-                      icon="fas fa-cog"
+                      icon="fas fa-chart-bar"
                       disabled={false}
                       dark={false}
                     >
                       <Section>
                         <div className="-d-flex -justify-content-between ">
-                          <BodyText size="lg" style={{ fontWeight: "bold" }}>
-                            Additional Studies
+                          <div className="-d-block -m-b-6">
+                            {" "}
+                            <BodyText
+                              size="lg"
+                              style={{ fontWeight: "bold", marginBottom: "0" }}
+                            >
+                              Additional Studies
+                            </BodyText>
                             <BodyText size="xs" style={{ color: "#A5B2B8" }}>
                               Optional field to add studies to the campaign
                             </BodyText>
-                          </BodyText>
+                          </div>
 
                           <InputCheckbox
-                            onChange={addStudy}
+                            onChange={(event) => {
+                              handleStudyCheckbox(event);
+                            }}
                             size="sm"
                             disabled={false}
                             dark={false}
@@ -286,17 +410,38 @@ function Generator() {
                             Add Study
                           </InputCheckbox>
                         </div>
+                        {campaign.studyConfig.map((config, index) => (
+                          <AddStudyRow
+                            addHandler={createStudyConfig}
+                            deleteHandler={removeStudyConfig}
+                            changeHandler={setStudyConfig}
+                            key={config.index}
+                            index={config.key}
+                            id={index}
+                            config={config}
+                            total={campaign.studyConfig.length}
+                            campaign={campaign.studyConfig}
+                          />
+                        ))}
                         <HR />
                         <div className="-d-flex -justify-content-between  -m-t-7">
-                          <BodyText size="lg" style={{ fontWeight: "bold" }}>
-                            Additional DMPs
+                          <div className="-d-block -m-b-6">
+                            {" "}
+                            <BodyText
+                              size="lg"
+                              style={{ fontWeight: "bold", marginBottom: "0" }}
+                            >
+                              Additional DMPs
+                            </BodyText>
                             <BodyText size="xs" style={{ color: "#A5B2B8" }}>
                               Optional field to add DMPs to the campaign
                             </BodyText>
-                          </BodyText>
+                          </div>
 
                           <InputCheckbox
-                            onChange={addDmp}
+                            onChange={(event) => {
+                              handleDmpCheckbox(event);
+                            }}
                             size="sm"
                             disabled={false}
                             dark={false}
@@ -306,6 +451,20 @@ function Generator() {
                             Add DMP
                           </InputCheckbox>
                         </div>
+                        {campaign.dmpConfig.map((config, index) => (
+                          <AddDmpRow
+                            addHandler={createDmpConfig}
+                            deleteHandler={removeDmpConfig}
+                            changeHandler={setDmpConfig}
+                            key={config.index}
+                            key={config.key}
+                            id={index}
+                            index={config.key}
+                            config={config}
+                            total={campaign.dmpConfig.length}
+                            campaign={campaign.dmpConfig}
+                          />
+                        ))}
                         <HR />
                       </Section>
                     </Accordion>

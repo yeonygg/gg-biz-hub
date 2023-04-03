@@ -7,23 +7,12 @@ import {
   Section,
   Table,
 } from "pier-design-system";
-import Link from "next/link";
-import DesignBucketTable from "./DesignBucketTable";
-import designBuckets from "../constants/designbuckets";
+<<<<<<< HEAD
+// import DmpTable from "./dmpTable";
+=======
+>>>>>>> 290fd06 (completed dmp table for data page)
 
 const LotameDmps = () => {
-  const handleExpedited = (e) => {
-    for (let i = 0; i < designBuckets.length; i++) {
-      if (e.target.checked === true) {
-        designBuckets[i].isExpedited = true;
-        console.log(designBuckets[i].isExpedited);
-      } else {
-        designBuckets[i].isExpedited = false;
-        console.log(designBuckets[i].isExpedited);
-      }
-    }
-  };
-
   return (
     <div>
       <Card className="-m-b-6">
@@ -38,21 +27,10 @@ const LotameDmps = () => {
               marginBottom: "3rem",
             }}
           >
-            Lotame DMPs
-            <BodyText
-              size="xs"
-              style={{
-                color: "#A5B2B8",
-              }}
-            >
-              Minimum Spends
-            </BodyText>
+            Select a Lotame DMP
           </BodyText>
 
-          <div className="design-sla-table -m-b-4">
-            <DesignBucketTable />
-          </div>
-          <Section></Section>
+          <div className="design-sla-table -m-b-9"></div>
         </Section>
       </Card>
     </div>

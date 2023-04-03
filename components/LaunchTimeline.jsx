@@ -101,14 +101,6 @@ const LaunchTimeline = (props) => {
       owner: "Account Manager",
     },
     {
-      name: "Avails Pull",
-      time: 0.5,
-      sequence: 1,
-      description:
-        "Campaign Managers pull avails and ensure the campaign can be delivered as planned.",
-      owner: "Campaign Manager",
-    },
-    {
       name: "Ticket Creation",
       time: 0.5,
       sequence: 1,
@@ -122,6 +114,14 @@ const LaunchTimeline = (props) => {
       sequence: 1,
       description:
         "Campaign Managers coordinate with client to collect all tagging/tracking documents",
+      owner: "Campaign Manager",
+    },
+    {
+      name: "Asset Requisition",
+      time: 1,
+      sequence: 1,
+      description:
+        "Campaign Managers coordinate with client to collect all assets and campaign briefs",
       owner: "Campaign Manager",
     },
     {

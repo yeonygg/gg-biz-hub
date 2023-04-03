@@ -1,7 +1,8 @@
 import { InputSelect, IconButton, Tooltip } from "pier-design-system";
-import designSpendTiers from "../constants/designspends";
+import studies from "../constants/studies";
+import dmp from "../constants/dmps";
 
-const SpendThresholdRow = (props) => {
+const DmpRow = (props) => {
   const handleChange = (e, field) => {
     const value = e.target.value;
     const index = props.index;
@@ -20,7 +21,7 @@ const SpendThresholdRow = (props) => {
   };
 
   const handleDelete = (event) => {
-    props.removeCustom(props.index);
+    props.removeDmp(props.index);
   };
 
   return (
@@ -32,16 +33,24 @@ const SpendThresholdRow = (props) => {
         dark={false}
         error={false}
         capleft={false}
+<<<<<<< HEAD
+        defaultValue=""
+        required=""
+        value={props.value}
+      >
+        <option disabled={true} selected value="">
+=======
         required=""
         value={props.value != null ? props.value : ""}
       >
         <option disabled={true} value="">
-          Select your Threshold
+>>>>>>> 290fd06 (completed dmp table for data page)
+          Select your DMP
         </option>
 
-        {designSpendTiers.map((threshold) => (
-          <option key={threshold.id} value={threshold.id}>
-            {threshold.title}
+        {dmp.map((dmp) => (
+          <option key={dmp.id} value={dmp.id}>
+            {dmp.dataType}
           </option>
         ))}
       </InputSelect>
@@ -49,7 +58,7 @@ const SpendThresholdRow = (props) => {
       {props.total === props.index && (
         <Tooltip text="Add Custom Creative">
           <IconButton
-            onClick={props.addCustom}
+            onClick={props.addDmp}
             style={{ marginLeft: "1rem" }}
             icon="far fa-plus"
             className="plus-button"
@@ -83,4 +92,4 @@ const SpendThresholdRow = (props) => {
   );
 };
 
-export default SpendThresholdRow;
+export default DmpRow;

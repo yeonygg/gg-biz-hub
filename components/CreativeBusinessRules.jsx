@@ -13,7 +13,7 @@ import {
   Table,
   Button,
 } from "pier-design-system";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import customFeatures from "../constants/custom";
 import unitTypes from "../constants/units";
 import Image from "next/image";
@@ -192,7 +192,7 @@ function CreativeBusinessRules() {
           (spend, index) =>
             spend != undefined && (
               <BusinessRuleCard
-                key={index}
+                key={Math.random() * 10000}
                 index={index}
                 handleDelete={index}
                 config={spendTiers}
@@ -207,7 +207,7 @@ function CreativeBusinessRules() {
       {toggleAll &&
         spendTiers.map((spend, index) => (
           <BusinessRuleCard
-            key={index}
+            key={Math.random() * 10000}
             spend={spend}
             toggleAll={toggleAll}
             array={spendThreshold}

@@ -3,14 +3,14 @@ import { Fragment } from "react";
 
 const SubHeading = (props) => {
   return (
-    <Fragment>
-      <Heading size="xs" className="sub-heading -m-b-8">
+    <div className="-m-b-7">
+      <Heading size="xs" className="sub-heading">
         {props.text}
       </Heading>
       <BodyText size="xs" color="light">
         {props.body}
       </BodyText>
-    </Fragment>
+    </div>
   );
 };
 
