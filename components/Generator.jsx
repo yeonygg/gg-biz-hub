@@ -1,7 +1,3 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import Link from "next/link";
 import CampaignInputs from "../components/CampaignInputs";
 import CreativeRow from "../components/CreativeRow";
 import SubHeading from "../components/SubHeading";
@@ -186,8 +182,6 @@ function Generator() {
 
   const getDmpIndex = (key) => {
     const dmpConfig = campaign.dmpConfig;
-    console.log(dmpConfig.map((obj) => obj.key));
-    console.log(dmpConfig.map((obj) => obj.key).indexOf(key));
     return dmpConfig.map((obj) => obj.key).indexOf(key);
   };
 
@@ -209,7 +203,6 @@ function Generator() {
 
   const removeDmpConfig = (key) => {
     const index = getDmpIndex(key);
-    console.log(index);
     campaign.dmpConfig.splice(index, 1);
     updateCampaign(campaign);
   };
@@ -415,7 +408,7 @@ function Generator() {
                             addHandler={createStudyConfig}
                             deleteHandler={removeStudyConfig}
                             changeHandler={setStudyConfig}
-                            key={config.index}
+                            key={config.key}
                             index={config.key}
                             id={index}
                             config={config}
@@ -456,7 +449,6 @@ function Generator() {
                             addHandler={createDmpConfig}
                             deleteHandler={removeDmpConfig}
                             changeHandler={setDmpConfig}
-                            key={config.index}
                             key={config.key}
                             id={index}
                             index={config.key}
