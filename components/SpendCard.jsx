@@ -60,6 +60,7 @@ const SpendCard = (props) => {
     const skinMinSpends = [];
     const versionCount = [];
     const custom = [];
+    const canvas = [];
     const addOn = [];
     let unitMinSpend = [];
     let customNull = false;
@@ -76,6 +77,10 @@ const SpendCard = (props) => {
 
       if (standardUnit.highImpact === true) {
         hiUnit.push(standardUnit.versionCount);
+      }
+
+      if (standardUnit.unitType === "In-Image Canvas") {
+        canvas.push(standardUnit.minSpend);
       }
 
       if (standardUnit.isSkin === true) {
@@ -184,37 +189,44 @@ const SpendCard = (props) => {
     // ) {
     //   return Math.max(100000, customMinSpend);
     // }
+
     if (
       totalVersions > 0 &&
       totalVersions <= 6 &&
       hiVersions === 0 &&
       standard.length <= 2 &&
-      skinVersions < 2
+      skinVersions < 2 &&
+      canvas.length === 0
     ) {
       minSpend.push(25000);
     } else if (
       totalVersions > 0 &&
       totalVersions <= 9 &&
       standard.length <= 3 &&
+      hiVersions > 0 &&
       hiVersions <= 1 &&
-      skinVersions < 2
+      skinVersions < 2 &&
+      canvas.length === 0
     ) {
       minSpend.push(50000);
     } else if (
       totalVersions > 0 &&
       totalVersions <= 9 &&
       standard.length <= 3 &&
+      hiVersions > 0 &&
       hiVersions <= 2 &&
-      skinVersions < 2
+      skinVersions < 2 &&
+      canvas.length === 0
     ) {
       minSpend.push(75000);
     } else if (
       totalVersions > 0 &&
-      totalVersions > 9 &&
       totalVersions <= 12 &&
       standard.length <= 3 &&
-      hiVersions === 2 &&
-      skinVersions < 2
+      hiVersions > 0 &&
+      hiVersions <= 2 &&
+      skinVersions < 2 &&
+      canvas.length === 1
     ) {
       minSpend.push(100000);
     } else if (
