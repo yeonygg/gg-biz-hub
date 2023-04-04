@@ -141,69 +141,70 @@ const CreativeRow = (props) => {
 
   return (
     <div>
-      <Section padding="xs" className="plan-section">
-        <div className="unit-name-input">
-          <InputGroup label="unit type" size="sm" error="" dark={false}>
-            <InputSelect
-              size="sm"
-              disabled={false}
-              dark={false}
-              error={false}
-              capleft={false}
-              required=""
-              onChange={(event) => {
-                handleChange(event, "unitType");
-              }}
-            >
-              <option>Select Unit type</option>
-              {unitTypes.map((unit) => (
-                <option key={unit.id}>{unit.name}</option>
-              ))}
-            </InputSelect>
-          </InputGroup>
+      <Section padding="xs">
+        <div className="-d-flex -justify-content-between">
+          {" "}
+          <div className="unit-name-input">
+            <InputGroup label="unit type" size="sm" error="" dark={false}>
+              <InputSelect
+                size="sm"
+                disabled={false}
+                dark={false}
+                error={false}
+                capleft={false}
+                required=""
+                onChange={(event) => {
+                  handleChange(event, "unitType");
+                }}
+              >
+                <option>Select Unit type</option>
+                {unitTypes.map((unit) => (
+                  <option key={unit.id}>{unit.name}</option>
+                ))}
+              </InputSelect>
+            </InputGroup>
 
-          <div className="toggle-button">
-            <InputCheckbox
-              size="sm"
-              disabled={props.config.isCustomizable ? false : true}
-              dark={false}
-              error={false}
-              partial={false}
-              onChange={(event) => {
-                handleChange(event, "customOn");
-              }}
-            >
-              Custom
-            </InputCheckbox>
+            <div className="toggle-button">
+              <InputCheckbox
+                size="sm"
+                disabled={props.config.isCustomizable ? false : true}
+                dark={false}
+                error={false}
+                partial={false}
+                onChange={(event) => {
+                  handleChange(event, "customOn");
+                }}
+              >
+                Custom
+              </InputCheckbox>
+            </div>
           </div>
-        </div>
-
-        <div className="num-units-input">
-          <InputGroup label="Version Count" size="sm" error="" dark={false}>
-            <InputText
-              size="sm"
-              placeholder="Enter Number"
-              onChange={(event) => {
-                handleChange(event, "versionCount");
-              }}
-            />
-          </InputGroup>
-        </div>
-
-        <div className="toggle-button">
-          <div></div>
-          <Tooltip text="Delete creative">
-            <IconButton
-              title="Button"
-              icon="far fa-trash"
-              size="sm"
-              disabled={false}
-              dark={false}
-              pill={false}
-              danger={true}
-              onClick={handleDelete}
-            />
-          </Tooltip>
+          <div className="num-units-input">
+            <InputGroup label="Version Count" size="sm" error="" dark={false}>
+              <InputText
+                size="sm"
+                placeholder="Enter Number"
+                onChange={(event) => {
+                  handleChange(event, "versionCount");
+                }}
+              />
+            </InputGroup>
+          </div>
+          <div className="toggle-button">
+            <div></div>
+            <Tooltip text="Delete creative">
+              <IconButton
+                title="Button"
+                icon="far fa-trash"
+                size="sm"
+                disabled={false}
+                dark={false}
+                pill={false}
+                danger={true}
+                onClick={handleDelete}
+              />
+            </Tooltip>
+          </div>
         </div>
       </Section>
       {props.config.customOn && (
