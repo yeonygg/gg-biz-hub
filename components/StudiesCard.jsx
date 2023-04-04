@@ -13,10 +13,7 @@ import {
 } from "pier-design-system";
 import { Fragment } from "react";
 import StudySpendTable from "./StudySpendTable";
-<<<<<<< HEAD
-=======
-import UUIDV4 from "../helpers/helpers";
->>>>>>> 290fd06 (completed dmp table for data page)
+import { UUIDV4 } from "../helpers/helpers";
 
 const StudiesCard = (props) => {
   const disabled = () => {

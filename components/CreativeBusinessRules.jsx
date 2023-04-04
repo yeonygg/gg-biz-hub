@@ -79,6 +79,7 @@ function CreativeBusinessRules() {
               <BodyText
                 style={{
                   fontWeight: "bold",
+                  marginBottom: "0",
                 }}
               >
                 Campaign & Unit Minimums

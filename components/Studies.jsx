@@ -55,11 +55,7 @@ function Studies() {
   };
 
   const handleToggleStudy = (event) => {
-<<<<<<< HEAD
-    setToggle(event.target.checked);
-=======
     setToggleStudies(event.target.checked);
->>>>>>> 290fd06 (completed dmp table for data page)
   };
 
   const handleChangeDmp = (e, value, index) => {
@@ -89,11 +85,7 @@ function Studies() {
   };
 
   const handleToggleDmps = (event) => {
-<<<<<<< HEAD
-    setToggle(event.target.checked);
-=======
     setToggleDmps(event.target.checked);
->>>>>>> 290fd06 (completed dmp table for data page)
   };
 
   return (

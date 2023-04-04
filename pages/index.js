@@ -6,12 +6,7 @@ import Studies from "../components/Studies";
 import CustomCreatives from "../components/CustomCreatives";
 import CreativeBusinessRules from "../components/CreativeBusinessRules";
 import Rates from "../components/Rates";
-<<<<<<< HEAD
-import LandingPage from "../components/LandingPage";
-
-=======
 import Home from "../components/Home";
->>>>>>> 290fd06 (completed dmp table for data page)
 import {
   BrowserRouter,
   Routes,
@@ -55,12 +50,8 @@ function App() {
               {" "}
               <Routes>
                 <Route path="/generator" element={<Generator />} />
-<<<<<<< HEAD
-                <Route path="/landing-page" element={<LandingPage />} />
-=======
                 <Route path="/" element={<Home />} />
 
->>>>>>> 290fd06 (completed dmp table for data page)
                 <Route path="/studies" element={<Studies />} />
                 <Route path="/rates" element={<Rates />} />
                 <Route path="/custom-creatives" element={<CustomCreatives />} />

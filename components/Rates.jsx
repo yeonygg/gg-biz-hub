@@ -15,10 +15,7 @@ import customFeatures from "../constants/custom";
 import RatesRow from "./RatesRow";
 import { unitTypes, rateCatergories } from "../constants/units";
 import RatesCard from "./RatesCard";
-<<<<<<< HEAD
-=======
-import UUIDV4 from "../helpers/helpers";
->>>>>>> 290fd06 (completed dmp table for data page)
+import { UUIDV4 } from "../helpers/helpers";
 
 let setDebounce;
 
@@ -109,33 +106,18 @@ function Rates() {
               error={false}
               onChange={handleToggle}
             >
-<<<<<<< HEAD
-              Show All Custom Creatives
-=======
               Show All Rates
->>>>>>> 290fd06 (completed dmp table for data page)
             </InputToggle>
           </div>
         </Section>
       </Card>
 
-<<<<<<< HEAD
-      {/* this.state.key.map((index) => {
-        <CustomCard custom={index} />;
-      }) */}
-
-=======
->>>>>>> 290fd06 (completed dmp table for data page)
       {!toggleAll &&
         getRates().map(
           (rate, index) =>
             rate != undefined && (
               <RatesCard
-<<<<<<< HEAD
-                key={index}
-=======
                 key={UUIDV4()}
->>>>>>> 290fd06 (completed dmp table for data page)
                 index={index}
                 handleDelete={index}
                 rate={rate}
@@ -148,11 +130,7 @@ function Rates() {
       {toggleAll &&
         rateCatergories.map((rate, index) => (
           <RatesCard
-<<<<<<< HEAD
-            key={index}
-=======
             key={UUIDV4()}
->>>>>>> 290fd06 (completed dmp table for data page)
             rate={rate}
             toggleAll={toggleAll}
             array={selectRates}

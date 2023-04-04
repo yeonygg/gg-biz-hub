@@ -76,11 +76,11 @@ const SpendCard = (props) => {
 
       if (standardUnit.highImpact === true) {
         hiUnit.push(standardUnit.versionCount);
-        skinMinSpends.push(standardUnit.minSpend);
       }
 
       if (standardUnit.isSkin === true) {
         skin.push(standardUnit.versionCount);
+        skinMinSpends.push(standardUnit.minSpend);
       }
 
       if (standardUnit.customOn === true) {
@@ -189,26 +189,23 @@ const SpendCard = (props) => {
       totalVersions <= 6 &&
       hiVersions === 0 &&
       standard.length <= 2 &&
-      skinVersions < 2 &&
-      addOns == 0
+      skinVersions < 2
     ) {
       minSpend.push(25000);
     } else if (
       totalVersions > 0 &&
       totalVersions <= 9 &&
       standard.length <= 3 &&
-      hiVersions === 1 &&
-      skinVersions < 2 &&
-      addOns == 0
+      hiVersions <= 1 &&
+      skinVersions < 2
     ) {
       minSpend.push(50000);
     } else if (
       totalVersions > 0 &&
       totalVersions <= 9 &&
       standard.length <= 3 &&
-      hiVersions === 2 &&
-      skinVersions < 2 &&
-      addOns == 0
+      hiVersions <= 2 &&
+      skinVersions < 2
     ) {
       minSpend.push(75000);
     } else if (
@@ -248,7 +245,14 @@ const SpendCard = (props) => {
 
     const finalSpendArray = minSpend.concat(skinMinSpends);
     const highestfinalSpend = Math.max(...finalSpendArray);
-    return Math.max(highestfinalSpend, highestCustom);
+    const addOnMap = addOn.map(function () {
+      if (highestfinalSpend < 100000) {
+        return highestfinalSpend + 25000;
+      } else {
+        return 0;
+      }
+    });
+    return Math.max(highestfinalSpend, highestCustom, addOnMap);
   };
 
   const spendFunction = () => {

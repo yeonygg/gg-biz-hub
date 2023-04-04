@@ -1,10 +1,7 @@
 import { InputSelect, IconButton, Tooltip } from "pier-design-system";
 import customFeatures from "../constants/custom";
 import { unitTypes, rateCatergories } from "../constants/units";
-<<<<<<< HEAD
-=======
-import UUIDV4 from "../helpers/helpers";
->>>>>>> 290fd06 (completed dmp table for data page)
+import { UUIDV4 } from "../helpers/helpers";
 
 const RatesRow = (props) => {
   const handleChange = (e, field) => {
@@ -37,27 +34,15 @@ const RatesRow = (props) => {
         dark={false}
         error={false}
         capleft={false}
-<<<<<<< HEAD
-        defaultValue=""
-        required=""
-        value={props.value}
-      >
-        <option disabled={true} selected value="">
-=======
         required=""
         value={props.value != null ? props.value : ""}
       >
         <option disabled={true} value="">
->>>>>>> 290fd06 (completed dmp table for data page)
           Select your Unit
         </option>
 
         {rateCatergories.map((rateCatergory, index) => (
-<<<<<<< HEAD
-          <option key={rateCatergories[index]} value={index}>
-=======
           <option key={UUIDV4()} value={index}>
->>>>>>> 290fd06 (completed dmp table for data page)
             {rateCatergory.category}
           </option>
         ))}

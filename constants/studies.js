@@ -10,21 +10,26 @@ var studies = [
       {
         id: 0,
         name: "Upwave",
-<<<<<<< HEAD
         minSpend: 75000,
-        maxStudies: {25000: 0, 50000: 0, 75000: 1, 100000: 1, 125000: 1, 200000: 2, 300000: 2},
-        cpmUpcharge: {0: 0, 25000: 0, 50000: 0, 75000: 0, 100000: 0, 125000: 0, 200000: 0, 300000: 0},
-        table: [
-          {
-            column1: "Unlocked",
-          },
-          { column2: "Unlocked" },
-          { column3: "Unlocked" },
-          { column4: "You can offer 2 studies if feasible" },
-=======
-        minSpend: [75000, 200000],
-        maxStudies: [1, 2],
-        cpmUpcharge: 0,
+        maxStudies: {
+          25000: 0,
+          50000: 0,
+          75000: 1,
+          100000: 1,
+          125000: 1,
+          200000: 2,
+          300000: 2,
+        },
+        cpmUpcharge: {
+          0: 0,
+          25000: 0,
+          50000: 0,
+          75000: 0,
+          100000: 0,
+          125000: 0,
+          200000: 0,
+          300000: 0,
+        },
         table: [
           {
             column1: "Locked",
@@ -34,25 +39,31 @@ var studies = [
           { column4: "Unlocked" },
           { column5: "Unlocked" },
           { column6: "You can offer 2 studies if feasible" },
->>>>>>> 290fd06 (completed dmp table for data page)
         ],
       },
       {
         id: 1,
         name: "Kantar Millward Brown",
-<<<<<<< HEAD
         minSpend: 100000,
-        maxStudies: {25000: 0, 50000: 0, 75000: 0, 100000: 1, 125000: 1, 200000: 1, 300000: 1},
-        cpmUpcharge: {0: 0, 25000: 0, 50000: 0, 75000: 0, 100000: 2, 125000: 1, 200000: 0, 300000: 0},
-        table: [
-          { column1: "" },
-          { column2: "$2.00 CPM Upcharge" },
-          { column3: "$1.00 CPM Upcharge" },
-          { column4: "Unlocked" },
-=======
-        minSpend: [100000],
-        maxStudies: [1],
-        cpmUpcharge: [{ 100: 2.0, 150: 1.0 }],
+        maxStudies: {
+          25000: 0,
+          50000: 0,
+          75000: 0,
+          100000: 1,
+          125000: 1,
+          200000: 1,
+          300000: 1,
+        },
+        cpmUpcharge: {
+          0: 0,
+          25000: 0,
+          50000: 0,
+          75000: 0,
+          100000: 2,
+          125000: 1,
+          200000: 0,
+          300000: 0,
+        },
         table: [
           { column1: "Locked" },
           { column2: "Locked" },
@@ -60,26 +71,32 @@ var studies = [
           { column4: "$2.00 CPM Upcharge" },
           { column5: "$1.00 CPM Upcharge" },
           { column6: "Unlocked" },
->>>>>>> 290fd06 (completed dmp table for data page)
         ],
       },
 
       {
         id: 2,
         name: "Dynata",
-<<<<<<< HEAD
         minSpend: 100000,
-        maxStudies: {25000: 0, 50000: 0, 75000: 0, 100000: 1, 125000: 1, 200000: 1, 300000: 1},
-        cpmUpcharge: {0: 0, 25000: 0, 50000: 0, 75000: 0, 100000: 2, 125000: 1, 200000: 0, 300000: 0},
-        table: [
-          { column1: "" },
-          { column2: "$2.00 CPM Upcharge" },
-          { column3: "$1.00 CPM Upcharge" },
-          { column4: "Unlocked" },
-=======
-        minSpend: [100000],
-        maxStudies: [1],
-        cpmUpcharge: [{ 100: 2.0, 150: 1.0 }],
+        maxStudies: {
+          25000: 0,
+          50000: 0,
+          75000: 0,
+          100000: 1,
+          125000: 1,
+          200000: 1,
+          300000: 1,
+        },
+        cpmUpcharge: {
+          0: 0,
+          25000: 0,
+          50000: 0,
+          75000: 0,
+          100000: 2,
+          125000: 1,
+          200000: 0,
+          300000: 0,
+        },
         table: [
           { column1: "Locked" },
           { column2: "Locked" },
@@ -87,7 +104,6 @@ var studies = [
           { column4: "$2.00 CPM Upcharge" },
           { column5: "$1.00 CPM Upcharge" },
           { column6: "Unlocked" },
->>>>>>> 290fd06 (completed dmp table for data page)
         ],
       },
     ],
@@ -123,32 +139,26 @@ var studies = [
       {
         id: 0,
         name: "Foursquare/Placed",
-<<<<<<< HEAD
         minSpend: 0,
-        maxStudies: {25000: 1, 50000: 1, 75000: 1, 100000: 1, 125000: 1, 200000: 2, 300000: 2},
-        cpmUpcharge: {0: 0.5, 25000: 0.5, 50000: 0.5, 75000: 0.5, 100000: 0.5, 125000: 0, 200000: 0, 300000: 0},
-        table: [
-          { column1: "$0.50 CPM Upcharge" },
-          { column2: "$0.50 CPM Upcharge" },
-          { column3: "Unlocked" },
-          { column4: "You can offer 2 studies if feasible" },
-        ],
-      },
-      {
-        id: 1,
-        name: "Cuebiq",
-        minSpend: 0,
-        maxStudies: {25000: 1, 50000: 1, 75000: 1, 100000: 1, 125000: 1, 200000: 2, 300000: 2},
-        cpmUpcharge: {0: 0.5, 25000: 0.5, 50000: 0.5, 75000: 0.5, 100000: 0.5, 125000: 0, 200000: 0, 300000: 0},
-        table: [
-          { column1: "$0.50 CPM Upcharge" },
-          { column2: "$0.50 CPM Upcharge" },
-          { column3: "Unlocked" },
-          { column4: "You can offer 2 studies if feasible" },
-=======
-        minSpend: [0, 200000],
-        maxStudies: [1, 2],
-        cpmUpcharge: [{ 0: 0.5, 100: 0.5, 150: 0, 200: 0 }],
+        maxStudies: {
+          25000: 1,
+          50000: 1,
+          75000: 1,
+          100000: 1,
+          125000: 1,
+          200000: 2,
+          300000: 2,
+        },
+        cpmUpcharge: {
+          0: 0.5,
+          25000: 0.5,
+          50000: 0.5,
+          75000: 0.5,
+          100000: 0.5,
+          125000: 0,
+          200000: 0,
+          300000: 0,
+        },
         table: [
           { column1: "$0.50 CPM Upcharge" },
           { column2: "$0.50 CPM Upcharge" },
@@ -156,7 +166,38 @@ var studies = [
           { column4: "$0.50 CPM Upcharge" },
           { column5: "Unlocked" },
           { column6: "You can offer 2 studies if feasible" },
->>>>>>> 290fd06 (completed dmp table for data page)
+        ],
+      },
+      {
+        id: 1,
+        name: "Cuebiq",
+        minSpend: 0,
+        maxStudies: {
+          25000: 1,
+          50000: 1,
+          75000: 1,
+          100000: 1,
+          125000: 1,
+          200000: 2,
+          300000: 2,
+        },
+        cpmUpcharge: {
+          0: 0.5,
+          25000: 0.5,
+          50000: 0.5,
+          75000: 0.5,
+          100000: 0.5,
+          125000: 0,
+          200000: 0,
+          300000: 0,
+        },
+        table: [
+          { column1: "$0.50 CPM Upcharge" },
+          { column2: "$0.50 CPM Upcharge" },
+          { column3: "$0.50 CPM Upcharge" },
+          { column4: "$0.50 CPM Upcharge" },
+          { column5: "Unlocked" },
+          { column6: "You can offer 2 studies if feasible" },
         ],
       },
     ],
@@ -180,19 +221,26 @@ var studies = [
       {
         id: 0,
         name: "Lumen",
-<<<<<<< HEAD
         minSpend: 50000,
-        maxStudies: {25000: 0, 50000: 1, 75000: 1, 100000: 1, 125000: 1, 200000: 1, 300000: 2},
-        cpmUpcharge: {0: 0, 25000: 0, 50000: 0, 75000: 0, 100000: 0, 125000: 0, 200000: 0, 300000: 0},
-        table: [
-          { column1: "Unlocked" },
-          { column2: "Unlocked" },
-          { column3: "You can offer 2 studies if feasible" },
-          { column4: "You can offer 2 studies if feasible" },
-=======
-        minSpend: [75000, 150000],
-        maxStudies: [1, 2],
-        cpmUpcharge: [{ 0: 0, 100: 0, 150: 0, 200: 0 }],
+        maxStudies: {
+          25000: 0,
+          50000: 1,
+          75000: 1,
+          100000: 1,
+          125000: 1,
+          200000: 1,
+          300000: 2,
+        },
+        cpmUpcharge: {
+          0: 0,
+          25000: 0,
+          50000: 0,
+          75000: 0,
+          100000: 0,
+          125000: 0,
+          200000: 0,
+          300000: 0,
+        },
         table: [
           { column1: "Locked" },
           { column2: "Unlocked" },
@@ -200,7 +248,6 @@ var studies = [
           { column4: "Unlocked" },
           { column5: "Unlocked" },
           { column6: "You can offer 2 studies if feasible" },
->>>>>>> 290fd06 (completed dmp table for data page)
         ],
       },
     ],
@@ -224,19 +271,26 @@ var studies = [
       {
         id: 0,
         name: "ANSA",
-<<<<<<< HEAD
         minSpend: 100000,
-        maxStudies: {25000: 0, 50000: 0, 75000: 0, 100000: 1, 125000: 1, 200000: 1, 300000: 1},
-        cpmUpcharge: {0: 1, 25000: 1, 50000: 1, 75000: 1, 100000: 1, 125000: 1, 200000: 0, 300000: 0},
-        table: [
-          { column1: "$0.75 CPM Upcharge" },
-          { column2: "Unlocked" },
-          { column3: "Unlocked" },
-          { column4: "Unlocked" },
-=======
-        minSpend: [75000],
-        maxStudies: [1],
-        cpmUpcharge: [{ 75: 0.75, 150: 0, 250: 0, 500: 0 }],
+        maxStudies: {
+          25000: 0,
+          50000: 0,
+          75000: 0,
+          100000: 1,
+          125000: 1,
+          200000: 1,
+          300000: 1,
+        },
+        cpmUpcharge: {
+          0: 1,
+          25000: 1,
+          50000: 1,
+          75000: 1,
+          100000: 1,
+          125000: 1,
+          200000: 0,
+          300000: 0,
+        },
         table: [
           { column1: "Locked" },
           { column2: "Locked" },
@@ -244,25 +298,31 @@ var studies = [
           { column4: "$1.00 CPM Upcharge" },
           { column5: "$1.00 CPM Upcharge" },
           { column6: "Unlocked" },
->>>>>>> 290fd06 (completed dmp table for data page)
         ],
       },
       {
         id: 1,
         name: "IRI",
-<<<<<<< HEAD
         minSpend: 200000,
-        maxStudies: {25000: 0, 50000: 0, 75000: 0, 100000: 0, 125000: 0, 200000: 1, 300000: 1},
-        cpmUpcharge: {0: 0, 25000: 0, 50000: 0, 75000: 0, 100000: 0, 125000: 0, 200000: 0, 300000: 0},
-        table: [
-          { column1: "" },
-          { column2: "" },
-          { column3: "Unlocked" },
-          { column4: "Unlocked" },
-=======
-        minSpend: [250000],
-        maxStudies: [1],
-        cpmUpcharge: [{ 0: 0, 100: 0, 150: 0, 200: 0 }],
+        maxStudies: {
+          25000: 0,
+          50000: 0,
+          75000: 0,
+          100000: 0,
+          125000: 0,
+          200000: 1,
+          300000: 1,
+        },
+        cpmUpcharge: {
+          0: 0,
+          25000: 0,
+          50000: 0,
+          75000: 0,
+          100000: 0,
+          125000: 0,
+          200000: 0,
+          300000: 0,
+        },
         table: [
           { column1: "Locked" },
           { column2: "Locked" },
@@ -270,25 +330,31 @@ var studies = [
           { column4: "Locked" },
           { column5: "Locked" },
           { column6: "Unlocked" },
->>>>>>> 290fd06 (completed dmp table for data page)
         ],
       },
       {
         id: 2,
         name: "Catalina",
-<<<<<<< HEAD
         minSpend: 200000,
-        maxStudies: {25000: 0, 50000: 0, 75000: 0, 100000: 0, 125000: 0, 200000: 1, 300000: 1},
-        cpmUpcharge: {0: 0, 25000: 0, 50000: 0, 75000: 0, 100000: 0, 125000: 0, 200000: 0, 300000: 0},
-        table: [
-          { column1: "" },
-          { column2: "" },
-          { column3: "Unlocked" },
-          { column4: "Unlocked" },
-=======
-        minSpend: [250000],
-        maxStudies: [1],
-        cpmUpcharge: [{ 0: 0, 100: 0, 150: 0, 200: 0 }],
+        maxStudies: {
+          25000: 0,
+          50000: 0,
+          75000: 0,
+          100000: 0,
+          125000: 0,
+          200000: 1,
+          300000: 1,
+        },
+        cpmUpcharge: {
+          0: 0,
+          25000: 0,
+          50000: 0,
+          75000: 0,
+          100000: 0,
+          125000: 0,
+          200000: 0,
+          300000: 0,
+        },
         table: [
           { column1: "Locked" },
           { column2: "Locked" },
@@ -296,7 +362,6 @@ var studies = [
           { column4: "Locked" },
           { column5: "Locked" },
           { column6: "Unlocked" },
->>>>>>> 290fd06 (completed dmp table for data page)
         ],
       },
     ],

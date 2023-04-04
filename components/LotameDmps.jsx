@@ -7,10 +7,6 @@ import {
   Section,
   Table,
 } from "pier-design-system";
-<<<<<<< HEAD
-// import DmpTable from "./dmpTable";
-=======
->>>>>>> 290fd06 (completed dmp table for data page)
 
 const LotameDmps = () => {
   return (

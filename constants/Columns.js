@@ -126,17 +126,6 @@ export const Rates = [
 export const DmpNew = [
   {
     Header: "Spend Tier",
-<<<<<<< HEAD
-    accessor: "spendTiers[0]",
-  },
-  {
-    Header: "Locked Status",
-    accessor: "cpms",
-  },
-  {
-    Header: "CPM Upcharge",
-    accessor: "cpms[1].tier50",
-=======
     accessor: "spend",
   },
   {
@@ -154,7 +143,6 @@ export const DmpNew = [
   {
     Header: "CPM Upcharge",
     accessor: "cpmUpcharge",
->>>>>>> 290fd06 (completed dmp table for data page)
   },
 ];
 
@@ -201,7 +189,6 @@ export const Dmp = [
       </div>
     ),
     accessor: "tableInfo[1].column2",
-<<<<<<< HEAD
     headerStyle: { textAlign: "center" },
     Cell: (row) => (
       <div style={{ textAlign: "center" }}>
@@ -242,195 +229,6 @@ export const Dmp = [
       </div>
     ),
     accessor: "tableInfo[3].column4",
-    headerStyle: { textAlign: "center" },
-    Cell: (row) => (
-      <div style={{ textAlign: "center" }}>
-        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
-        {row.value}
-      </div>
-    ),
-  },
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "center",
-          color: "#08D18B",
-        }}
-      >
-        $125k-$199k{" "}
-      </div>
-    ),
-    accessor: "tableInfo[4].column5",
-    headerStyle: { textAlign: "center" },
-    Cell: (row) => (
-      <div style={{ textAlign: "center" }}>
-        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
-        {row.value}
-      </div>
-    ),
-  },
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "center",
-          color: "#08D18B",
-        }}
-      >
-        $200k-$299k{" "}
-      </div>
-    ),
-    accessor: "tableInfo[5].column6",
-    headerStyle: { textAlign: "center" },
-    Cell: (row) => (
-      <div style={{ textAlign: "center" }}>
-        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
-        {row.value}
-      </div>
-    ),
-  },
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "center",
-          color: "#08D18B",
-        }}
-      >
-        $300k+{" "}
-      </div>
-    ),
-    accessor: "tableInfo[6].column7",
-    headerStyle: { textAlign: "center" },
-    Cell: (row) => (
-      <div style={{ textAlign: "center" }}>
-        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
-        {row.value}
-      </div>
-    ),
-  },
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "center",
-          color: "#08D18B",
-        }}
-      >
-        No Voiced Budget{" "}
-      </div>
-    ),
-    accessor: "tableInfo[7].column8",
-    headerStyle: { textAlign: "center" },
-    Cell: (row) => (
-      <div style={{ textAlign: "center" }}>
-        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
-        {row.value}
-      </div>
-    ),
-  },
-];
-
-export const studySpendTable = [
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "left",
-          minWidth: "200px",
-          maxWidth: "400px",
-        }}
-      >
-        Partner Name
-      </div>
-    ),
-    accessor: "name",
-    headerStyle: { textAlign: "right" },
-  },
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "center",
-          color: "#08D18B",
-        }}
-      >
-        $0k-99k{" "}
-      </div>
-    ),
-
-    accessor: "table[0].column1",
-    Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
-  },
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "center",
-          color: "#08D18B",
-        }}
-      >
-        $100k-$149k{" "}
-      </div>
-    ),
-    accessor: "table[1].column2",
-=======
->>>>>>> 290fd06 (completed dmp table for data page)
-    headerStyle: { textAlign: "center" },
-    Cell: (row) => (
-      <div style={{ textAlign: "center" }}>
-        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
-        {row.value}
-      </div>
-    ),
-  },
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "center",
-          color: "#08D18B",
-        }}
-      >
-<<<<<<< HEAD
-        $150k-199k{" "}
-      </div>
-    ),
-    accessor: "table[2].column3",
-=======
-        $75k-$99k{" "}
-      </div>
-    ),
-    accessor: "tableInfo[2].column3",
->>>>>>> 290fd06 (completed dmp table for data page)
-    headerStyle: { textAlign: "center" },
-    Cell: (row) => (
-      <div style={{ textAlign: "center" }}>
-        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
-        {row.value}
-      </div>
-    ),
-  },
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "center",
-          color: "#08D18B",
-        }}
-      >
-<<<<<<< HEAD
-        $200k+{" "}
-      </div>
-    ),
-    accessor: "table[3].column4",
-=======
-        $100k-$124k{" "}
-      </div>
-    ),
-    accessor: "tableInfo[3].column4",
->>>>>>> 290fd06 (completed dmp table for data page)
     headerStyle: { textAlign: "center" },
     Cell: (row) => (
       <div style={{ textAlign: "center" }}>

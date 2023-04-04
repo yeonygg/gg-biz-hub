@@ -3,7 +3,7 @@ import { useMemo, Fragment } from "react";
 import designBuckets from "../constants/designbuckets";
 import { studySpendTable } from "../constants/Columns";
 import { useTable } from "react-table";
-import UUIDV4 from "../helpers/helpers";
+import { UUIDV4 } from "../helpers/helpers";
 
 const StudySpendTable = (props) => {
   const selectedStudy = props.study.studyPartners;

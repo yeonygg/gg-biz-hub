@@ -3,26 +3,11 @@ import {
   Card,
   Section,
   Heading,
-<<<<<<< HEAD
-  BodyText,
-  HR,
-  IconButton,
-  Tooltip,
-  Table,
-  List,
-  ListItem,
-} from "pier-design-system";
-import { Fragment } from "react";
-import StudySpendTable from "./StudySpendTable";
-import DmpTableNew from "./DmpTableNew";
-import DmpTableOld from "./DmpTableOld";
-=======
   IconButton,
   Tooltip,
 } from "pier-design-system";
 import { Fragment } from "react";
 import DmpTableNew from "./DmpTableN";
->>>>>>> 290fd06 (completed dmp table for data page)
 
 const DmpCard = (props) => {
   const disabled = () => {
@@ -52,11 +37,7 @@ const DmpCard = (props) => {
   return (
     <div>
       <Card style={{ marginBottom: "1rem" }}>
-<<<<<<< HEAD
-        <Section padding="lg">
-=======
         <Section padding="lg" className="-p-b-11">
->>>>>>> 290fd06 (completed dmp table for data page)
           <div className="-d-flex -justify-content-between">
             <Heading size="md">DMP - {props.dmp.dataType}</Heading>
 
@@ -73,12 +54,7 @@ const DmpCard = (props) => {
             </Tooltip>
           </div>
 
-<<<<<<< HEAD
-          <div className="-d-flex"></div>
-          <DmpTableOld selectedDmp={props.dmp.id} />
-=======
           <DmpTableNew selectedDmp={props.dmp.id} />
->>>>>>> 290fd06 (completed dmp table for data page)
         </Section>
       </Card>
     </div>
