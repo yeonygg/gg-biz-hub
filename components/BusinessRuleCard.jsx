@@ -434,7 +434,7 @@ const BusinessRuleCard = (props) => {
             <Tooltip text="Share Card">
               <IconButton
                 title="Button"
-                icon="fas fa-share"
+                icon="fas fa-external-link-alt"
                 size="sm"
                 disabled={false}
                 dark={false}

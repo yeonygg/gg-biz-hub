@@ -23,8 +23,6 @@ const CustomSelectRow = (props) => {
     props.removeCustom(props.index);
   };
 
-  console.log(props.index);
-
   return (
     <div className="custom-select-wrapper">
       <InputSelect
