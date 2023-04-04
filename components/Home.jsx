@@ -17,7 +17,15 @@ function Home() {
   const data = "Research and Data";
   return (
     <Fragment>
-      <Card className="home-main-card -m-b-6">
+      <Card
+        style={{
+          backgroundImage: "url('/main-graphic.svg')",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          height: "540px",
+        }}
+        className="home-main-card -m-b-6"
+      >
         <Section padding="lg">
           <Heading dark={true}>Welcome to GumGum Business Hub!</Heading>
           <HR style={{ width: "100px" }} size="lg" theme="hero" />
