@@ -1,4 +1,3 @@
-import { faGameConsoleHandheld } from "@fortawesome/sharp-solid-svg-icons";
 import {
   Card,
   Section,
