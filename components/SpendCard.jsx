@@ -315,14 +315,17 @@ const SpendCard = (props) => {
           text="Reduce the number of units or versions, or an exception will be required"
         >
           <i
-            className="fas fa-exclamation-circle"
+            className="pier-button-icon__icon fas fa-exclamation-circle"
             style={{ marginRight: "5px" }}
           ></i>
         </Tooltip>
       );
     } else if (spendFunction() <= inputBudget) {
       iconCode = (
-        <i className="fas fa-check-circle" style={{ marginRight: "5px" }}></i>
+        <i
+          className="pier-button-icon__icon fas fa-check-circle"
+          style={{ marginRight: "5px" }}
+        ></i>
       );
     }
     return iconCode;

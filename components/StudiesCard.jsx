@@ -1,4 +1,3 @@
-import { faGameConsoleHandheld } from "@fortawesome/sharp-solid-svg-icons";
 import {
   Card,
   Section,
@@ -88,7 +87,7 @@ const StudiesCard = (props) => {
                 (product) => (
                   <div key={UUIDV4()} className="-d-flex">
                     <i
-                      className="fas fa-thumbs-up"
+                      className="pier-button-icon__icon fas fa-thumbs-up"
                       style={{
                         marginRight: "1rem",
                         marginTop: "4px",
@@ -108,7 +107,7 @@ const StudiesCard = (props) => {
                 (product) => (
                   <div key={UUIDV4()} className="-d-flex">
                     <i
-                      className="fas fa-thumbs-up"
+                      className="pier-button-icon__icon fas fa-thumbs-up"
                       style={{
                         marginRight: "1rem",
                         marginTop: "4px",
@@ -170,7 +169,7 @@ const StudiesCard = (props) => {
               </BodyText>
               <div className="-d-flex">
                 <i
-                  className="fas fa-thumbs-up"
+                  className="pier-button-icon__icon fas fa-thumbs-up"
                   style={{
                     marginRight: "1rem",
                     marginTop: "4px",

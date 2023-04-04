@@ -1,4 +1,3 @@
-import { faGameConsoleHandheld } from "@fortawesome/sharp-solid-svg-icons";
 import {
   Card,
   Section,
@@ -53,7 +52,7 @@ const BusinessRuleCard = (props) => {
           </BodyText>
           &nbsp; &nbsp;
           <i
-            className="fas fa-lock"
+            className="pier-button-icon__icon fas fa-lock"
             style={{
               marginRight: "10px",
               color: "#E24550",
@@ -73,7 +72,7 @@ const BusinessRuleCard = (props) => {
           </BodyText>
           &nbsp; &nbsp;
           <i
-            className="fas fa-unlock"
+            className="pier-button-icon__icon fas fa-unlock"
             style={{
               marginRight: "10px",
               color: "#08D18B",
@@ -92,7 +91,7 @@ const BusinessRuleCard = (props) => {
       return (highImpact = hiArray.map((unit) => (
         <div key={UUIDV4()} className="-d-flex">
           <i
-            className="fas fa-times"
+            className="pier-button-icon__icon fas fa-times"
             style={{
               marginRight: "10px",
               color: "#E24550",
@@ -110,7 +109,7 @@ const BusinessRuleCard = (props) => {
       return (highImpact = hiArray.map((unit) => (
         <div key={UUIDV4()} className="-d-flex">
           <i
-            className="fas fa-check"
+            className="pier-button-icon__icon fas fa-check"
             style={{ marginRight: "10px", color: "#08D18B" }}
           ></i>{" "}
           <BodyText size="sm">{unitTypes[unit].name}</BodyText> &nbsp;
@@ -139,7 +138,7 @@ const BusinessRuleCard = (props) => {
           </BodyText>
           &nbsp; &nbsp;
           <i
-            className="fas fa-unlock"
+            className="pier-button-icon__icon fas fa-unlock"
             style={{
               marginRight: "10px",
               color: "#08D18B",
@@ -162,7 +161,7 @@ const BusinessRuleCard = (props) => {
           </BodyText>
           &nbsp; &nbsp;
           <i
-            className="fas fa-lock"
+            className="pier-button-icon__icon fas fa-lock"
             style={{
               marginRight: "10px",
               color: "#E24550",
@@ -191,7 +190,7 @@ const BusinessRuleCard = (props) => {
           </BodyText>
           &nbsp; &nbsp;
           <i
-            className="fas fa-lock"
+            className="pier-button-icon__icon fas fa-lock"
             style={{
               marginRight: "10px",
               color: "#E24550",
@@ -310,7 +309,7 @@ const BusinessRuleCard = (props) => {
                 {standardUnits.map((unit) => (
                   <div key={UUIDV4()} className="-d-flex">
                     <i
-                      className="fas fa-check"
+                      className="pier-button-icon__icon fas fa-check"
                       style={{ marginRight: "10px", color: "#08D18B" }}
                     ></i>{" "}
                     <BodyText size="sm">{unitTypes[unit].name}</BodyText> &nbsp;
@@ -346,7 +345,7 @@ const BusinessRuleCard = (props) => {
                     Unlocked Custom Add-ons
                   </BodyText>
                   <i
-                    className="fas fa-unlock"
+                    className="pier-button-icon__icon fas fa-unlock"
                     style={{
                       marginLeft: "10px",
                       paddingTop: "0.3rem",
@@ -390,7 +389,7 @@ const BusinessRuleCard = (props) => {
                 {supportedSkins.map((unit) => (
                   <div key={UUIDV4()} className="-d-flex">
                     <i
-                      className="fas fa-check"
+                      className="pier-button-icon__icon fas fa-check"
                       style={{ marginRight: "10px", color: "#08D18B" }}
                     ></i>{" "}
                     <BodyText size="sm">{unitTypes[unit].name}</BodyText> &nbsp;
@@ -404,7 +403,7 @@ const BusinessRuleCard = (props) => {
                 {unsupportedSkins.map((unit) => (
                   <div key={UUIDV4()} className="-d-flex">
                     <i
-                      className="fas fa-times"
+                      className="pier-button-icon__icon fas fa-times"
                       style={{
                         marginRight: "10px",
                         color: "#E24550",

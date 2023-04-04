@@ -8,18 +8,10 @@ import {
   Heading,
 } from "pier-design-system";
 import SubHeading from "./SubHeading";
-import {
-  faCheck,
-  faXmark,
-  faExclamationCircle,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SpendMeter = (props) => {
   const budget = props.campaignBudget;
 
-  const x = <FontAwesomeIcon icon={faXmark} inverse />;
-  const check = <FontAwesomeIcon icon={faCheck} inverse />;
   const percentCalc = () => {
     const minSpend = props.minSpend;
 
@@ -137,7 +129,9 @@ const SpendMeter = (props) => {
       ? "spend-meter__filled--red"
       : "spend-meter__filled--green";
   const iconClass =
-    percentCalc() < 1 ? "fas fa-times-circle" : "fas fa-check-circle";
+    percentCalc() < 1
+      ? "pier-button-icon__icon fas fa-times-circle"
+      : "pier-button-icon__icon fas fa-check-circle";
   const iconColor =
     percentCalc() < 1 ? "spend-meter__icon--red" : "spend-meter__icon--green";
   return (

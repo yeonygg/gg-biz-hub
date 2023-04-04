@@ -1,4 +1,3 @@
-import { faGameConsoleHandheld } from "@fortawesome/sharp-solid-svg-icons";
 import {
   Card,
   Section,
@@ -42,21 +41,21 @@ const CustomCard = (props) => {
     if (programmatic == "Feasible") {
       return (iconCode = (
         <i
-          className="fas fa-check"
+          className="pier-button-icon__icon fas fa-check"
           style={{ marginRight: "10px", color: "#08D18B" }}
         ></i>
       ));
     } else if (programmatic == "TBD") {
       iconCode = (
         <i
-          className="fas fa-question"
+          className="pier-button-icon__icon fas fa-question"
           style={{ marginRight: "10px", color: "#25B9EF" }}
         ></i>
       );
     } else {
       iconCode = (
         <i
-          className="fas fa-times"
+          className="pier-button-icon__icon fas fa-times"
           style={{ marginRight: "10px", color: "#E24550" }}
         ></i>
       );
