@@ -211,6 +211,7 @@ const LaunchTimeline = (props) => {
             >
               <div
                 data-owner={phase.owner}
+                style={{ position: "absolute" }}
                 className="filled -first pier-tooltip pier-tooltip--top"
                 data-tooltip={`Day ${Math.ceil(i / 2)}: ${phase.description}`}
               ></div>
@@ -223,6 +224,7 @@ const LaunchTimeline = (props) => {
           <div className={`gantt-cell ${bgClass}`} key={`${phase.owner}_${i}`}>
             <div
               data-owner={phase.owner}
+              style={{ position: "absolute" }}
               className="filled pier-tooltip pier-tooltip--top"
               data-tooltip={`Day ${Math.ceil(i / 2)}: ${phase.description}`}
             ></div>
@@ -234,6 +236,7 @@ const LaunchTimeline = (props) => {
           <div className={`gantt-cell ${bgClass}`} key={`${phase.owner}_${i}`}>
             <div
               data-owner={phase.owner}
+              style={{ position: "absolute" }}
               className="filled -last pier-tooltip pier-tooltip--top"
               data-tooltip={`Day ${Math.ceil(i / 2)}: ${phase.description}`}
             ></div>
