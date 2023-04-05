@@ -64,6 +64,7 @@ const SpendCard = (props) => {
     const addOn = [];
     let unitMinSpend = [];
     let customNull = false;
+    let minSpend = [];
 
     for (let i = 0; i < unit.length; i++) {
       const standardUnit = unit[i];
@@ -85,7 +86,7 @@ const SpendCard = (props) => {
 
       if (standardUnit.isSkin === true) {
         skin.push(standardUnit.versionCount);
-        skinMinSpends.push(standardUnit.minSpend);
+        minSpend.push(standardUnit.minSpend);
       }
 
       if (standardUnit.customOn === true) {
@@ -137,8 +138,6 @@ const SpendCard = (props) => {
         })
         .reduce((sum, a) => sum + a * 0.5, 0) + highestCustom
     );
-
-    let minSpend = [];
 
     if (totalVersions == 0) {
       return 0;
@@ -203,7 +202,7 @@ const SpendCard = (props) => {
       totalVersions > 0 &&
       totalVersions <= 9 &&
       standard.length <= 3 &&
-      hiVersions > 0 &&
+      hiVersions >= 0 &&
       hiVersions <= 1 &&
       skinVersions < 2 &&
       canvas.length === 0
@@ -213,7 +212,7 @@ const SpendCard = (props) => {
       totalVersions > 0 &&
       totalVersions <= 9 &&
       standard.length <= 3 &&
-      hiVersions > 0 &&
+      hiVersions >= 0 &&
       hiVersions <= 2 &&
       skinVersions < 2 &&
       canvas.length === 0
