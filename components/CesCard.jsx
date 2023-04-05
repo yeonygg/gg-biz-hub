@@ -55,7 +55,14 @@ const CesCard = (props) => {
       <SubHeading text={resultHead} />
       <div className="sla-result-text">
         {" "}
-        <Heading style={{ color: "#25B9EF" }} className="sla-heading">
+        <Heading
+          style={{
+            paddingBottom: "0rem",
+            marginBottom: "0rem",
+            fontSize: "70px",
+            color: "#25B9EF",
+          }}
+        >
           {cesSLA()}
         </Heading>
         <BodyText size="xs">{plural()}</BodyText>

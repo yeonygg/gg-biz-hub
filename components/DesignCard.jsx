@@ -192,7 +192,16 @@ const DesignCard = (props) => {
       <SubHeading text={resultHead} />
       <div className="sla-result-text">
         {" "}
-        <Heading className="sla-heading">{designSLA()}</Heading>
+        <Heading
+          style={{
+            paddingBottom: "0rem",
+            marginBottom: "0rem",
+            fontSize: "70px",
+            color: "#08d18b",
+          }}
+        >
+          {designSLA()}
+        </Heading>
         <BodyText size="xs">{plural()}</BodyText>
       </div>
     </div>
