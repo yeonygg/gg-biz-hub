@@ -118,7 +118,7 @@ function CreativeBusinessRules() {
                     size="xs"
                     style={{ marginLeft: "2rem", paddingRight: "2rem" }}
                   >
-                    All Exception requestions should go through Salesforce. If
+                    All Exception requests should go through Salesforce. If
                     Exception requires faster than 24 hr turnaround, after SF
                     submission, you can email adquestions@gumgum.com for quicker
                     response.

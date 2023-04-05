@@ -197,6 +197,7 @@ const LaunchTimeline = (props) => {
             >
               <div
                 data-owner={phase.owner}
+                style={{ position: "absolute" }}
                 className="filled -first -last pier-tooltip pier-tooltip--top"
                 data-tooltip={`Day ${Math.ceil(i / 2)}: ${phase.description}`}
               ></div>
