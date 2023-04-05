@@ -191,7 +191,10 @@ const LaunchTimeline = (props) => {
       if (phase.sequence === i / 2) {
         if (phase.time < 1) {
           td.push(
-            <div className={`gantt-cell ${bgClass}`} key={`${phase.owner}_${i}`}>
+            <div
+              className={`gantt-cell ${bgClass}`}
+              key={`${phase.owner}_${i}`}
+            >
               <div
                 data-owner={phase.owner}
                 className="filled -first -last pier-tooltip pier-tooltip--top"
@@ -201,7 +204,10 @@ const LaunchTimeline = (props) => {
           );
         } else {
           td.push(
-            <div className={`gantt-cell ${bgClass}`} key={`${phase.owner}_${i}`}>
+            <div
+              className={`gantt-cell ${bgClass}`}
+              key={`${phase.owner}_${i}`}
+            >
               <div
                 data-owner={phase.owner}
                 className="filled -first pier-tooltip pier-tooltip--top"
@@ -234,7 +240,12 @@ const LaunchTimeline = (props) => {
         );
         blocksFilled--;
       } else {
-        td.push(<div className={`gantt-cell ${bgClass}`} key={`${phase.owner}_${i}`}></div>);
+        td.push(
+          <div
+            className={`gantt-cell ${bgClass}`}
+            key={`${phase.owner}_${i}`}
+          ></div>
+        );
       }
       oddCount = oddCount < 3 ? oddCount + 1 : 0;
     }
@@ -246,7 +257,7 @@ const LaunchTimeline = (props) => {
     for (let i = 1; i <= totalTime; i++) {
       td.push(
         <div
-          className="gantt-header-cell pier-body-text pier-body-text--xxs pier-body-text--light"
+          className="gantt-header-cell pier-body-text pier-body-text--xs pier-body-text--light"
           key={`header_${i}`}
         >{`Day ${i}`}</div>
       );
