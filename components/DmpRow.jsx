@@ -48,7 +48,7 @@ const DmpRow = (props) => {
       </InputSelect>
 
       {props.total === props.index && (
-        <Tooltip text="Add Custom Creative">
+        <Tooltip text="Add DMP">
           <IconButton
             onClick={props.addDmp}
             style={{ marginLeft: "1rem" }}
@@ -64,7 +64,7 @@ const DmpRow = (props) => {
       )}
 
       {props.total != props.index && (
-        <Tooltip text="Remove Custom Creative">
+        <Tooltip text="Remove DMP">
           <IconButton
             onClick={handleDelete}
             style={{ marginLeft: "1rem" }}

@@ -47,7 +47,7 @@ const SpendThresholdRow = (props) => {
       </InputSelect>
 
       {props.total === props.index && (
-        <Tooltip text="Add Custom Creative">
+        <Tooltip text="Add Spend Threshold">
           <IconButton
             onClick={props.addCustom}
             style={{ marginLeft: "1rem" }}
@@ -63,7 +63,7 @@ const SpendThresholdRow = (props) => {
       )}
 
       {props.total != props.index && (
-        <Tooltip text="Remove Custom Creative">
+        <Tooltip text="Remove Spend Threshold">
           <IconButton
             onClick={handleDelete}
             style={{ marginLeft: "1rem" }}

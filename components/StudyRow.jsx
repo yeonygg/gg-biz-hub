@@ -47,7 +47,7 @@ const StudyRow = (props) => {
       </InputSelect>
 
       {props.total === props.index && (
-        <Tooltip text="Add Custom Creative">
+        <Tooltip text="Add Study">
           <IconButton
             onClick={props.addStudy}
             style={{ marginLeft: "1rem" }}
@@ -63,7 +63,7 @@ const StudyRow = (props) => {
       )}
 
       {props.total != props.index && (
-        <Tooltip text="Remove Custom Creative">
+        <Tooltip text="Remove Study">
           <IconButton
             onClick={handleDelete}
             style={{ marginLeft: "1rem" }}
