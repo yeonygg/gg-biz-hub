@@ -327,13 +327,13 @@ footer {
   background-color: #08d18b;
 }
 [data-owner="Design Manager"] {
-  background-color: #fcd93d;
+  background-color: #8f33aa;
 }
 [data-owner="Designer"] {
-  background-color: #fca522;
+  background-color: #176fb3;
 }
 [data-owner="Creative Engineer"] {
-  background-color: #e24550;
+  background-color: #358996;
 }
 
 /* Extra small devices (phones, 600px and down) */
