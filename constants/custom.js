@@ -2,6 +2,7 @@ var customFeatures = [
   {
     id: 0,
     name: "API Integration",
+    route: "api-integration",
     abbrev: "null",
     minSpend: 150000,
     highImpact: true,
@@ -21,6 +22,7 @@ var customFeatures = [
   {
     id: 1,
     name: "Dynamic Responsive Creative",
+    route: "dynamic-responsive-creative",
     abbrev: "null",
     minSpend: 125000,
     highImpact: true,
@@ -55,6 +57,7 @@ var customFeatures = [
       "Generally only leveraged within an In-Screen unit. Great for entertainment and events.",
     programmatic: "Feasible",
     clientRequirements: "Countdown Dates/Times",
+    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
   },
   {
     id: 3,
