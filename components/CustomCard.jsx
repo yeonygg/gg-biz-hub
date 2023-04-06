@@ -197,21 +197,6 @@ const CustomCard = (props) => {
                   {props.feature.clientRequirements}
                 </BodyText>
               </div>
-              <div style={{ marginBottom: "2rem" }}>
-                <a href={props.feature.demo} rel="noreferer">
-                  {" "}
-                  <BodyText
-                    size="md"
-                    style={{
-                      color: "#25B9EF",
-                      fontWeight: "bold",
-                      textDecoration: "underline",
-                    }}
-                  >
-                    Demo
-                  </BodyText>
-                </a>
-              </div>
             </div>
             <div className="custom-sla-info-wrapper">
               <div
