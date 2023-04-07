@@ -8,11 +8,7 @@ import {
   Tooltip,
 } from "pier-design-system";
 import unitTypes from "../constants/units";
-<<<<<<< HEAD
-import Link from "next/link";
-=======
 import { Link } from "react-router-dom";
->>>>>>> develop
 
 const CustomCard = (props) => {
   // for (let i = 0; i < unitTypes.length; i++) {

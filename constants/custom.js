@@ -59,11 +59,7 @@ var customFeatures = [
       "Generally only leveraged within an In-Screen unit. Great for entertainment and events.",
     programmatic: "Feasible",
     clientRequirements: "Countdown Dates/Times",
-<<<<<<< HEAD
-    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
-=======
     demo: "https://c.gumgum.com/ads/com/amazon/countdown-demo/demo-page/index.html",
->>>>>>> develop
   },
   {
     id: 3,
