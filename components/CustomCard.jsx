@@ -198,24 +198,26 @@ const CustomCard = (props) => {
                   {props.feature.clientRequirements}
                 </BodyText>
               </div>
-              <div style={{ marginBottom: "2rem" }}>
-                <a
-                  href={props.feature.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <BodyText
-                    size="md"
-                    style={{
-                      color: "#25B9EF",
-                      fontWeight: "bold",
-                      textDecoration: "underline",
-                    }}
+              {props.feature.demo != null && (
+                <div style={{ marginBottom: "2rem" }}>
+                  <a
+                    href={props.feature.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    Demo
-                  </BodyText>
-                </a>
-              </div>
+                    <BodyText
+                      size="md"
+                      style={{
+                        color: "#25B9EF",
+                        fontWeight: "bold",
+                        textDecoration: "underline",
+                      }}
+                    >
+                      Demo
+                    </BodyText>
+                  </a>
+                </div>
+              )}
             </div>
             <div className="custom-sla-info-wrapper">
               <div

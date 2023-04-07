@@ -56,6 +56,10 @@ function App() {
                 <Route path="/rates" element={<Rates />} />
                 <Route path="/custom-creatives" element={<CustomCreatives />} />
                 <Route
+                  path="/custom-creatives/:id"
+                  element={<CustomCreatives />}
+                />
+                <Route
                   path="/creative-rules"
                   element={<CreativeBusinessRules />}
                 />

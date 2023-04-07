@@ -17,7 +17,7 @@ var customFeatures = [
       "Requires client to supply desired API credentials. For retail clients, need external data source to ensure daily product offerings daily based on store availabilities. Can also be used in conjuction with Click2Cart functionality.",
     programmatic: "Feasible",
     clientRequirements: "Client Supplied API + Credentials",
-    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
+    demo: null,
   },
   {
     id: 1,
@@ -37,7 +37,7 @@ var customFeatures = [
       "Requires API connection to weather app. List of weather that can be tracked can be found here. Creative can be dynamically served in the adserver based on time of day. Can be leveraged within In-Screen/In-Image blend.",
     programmatic: "TBD",
     clientRequirements: "List of Permutations and triggers",
-    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
+    demo: null,
   },
   {
     id: 2,
@@ -77,7 +77,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Additional Creative assets and taglines for longer animations",
-    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
+    demo: null,
   },
   {
     id: 4,
@@ -96,7 +96,7 @@ var customFeatures = [
       "Generally only leveraged within an In-Screen/In-Image and In-Screen Expandable/In-Image Expandable units. Great for Pharmaceutical campaigns",
     programmatic: "Feasible",
     clientRequirements: "Legal/Medical information text content",
-    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
+    demo: "https://c.ggops.com/adbuilder/demos/30322/1680819921919_ad.html",
   },
   {
     id: 5,
@@ -117,7 +117,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Social Feed, prefered method of integration (not all social networks supported)",
-    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
+    demo: null,
   },
   {
     id: 6,
@@ -138,7 +138,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Requires client to supply copy and/or storyboard for each frame.",
-    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
+    demo: null,
   },
   {
     id: 7,
@@ -159,7 +159,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Requires client to supply copy and/or storyboard for each stage.",
-    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
+    demo: null,
   },
   {
     id: 8,
@@ -180,7 +180,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Requires clear direction or storyboard from the client.",
-    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
+    demo: null,
   },
   {
     id: 9,
@@ -201,7 +201,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Requires client to supply copy and/or storyboard for each stage.",
-    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
+    demo: null,
   },
   {
     id: 10,
@@ -242,7 +242,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Equirectangular and Cubic image formats for 360 viewer",
-    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
+    demo: null,
   },
   {
     id: 12,
@@ -262,7 +262,7 @@ var customFeatures = [
       "Utlize when trying to highlight multiple features of a product. Previously created for both auto and consumer electronics. Mostly leveraged within an In-Screen Expandable unit.",
     programmatic: "Feasible",
     clientRequirements: "3D Assets, landing pages, content",
-    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
+    demo: null,
   },
   {
     id: 13,
@@ -283,7 +283,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Hotspot behavior expectations, copy/imagery for each state",
-    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
+    demo: null,
   },
   {
     id: 14,
@@ -304,7 +304,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "List of locations, preferably coordinates but will accept full addresses",
-    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
+    demo: null,
   },
   {
     id: 15,
@@ -325,7 +325,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Requires a list of URLs from the client, one for each CTA",
-    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
+    demo: null,
   },
   {
     id: 16,
@@ -350,7 +350,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Requires product images and landing page click-outs for each",
-    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
+    demo: null,
   },
   {
     id: 17,
@@ -390,7 +390,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Images to be used on each slice, landing page clickouts for each.",
-    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
+    demo: "https://c.ggops.com/adbuilder/demos/40745/1680819658176_ad.html",
   },
   {
     id: 19,
