@@ -51,7 +51,7 @@ var unitTypes = [
     customizable: true,
     rateCatergory: "in-screen",
 
-    customFeatures: [2, 4, 14, 15, 17, 22],
+    customFeatures: [2, 4, 7, 14, 15, 17, 22],
   },
   {
     id: 3,

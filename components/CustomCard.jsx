@@ -8,7 +8,11 @@ import {
   Tooltip,
 } from "pier-design-system";
 import unitTypes from "../constants/units";
+<<<<<<< HEAD
 import Link from "next/link";
+=======
+import { Link } from "react-router-dom";
+>>>>>>> develop
 
 const CustomCard = (props) => {
   // for (let i = 0; i < unitTypes.length; i++) {
@@ -197,6 +201,26 @@ const CustomCard = (props) => {
                   {props.feature.clientRequirements}
                 </BodyText>
               </div>
+              {props.feature.demo != null && (
+                <div style={{ marginBottom: "2rem" }}>
+                  <a
+                    href={props.feature.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <BodyText
+                      size="md"
+                      style={{
+                        color: "#25B9EF",
+                        fontWeight: "bold",
+                        textDecoration: "underline",
+                      }}
+                    >
+                      Demo
+                    </BodyText>
+                  </a>
+                </div>
+              )}
             </div>
             <div className="custom-sla-info-wrapper">
               <div

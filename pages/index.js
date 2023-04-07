@@ -46,7 +46,11 @@ function App() {
                 <Route path="/" element={<Home />} />
 
                 <Route path="/studies" element={<Studies />} />
+                <Route path="/studies/:id" element={<Studies />} />
+
                 <Route path="/rates" element={<Rates />} />
+                <Route path="/rates/:id" element={<Rates />} />
+
                 <Route path="/custom-creatives" element={<CustomCreatives />} />
                 {/*customFeatures.map((feature) => (
                   <Route
@@ -57,7 +61,15 @@ function App() {
                 ))*/}
 
                 <Route
+                  path="/custom-creatives/:id"
+                  element={<CustomCreatives />}
+                />
+                <Route
                   path="/creative-rules"
+                  element={<CreativeBusinessRules />}
+                />
+                <Route
+                  path="/creative-rules/:id"
                   element={<CreativeBusinessRules />}
                 />
               </Routes>

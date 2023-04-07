@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, Component } from "react";
 import {
   Card,
@@ -14,50 +15,48 @@ import Link from "next/link";
 import customFeatures from "../constants/custom";
 import CustomCard from "../components/CustomCard";
 import CustomSelectRow from "../components/CustomSelectRow";
-
 let setDebounce;
-
 function CustomCreatives() {
-  const [selectCustomFeatures, setCustomFeatures] = useState([null]);
+  const navigate = useNavigate();
+  const params = useParams();
+  const ids =
+    Object.keys(params).length > 0 ? params.id.split(",").map(Number) : [null];
+  const [selectCustomFeatures, setCustomFeatures] = useState(ids);
   const [toggleAll, setToggle] = useState(false);
-
   const handleChange = (e, value, index) => {
     const newArray = selectCustomFeatures;
     newArray[+index] = +value;
     setCustomFeatures([...newArray]);
+    console.log(selectCustomFeatures);
+    navigate(`/custom-creatives/${selectCustomFeatures.toString()}`);
   };
-
+  const removeCustomSelect = (index) => {
+    const array = selectCustomFeatures;
+    array.splice(index, 1);
+    setCustomFeatures([...array]);
+    navigate(`/custom-creatives/${selectCustomFeatures.toString()}`);
+  };
   const createCustomSelect = () => {
     const newCustomArray = selectCustomFeatures;
     newCustomArray.push(null);
     setCustomFeatures([...newCustomArray]);
   };
-
   const getCustomFeatures = () => {
     return selectCustomFeatures.map((id) =>
       customFeatures.find((feature) => feature.id === id)
     );
   };
-
-  const removeCustomSelect = (index) => {
-    const array = selectCustomFeatures;
-    array.splice(index, 1);
-    setCustomFeatures([...array]);
-  };
-
   const updateCustom = (selectCustomFeatures) => {
     setCustomFeatures([...selectCustomFeatures]);
     // console.log(this.state.campaign.unitConfig);
   };
-
   const removeCardFromAll = () => {
     const allArray = customFeatures;
   };
-
   const handleToggle = (event) => {
     setToggle(event.target.checked);
   };
-
+  console.log(selectCustomFeatures);
   return (
     <Fragment>
       <Heading>Creative - Custom Creatives</Heading>
@@ -77,7 +76,6 @@ function CustomCreatives() {
                 Select Custom Creative
               </BodyText>
             </div>
-
             <div className="-d-block" style={{ width: "100%" }}>
               {" "}
               {selectCustomFeatures.map((value, index) => (
@@ -95,7 +93,6 @@ function CustomCreatives() {
               ))}
             </div>
           </div>
-
           <div className="-d-flex -justify-content-end -m-t-6">
             <InputToggle
               size="sm"
@@ -109,11 +106,9 @@ function CustomCreatives() {
           </div>
         </Section>
       </Card>
-
       {/* this.state.key.map((index) => {
         <CustomCard custom={index} />;
       }) */}
-
       {!toggleAll &&
         getCustomFeatures().map(
           (feature, index) =>
@@ -128,7 +123,6 @@ function CustomCreatives() {
               />
             )
         )}
-
       {toggleAll &&
         customFeatures.map((feature, index) => (
           <CustomCard
@@ -138,10 +132,8 @@ function CustomCreatives() {
             array={selectCustomFeatures}
           />
         ))}
-
       <Section padding="lg"></Section>
     </Fragment>
   );
 }
-
 export default CustomCreatives;

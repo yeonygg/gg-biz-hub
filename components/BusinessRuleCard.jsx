@@ -421,6 +421,8 @@ const BusinessRuleCard = (props) => {
             </div>
           </div>
         </Section>
+        <Section padding="xs"></Section>
+        {/*//this is the share button! uncomment when functionality works        
         <Section>
           <div
             className="-float-right"
@@ -441,7 +443,7 @@ const BusinessRuleCard = (props) => {
               />
             </Tooltip>
           </div>
-        </Section>
+        </Section> */}
       </Card>
     </div>
   );

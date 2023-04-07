@@ -18,6 +18,7 @@ var customFeatures = [
       "Requires client to supply desired API credentials. For retail clients, need external data source to ensure daily product offerings daily based on store availabilities. Can also be used in conjuction with Click2Cart functionality.",
     programmatic: "Feasible",
     clientRequirements: "Client Supplied API + Credentials",
+    demo: null,
   },
   {
     id: 1,
@@ -38,6 +39,7 @@ var customFeatures = [
       "Requires API connection to weather app. List of weather that can be tracked can be found here. Creative can be dynamically served in the adserver based on time of day. Can be leveraged within In-Screen/In-Image blend.",
     programmatic: "TBD",
     clientRequirements: "List of Permutations and triggers",
+    demo: null,
   },
   {
     id: 2,
@@ -57,7 +59,11 @@ var customFeatures = [
       "Generally only leveraged within an In-Screen unit. Great for entertainment and events.",
     programmatic: "Feasible",
     clientRequirements: "Countdown Dates/Times",
+<<<<<<< HEAD
     demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
+=======
+    demo: "https://c.gumgum.com/ads/com/amazon/countdown-demo/demo-page/index.html",
+>>>>>>> develop
   },
   {
     id: 3,
@@ -77,6 +83,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Additional Creative assets and taglines for longer animations",
+    demo: "https://c.ggops.com/adbuilder/demos/54318/1669697904922_ad.html",
   },
   {
     id: 4,
@@ -95,6 +102,7 @@ var customFeatures = [
       "Generally only leveraged within an In-Screen/In-Image and In-Screen Expandable/In-Image Expandable units. Great for Pharmaceutical campaigns",
     programmatic: "Feasible",
     clientRequirements: "Legal/Medical information text content",
+    demo: "https://c.ggops.com/adbuilder/demos/30322/1680819921919_ad.html",
   },
   {
     id: 5,
@@ -115,6 +123,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Social Feed, prefered method of integration (not all social networks supported)",
+    demo: null,
   },
   {
     id: 6,
@@ -135,6 +144,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Requires client to supply copy and/or storyboard for each frame.",
+    demo: "https://c.ggops.com/adbuilder/demos/45599/1654707843679_ad.html",
   },
   {
     id: 7,
@@ -155,6 +165,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Requires client to supply copy and/or storyboard for each stage.",
+    demo: "https://c.ggops.com/adbuilder/demos/42316/1647336489365_ad.html",
   },
   {
     id: 8,
@@ -175,6 +186,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Requires clear direction or storyboard from the client.",
+    demo: "https://demos.gumgum.com/7AqmlLr_1675096776",
   },
   {
     id: 9,
@@ -195,6 +207,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Requires client to supply copy and/or storyboard for each stage.",
+    demo: "https://c.gumgum.com/ads/com/pepsi/quiz-unit/pepsi-quiz-unit/index.html",
   },
   {
     id: 10,
@@ -214,6 +227,7 @@ var customFeatures = [
       "Brainstorm session with client & creative services team is highly encouraged.",
     programmatic: "Feasible",
     clientRequirements: "Variable",
+    demo: "https://c.gumgum.com/ads/com/walmart/magnify/index.html",
   },
   {
     id: 11,
@@ -234,6 +248,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Equirectangular and Cubic image formats for 360 viewer",
+    demo: null,
   },
   {
     id: 12,
@@ -253,6 +268,7 @@ var customFeatures = [
       "Utlize when trying to highlight multiple features of a product. Previously created for both auto and consumer electronics. Mostly leveraged within an In-Screen Expandable unit.",
     programmatic: "Feasible",
     clientRequirements: "3D Assets, landing pages, content",
+    demo: null,
   },
   {
     id: 13,
@@ -273,6 +289,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Hotspot behavior expectations, copy/imagery for each state",
+    demo: null,
   },
   {
     id: 14,
@@ -293,6 +310,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "List of locations, preferably coordinates but will accept full addresses",
+    demo: null,
   },
   {
     id: 15,
@@ -313,6 +331,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Requires a list of URLs from the client, one for each CTA",
+    demo: null,
   },
   {
     id: 16,
@@ -337,6 +356,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Requires product images and landing page click-outs for each",
+    demo: null,
   },
   {
     id: 17,
@@ -355,6 +375,7 @@ var customFeatures = [
       "Great for Entertainment. Typically the design team will build one version for the initial client review and maintain edits for that version until the client approves design and animation. Then we can proceed to set up the other tune-in dates in the final deliverables phase.",
     programmatic: "Feasible",
     clientRequirements: "Requires list of dates/messaging from the client.",
+    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
   },
   {
     id: 18,
@@ -375,6 +396,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Images to be used on each slice, landing page clickouts for each.",
+    demo: "https://c.ggops.com/adbuilder/demos/40745/1680819658176_ad.html",
   },
   {
     id: 19,
@@ -399,6 +421,7 @@ var customFeatures = [
     programmatic: "Lightboxes are generally not recommended for Programmatic",
     clientRequirements:
       "Images to be used on each slice, landing page clickouts for each.",
+    demo: null,
   },
   {
     id: 20,
@@ -419,6 +442,7 @@ var customFeatures = [
     programmatic: "Lightboxes are generally not recommended for Programmatic",
     clientRequirements:
       "Product List, Prices, landing pages, nav behavior. Click2Cart?",
+    demo: null,
   },
   {
     id: 21,
@@ -441,6 +465,7 @@ var customFeatures = [
       "Client want's to showcase multiple products in one unit and drive to each of their landing pages. Client is looking for a shoppable unit.",
     programmatic: "Lightboxes are generally not recommended for Programmatic",
     clientRequirements: "Need landing pages for each clickout",
+    demo: null,
   },
   {
     id: 22,
@@ -460,6 +485,7 @@ var customFeatures = [
       "This usually requires raw video files and not YouTube links. Instead of creating multiple creative versions a client can opt to include all video assets within one unit",
     programmatic: "Lightboxes are generally not recommended for Programmatic",
     clientRequirements: "All videos, expected behavior for video navigation",
+    demo: null,
   },
   {
     id: 23,
@@ -479,6 +505,7 @@ var customFeatures = [
       "Requires client microsite or GumGum build microsite to host.",
     programmatic: "Lightboxes are generally not recommended for Programmatic",
     clientRequirements: "Site to integrate or replicate, expected behaviors",
+    demo: null,
   },
   {
     id: 24,
@@ -497,6 +524,7 @@ var customFeatures = [
     bestPractices: "Color matching only works within an In-Image unit.",
     programmatic: "TBD",
     clientRequirements: "CV Support, Color List to Match Against",
+    demo: null,
   },
   {
     id: 25,
@@ -517,6 +545,7 @@ var customFeatures = [
     programmatic: "No",
     clientRequirements:
       "CV Lead Time / Support, Conversation with LC& Dan on viability of concept before being pitched",
+    demo: null,
   },
 ];
 

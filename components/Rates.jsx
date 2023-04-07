@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { useState, useEffect, Component } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import {
   Card,
   Section,
@@ -20,6 +21,10 @@ import { UUIDV4 } from "../helpers/helpers";
 let setDebounce;
 
 function Rates() {
+  const navigate = useNavigate();
+  const params = useParams();
+  const ids =
+    Object.keys(params).length > 0 ? params.id.split(",").map(Number) : [null];
   const [selectRates, setRates] = useState([null]);
   const [toggleAll, setToggle] = useState(false);
 
@@ -27,6 +32,7 @@ function Rates() {
     const newArray = selectRates;
     newArray[+index] = +value;
     setRates([...newArray]);
+    navigate(`/rates/${selectRates.toString()}`);
   };
 
   const createRates = () => {
@@ -45,15 +51,12 @@ function Rates() {
     const array = selectRates;
     array.splice(index, 1);
     setRates([...array]);
+    navigate(`/rates/${selectRates.toString()}`);
   };
 
   const updateRates = (selectRates) => {
     setRates([...selectRates]);
     // console.log(this.state.campaign.unitConfig);
-  };
-
-  const removeCardFromAll = () => {
-    const allArray = customFeatures;
   };
 
   const handleToggle = (event) => {
