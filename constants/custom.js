@@ -57,7 +57,7 @@ var customFeatures = [
       "Generally only leveraged within an In-Screen unit. Great for entertainment and events.",
     programmatic: "Feasible",
     clientRequirements: "Countdown Dates/Times",
-    demo: "https://c.ggops.com/adbuilder/demos/50739/1680807307371_ad.html",
+    demo: "https://c.gumgum.com/ads/com/amazon/countdown-demo/demo-page/index.html",
   },
   {
     id: 3,
@@ -77,7 +77,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Additional Creative assets and taglines for longer animations",
-    demo: null,
+    demo: "https://c.ggops.com/adbuilder/demos/54318/1669697904922_ad.html",
   },
   {
     id: 4,
@@ -138,7 +138,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Requires client to supply copy and/or storyboard for each frame.",
-    demo: null,
+    demo: "https://c.ggops.com/adbuilder/demos/45599/1654707843679_ad.html",
   },
   {
     id: 7,
@@ -159,7 +159,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Requires client to supply copy and/or storyboard for each stage.",
-    demo: null,
+    demo: "https://c.ggops.com/adbuilder/demos/42316/1647336489365_ad.html",
   },
   {
     id: 8,
@@ -180,7 +180,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Requires clear direction or storyboard from the client.",
-    demo: null,
+    demo: "https://demos.gumgum.com/7AqmlLr_1675096776",
   },
   {
     id: 9,
@@ -201,7 +201,7 @@ var customFeatures = [
     programmatic: "Feasible",
     clientRequirements:
       "Requires client to supply copy and/or storyboard for each stage.",
-    demo: null,
+    demo: "https://c.gumgum.com/ads/com/pepsi/quiz-unit/pepsi-quiz-unit/index.html",
   },
   {
     id: 10,
