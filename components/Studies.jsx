@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect, Component } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import {
   Card,
   Section,
@@ -20,6 +21,10 @@ import DmpCard from "./DmpCard";
 let setDebounce;
 
 function Studies() {
+  const navigate = useNavigate();
+  const params = useParams();
+  const ids =
+    Object.keys(params).length > 0 ? params.id.split(",").map(Number) : [null];
   const [selectedStudies, setStudies] = useState([null]);
   const [toggleAllStudies, setToggleStudies] = useState(false);
 
@@ -30,6 +35,7 @@ function Studies() {
     const newArray = selectedStudies;
     newArray[+index] = +value; //convert to number
     setStudies([...newArray]);
+    navigate(`/studies/${selectedStudies.toString()}`);
   };
 
   const createStudySelect = () => {
@@ -48,6 +54,7 @@ function Studies() {
     const array = selectedStudies;
     array.splice(index, 1);
     setStudies([...array]);
+    navigate(`/studies/${selectedStudies.toString()}`);
   };
 
   const updateStudy = (studies) => {

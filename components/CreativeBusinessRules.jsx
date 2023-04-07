@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { useState, useEffect, Component } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import {
   Card,
   Section,
@@ -25,6 +26,10 @@ import spendTiers from "../constants/spends";
 let setDebounce;
 
 function CreativeBusinessRules() {
+  const navigate = useNavigate();
+  const params = useParams();
+  const ids =
+    Object.keys(params).length > 0 ? params.id.split(",").map(Number) : [null];
   const [spendThreshold, setSpendThreshold] = useState([null]);
   const [toggleAll, setToggle] = useState(false);
 
@@ -32,6 +37,7 @@ function CreativeBusinessRules() {
     const newArray = spendThreshold;
     newArray[+index] = +value; //convert to number
     setSpendThreshold([...newArray]);
+    navigate(`/creative-rules/${spendThreshold.toString()}`);
   };
 
   const createCustomSelect = () => {
@@ -50,6 +56,7 @@ function CreativeBusinessRules() {
     const array = spendThreshold;
     array.splice(index, 1);
     setSpendThreshold([...array]);
+    navigate(`/creative-rules/${spendThreshold.toString()}`);
   };
 
   const updateCustom = (spendThreshold) => {

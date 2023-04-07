@@ -246,27 +246,28 @@ const StudiesCard = (props) => {
             <StudySpendTable study={props.study} />
           </Section>
 
-          <Section>
-            <div
-              className="-float-right"
-              style={{
-                position: "absolute",
-                top: "0",
-                right: "1.4rem",
-              }}
-            >
-              <Tooltip text="Share Card">
-                <IconButton
-                  title="Button"
-                  icon="fas fa-share"
-                  size="sm"
-                  disabled={false}
-                  dark={false}
-                  pill={false}
-                />
-              </Tooltip>
-            </div>
-          </Section>
+          {/*//this is the share button! uncomment when functionality works        
+        <Section>
+          <div
+            className="-float-right"
+            style={{
+              position: "absolute",
+              top: "0",
+              right: "1.4rem",
+            }}
+          >
+            <Tooltip text="Share Card">
+              <IconButton
+                title="Button"
+                icon="fas fa-share"
+                size="sm"
+                disabled={false}
+                dark={false}
+                pill={false}
+              />
+            </Tooltip>
+          </div>
+        </Section> */}
         </Section>
       </Card>
     </div>
