@@ -456,7 +456,6 @@ function Generator() {
                             addHandler={createDmpConfig}
                             deleteHandler={removeDmpConfig}
                             changeHandler={setDmpConfig}
-                            key={config.index}
                             key={config.key}
                             id={index}
                             index={config.key}
