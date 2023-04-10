@@ -51,7 +51,7 @@ const CesCard = (props) => {
   };
 
   return (
-    <div className="sla-card-style">
+    <div className="sla-card-style-ces">
       <SubHeading text={resultHead} />
       <div className="sla-result-text">
         {" "}

@@ -9,7 +9,7 @@ export const Columns = [
       <div
         style={{
           textAlign: "left",
-          minWidth: "200px",
+          minWidth: "50px",
           maxWidth: "500px",
         }}
       >
@@ -85,6 +85,34 @@ export const Columns = [
   },
 ];
 
+export const DesignBucket = [
+  {
+    Header: "Total Creatives",
+    accessor: "totalCreatives",
+  },
+  {
+    Header: "Standard",
+    accessor: "standardUnits",
+    headerStyle: () => (
+      <Tooltip text="Desktop Skin, Mobile Skin, Mobile Scroller">
+        <i style={{ color: "#25B9EF" }} className="fas fa-info-circle"></i>
+      </Tooltip>
+    ),
+  },
+  {
+    Header: "High Impact",
+    accessor: "highImpact",
+  },
+  {
+    Header: "Skins/Scrollers",
+    accessor: "skins",
+  },
+  {
+    Header: "In-Video CTV",
+    accessor: "inVideoMin",
+  },
+];
+
 export const Generator = [
   {
     Header: "Unit Types",
@@ -133,9 +161,11 @@ export const DmpNew = [
     accessor: "locked",
     Cell: (props) => {
       return (
-        <p style={{ color: props.value === "Locked" ? "#E24550" : "#08D18B" }}>
+        <span
+          style={{ color: props.value === "Locked" ? "#E24550" : "#08D18B" }}
+        >
           {props.value}
-        </p>
+        </span>
       );
     },
   },
@@ -143,179 +173,6 @@ export const DmpNew = [
   {
     Header: "CPM Upcharge",
     accessor: "cpmUpcharge",
-  },
-];
-
-export const Dmp = [
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "left",
-          minWidth: "200px",
-          maxWidth: "400px",
-        }}
-      >
-        Data Type
-      </div>
-    ),
-    accessor: "dataType",
-    headerStyle: { textAlign: "right" },
-  },
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "center",
-          color: "#08D18B",
-        }}
-      >
-        $25k-$49k{" "}
-      </div>
-    ),
-
-    accessor: "tableInfo[0].column1",
-    Cell: (row) => <div style={{ textAlign: "center" }}>{row.value}</div>,
-  },
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "center",
-          color: "#08D18B",
-        }}
-      >
-        $50k-$74k{" "}
-      </div>
-    ),
-    accessor: "tableInfo[1].column2",
-    headerStyle: { textAlign: "center" },
-    Cell: (row) => (
-      <div style={{ textAlign: "center" }}>
-        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
-        {row.value}
-      </div>
-    ),
-  },
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "center",
-          color: "#08D18B",
-        }}
-      >
-        $75k-$99k{" "}
-      </div>
-    ),
-    accessor: "tableInfo[2].column3",
-    headerStyle: { textAlign: "center" },
-    Cell: (row) => (
-      <div style={{ textAlign: "center" }}>
-        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
-        {row.value}
-      </div>
-    ),
-  },
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "center",
-          color: "#08D18B",
-        }}
-      >
-        $100k-$124k{" "}
-      </div>
-    ),
-    accessor: "tableInfo[3].column4",
-    headerStyle: { textAlign: "center" },
-    Cell: (row) => (
-      <div style={{ textAlign: "center" }}>
-        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
-        {row.value}
-      </div>
-    ),
-  },
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "center",
-          color: "#08D18B",
-        }}
-      >
-        $125k-$199k{" "}
-      </div>
-    ),
-    accessor: "tableInfo[4].column5",
-    headerStyle: { textAlign: "center" },
-    Cell: (row) => (
-      <div style={{ textAlign: "center" }}>
-        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
-        {row.value}
-      </div>
-    ),
-  },
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "center",
-          color: "#08D18B",
-        }}
-      >
-        $200k-$299k{" "}
-      </div>
-    ),
-    accessor: "tableInfo[5].column6",
-    headerStyle: { textAlign: "center" },
-    Cell: (row) => (
-      <div style={{ textAlign: "center" }}>
-        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
-        {row.value}
-      </div>
-    ),
-  },
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "center",
-          color: "#08D18B",
-        }}
-      >
-        $300k+{" "}
-      </div>
-    ),
-    accessor: "tableInfo[6].column7",
-    headerStyle: { textAlign: "center" },
-    Cell: (row) => (
-      <div style={{ textAlign: "center" }}>
-        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
-        {row.value}
-      </div>
-    ),
-  },
-  {
-    Header: () => (
-      <div
-        style={{
-          textAlign: "center",
-          color: "#08D18B",
-        }}
-      >
-        No Voiced Budget{" "}
-      </div>
-    ),
-    accessor: "tableInfo[7].column8",
-    headerStyle: { textAlign: "center" },
-    Cell: (row) => (
-      <div style={{ textAlign: "center" }}>
-        <i style={{ color: "#08D18B" }} className="fas fa-check"></i> &nbsp;
-        {row.value}
-      </div>
-    ),
   },
 ];
 
@@ -482,6 +339,109 @@ export const studySpendTable = [
         >
           {props.value}
         </p>
+      );
+    },
+  },
+];
+
+export const studySpendTableMobile = [
+  {
+    Header: "Partner Name",
+    accessor: "name",
+  },
+  {
+    Header: "$25k-$49k",
+    accessor: "table[0].column1",
+    Cell: (props) => {
+      return (
+        <span
+          style={{
+            textAlign: "center",
+            color: props.value === "Locked" ? "#E24550" : "#08D18B",
+          }}
+        >
+          {props.value}
+        </span>
+      );
+    },
+  },
+  {
+    Header: "$50k-$74k",
+    accessor: "table[1].column2",
+    Cell: (props) => {
+      return (
+        <span
+          style={{
+            textAlign: "center",
+            color: props.value === "Locked" ? "#E24550" : "#08D18B",
+          }}
+        >
+          {props.value}
+        </span>
+      );
+    },
+  },
+  {
+    Header: "$75k-$99k",
+    accessor: "table[2].column3",
+    Cell: (props) => {
+      return (
+        <span
+          style={{
+            textAlign: "center",
+            color: props.value === "Locked" ? "#E24550" : "#08D18B",
+          }}
+        >
+          {props.value}
+        </span>
+      );
+    },
+  },
+  {
+    Header: "$100k-$124k",
+    accessor: "table[3].column4",
+    Cell: (props) => {
+      return (
+        <span
+          style={{
+            textAlign: "center",
+            color: props.value === "Locked" ? "#E24550" : "#08D18B",
+          }}
+        >
+          {props.value}
+        </span>
+      );
+    },
+  },
+  {
+    Header: "$125k-$199k",
+    accessor: "table[4].column5",
+    Cell: (props) => {
+      return (
+        <span
+          style={{
+            textAlign: "center",
+            color: props.value === "Locked" ? "#E24550" : "#08D18B",
+          }}
+        >
+          {props.value}
+        </span>
+      );
+    },
+  },
+  {
+    Header: "$200k+",
+    accessor: "table[5].column6",
+    Cell: (props) => {
+      return (
+        <span
+          style={{
+            textAlign: "center",
+            color: props.value === "Locked" ? "#E24550" : "#08D18B",
+          }}
+        >
+          {props.value}
+        </span>
       );
     },
   },

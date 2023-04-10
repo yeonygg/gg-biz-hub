@@ -1,13 +1,13 @@
 import React from "react";
 import { useMemo, Fragment } from "react";
 import designBuckets from "../constants/designbuckets";
-import { studySpendTable } from "../constants/Columns";
+import { studySpendTableMobile } from "../constants/Columns";
 import { useTable } from "react-table";
 import { UUIDV4 } from "../helpers/helpers";
 
 const StudySpendTable = (props) => {
   const selectedStudy = props.study.studyPartners;
-  const columns = useMemo(() => studySpendTable, []);
+  const columns = useMemo(() => studySpendTableMobile, []);
 
   //   const minSpend = selectedStudy.map((study) => {
   //     study.table[0].column1 = `(<i style={{ color: "#08D18B" }} className="fas fa-check"></i>) &nbsp;
@@ -34,8 +34,9 @@ const StudySpendTable = (props) => {
   } = tableInstance;
 
   return (
-    <table {...getTableProps()} id="design-buckets">
+    <table {...getTableProps()} id="design-buckets" className="-m-b-6">
       <thead>
+        {console.log(headerGroups)}
         {headerGroups.map((headerGroup) => (
           <tr key={UUIDV4()} {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
@@ -54,7 +55,11 @@ const StudySpendTable = (props) => {
               {row.cells.map((cell) => {
                 // console.log(cell);
                 return (
-                  <td key={UUIDV4()} {...cell.getCellProps()}>
+                  <td
+                    key={UUIDV4()}
+                    {...cell.getCellProps()}
+                    data-title={cell.column.Header}
+                  >
                     {cell.render("Cell")}
                   </td>
                 );

@@ -1,7 +1,7 @@
 import CustomAdd from "./CustomAdd";
 import unitTypes from "../constants/units";
 import customFeatures from "../constants/custom";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 
 import {
   InputGroup,
@@ -140,58 +140,62 @@ const CreativeRow = (props) => {
   };
 
   return (
-    <div>
-      <Section padding="xs">
-        <div className="-d-flex -justify-content-between">
-          {" "}
-          <div className="unit-name-input">
-            <InputGroup label="unit type" size="sm" error="" dark={false}>
-              <InputSelect
-                size="sm"
-                disabled={false}
-                dark={false}
-                error={false}
-                capleft={false}
-                required=""
-                onChange={(event) => {
-                  handleChange(event, "unitType");
-                }}
-              >
-                <option>Select Unit type</option>
-                {unitTypes.map((unit) => (
-                  <option key={unit.id}>{unit.name}</option>
-                ))}
-              </InputSelect>
-            </InputGroup>
+    <Fragment>
+      <div className="creative-row-wrapper">
+        {" "}
+        <div className="unit-name-input">
+          <InputGroup label="unit type" size="sm" error="" dark={false}>
+            <InputSelect
+              size="sm"
+              disabled={false}
+              dark={false}
+              error={false}
+              capleft={false}
+              required=""
+              onChange={(event) => {
+                handleChange(event, "unitType");
+              }}
+            >
+              <option>Select Unit type</option>
+              {unitTypes.map((unit) => (
+                <option key={unit.id}>{unit.name}</option>
+              ))}
+            </InputSelect>
+          </InputGroup>
 
-            <div className="toggle-button">
-              <InputCheckbox
-                size="sm"
-                disabled={props.config.isCustomizable ? false : true}
-                dark={false}
-                error={false}
-                partial={false}
-                onChange={(event) => {
-                  handleChange(event, "customOn");
-                }}
-              >
-                Custom
-              </InputCheckbox>
-            </div>
-          </div>
-          <div className="num-units-input">
-            <InputGroup label="Version Count" size="sm" error="" dark={false}>
-              <InputText
-                size="sm"
-                placeholder="Enter Number"
-                onChange={(event) => {
-                  handleChange(event, "versionCount");
-                }}
-              />
-            </InputGroup>
-          </div>
           <div className="toggle-button">
-            <div></div>
+            <InputCheckbox
+              size="sm"
+              disabled={props.config.isCustomizable ? false : true}
+              dark={false}
+              error={false}
+              partial={false}
+              onChange={(event) => {
+                handleChange(event, "customOn");
+              }}
+            >
+              Custom
+            </InputCheckbox>
+          </div>
+        </div>
+        <div className="num-units-input">
+          <InputGroup
+            className="creative-version-count-input"
+            label="Version Count"
+            size="sm"
+            error=""
+            dark={false}
+          >
+            <InputText
+              size="sm"
+              placeholder="Enter Number"
+              onChange={(event) => {
+                handleChange(event, "versionCount");
+              }}
+            />
+          </InputGroup>
+
+          <div className="toggle-button">
             <Tooltip text="Delete creative">
               <IconButton
                 title="Button"
@@ -206,12 +210,12 @@ const CreativeRow = (props) => {
             </Tooltip>
           </div>
         </div>
-      </Section>
+      </div>
       {props.config.customOn && (
         <div>
           {" "}
           <Section padding="xs" className="add-on-section">
-            <div style={{ width: "40%", display: "flex" }}>
+            <div className="custom-add-row-wrapper">
               <div className="plus-alignment">
                 <IconButton
                   title="Button"
@@ -252,11 +256,10 @@ const CreativeRow = (props) => {
                 </InputGroup>
               </div>
             </div>
-            <div style={{ width: "60%" }}></div>
           </Section>
         </div>
       )}
-    </div>
+    </Fragment>
   );
 };
 

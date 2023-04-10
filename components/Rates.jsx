@@ -17,6 +17,7 @@ import RatesRow from "./RatesRow";
 import { unitTypes, rateCatergories } from "../constants/units";
 import RatesCard from "./RatesCard";
 import { UUIDV4 } from "../helpers/helpers";
+import { isMobile } from "react-device-detect";
 
 let setDebounce;
 
@@ -66,14 +67,10 @@ function Rates() {
 
   return (
     <Fragment>
-      <Heading>CPM Rates</Heading>
-      <Card className="-m-b-6">
-        <Section
-          padding="lg"
-          className="-flex-row -justify-content-center -align-items-center"
-          style={{ marginTop: "1.125rem" }}
-        >
-          <div className="-d-flex" style={{ width: "100%" }}>
+      <Heading className="heading-style">CPM Rates</Heading>
+      <Card>
+        <Section className="section-style">
+          <div className="rates-select-wrapper">
             <div className="custom-body-text">
               <BodyText
                 style={{
@@ -102,7 +99,7 @@ function Rates() {
             </div>
           </div>
 
-          <div className="-d-flex -justify-content-end -m-t-6">
+          <div className="-d-flex -justify-content-end">
             <InputToggle
               size="sm"
               disabled={false}

@@ -15,6 +15,7 @@ import Link from "next/link";
 import customFeatures from "../constants/custom";
 import CustomCard from "../components/CustomCard";
 import CustomSelectRow from "../components/CustomSelectRow";
+
 let setDebounce;
 function CustomCreatives() {
   const navigate = useNavigate();
@@ -55,17 +56,13 @@ function CustomCreatives() {
   const handleToggle = (event) => {
     setToggle(event.target.checked);
   };
-  console.log(selectCustomFeatures);
+
   return (
     <Fragment>
-      <Heading>Creative - Custom Creatives</Heading>
-      <Card className="-m-b-6">
-        <Section
-          padding="lg"
-          className="-flex-row -justify-content-center -align-items-center"
-          style={{ marginTop: "1.125rem" }}
-        >
-          <div className="-d-flex" style={{ width: "100%" }}>
+      <Heading className="heading-style">Creative - Custom Creatives</Heading>
+      <Card>
+        <Section className="section-style">
+          <div className="custom-creatives-wrapper">
             <div className="custom-body-text">
               <BodyText
                 style={{

@@ -1,7 +1,7 @@
 import React from "react";
 import { useMemo, Fragment } from "react";
 import designBuckets from "../constants/designbuckets";
-import { Columns } from "../constants/Columns";
+import { DesignBucket } from "../constants/Columns";
 import { useTable } from "react-table";
 import { UUIDV4 } from "../helpers/helpers";
 
@@ -27,7 +27,7 @@ const DesignBucketTable = (props) => {
       return bucket;
     });
 
-  const columns = useMemo(() => Columns, []);
+  const columns = useMemo(() => DesignBucket, []);
   // the dependencies parameter tells it what value changing should trigger a re-render of the data.
   //In this case buckets or isExpedited changing would work
   const data = useMemo(() => buckets, [buckets]);
@@ -41,7 +41,7 @@ const DesignBucketTable = (props) => {
     tableInstance;
 
   return (
-    <table key={UUIDV4()} {...getTableProps()} id="design-buckets">
+    <table key={UUIDV4()} {...getTableProps()} id="table">
       <thead key={UUIDV4()}>
         {headerGroups.map((headerGroup) => (
           <tr key={UUIDV4()} {...headerGroup.getHeaderGroupProps()}>
@@ -61,7 +61,11 @@ const DesignBucketTable = (props) => {
               {row.cells.map((cell) => {
                 // console.log(cell);
                 return (
-                  <td key={UUIDV4()} {...cell.getCellProps()}>
+                  <td
+                    key={UUIDV4()}
+                    {...cell.getCellProps()}
+                    data-title={cell.column.Header}
+                  >
                     {cell.render("Cell")}
                   </td>
                 );

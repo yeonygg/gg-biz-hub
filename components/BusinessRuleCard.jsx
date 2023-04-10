@@ -12,6 +12,7 @@ import unitTypes from "../constants/units";
 import spendTiers from "../constants/spends";
 import customFeatures from "../constants/custom";
 import { UUIDV4 } from "../helpers/helpers";
+import { isMobile } from "react-device-detect";
 
 const BusinessRuleCard = (props) => {
   const standardUnits = props.spend.supportedStandard;
@@ -256,7 +257,7 @@ const BusinessRuleCard = (props) => {
   return (
     <div>
       <Card style={{ marginBottom: "1rem" }}>
-        <Section>
+        <Section className="section-style">
           <div className="-float-right">
             <Tooltip text={removeTooltip()}>
               <IconButton
@@ -271,22 +272,18 @@ const BusinessRuleCard = (props) => {
             </Tooltip>
           </div>
         </Section>
-        <Section padding="lg">
-          <div className="-d-flex">
-            <div
-              className="-d-flex -align-items-center -m-r-6"
-              style={{ width: "25%" }}
-            >
-              <div>
-                {" "}
-                <Heading size="md">
-                  {props.spend.title}
-                  <HR
-                    size="lg"
-                    theme="hero"
-                    style={{ width: "75px", marginTop: "1rem" }}
-                  />
-                </Heading>
+        <Section className="section-style">
+          <div className="spend-card-wrapper">
+            <div className="spend-heading-section-wrapper">
+              <Heading className="heading-style">
+                {props.spend.title}
+                <HR
+                  size="lg"
+                  theme="hero"
+                  style={{ width: "75px", marginTop: "1rem" }}
+                />
+              </Heading>{" "}
+              <div className="spend-subheading-wrapper">
                 <BodyText size="md" style={{ fontWeight: "bold" }}>
                   Unit Types & Versions
                 </BodyText>
@@ -297,126 +294,131 @@ const BusinessRuleCard = (props) => {
               </div>
             </div>
 
-            <div className="custom-card-description-box-1">
-              <div>
-                <BodyText
-                  size="md"
-                  style={{ fontWeight: "bold", color: "#08D18B" }}
-                >
-                  Standard Units
-                </BodyText>
-
-                {standardUnits.map((unit) => (
-                  <div key={UUIDV4()} className="-d-flex">
-                    <i
-                      className="pier-button-icon__icon fas fa-check"
-                      style={{ marginRight: "10px", color: "#08D18B" }}
-                    ></i>{" "}
-                    <BodyText size="sm">{unitTypes[unit].name}</BodyText> &nbsp;
-                    <BodyText size="sm" style={{ fontWeight: "bold" }}>
-                      ({unitTypes[unit].abbrev})
-                    </BodyText>
-                  </div>
-                ))}
-
-                {/*!unit.isGumGum && <><i className="fa-check"></i>{`${unit.name} (${unit.abbrev}) }*/}
-
-                <BodyText size="md" style={{ fontWeight: "bold" }}>
-                  {ggHeading()}
-                </BodyText>
-                <div className="-d-block">
-                  {" "}
-                  {gumgumUnits.map((unit) => (
-                    <ul
-                      key={UUIDV4()}
-                      className="gg-standard-list"
-                      data-columns="2"
-                    >
-                      <li key={UUIDV4()}> {unitTypes[unit].name}</li>
-                    </ul>
-                  ))}
-                </div>
-
-                <div className="-d-flex">
+            <div className="units-wrapper">
+              <div className="custom-card-description-box-1">
+                <div>
                   <BodyText
                     size="md"
                     style={{ fontWeight: "bold", color: "#08D18B" }}
                   >
-                    Unlocked Custom Add-ons
+                    Standard Units
                   </BodyText>
-                  <i
-                    className="pier-button-icon__icon fas fa-unlock"
-                    style={{
-                      marginLeft: "10px",
-                      paddingTop: "0.3rem",
-                      color: "#08D18B",
-                    }}
-                  ></i>
-                </div>
-                <BodyText size="sm">{unlockedCustom()}</BodyText>
-              </div>
-            </div>
 
-            <div className="custom-card-description-box-2 -m-l-6">
-              <div>
-                {hiHeading()}
-                {props.spend.totalHighImpact > 0 && (
-                  <BodyText
-                    size="xs"
-                    style={{
-                      fontWeight: "bold",
-                      paddingBottom: ".5rem",
-                    }}
-                  >
-                    {hiVersionMax()}
-                  </BodyText>
-                )}
-                {handleHi()}
-                {/*!unit.isGumGum && <><i className="fa-check"></i>{`${unit.name} (${unit.abbrev}) }*/}
-                {skinHeading()}
-                {props.spend.totalSkins > 0 && (
-                  <BodyText
-                    size="xs"
-                    style={{
-                      fontWeight: "bold",
-                      paddingBottom: "0.5rem",
-                    }}
-                  >
-                    {skinVersionMax()}
-                  </BodyText>
-                )}
+                  {standardUnits.map((unit) => (
+                    <div key={UUIDV4()} className="-d-flex">
+                      <i
+                        className="pier-button-icon__icon fas fa-check"
+                        style={{ marginRight: "10px", color: "#08D18B" }}
+                      ></i>{" "}
+                      <BodyText size="sm">{unitTypes[unit].name}</BodyText>{" "}
+                      &nbsp;
+                      <BodyText size="sm" style={{ fontWeight: "bold" }}>
+                        ({unitTypes[unit].abbrev})
+                      </BodyText>
+                    </div>
+                  ))}
 
-                {supportedSkins.map((unit) => (
-                  <div key={UUIDV4()} className="-d-flex">
-                    <i
-                      className="pier-button-icon__icon fas fa-check"
-                      style={{ marginRight: "10px", color: "#08D18B" }}
-                    ></i>{" "}
-                    <BodyText size="sm">{unitTypes[unit].name}</BodyText> &nbsp;
-                    <BodyText
-                      size="sm"
-                      style={{ fontWeight: "bold" }}
-                    ></BodyText>
+                  {/*!unit.isGumGum && <><i className="fa-check"></i>{`${unit.name} (${unit.abbrev}) }*/}
+
+                  <BodyText size="md" style={{ fontWeight: "bold" }}>
+                    {ggHeading()}
+                  </BodyText>
+                  <div className="-d-block">
+                    {" "}
+                    {gumgumUnits.map((unit) => (
+                      <ul
+                        key={UUIDV4()}
+                        className="gg-standard-list"
+                        data-columns="2"
+                      >
+                        <li key={UUIDV4()}> {unitTypes[unit].name}</li>
+                      </ul>
+                    ))}
                   </div>
-                ))}
-                {handleLockedSkin()}
-                {unsupportedSkins.map((unit) => (
-                  <div key={UUIDV4()} className="-d-flex">
+
+                  <div className="-d-flex">
+                    <BodyText
+                      size="md"
+                      style={{ fontWeight: "bold", color: "#08D18B" }}
+                    >
+                      Unlocked Custom Add-ons
+                    </BodyText>
                     <i
-                      className="pier-button-icon__icon fas fa-times"
+                      className="pier-button-icon__icon fas fa-unlock"
                       style={{
-                        marginRight: "10px",
-                        color: "#E24550",
-                        marginTop: "0.25rem",
+                        marginLeft: "10px",
+                        paddingTop: "0.3rem",
+                        color: "#08D18B",
                       }}
-                    ></i>{" "}
-                    <BodyText size="sm">{unitTypes[unit].name}</BodyText> &nbsp;
-                    <BodyText
-                      size="sm"
-                      style={{ fontWeight: "bold" }}
-                    ></BodyText>
+                    ></i>
                   </div>
-                ))}
+                  <BodyText size="sm">{unlockedCustom()}</BodyText>
+                </div>
+              </div>
+
+              <div className="custom-card-description-box-2">
+                <div>
+                  {hiHeading()}
+                  {props.spend.totalHighImpact > 0 && (
+                    <BodyText
+                      size="xs"
+                      style={{
+                        fontWeight: "bold",
+                        paddingBottom: ".5rem",
+                      }}
+                    >
+                      {hiVersionMax()}
+                    </BodyText>
+                  )}
+                  {handleHi()}
+                  {/*!unit.isGumGum && <><i className="fa-check"></i>{`${unit.name} (${unit.abbrev}) }*/}
+                  {skinHeading()}
+                  {props.spend.totalSkins > 0 && (
+                    <BodyText
+                      size="xs"
+                      style={{
+                        fontWeight: "bold",
+                        paddingBottom: "0.5rem",
+                      }}
+                    >
+                      {skinVersionMax()}
+                    </BodyText>
+                  )}
+
+                  {supportedSkins.map((unit) => (
+                    <div key={UUIDV4()} className="-d-flex">
+                      <i
+                        className="pier-button-icon__icon fas fa-check"
+                        style={{ marginRight: "10px", color: "#08D18B" }}
+                      ></i>{" "}
+                      <BodyText size="sm">{unitTypes[unit].name}</BodyText>{" "}
+                      &nbsp;
+                      <BodyText
+                        size="sm"
+                        style={{ fontWeight: "bold" }}
+                      ></BodyText>
+                    </div>
+                  ))}
+                  {handleLockedSkin()}
+                  {unsupportedSkins.map((unit) => (
+                    <div key={UUIDV4()} className="-d-flex">
+                      <i
+                        className="pier-button-icon__icon fas fa-times"
+                        style={{
+                          marginRight: "10px",
+                          color: "#E24550",
+                          marginTop: "0.25rem",
+                        }}
+                      ></i>{" "}
+                      <BodyText size="sm">{unitTypes[unit].name}</BodyText>{" "}
+                      &nbsp;
+                      <BodyText
+                        size="sm"
+                        style={{ fontWeight: "bold" }}
+                      ></BodyText>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

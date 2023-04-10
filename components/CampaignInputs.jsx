@@ -9,8 +9,8 @@ const CampaignInputs = (props) => {
   };
 
   return (
-    <Section padding="sm" className="client-section">
-      <div className="campaign-name-input -m-b-8">
+    <div className="client-section">
+      <div className="campaign-name-input">
         <InputGroup label="client name" size="sm" error="" dark={false}>
           <InputText
             size="sm"
@@ -23,7 +23,7 @@ const CampaignInputs = (props) => {
         </InputGroup>
       </div>
 
-      <div className="campaign-name-input -m-b-8">
+      <div className="campaign-name-input">
         <InputGroup label="campaign name" size="sm" error="" dark={false}>
           <InputText
             size="sm"
@@ -35,7 +35,7 @@ const CampaignInputs = (props) => {
         </InputGroup>
       </div>
 
-      <div className="campaign-budget-input -m-b-8">
+      <div className="campaign-budget-input">
         <InputGroup label="budget" size="sm" error="(optional)" dark={false}>
           <InputText
             size="sm"
@@ -48,7 +48,7 @@ const CampaignInputs = (props) => {
           />
         </InputGroup>
       </div>
-    </Section>
+    </div>
   );
 };
 

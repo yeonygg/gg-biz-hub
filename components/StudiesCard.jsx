@@ -78,8 +78,8 @@ const StudiesCard = (props) => {
         <Fragment>
           <Heading size="sm">Good Candidates</Heading>
           <HR />
-          <div className="-d-flex -m-t-7">
-            <div key={UUIDV4()} style={{ width: "60%", paddingRight: "5rem" }}>
+          <div className="study-consumer-section-wrapper">
+            <div key={UUIDV4()} className="study-consumer-section">
               <BodyText style={{ fontWeight: "bold", color: "#25B9EF" }}>
                 {getTitle[0]}
               </BodyText>
@@ -99,7 +99,10 @@ const StudiesCard = (props) => {
                 )
               )}
             </div>
-            <div key={UUIDV4()} style={{ width: "40%" }}>
+            <div
+              key={UUIDV4()}
+              className="study-campaign-characteristics-section"
+            >
               <BodyText style={{ fontWeight: "bold", color: "#25B9EF" }}>
                 {getTitle[1]}
               </BodyText>
@@ -124,14 +127,14 @@ const StudiesCard = (props) => {
             <Heading size="sm">Caveats</Heading>
           </div>
           <HR />
-          <div className="-d-flex -m-t-7 -m-b-6">
-            <div key={UUIDV4()} style={{ width: "60%", paddingRight: "5rem" }}>
+          <div className="study-caveats-wrapper">
+            <div key={UUIDV4()} className="study-b2b-tech">
               <BodyText style={{ fontWeight: "bold" }}>
                 {props.study.caveats.title[0]}
               </BodyText>
               <BodyText size="xs">{props.study.caveats.info[0]}</BodyText>
             </div>
-            <div key={UUIDV4()} style={{ width: "40%" }}>
+            <div key={UUIDV4()} className="study-household-names">
               <BodyText style={{ fontWeight: "bold" }}>
                 {props.study.caveats.title[1]}
               </BodyText>
@@ -149,25 +152,22 @@ const StudiesCard = (props) => {
     } else {
       middleSection = (
         <Fragment>
-          <div className="-d-flex">
+          <div className="study-middle-wrapper">
             {" "}
-            <div style={{ width: "60%" }}>
+            <div className="study-candidates-wrapper">
               <Heading size="sm">Good Candidates</Heading>
-            </div>
-            <div style={{ width: "40%" }}>
-              <Heading size="sm">Caveats</Heading>
-            </div>
-          </div>{" "}
-          <HR />
-          <div className="-d-flex">
-            <div
-              className="-m-t-7"
-              style={{ width: "60%", paddingRight: "5rem" }}
-            >
-              <BodyText style={{ fontWeight: "bold", color: "#25B9EF" }}>
+              <HR />
+
+              <BodyText
+                style={{
+                  fontWeight: "bold",
+                  color: "#25B9EF",
+                  marginTop: "1.5rem",
+                }}
+              >
                 {props.study.goodCandidates.title}
               </BodyText>
-              <div className="-d-flex">
+              <div className="-d-flex -m-b-7">
                 <i
                   className="pier-button-icon__icon fas fa-thumbs-up"
                   style={{
@@ -179,13 +179,16 @@ const StudiesCard = (props) => {
                 <BodyText size="xs">{props.study.goodCandidates.info}</BodyText>
               </div>
             </div>
-            <div className="-m-t-7 -m-b-7" style={{ width: "40%" }}>
-              <BodyText style={{ fontWeight: "bold" }}>
+            <div className="study-caveats-wrapper-2">
+              <Heading size="sm">Caveats</Heading>
+              <HR />
+
+              <BodyText style={{ fontWeight: "bold", marginTop: "1.5rem" }}>
                 {props.study.caveats.title}
               </BodyText>
               <BodyText size="xs">{props.study.caveats.info}</BodyText>
-            </div>
-          </div>
+            </div>{" "}
+          </div>{" "}
           <HR />
           <div className="-m-t-7 -m-b-7">
             <BodyText style={{ fontWeight: "bold", color: "#25B9EF" }}>
@@ -200,10 +203,12 @@ const StudiesCard = (props) => {
 
   return (
     <div>
-      <Card style={{ marginBottom: "1rem" }}>
-        <Section padding="lg">
+      <Card>
+        <Section className="section-style">
           <div className="-d-flex -justify-content-between">
-            <Heading size="md">Study - {props.study.title}</Heading>
+            <Heading className="heading-style">
+              Study - {props.study.title}
+            </Heading>
 
             <Tooltip text={removeTooltip()}>
               <IconButton
@@ -220,15 +225,15 @@ const StudiesCard = (props) => {
 
           <div className="-d-flex">
             <div className="study-card-description-box">
-              <div style={{ marginBottom: "2rem", display: "flex" }}>
-                <div style={{ width: "60%", paddingRight: "5rem" }}>
+              <div className="study-card-description-flexbox">
+                <div className="study-description">
                   {" "}
                   <BodyText size="md" style={{ fontWeight: "bold" }}>
                     Description
                   </BodyText>
                   <BodyText size="xs">{props.study.description}</BodyText>
                 </div>
-                <div style={{ width: "40%" }}>
+                <div className="study-studypartners">
                   {" "}
                   <BodyText size="md" style={{ fontWeight: "bold" }}>
                     Study Partners
@@ -240,10 +245,10 @@ const StudiesCard = (props) => {
               {handleMiddleSection()}
             </div>
           </div>
-          <Section className="-m-t-5">
-            <Heading size="sm">Minimum Spends</Heading>
-            <StudySpendTable study={props.study} />
-          </Section>
+          <Heading size="sm" className="-m-t-8">
+            Minimum Spends
+          </Heading>
+          <StudySpendTable study={props.study} />
 
           {/*//this is the share button! uncomment when functionality works        
         <Section>

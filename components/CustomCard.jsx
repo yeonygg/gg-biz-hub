@@ -9,6 +9,7 @@ import {
 } from "pier-design-system";
 import unitTypes from "../constants/units";
 import { Link } from "react-router-dom";
+import { isMobile } from "react-device-detect";
 
 const CustomCard = (props) => {
   // for (let i = 0; i < unitTypes.length; i++) {
@@ -152,10 +153,10 @@ const CustomCard = (props) => {
 
   return (
     <div>
-      <Card style={{ marginBottom: "1rem" }}>
-        <Section padding="lg">
+      <Card>
+        <Section className="section-style">
           <div className="custom-card-heading-wrapper">
-            <Heading>{props.feature.name}</Heading>
+            <Heading className="heading-style">{props.feature.name}</Heading>
             <Tooltip text={removeTooltip()}>
               <IconButton
                 onClick={handleDelete}
@@ -169,7 +170,7 @@ const CustomCard = (props) => {
             </Tooltip>
           </div>
 
-          <div className="-d-flex">
+          <div className="custom-card-wrapper">
             <div className="custom-card-description-box">
               <div style={{ marginBottom: "2rem" }}>
                 <BodyText size="md" style={{ fontWeight: "bold" }}>
@@ -198,7 +199,7 @@ const CustomCard = (props) => {
                 </BodyText>
               </div>
               {props.feature.demo != null && (
-                <div style={{ marginBottom: "2rem" }}>
+                <div className="demo-link-wrapper">
                   <a
                     href={props.feature.demo}
                     target="_blank"
@@ -243,7 +244,9 @@ const CustomCard = (props) => {
                   Design Timeline
                 </BodyText>
 
-                <BodyText size="sm">{designTime()}</BodyText>
+                <BodyText className="-text-a-right" size="sm">
+                  {designTime()}
+                </BodyText>
               </div>
               <HR />
 
@@ -255,7 +258,9 @@ const CustomCard = (props) => {
                   Engineering Timeline
                 </BodyText>
 
-                <BodyText size="sm">{cesTime()}</BodyText>
+                <BodyText className="-text-a-right" size="sm">
+                  {cesTime()}
+                </BodyText>
               </div>
               <HR />
 
@@ -270,7 +275,11 @@ const CustomCard = (props) => {
                   Minimum Spend
                 </BodyText>
 
-                <BodyText size="sm" style={{ fontWeight: "bold" }}>
+                <BodyText
+                  size="sm"
+                  className="-text-a-right"
+                  style={{ fontWeight: "bold" }}
+                >
                   {minSpend()}
                 </BodyText>
               </div>
@@ -298,8 +307,6 @@ const CustomCard = (props) => {
               </div>
             </div>
           </div>
-
-          <Section></Section>
         </Section>
       </Card>
     </div>

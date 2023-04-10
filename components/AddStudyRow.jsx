@@ -3,7 +3,7 @@ import unitTypes from "../constants/units";
 import studies from "../constants/studies";
 import { findHighest } from "../helpers/helpers";
 import customFeatures from "../constants/custom";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import UUIDV4 from "../helpers/helpers";
 
 import {
@@ -96,8 +96,8 @@ const AddStudyRow = (props) => {
   };
 
   return (
-    <div>
-      <div className="-d-flex -m-b-6">
+    <Fragment>
+      <div className="study-row-wrapper">
         <InputGroup
           label="type of study"
           size="sm"
@@ -172,89 +172,92 @@ const AddStudyRow = (props) => {
               ))}
           </InputSelect>
         </InputGroup>
-        <InputGroup
-          label="No of studies"
-          size="sm"
-          error=""
-          dark={false}
-          style={{ width: "70%" }}
-        >
-          <InputSelect
+
+        <div className="no-studies-wrapper">
+          <InputGroup
+            label="No of studies"
             size="sm"
-            disabled={props.config.studyPartner === null}
+            error=""
             dark={false}
-            error={false}
-            capleft={false}
-            required=""
-            onChange={(event) => {
-              handleChange(event, "studyQuantity");
-            }}
+            style={{ width: "70%" }}
           >
-            <option
-              selected={props.config.studyQuantity === null}
-              disabled="true"
+            <InputSelect
+              size="sm"
+              disabled={props.config.studyPartner === null}
+              dark={false}
+              error={false}
+              capleft={false}
+              required=""
+              onChange={(event) => {
+                handleChange(event, "studyQuantity");
+              }}
             >
-              Select number of studies
-            </option>
-            {props.config.studyPartner != null &&
-              Array.from(
-                {
-                  length: findHighest(
-                    studies[props.config.studyType].studyPartners[
-                      props.config.studyPartner
-                    ].maxStudies
-                  ),
-                },
-                (x, i) => i
-              ).map((value, index) => (
-                <option
-                  key={index}
-                  value={value + 1}
-                  selected={
-                    props.config.studyQuantity != null &&
-                    props.config.studyQuantity === value + 1
-                  }
-                >
-                  {value + 1}
-                </option>
-              ))}
-          </InputSelect>
-        </InputGroup>
-        {props.total === props.id + 1 && (
-          <div className="toggle-button">
-            <Tooltip text="Add Study">
-              <IconButton
-                title="Button"
-                icon="far fa-plus"
-                size="sm"
-                disabled={false}
-                dark={false}
-                pill={false}
-                hero={true}
-                onClick={handleAdd}
-              />
-            </Tooltip>
-          </div>
-        )}
-        {props.total != props.id + 1 && (
-          <div className="toggle-button">
-            <Tooltip text="Delete study">
-              <IconButton
-                title="Button"
-                icon="far fa-trash"
-                size="sm"
-                position="left"
-                disabled={false}
-                dark={false}
-                pill={false}
-                danger={true}
-                onClick={handleDelete}
-              />
-            </Tooltip>
-          </div>
-        )}
+              <option
+                selected={props.config.studyQuantity === null}
+                disabled="true"
+              >
+                Select number of studies
+              </option>
+              {props.config.studyPartner != null &&
+                Array.from(
+                  {
+                    length: findHighest(
+                      studies[props.config.studyType].studyPartners[
+                        props.config.studyPartner
+                      ].maxStudies
+                    ),
+                  },
+                  (x, i) => i
+                ).map((value, index) => (
+                  <option
+                    key={index}
+                    value={value + 1}
+                    selected={
+                      props.config.studyQuantity != null &&
+                      props.config.studyQuantity === value + 1
+                    }
+                  >
+                    {value + 1}
+                  </option>
+                ))}
+            </InputSelect>
+          </InputGroup>
+          {props.total === props.id + 1 && (
+            <div className="toggle-button">
+              <Tooltip text="Add Study">
+                <IconButton
+                  title="Button"
+                  icon="far fa-plus"
+                  size="sm"
+                  disabled={false}
+                  dark={false}
+                  pill={false}
+                  hero={true}
+                  onClick={handleAdd}
+                />
+              </Tooltip>
+            </div>
+          )}
+          {props.total != props.id + 1 && (
+            <div className="toggle-button">
+              <Tooltip text="Delete study">
+                <IconButton
+                  title="Button"
+                  icon="far fa-trash"
+                  size="sm"
+                  position="left"
+                  disabled={false}
+                  dark={false}
+                  pill={false}
+                  danger={true}
+                  onClick={handleDelete}
+                />
+              </Tooltip>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 

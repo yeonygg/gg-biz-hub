@@ -6,7 +6,7 @@ import {
   Tooltip,
 } from "pier-design-system";
 import { Fragment } from "react";
-import DmpTableNew from "./DmpTableN";
+import DmpTable from "./DmpTable";
 
 const DmpCard = (props) => {
   const disabled = () => {
@@ -35,10 +35,12 @@ const DmpCard = (props) => {
 
   return (
     <div>
-      <Card style={{ marginBottom: "1rem" }}>
-        <Section padding="lg" className="-p-b-11">
+      <Card>
+        <Section className="section-style">
           <div className="-d-flex -justify-content-between">
-            <Heading size="md">DMP - {props.dmp.dataType}</Heading>
+            <Heading className="heading-style">
+              DMP - {props.dmp.dataType}
+            </Heading>
 
             <Tooltip text={removeTooltip()}>
               <IconButton
@@ -53,7 +55,7 @@ const DmpCard = (props) => {
             </Tooltip>
           </div>
 
-          <DmpTableNew selectedDmp={props.dmp.id} />
+          <DmpTable selectedDmp={props.dmp.id} />
         </Section>
       </Card>
     </div>

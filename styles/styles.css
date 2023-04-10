@@ -1,7 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;700&display=swap");
+@import url("pier-design-system/dist/styles.css");
 
-.main-heading {
-  margin: 5rem 3rem 2rem 3rem;
+.outer-content {
+  width: 100%;
+  flex: 1 1 0%;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 2rem;
+}
+
+.inner-content {
+  max-width: 1200px;
+  margin: 0px auto;
+}
+
+.pier-card {
+  margin-bottom: 1rem;
+}
+
+.heading-style {
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+}
+
+.section-style {
+  padding: 2rem;
 }
 
 .home-main-card {
@@ -9,16 +32,231 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 540px;
+  border-radius: 1rem;
+  box-shadow: 0 0 0.625rem rgba(138, 155, 163, 0.15);
 }
 
-.client-output-card {
+.main-sub-card {
   display: flex;
-  width: 60%;
-  align-items: center;
-  border: solid 1px #08d18b;
+}
+
+.main-card-style {
+  width: 33%;
+  height: 300px;
+  background-color: #f7f8f8;
   border-radius: 1rem;
   padding: 2rem;
-  margin-right: 1.5rem;
+}
+
+.main-button-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 250px;
+  margin-bottom: 2rem;
+}
+
+.rates-select-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.custom-body-text {
+  width: 40%;
+}
+
+#design-buckets {
+  font-family: "Mulish", sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  padding: 0.625rem 0.75rem;
+  text-align: left;
+  background-color: #ffffff;
+  color: #0e1e2a;
+  border-top: solid 1px #d0d6d8;
+  border-bottom: solid 1px #d0d6d8;
+}
+
+tr {
+  background-color: #ffffff;
+  color: #53626d;
+}
+
+td {
+  padding: 0.625rem 0.75rem;
+}
+
+tr:last-child {
+  border-bottom: solid 1px #d0d6d8;
+}
+
+tr:nth-child(odd) {
+  background-color: #f7f8f8;
+}
+
+.threshold-card-wrapper {
+  display: flex;
+}
+
+.campaign-minimum-wrapper {
+  width: 28.5%;
+}
+
+.exception-section-wrapper {
+  display: flex;
+}
+
+.exception-info-wrapper {
+  background-color: #f7f8f8;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 71.5%;
+  margin-bottom: 5rem;
+}
+
+.exception-section {
+  display: flex;
+}
+
+.exception-text-1 {
+  margin-left: 2rem;
+  padding-right: 2rem;
+}
+
+.exception-text-2 {
+  margin-left: 2rem;
+}
+
+.spend-select-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.spend-card-wrapper {
+  display: flex;
+}
+
+.spend-heading-wrapper {
+  display: block;
+}
+
+.spend-heading-section-wrapper {
+  display: block;
+  align-items: center;
+  margin-right: 2rem;
+  width: 25%;
+}
+
+.custom-card-description-box-1 {
+  width: 55%;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #f7f8f8;
+}
+
+.custom-card-description-box-2 {
+  width: 45%;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #f7f8f8;
+  margin-left: 1.25rem;
+}
+
+.units-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.custom-creatives-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.custom-sla-info-wrapper {
+  width: 55%;
+  padding: 2rem 2rem 2rem 4rem;
+}
+
+.custom-card-description-box {
+  width: 50%;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #f7f8f8;
+}
+
+.custom-card-wrapper {
+  display: flex;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.demo-link-wrapper {
+  margin-bottom: 2rem;
+}
+
+.study-card-description-box {
+  width: 100%;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #f7f8f8;
+}
+
+.study-card-description-flexbox {
+  margin-bottom: 2rem;
+  display: flex;
+}
+
+.study-description {
+  width: 60%;
+  padding-right: 5rem;
+}
+
+.study-studypartners {
+  width: 40%;
+}
+
+.study-consumer-section-wrapper {
+  display: flex;
+  margin-top: 1.5rem;
+}
+
+.study-consumer-section {
+  width: 60%;
+  padding-right: 5rem;
+}
+
+.study-campaign-characteristics-section {
+  width: 40%;
+}
+
+.study-caveats-wrapper {
+  display: flex;
+  margin-top: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.study-b2b-tech {
+  width: 60%;
+  padding-right: 5rem;
+}
+
+.study-household-names {
+  width: 40%;
+}
+
+.study-middle-wrapper {
+  display: flex;
+}
+
+.study-candidates-wrapper {
+  margin-top: 1.5rem;
+  width: 60%;
+  padding-right: 5rem;
 }
 
 .campaign-card-style {
@@ -26,24 +264,10 @@
   display: flex;
 }
 
-.client-section {
-  display: block;
-  width: 100%;
-
-  justify-content: space-between;
-}
-
-.plan-section {
-  display: flex;
-  padding: 0.5rem 0.75rem;
-  justify-content: space-between;
-}
-
-.study-section {
-  display: flex;
-  padding: 0.5rem 0rem;
-  margin-bottom: 2rem;
-  justify-content: space-between;
+.study-caveats-wrapper-2 {
+  width: 40%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .campaign-section-wrapper {
@@ -58,6 +282,121 @@
   width: 70%;
   padding: 1.5rem;
   margin: 1rem 0rem 1rem 0rem;
+}
+
+.generator-button-wrapper {
+  float: right;
+  margin-top: 1rem;
+}
+
+.result-wrapper {
+  display: flex;
+  margin-bottom: 1.25rem;
+}
+
+.sla-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.sla-card-style-design {
+  width: 50%;
+  background-color: #f7f8f8;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+.sla-card-style-ces {
+  width: 50%;
+  background-color: #f7f8f8;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.client-output-card {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border: solid 1px #08d18b;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.spend-heading {
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+.output-spend-heading {
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+.client-section {
+  margin-top: 1.25rem;
+  display: block;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.campaign-name-input {
+  flex: 1 1 auto;
+  margin: 0 0 2rem 0;
+}
+
+.campaign-budget-input {
+  flex: 0 1 15%;
+  margin: 0 0 2rem 0;
+  width: 60%;
+}
+
+.input-header-wrapper {
+  display: block;
+}
+
+.spend-sla-section {
+  background-color: #f7f8f8;
+  border-radius: 1rem;
+  width: 40%;
+  margin-top: 1.25rem;
+  padding: 2rem;
+}
+
+.rate-sla-section {
+  display: flex;
+  border-radius: 1rem;
+  width: 60%;
+  margin-top: 1.25rem;
+  margin-left: 1.25rem;
+  padding: 1.25rem 0 0 1.25rem;
+}
+
+.spend-card {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  width: 50%;
+}
+
+.design-card {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  width: 25%;
+  text-align: center;
+}
+
+.plan-section {
+  display: flex;
+  padding: 0.5rem 0.75rem;
+  justify-content: space-between;
+}
+
+.study-section {
+  display: flex;
+  padding: 0.5rem 0rem;
+  margin-bottom: 2rem;
+  justify-content: space-between;
 }
 
 .add-on-section {
@@ -76,28 +415,9 @@
   margin-bottom: 10px;
 }
 
-.card {
-  margin: 1.5rem 3rem 0.5rem 3rem;
-}
-
 .result-card {
-  margin: 1.5rem 3rem 0.5rem 3rem;
   background-color: #fff;
-}
-
-.sla-card-style {
-  width: 20%;
-  background-color: #f7f8f8;
-  border-radius: 1rem;
-  padding: 1rem;
-}
-
-.main-card-style {
-  width: 33%;
-  height: 300px;
-  background-color: #f7f8f8;
-  border-radius: 1rem;
-  padding: 2rem;
+  display: block;
 }
 
 .sla-section {
@@ -116,20 +436,9 @@
   width: 60%;
 }
 
-.campaign-name-input {
-  flex: 1 1 auto;
-  margin: 0;
-}
-
-.campaign-budget-input {
-  flex: 0 1 15%;
-  margin: 0;
-  width: 60%;
-}
-
 .client-name {
   flex: 1 1 auto;
-  margin: 0;
+  margin: 0 1.25rem 0 0;
 }
 
 .campaign-name {
@@ -138,7 +447,8 @@
 }
 
 .num-units-input {
-  flex: 0 1 20%;
+  display: flex;
+  flex: 0 1 32%;
   margin: 0 0.5rem;
 }
 
@@ -147,11 +457,7 @@
 }
 
 .toggle-button {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex: 0 1 5%;
-  margin: 0 0 0 1rem;
+  margin: 0.9rem 0 0 1rem;
 }
 
 .study-toggle-button {
@@ -336,86 +642,6 @@ footer {
   background-color: #358996;
 }
 
-/* Extra small devices (phones, 600px and down) */
-
-@media only screen and (max-width: 600px) {
-  body {
-    padding: 0.35rem;
-  }
-  .main-heading {
-    margin: 0 0 0.35rem 0;
-  }
-  .card,
-  .result-card {
-    margin: 1rem 0rem 0.35rem 0rem;
-  }
-  .card-style {
-    padding: 0.35rem;
-    width: 100%;
-  }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-  body {
-    padding: 1rem;
-  }
-  .main-heading {
-    margin: 1rem 1rem 1rem 1rem;
-  }
-  .card,
-  .result-card {
-    margin: 1rem 0rem 1rem 0rem;
-  }
-  .card-style {
-    padding: 1rem;
-    width: 100%;
-  }
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  body {
-    padding: 1rem 2.75rem 3rem 2.75rem;
-  }
-  .main-heading {
-    margin: 1rem 1rem 1rem 1rem;
-  }
-  .card-style {
-    padding: 2rem;
-    width: 100%;
-  }
-}
-
-.spend-sla-section {
-  display: flex;
-  background-color: #f7f8f8;
-  border-radius: 1rem;
-  width: 40%;
-  margin-top: 1.25rem;
-}
-
-.rate-sla-section {
-  display: flex;
-  border-radius: 1rem;
-  width: 60%;
-  margin-top: 1.25rem;
-  margin-left: 1.25rem;
-}
-
-.spend-card {
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-  width: 50%;
-}
-
-.design-card {
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-  width: 25%;
-  text-align: center;
-}
-
 .ces-card {
   margin-bottom: 1rem;
   width: 25%;
@@ -460,6 +686,7 @@ footer {
   height: 1.6rem;
   border-radius: 3rem;
   background-color: #e3e7e8;
+  margin-top: 1rem;
 }
 
 .spend-meter:after {
@@ -540,58 +767,12 @@ footer {
   margin-bottom: 2rem;
 }
 
-.custom-body-text {
-  width: 40%;
-}
-
-.custom-card-description-box {
-  width: 50%;
-  padding: 2rem;
-  border-radius: 12px;
-  background-color: #f7f8f8;
-}
-
-.custom-card-description-box-1 {
-  width: 50%;
-  padding: 2rem;
-  border-radius: 12px;
-  background-color: #f7f8f8;
-}
-
-.custom-card-description-box-2 {
-  width: 40%;
-  padding: 2rem;
-  border-radius: 12px;
-  background-color: #f7f8f8;
-}
-
-.custom-sla-info-wrapper {
-  width: 55%;
-  padding: 2rem 2rem 2rem 4rem;
-}
-
 .custom-card-heading-wrapper {
   display: flex;
   justify-content: space-between;
 }
 
 .custom-page-select {
-  display: flex;
-}
-
-.campaign-minimum-wrapper {
-  width: 28.5%;
-}
-
-.exception-info-wrapper {
-  background-color: #f7f8f8;
-  border-radius: 12px;
-  padding: 2rem;
-  width: 71.5%;
-  margin-bottom: 5rem;
-}
-
-.exception-section {
   display: flex;
 }
 
@@ -621,57 +802,6 @@ ul {
   padding-left: 0;
 }
 
-#design-buckets {
-  font-family: "Mulish", sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-#design-buckets th {
-  padding: 0.625rem 0.75rem;
-  text-align: left;
-  background-color: #ffffff;
-  color: #0e1e2a;
-  border-top: solid 1px #d0d6d8;
-  border-bottom: solid 1px #d0d6d8;
-}
-
-#design-buckets tr {
-  background-color: #ffffff;
-  color: #53626d;
-}
-
-#design-buckets td {
-  padding: 0.625rem 0.75rem;
-}
-
-#design-buckets tr:last-child {
-  border-bottom: solid 1px #d0d6d8;
-}
-
-#design-buckets tr:nth-child(odd) {
-  background-color: #f7f8f8;
-}
-
-.study-card-description-box {
-  width: 100%;
-  padding: 2rem;
-  border-radius: 12px;
-  background-color: #f7f8f8;
-}
-
-.sidebar {
-  width: 260px;
-  position: relative;
-  height: 100%;
-  z-index: 99;
-  transition: all 0.2s ease-in-out 0s;
-}
-
-.sidebar.open {
-  width: 8px;
-}
-
 .nav-section {
   width: 260px;
   position: relative;
@@ -680,21 +810,788 @@ ul {
 }
 
 .nav-section.closed {
-  width: 8px;
+  width: 60px;
   position: relative;
   z-index: 99;
   transition: all 0.2s ease-in-out 0s;
 }
 
-.outer-content {
-  width: 100%;
-  flex: 1 1 0%;
-  overflow: auto;
-  box-sizing: border-box;
-  padding: 2rem;
+.spend-meter-subheading {
+  font-weight: bold;
+  margin-bottom: 0rem;
 }
 
-.inner-content {
-  max-width: 1200px;
-  margin: 0px auto;
+.creative-row-padding {
+  padding: 0.75rem;
+}
+
+.creative-row-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.custom-add-row-wrapper {
+  width: 40%;
+  display: flex;
+}
+
+.studies-subtext {
+  color: rgb(165, 178, 184);
+  display: block;
+}
+
+.studies-row-header-wrapper {
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.study-row-wrapper {
+  display: flex;
+  margin-bottom: 1.25rem;
+}
+
+.no-studies-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.client-name-header {
+  margin-bottom: 0.5rem;
+}
+
+.spend-rate-wrapper {
+  display: flex;
+}
+
+@media only screen and (max-width: 1230px) {
+  .outer-content {
+    padding: 1.5rem;
+  }
+  .home-main-card {
+    background-image: url("/main-graphic-tablet.svg");
+    border-radius: 1rem;
+    height: 450px;
+  }
+
+  .main-sub-card {
+    display: block;
+  }
+
+  .main-card-style {
+    width: 100%;
+    height: 100%;
+    background-color: #f7f8f8;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .main-button-wrapper {
+    position: relative;
+    margin-bottom: 0rem;
+  }
+
+  .threshold-card-wrapper {
+    display: block;
+  }
+
+  .campaign-minimum-wrapper {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .exception-info-wrapper {
+    width: 100%;
+  }
+
+  .exception-section-wrapper {
+    display: block;
+  }
+
+  .exception-section {
+    margin-bottom: 1rem;
+    display: flex;
+  }
+  .spend-card-wrapper {
+    display: block;
+    width: 100%;
+  }
+
+  .result-wrapper {
+    display: block;
+    margin-bottom: 1.25rem;
+  }
+
+  .units-wrapper {
+    display: flex;
+    width: 100%;
+  }
+
+  .spend-heading-wrapper {
+    display: flex;
+  }
+  .spend-subheading-wrapper {
+    display: block;
+  }
+
+  .spend-heading-section-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .campaign-card-style {
+    padding: 1.5rem;
+    display: block;
+  }
+
+  .spend-select-wrapper {
+    display: block;
+    width: 100%;
+  }
+
+  .custom-card-description-box-1 {
+    width: 50%;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background-color: #f7f8f8;
+  }
+
+  .custom-card-description-box-2 {
+    width: 50%;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background-color: #f7f8f8;
+  }
+
+  .custom-sla-info-wrapper {
+    width: 55%;
+    padding: 2rem 0rem 2rem 2rem;
+  }
+
+  .client-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .campaign-name-input {
+    flex: 1 1 auto;
+    margin: 0 1rem 0 0;
+  }
+
+  .campaign-budget-input {
+    flex: 0 1 15%;
+    margin: 0;
+    width: 60%;
+  }
+
+  .study-description {
+    padding-right: 2.5rem;
+  }
+
+  .input-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .plan-section-wrapper {
+    width: 100%;
+    padding: 1rem;
+    margin: 0rem;
+  }
+
+  .spend-sla-section {
+    padding: 1.5rem;
+  }
+
+  .rate-sla-section {
+    display: flex;
+    border-radius: 1rem;
+    width: 60%;
+    margin-top: 1.25rem;
+    margin-left: 0.5rem;
+  }
+
+  .gantt-task,
+  .gantt-task-header {
+    flex: 0 0 24%;
+    padding: 0.35rem;
+    font-size: 14px;
+  }
+
+  .gantt-header-cell {
+    font-size: 13px;
+  }
+
+  .spend-meter-subheading {
+    font-size: 0.9rem;
+  }
+
+  .campaign-section-wrapper {
+    width: 100%;
+    padding: 1.5rem;
+    margin: 0rem;
+  }
+
+  .generator-button-wrapper {
+    float: right;
+    margin-top: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .client-output-card {
+    width: 100%;
+    border-radius: 12px;
+    padding: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .studies-section-style {
+    padding: 1.25rem 1rem;
+  }
+
+  .study-candidates-wrapper {
+    margin-top: 1.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media only screen and (max-width: 821px) {
+  .home-main-card {
+    background-image: url("/main-graphic-tablet.svg");
+    border-radius: 1rem;
+    height: 450px;
+  }
+
+  .main-sub-card {
+    display: block;
+  }
+
+  .section-style {
+    padding: 1.5rem;
+  }
+
+  .main-card-style {
+    width: 100%;
+    height: 100%;
+    background-color: #f7f8f8;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .main-button-wrapper {
+    position: relative;
+    margin-bottom: 0rem;
+  }
+
+  .custom-body-text {
+    width: 100%;
+  }
+
+  .rates-select-wrapper {
+    display: block;
+  }
+
+  .threshold-card-wrapper {
+    display: block;
+  }
+
+  .campaign-minimum-wrapper {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .exception-info-wrapper {
+    width: 100%;
+  }
+
+  .exception-section-wrapper {
+    display: block;
+  }
+
+  .exception-section {
+    display: flex;
+  }
+
+  th {
+    padding: 0.625rem 0.75rem;
+    text-align: left;
+    background-color: #ffffff;
+    color: #0e1e2a;
+    border-top: solid 1px #d0d6d8;
+    border-bottom: solid 1px #d0d6d8;
+    font-size: 14px;
+  }
+
+  tr {
+    background-color: #ffffff;
+    color: #53626d;
+    font-size: 13px;
+  }
+
+  td {
+    padding: 0.625rem 0.75rem;
+  }
+
+  tr:last-child {
+    border-bottom: solid 1px #d0d6d8;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #f7f8f8;
+  }
+
+  .spend-card-wrapper {
+    display: block;
+    width: 100%;
+  }
+
+  .spend-heading-wrapper {
+    display: flex;
+  }
+  .spend-subheading-wrapper {
+    display: block;
+  }
+
+  .spend-heading-section-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .custom-sla-info-wrapper {
+    width: 100%;
+    padding: 2rem 1.25rem 1.25rem 1.25rem;
+  }
+
+  .units-wrapper {
+    display: flex;
+    width: 100%;
+  }
+
+  .custom-card-description-box-1 {
+    width: 50%;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background-color: #f7f8f8;
+  }
+
+  .custom-card-description-box-2 {
+    width: 50%;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background-color: #f7f8f8;
+  }
+
+  .custom-card-description-box {
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background-color: #f7f8f8;
+  }
+
+  .campaign-section-wrapper {
+    background-color: #f7f8f8;
+    border-radius: 12px;
+    width: 100%;
+    padding: 1rem;
+    margin: 0rem;
+  }
+
+  .spend-heading {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+
+  .output-spend-heading {
+    font-size: 2.5rem;
+    margin-top: 1.75rem;
+  }
+
+  .custom-card-wrapper {
+    display: block;
+  }
+
+  .study-card-description-flexbox {
+    margin-bottom: 2rem;
+    display: block;
+  }
+
+  .study-description {
+    width: 100%;
+    padding-right: 0rem;
+  }
+
+  .study-studypartners {
+    width: 100%;
+  }
+
+  .study-consumer-section-wrapper {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  .study-consumer-section {
+    width: 100%;
+    padding-right: 0rem;
+  }
+
+  .study-campaign-characteristics-section {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .study-caveats-wrapper {
+    display: block;
+  }
+
+  .study-b2b-tech {
+    width: 100%;
+    padding-right: 0rem;
+  }
+
+  .study-household-names {
+    width: 100%;
+  }
+
+  .study-middle-wrapper {
+    display: block;
+  }
+
+  .study-candidates-wrapper {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding-right: 0rem;
+  }
+
+  .study-caveats-wrapper-2 {
+    width: 100%;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    border-top: 1px solid #d0d6d8;
+  }
+
+  td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    white-space: normal;
+    text-align: right;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  td:before {
+    content: attr(data-title);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .outer-content {
+    padding: 1rem;
+  }
+
+  .section-style {
+    padding: 1rem;
+  }
+
+  .heading-style {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .main-card-buttons-wrapper {
+    display: flex;
+    align-items: end;
+  }
+
+  .home-main-card {
+    margin-top: 0.75rem;
+    background-image: url("/main-graphic-mobile.svg");
+    border-radius: 1rem;
+    height: 450px;
+  }
+
+  .main-sub-card {
+    display: block;
+  }
+
+  .main-card-style {
+    width: 100%;
+    height: 100%;
+    background-color: #f7f8f8;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .main-button-wrapper {
+    position: relative;
+    margin-bottom: 0rem;
+  }
+
+  .main-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    height: 380px;
+  }
+
+  .exception-info-wrapper {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .exception-section {
+    margin-bottom: 0rem;
+  }
+
+  .exception-text-1 {
+    margin-left: 0.75rem;
+    padding-right: 0rem;
+  }
+
+  .exception-text-2 {
+    margin-left: 0.75rem;
+  }
+
+  .spend-heading-section-wrapper {
+    display: block;
+    align-items: center;
+    margin-right: 0rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .units-wrapper {
+    display: block;
+    width: 100%;
+  }
+
+  .custom-card-description-box-1 {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: #f7f8f8;
+    margin-bottom: 1rem;
+  }
+
+  .custom-card-description-box-2 {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: #f7f8f8;
+    margin-left: 0rem;
+  }
+
+  .custom-creatives-wrapper {
+    display: block;
+    width: 100%;
+  }
+
+  .custom-card-description-box {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: #f7f8f8;
+  }
+
+  .custom-sla-info-wrapper {
+    width: 100%;
+    padding: 2.35rem 1rem 1rem 1rem;
+  }
+
+  .demo-link-wrapper {
+    margin-bottom: 0rem;
+  }
+
+  .study-card-description-box {
+    padding: 1rem;
+  }
+
+  .campaign-card-style {
+    padding: 1rem;
+    display: block;
+  }
+
+  .input-header-wrapper {
+    display: block;
+  }
+
+  .client-section {
+    display: block;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1rem 0 1rem 0;
+  }
+
+  .plan-section-wrapper {
+    padding: 0rem;
+    margin: 1rem 0rem 1rem 0rem;
+  }
+
+  .creative-row-padding {
+    padding: 0rem;
+  }
+
+  .creative-row-wrapper {
+    display: block;
+  }
+
+  .unit-name-input {
+    margin: 0 0 1rem 0;
+    width: 100%;
+  }
+
+  .num-units-input {
+    display: flex;
+    margin: 0 0 1rem 0;
+    justify-content: space-between;
+  }
+
+  .creative-version-count-input {
+    width: 40%;
+  }
+
+  .add-on-section {
+    display: flex;
+    padding: 0 0 1rem 0;
+  }
+
+  .custom-add-row-wrapper {
+    width: 100%;
+    display: flex;
+  }
+
+  .plus-alignment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 0.5rem;
+    padding-top: 0;
+  }
+
+  .studies-section-style {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .studies-row-header-wrapper {
+    margin: 0.25rem 0 1.5rem 0;
+    display: block;
+  }
+
+  .studies-subtext {
+    color: rgb(165, 178, 184);
+    display: none;
+  }
+
+  .study-row-wrapper {
+    display: block;
+    margin-bottom: 1.25rem;
+  }
+
+  .result-wrapper {
+    display: block;
+    margin-bottom: 1.25rem;
+  }
+
+  .client-output-card {
+    display: block;
+    width: 100%;
+    align-items: center;
+    border: solid 1px #08d18b;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 0 0 1rem 0;
+  }
+
+  .output-spend-heading {
+    font-size: 1.75rem;
+    margin-top: 0rem;
+  }
+
+  .client-name-header {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .client-name {
+    flex: 1 1 auto;
+    margin: 0 0 1.25rem 0;
+  }
+
+  .sla-card-style-design {
+    width: 100%;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-right: 0rem;
+    margin-bottom: 1rem;
+  }
+
+  .sla-card-style-ces {
+    width: 100%;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-right: 0rem;
+    margin-bottom: 1rem;
+  }
+
+  .sla-wrapper {
+    display: block;
+  }
+
+  .spend-rate-wrapper {
+    display: block;
+  }
+
+  .spend-sla-section {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .rate-sla-section {
+    display: flex;
+    border-radius: 1rem;
+    width: 100%;
+    margin: 1rem 0 1rem 0;
+    padding: 0rem;
+  }
+
+  .result-card {
+    display: none;
+  }
 }

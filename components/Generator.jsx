@@ -267,10 +267,9 @@ function Generator() {
             <div className="pier-accordion__content">
               <div className="campaign-card-style">
                 <div className="campaign-section-wrapper">
-                  <SubHeading text={campaignText} body={bodyText} />
-
-                  <Section padding="xs">
+                  <div className="input-header-wrapper">
                     {" "}
+                    <SubHeading text={campaignText} body={bodyText} />{" "}
                     <InputToggle
                       size="sm"
                       disabled={false}
@@ -280,7 +279,7 @@ function Generator() {
                     >
                       Client Facing
                     </InputToggle>
-                  </Section>
+                  </div>
 
                   <CampaignInputs
                     campaign={campaign}
@@ -375,9 +374,9 @@ function Generator() {
                       disabled={false}
                       dark={false}
                     >
-                      <Section>
+                      <Section className="studies-section-style">
                         <div className="-d-flex -justify-content-between ">
-                          <div className="-d-block -m-b-6">
+                          <div className="studies-row-header-wrapper">
                             {" "}
                             <BodyText
                               size="lg"
@@ -385,7 +384,11 @@ function Generator() {
                             >
                               Additional Studies
                             </BodyText>
-                            <BodyText size="xs" style={{ color: "#A5B2B8" }}>
+                            <BodyText
+                              className="studies-subtext"
+                              size="xs"
+                              style={{ color: "#A5B2B8" }}
+                            >
                               Optional field to add studies to the campaign
                             </BodyText>
                           </div>
@@ -418,7 +421,7 @@ function Generator() {
                         ))}
                         <HR />
                         <div className="-d-flex -justify-content-between  -m-t-7">
-                          <div className="-d-block -m-b-6">
+                          <div className="studies-row-header-wrapper">
                             {" "}
                             <BodyText
                               size="lg"
@@ -426,7 +429,7 @@ function Generator() {
                             >
                               Additional DMPs
                             </BodyText>
-                            <BodyText size="xs" style={{ color: "#A5B2B8" }}>
+                            <BodyText className="studies-subtext" size="xs">
                               Optional field to add DMPs to the campaign
                             </BodyText>
                           </div>
@@ -461,7 +464,7 @@ function Generator() {
                       </Section>
                     </Accordion>
                   </div>
-                  <div className="-m-t-6 -float-right">
+                  <div className="generator-button-wrapper">
                     <Button
                       title="Button"
                       icon="fas fa-cog"
@@ -479,16 +482,19 @@ function Generator() {
           </div>
         </Card>
         <div id="capture">
-          <Card style={{ padding: "1rem" }}>
-            <Section padding="xl">
-              <div className="-d-flex -m-b-6">
+          <Card>
+            <Section className="section-style">
+              <div className="result-wrapper">
                 <CampaignOutput campaign={campaign} />
 
-                <DesignCard campaign={campaign} />
-                <CesCard campaign={campaign} />
+                <div className="sla-wrapper">
+                  {" "}
+                  <DesignCard campaign={campaign} />
+                  <CesCard campaign={campaign} />
+                </div>
               </div>
               <HR />
-              <div className="-d-flex">
+              <div className="spend-rate-wrapper">
                 <div className="spend-sla-section">
                   <SpendCard campaign={campaign} />
                 </div>

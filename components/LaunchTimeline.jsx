@@ -272,7 +272,7 @@ const LaunchTimeline = (props) => {
   const owners = [...new Set(phases.map((phase) => phase.owner))];
 
   return (
-    <Section padding="sm" className="launch-timeline">
+    <div className="launch-timeline">
       <Heading size="xs">Launch Timeline</Heading>
       <div className="launch-gantt">
         <div className="gantt-header">
@@ -296,7 +296,7 @@ const LaunchTimeline = (props) => {
           ))}
         </div>
       </div>
-    </Section>
+    </div>
   );
 };
 

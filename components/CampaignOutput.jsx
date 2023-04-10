@@ -50,7 +50,7 @@ const CampaignOutput = (props) => {
     <div className="client-output-card">
       {" "}
       <div className="client-name">
-        <Heading className="-m-b-3" size="sm">
+        <Heading className="client-name-header" size="sm">
           {toTitleCase(props.campaign.clientName)}
         </Heading>
         <BodyText className="-m-b-0" size="sm" style={{ fontWeight: "bold" }}>
@@ -58,7 +58,7 @@ const CampaignOutput = (props) => {
         </BodyText>
       </div>
       <div className="campaign-budget">
-        <Heading className="-m-b-0" size="lg">
+        <Heading className="output-spend-heading -m-b-0">
           ${parseFloat(props.campaign.campaignBudget).toLocaleString("eng-US")}
         </Heading>
         <BodyText className="-m-b-0" size="sm" style={{ fontWeight: "bold" }}>

@@ -37,7 +37,6 @@ const Table = (props) => {
             )
           )
         : 0;
-    console.log(dmpUpcharge);
 
     //apply upcharges to each unit rate
     const finalRates = [
@@ -104,7 +103,11 @@ const Table = (props) => {
               <tr key={UUIDV4()} {...row.getRowProps}>
                 {row.cells.map((cell) => {
                   return (
-                    <td key={cell.getCellProps().key} {...cell.getCellProps()}>
+                    <td
+                      key={cell.getCellProps().key}
+                      {...cell.getCellProps()}
+                      data-title={cell.column.Header}
+                    >
                       {cell.render("Cell")}
                     </td>
                   );
@@ -112,7 +115,6 @@ const Table = (props) => {
               </tr>
             );
           })}
-          <tr></tr>
         </tbody>
       </table>
     </Fragment>
