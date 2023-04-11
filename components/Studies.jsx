@@ -23,19 +23,27 @@ let setDebounce;
 function Studies() {
   const navigate = useNavigate();
   const params = useParams();
-  const ids =
-    Object.keys(params).length > 0 ? params.id.split(",").map(Number) : [null];
-  const [selectedStudies, setStudies] = useState([null]);
-  const [toggleAllStudies, setToggleStudies] = useState(false);
 
-  const [selectedDmps, setDmps] = useState([null]);
+  let defaultStudyValues = [null];
+  let defaultDmpValues = [null];
+  
+  if(Object.keys(params).length > 0) {
+    const pathProps = params.id.split("&");
+    defaultStudyValues = pathProps[0].replace("studies=", "").split(",").map(Number);
+    defaultDmpValues = pathProps[1].replace("dmps=", "").split(",").map(Number);
+  }
+
+  const [selectedStudies, setStudies] = useState(defaultStudyValues);
+  const [selectedDmps, setDmps] = useState(defaultDmpValues);
+
+  const [toggleAllStudies, setToggleStudies] = useState(false);
   const [toggleAllDmps, setToggleDmps] = useState(false);
 
   const handleChangeStudy = (e, value, index) => {
     const newArray = selectedStudies;
     newArray[+index] = +value; //convert to number
     setStudies([...newArray]);
-    navigate(`/studies/${selectedStudies.toString()}`);
+    setPath();
   };
 
   const createStudySelect = () => {
@@ -54,7 +62,7 @@ function Studies() {
     const array = selectedStudies;
     array.splice(index, 1);
     setStudies([...array]);
-    navigate(`/studies/${selectedStudies.toString()}`);
+    setPath();
   };
 
   const updateStudy = (studies) => {
@@ -69,6 +77,7 @@ function Studies() {
     const newArray = selectedDmps;
     newArray[+index] = +value; //convert to number
     setDmps([...newArray]);
+    setPath();
   };
 
   const createDmpSelect = () => {
@@ -85,6 +94,7 @@ function Studies() {
     const array = selectedDmps;
     array.splice(index, 1);
     setDmps([...array]);
+    setPath();
   };
 
   const updateDmp = (dmps) => {
@@ -94,6 +104,10 @@ function Studies() {
   const handleToggleDmps = (event) => {
     setToggleDmps(event.target.checked);
   };
+
+  const setPath = () => {
+    navigate(`/studies/studies=${selectedStudies.toString()}&dmps=${selectedDmps}`);
+  }
 
   return (
     <div>
@@ -128,6 +142,7 @@ function Studies() {
                   removeDmp={removeDmpSelect}
                   total={selectedDmps.length - 1}
                   toggleAll={toggleAllDmps}
+                  exclude={selectedDmps}
                 />
               ))}
             </div>
@@ -202,6 +217,7 @@ function Studies() {
                   removeStudy={removeStudySelect}
                   total={selectedStudies.length - 1}
                   toggleAll={toggleAllStudies}
+                  exclude={selectedStudies}
                 />
               ))}
             </div>

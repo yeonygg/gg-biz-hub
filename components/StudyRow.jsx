@@ -23,6 +23,8 @@ const StudyRow = (props) => {
     props.removeStudy(props.index);
   };
 
+  const filteredStudies = studies.filter(study => study.id === props.value || !props.exclude.includes( study.id ));
+
   return (
     <div className="custom-select-wrapper">
       <InputSelect
@@ -39,7 +41,7 @@ const StudyRow = (props) => {
           Select your Study
         </option>
 
-        {studies.map((study) => (
+        {filteredStudies.map((study) => (
           <option key={study.id} value={study.id}>
             {study.title}
           </option>

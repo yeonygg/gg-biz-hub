@@ -23,11 +23,11 @@ function CustomCreatives() {
     Object.keys(params).length > 0 ? params.id.split(",").map(Number) : [null];
   const [selectCustomFeatures, setCustomFeatures] = useState(ids);
   const [toggleAll, setToggle] = useState(false);
+
   const handleChange = (e, value, index) => {
     const newArray = selectCustomFeatures;
     newArray[+index] = +value;
     setCustomFeatures([...newArray]);
-    console.log(selectCustomFeatures);
     navigate(`/custom-creatives/${selectCustomFeatures.toString()}`);
   };
   const removeCustomSelect = (index) => {
@@ -48,7 +48,6 @@ function CustomCreatives() {
   };
   const updateCustom = (selectCustomFeatures) => {
     setCustomFeatures([...selectCustomFeatures]);
-    // console.log(this.state.campaign.unitConfig);
   };
   const removeCardFromAll = () => {
     const allArray = customFeatures;
@@ -89,6 +88,7 @@ function CustomCreatives() {
                   removeCustom={removeCustomSelect}
                   total={selectCustomFeatures.length - 1}
                   toggleAll={toggleAll}
+                  exclude={selectCustomFeatures}
                 />
               ))}
             </div>

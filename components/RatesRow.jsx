@@ -25,6 +25,8 @@ const RatesRow = (props) => {
     props.removeCustom(props.index);
   };
 
+  const filteredCategories = rateCatergories.filter(category => category.id === props.value || !props.exclude.includes( category.id ));
+
   return (
     <div className="custom-select-wrapper">
       <InputSelect
@@ -41,11 +43,11 @@ const RatesRow = (props) => {
           Select your Unit
         </option>
 
-        {rateCatergories.map((rateCatergory, index) => (
-          <option key={UUIDV4()} value={index}>
-            {rateCatergory.category}
-          </option>
-        ))}
+        {filteredCategories.map((rateCategory, index) => (
+            <option key={UUIDV4()} value={rateCategory.id}>
+              {rateCategory.category}
+            </option>
+      ))}
       </InputSelect>
 
       {props.total === props.index && (

@@ -23,6 +23,8 @@ const SpendThresholdRow = (props) => {
     props.removeCustom(props.index);
   };
 
+  const filteredThresholds = designSpendTiers.filter(tier => tier.id === props.value || !props.exclude.includes( tier.id ));
+
   return (
     <div className="custom-select-wrapper">
       <InputSelect
@@ -39,7 +41,7 @@ const SpendThresholdRow = (props) => {
           Select your Threshold
         </option>
 
-        {designSpendTiers.map((threshold) => (
+        {filteredThresholds.map((threshold) => (
           <option key={threshold.id} value={threshold.id}>
             {threshold.title}
           </option>

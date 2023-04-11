@@ -176,6 +176,7 @@ function CreativeBusinessRules() {
                   removeCustom={removeCustomSelect}
                   total={spendThreshold.length - 1}
                   toggleAll={toggleAll}
+                  exclude={spendThreshold}
                 />
               ))}
             </div>

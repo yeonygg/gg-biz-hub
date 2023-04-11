@@ -23,6 +23,9 @@ const CustomSelectRow = (props) => {
     props.removeCustom(props.index);
   };
 
+  
+  const filteredCustoms = customFeatures.filter(custom => custom.id === props.value || !props.exclude.includes( custom.id ));
+
   return (
     <div className="custom-select-wrapper">
       <InputSelect
@@ -39,7 +42,7 @@ const CustomSelectRow = (props) => {
           Select your Custom Add On
         </option>
 
-        {customFeatures.map((custom) => (
+        {filteredCustoms.map((custom) => (
           <option key={custom.id} value={custom.id}>
             {custom.name}
           </option>

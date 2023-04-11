@@ -23,9 +23,8 @@ let setDebounce;
 function Rates() {
   const navigate = useNavigate();
   const params = useParams();
-  const ids =
-    Object.keys(params).length > 0 ? params.id.split(",").map(Number) : [null];
-  const [selectRates, setRates] = useState([null]);
+  const ids = Object.keys(params).length > 0 ? params.id.split(",").map(Number) : [null];
+  const [selectRates, setRates] = useState(ids);
   const [toggleAll, setToggle] = useState(false);
 
   const handleChange = (e, value, index) => {
@@ -33,12 +32,14 @@ function Rates() {
     newArray[+index] = +value;
     setRates([...newArray]);
     navigate(`/rates/${selectRates.toString()}`);
+    console.log(selectRates)
   };
 
   const createRates = () => {
     const newCustomArray = selectRates;
     newCustomArray.push(null);
     setRates([...newCustomArray]);
+    console.log(selectRates)
   };
 
   const getRates = () => {
@@ -84,7 +85,6 @@ function Rates() {
             </div>
 
             <div className="-d-block" style={{ width: "100%" }}>
-              {" "}
               {selectRates.map((value, index) => (
                 <RatesRow
                   changeHandler={handleChange}
@@ -96,6 +96,7 @@ function Rates() {
                   removeCustom={removeRates}
                   total={selectRates.length - 1}
                   toggleAll={toggleAll}
+                  exclude={selectRates}
                 />
               ))}
             </div>
