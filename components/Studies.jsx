@@ -26,11 +26,13 @@ function Studies() {
 
   let defaultStudyValues = [null];
   let defaultDmpValues = [null];
-  
+
   if(Object.keys(params).length > 0) {
     const pathProps = params.id.split("&");
-    defaultStudyValues = pathProps[0].replace("studies=", "").split(",").map(Number);
-    defaultDmpValues = pathProps[1].replace("dmps=", "").split(",").map(Number);
+    const preppedStudyString = pathProps[0].replace("studies=", "");
+    const preppedDmpString = pathProps[1].replace("dmps=", "");
+    defaultStudyValues = preppedStudyString.length > 0 ? preppedStudyString.split(",").map(Number) : [null];
+    defaultDmpValues = preppedDmpString.length > 0 ? preppedDmpString.split(",").map(Number) : [null];
   }
 
   const [selectedStudies, setStudies] = useState(defaultStudyValues);
