@@ -325,8 +325,6 @@ export const studySpendTable = [
       <div
         style={{
           textAlign: "left",
-          minWidth: "200px",
-          maxWidth: "400px",
         }}
       >
         Partner Name
