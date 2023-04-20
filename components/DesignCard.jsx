@@ -188,7 +188,7 @@ const DesignCard = (props) => {
   //Design SLA END
 
   return (
-    <div className="sla-card-style -m-r-5">
+    <div className="sla-card-style-design">
       <SubHeading text={resultHead} />
       <div className="sla-result-text">
         {" "}

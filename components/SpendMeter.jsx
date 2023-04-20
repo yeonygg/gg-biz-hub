@@ -137,7 +137,10 @@ const SpendMeter = (props) => {
   return (
     <div className="meter-wrapper -m-b-6">
       <div className="meter-copy -m-b-4 -m-t-5">
-        <BodyText style={{ fontWeight: "bold", marginBottom: 0 }}>
+        <BodyText
+          className="spend-meter-subheading"
+          style={{ fontWeight: "bold", marginBottom: 0 }}
+        >
           Stated Campaign Budget
         </BodyText>
         <BodyText className="budget-meter-spend">{spendNumber()}</BodyText>

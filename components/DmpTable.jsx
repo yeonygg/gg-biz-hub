@@ -5,7 +5,7 @@ import { Dmp, DmpNew } from "../constants/Columns";
 import { useTable } from "react-table";
 import dmp from "../constants/dmps";
 import { UUIDV4 } from "../helpers/helpers";
-const DmpTableNew = (props) => {
+const DmpTable = (props) => {
   const columns = useMemo(() => DmpNew, []);
   const dmpId = props.selectedDmp;
   const selectedDmpArray = dmp[dmpId].info;
@@ -35,7 +35,7 @@ const DmpTableNew = (props) => {
     tableInstance;
 
   return (
-    <table {...getTableProps()} id="design-buckets">
+    <table {...getTableProps()} id="design-buckets" className="-m-b-6">
       <thead>
         {headerGroups.map((headerGroup) => (
           <tr key={UUIDV4()} {...headerGroup.getHeaderGroupProps()}>
@@ -55,7 +55,11 @@ const DmpTableNew = (props) => {
               {row.cells.map((cell) => {
                 // console.log(cell);
                 return (
-                  <td key={UUIDV4()} {...cell.getCellProps()}>
+                  <td
+                    key={UUIDV4()}
+                    {...cell.getCellProps()}
+                    data-title={cell.column.Header}
+                  >
                     {cell.render("Cell")}
                   </td>
                 );
@@ -69,4 +73,4 @@ const DmpTableNew = (props) => {
   );
 };
 
-export default DmpTableNew;
+export default DmpTable;

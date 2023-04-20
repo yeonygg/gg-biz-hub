@@ -138,7 +138,7 @@ var studies = [
     studyPartners: [
       {
         id: 0,
-        name: "Foursquare/Placed",
+        name: "Foursquare",
         minSpend: 0,
         maxStudies: {
           25000: 1,

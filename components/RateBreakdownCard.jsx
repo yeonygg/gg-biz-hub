@@ -51,7 +51,7 @@ const RateBreakdownCard = (props) => {
 
   return (
     <Card className="result-card">
-      <Section padding="xl">
+      <Section className="section-style">
         {" "}
         <LaunchTimeline campaign={props.campaign} />
         <HR />

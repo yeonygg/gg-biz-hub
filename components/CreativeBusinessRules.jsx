@@ -22,6 +22,7 @@ import DesignBucketsCard from "../components/DesignBucketsCard";
 import BusinessRuleCard from "../components/BusinessRuleCard";
 import SpendThresholdRow from "../components/SpendThresholdRow";
 import spendTiers from "../constants/spends";
+import { isMobile } from "react-device-detect";
 
 let setDebounce;
 
@@ -32,6 +33,8 @@ function CreativeBusinessRules() {
     Object.keys(params).length > 0 ? params.id.split(",").map(Number) : [null];
   const [spendThreshold, setSpendThreshold] = useState([null]);
   const [toggleAll, setToggle] = useState(false);
+
+  console.log(window.innerWidth);
 
   const handleChange = (e, value, index) => {
     const newArray = spendThreshold;
@@ -73,15 +76,11 @@ function CreativeBusinessRules() {
 
   return (
     <Fragment>
-      <Heading>Creative - Business Rules</Heading>
+      <Heading className="heading-style">Creative - Business Rules</Heading>
       <DesignBucketsCard />
-      <Card className="-m-b-6">
-        <Section
-          padding="lg"
-          className="-flex-row -justify-content-center -align-items-center"
-          style={{ marginTop: "1.125rem" }}
-        >
-          <div className="-d-flex">
+      <Card>
+        <Section className="section-style">
+          <div className="threshold-card-wrapper">
             <div className="campaign-minimum-wrapper">
               <BodyText
                 style={{
@@ -109,22 +108,16 @@ function CreativeBusinessRules() {
               >
                 Exception Information
               </BodyText>
-              <div className="-d-flex">
+              <div className="exception-section-wrapper">
                 <div className="exception-section">
                   <div className="-m-t-5">
-                    <Image
-                      alt="exclamation icon"
-                      width="140px"
-                      height="140px"
-                      src="/exclamation-icon.svg"
-                      style={{ verticalAlign: "middle" }}
-                    />
+                    <i
+                      className="pier-button-icon__icon fas fa-info-circle"
+                      style={{ marginRight: "5px", color: "#25B9EF" }}
+                    ></i>
                   </div>
 
-                  <BodyText
-                    size="xs"
-                    style={{ marginLeft: "2rem", paddingRight: "2rem" }}
-                  >
+                  <BodyText size="xs" className="exception-text-1">
                     All Exception requests should go through Salesforce. If
                     Exception requires faster than 24 hr turnaround, after SF
                     submission, you can email adquestions@gumgum.com for quicker
@@ -134,15 +127,13 @@ function CreativeBusinessRules() {
 
                 <div className="exception-section">
                   <div className="-m-t-5">
-                    <Image
-                      alt="exclamation icon"
-                      width="140px"
-                      height="140px"
-                      src="/exclamation-icon.svg"
-                    />
+                    <i
+                      className="pier-button-icon__icon fas fa-info-circle"
+                      style={{ marginRight: "5px", color: "#25B9EF" }}
+                    ></i>
                   </div>
 
-                  <BodyText size="xs" style={{ marginLeft: "2rem" }}>
+                  <BodyText size="xs" className="exception-text-2">
                     Upon pushback from seller or client (after first exception
                     submitted), CSM at their discretion will schedule a call
                     with Ops Leader and Sales Leader
@@ -152,7 +143,7 @@ function CreativeBusinessRules() {
             </div>
           </div>
 
-          <div className="-d-flex" style={{ width: "100%" }}>
+          <div className="spend-select-wrapper">
             <div className="custom-body-text">
               <BodyText
                 style={{

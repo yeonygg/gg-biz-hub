@@ -22,13 +22,9 @@ const DesignBucketsCard = () => {
 
   return (
     <div>
-      <Card className="-m-b-6">
-        <Section
-          padding="lg"
-          className="-flex-row -justify-content-center -align-items-center"
-          style={{ marginTop: "1.125rem" }}
-        >
-          <div className="-m-b-10">
+      <Card>
+        <Section className="section-style">
+          <div className="-m-b-6">
             {" "}
             <BodyText
               style={{
@@ -72,7 +68,7 @@ const DesignBucketsCard = () => {
                 dark={false}
                 pill={false}
               >
-                Get SLA with Generator
+                Generator
               </Button>
             </Link>
           </div>

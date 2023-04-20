@@ -14,7 +14,7 @@ import LotameDmps from "../components/LotameDmps";
 import StudyRow from "../components/StudyRow";
 import studies from "../constants/studies";
 import dmp from "../constants/dmps";
-import StudiesCard from "../components/StudiesCard";
+import StudiesCard from "./studiesCard";
 import DmpRow from "./DmpRow";
 import DmpCard from "./DmpCard";
 
@@ -113,14 +113,10 @@ function Studies() {
 
   return (
     <div>
-      <Heading>Research and Data Study Rules</Heading>
-      <Card className="-m-b-6">
-        <Section
-          padding="lg"
-          className="-flex-row -justify-content-center -align-items-center"
-          style={{ marginTop: "1.125rem" }}
-        >
-          <div className="-d-flex" style={{ width: "100%" }}>
+      <Heading className="heading-style">Research and Data Study Rules</Heading>
+      <Card>
+        <Section className="section-style">
+          <div className="custom-creatives-wrapper" style={{ width: "100%" }}>
             <div className="custom-body-text">
               <BodyText
                 style={{
@@ -150,7 +146,7 @@ function Studies() {
             </div>
           </div>
 
-          <div className="-d-flex -justify-content-end -m-t-6">
+          <div className="-d-flex -justify-content-end">
             <InputToggle
               size="sm"
               disabled={false}
@@ -189,13 +185,9 @@ function Studies() {
             array={selectedDmps}
           />
         ))}
-      <Card className="-m-b-6">
-        <Section
-          padding="lg"
-          className="-flex-row -justify-content-center -align-items-center"
-          style={{ marginTop: "1.125rem" }}
-        >
-          <div className="-d-flex" style={{ width: "100%" }}>
+      <Card>
+        <Section className="section-style">
+          <div className="custom-creatives-wrapper">
             <div className="custom-body-text">
               <BodyText
                 style={{
@@ -225,7 +217,7 @@ function Studies() {
             </div>
           </div>
 
-          <div className="-d-flex -justify-content-end -m-t-6">
+          <div className="-d-flex -justify-content-end">
             <InputToggle
               size="sm"
               disabled={false}

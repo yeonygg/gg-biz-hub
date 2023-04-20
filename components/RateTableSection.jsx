@@ -14,7 +14,7 @@ const RateTableSection = (props) => {
   const resultHead = "Rate Breakdown";
 
   return (
-    <div className="-p-t-6 -p-l-6" style={{ width: "100%" }}>
+    <div style={{ width: "100%" }}>
       <SubHeading text={resultHead} />
       <Table campaign={props.campaign} />
     </div>

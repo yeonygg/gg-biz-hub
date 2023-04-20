@@ -10,6 +10,7 @@ import {
 import unitTypes from "../constants/units";
 import RatesTable from "./RatesTable";
 import { UUIDV4 } from "../helpers/helpers";
+import { isMobile } from "react-device-detect";
 
 const RatesCard = (props) => {
   const disabled = () => {
@@ -40,10 +41,10 @@ const RatesCard = (props) => {
 
   return (
     <div>
-      <Card style={{ marginBottom: "1rem" }}>
-        <Section padding="lg">
+      <Card>
+        <Section className="section-style">
           <div className="custom-card-heading-wrapper">
-            <Heading>{props.rate.category}</Heading>
+            <Heading className="heading-style">{props.rate.category}</Heading>
             <Tooltip text={removeTooltip()}>
               <IconButton
                 onClick={handleDelete}
@@ -57,8 +58,6 @@ const RatesCard = (props) => {
             </Tooltip>
           </div>
           <RatesTable rate={props.rate} />
-
-          <Section></Section>
         </Section>
       </Card>
     </div>

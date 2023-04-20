@@ -5,6 +5,8 @@ import { useTable } from "react-table";
 import unitTypes from "../constants/units";
 import { Rates } from "../constants/Columns";
 import { UUIDV4 } from "../helpers/helpers";
+import { isMobile } from "react-device-detect";
+
 const RatesTable = (props) => {
   const columns = useMemo(() => Rates, []);
   const cat = props.rate.value;
@@ -72,7 +74,11 @@ const RatesTable = (props) => {
               {row.cells.map((cell) => {
                 // console.log(cell);
                 return (
-                  <td key={UUIDV4()} {...cell.getCellProps()}>
+                  <td
+                    key={UUIDV4()}
+                    {...cell.getCellProps()}
+                    data-title={cell.column.Header}
+                  >
                     {cell.render("Cell")}
                   </td>
                 );

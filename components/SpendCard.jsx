@@ -9,6 +9,7 @@ import {
 } from "pier-design-system";
 import SubHeading from "./SubHeading";
 import SpendMeter from "./SpendMeter";
+import { Fragment } from "react";
 
 const SpendCard = (props) => {
   const resultHead = "Minimum Spend";
@@ -344,12 +345,12 @@ const SpendCard = (props) => {
   // console.log(icon());
 
   return (
-    <div className="card-style">
+    <Fragment>
       <SubHeading text={resultHead} />
 
       <Heading
+        className="spend-heading"
         style={{ color: [textColor()], marginBottom: "0.75rem" }}
-        size="lg"
       >
         ${spendFunction().toLocaleString("en-US")}
       </Heading>
@@ -364,7 +365,7 @@ const SpendCard = (props) => {
         campaignBudget={props.campaign.campaignBudget}
         minSpend={spendFunction()}
       />
-    </div>
+    </Fragment>
   );
 };
 
