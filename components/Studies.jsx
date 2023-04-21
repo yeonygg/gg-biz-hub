@@ -9,12 +9,12 @@ import {
   InputToggle,
 } from "pier-design-system";
 import spendTiers from "../constants/spends";
-import StudyRow from "../components/StudyRow";
+import StudyRow from "./StudyRow";
 import studies from "../constants/studies";
 import dmp from "../constants/dmps";
-import StudiesCard from "./components/StudiesCard";
 import DmpRow from "./DmpRow";
 import DmpCard from "./DmpCard";
+import StudiesCard from "./StudiesCard";
 
 let setDebounce;
 
