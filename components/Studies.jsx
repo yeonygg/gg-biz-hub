@@ -8,13 +8,11 @@ import {
   BodyText,
   InputToggle,
 } from "pier-design-system";
-import Link from "next/link";
 import spendTiers from "../constants/spends";
-import LotameDmps from "../components/LotameDmps";
 import StudyRow from "../components/StudyRow";
 import studies from "../constants/studies";
 import dmp from "../constants/dmps";
-import StudiesCard from "./studiesCard";
+import StudiesCard from "./components/StudiesCard";
 import DmpRow from "./DmpRow";
 import DmpCard from "./DmpCard";
 
@@ -27,12 +25,18 @@ function Studies() {
   let defaultStudyValues = [null];
   let defaultDmpValues = [null];
 
-  if(Object.keys(params).length > 0) {
+  if (Object.keys(params).length > 0) {
     const pathProps = params.id.split("&");
     const preppedStudyString = pathProps[0].replace("studies=", "");
     const preppedDmpString = pathProps[1].replace("dmps=", "");
-    defaultStudyValues = preppedStudyString.length > 0 ? preppedStudyString.split(",").map(Number) : [null];
-    defaultDmpValues = preppedDmpString.length > 0 ? preppedDmpString.split(",").map(Number) : [null];
+    defaultStudyValues =
+      preppedStudyString.length > 0
+        ? preppedStudyString.split(",").map(Number)
+        : [null];
+    defaultDmpValues =
+      preppedDmpString.length > 0
+        ? preppedDmpString.split(",").map(Number)
+        : [null];
   }
 
   const [selectedStudies, setStudies] = useState(defaultStudyValues);
@@ -108,8 +112,10 @@ function Studies() {
   };
 
   const setPath = () => {
-    navigate(`/studies/studies=${selectedStudies.toString()}&dmps=${selectedDmps}`);
-  }
+    navigate(
+      `/studies/studies=${selectedStudies.toString()}&dmps=${selectedDmps}`
+    );
+  };
 
   return (
     <div>
