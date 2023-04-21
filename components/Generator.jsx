@@ -253,7 +253,7 @@ function Generator() {
   return (
     <Fragment>
       <main>
-        <Heading className="main-heading">
+        <Heading className="main-heading heading-style">
           Rate, Spend, and SLA Generator
         </Heading>
         <Card className="card">

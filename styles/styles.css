@@ -865,6 +865,18 @@ ul {
   display: flex;
 }
 
+.pier-nav__tab {
+  left: 87%;
+}
+
+.pier-accordion__title {
+  border: none;
+}
+
+.pier-accordion__title:hover {
+  border-radius: 0.75rem;
+}
+
 @media only screen and (max-width: 1230px) {
   .outer-content {
     padding: 1.5rem;
